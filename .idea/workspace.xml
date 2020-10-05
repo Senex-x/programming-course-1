@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e8ea9990-40ff-4d6f-9d9a-8d7152ab9acd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/META-INF/Java.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Classwork0210/Task1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classwork0210/Task1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Homework0210to0910/Task1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Homework0210to0910/Task1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Homework0210to0910/Task2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Homework0210to0910/Task2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Methods/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Methods/Methods.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +39,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
   </component>
-  <component name="RunManager" selected="Application.Task2">
+  <component name="RunManager" selected="Application.Task4">
     <configuration name="Task1 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Homework0210to0910.Task1" />
       <module name="Java" />
@@ -78,12 +79,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Task5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Homework2909.Task5" />
+    <configuration name="Task3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Homework0210to0910.Task3" />
       <module name="Java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Homework2909.*" />
+          <option name="PATTERN" value="Homework0210to0910.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -91,12 +92,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Task6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Homework2909.Task6" />
+    <configuration name="Task4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Homework0210to0910.Task4" />
       <module name="Java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Homework2909.*" />
+          <option name="PATTERN" value="Homework0210to0910.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -106,11 +107,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Task4" />
+        <item itemvalue="Application.Task3" />
         <item itemvalue="Application.Task2" />
         <item itemvalue="Application.Task1 (1)" />
         <item itemvalue="Application.Task1" />
-        <item itemvalue="Application.Task6" />
-        <item itemvalue="Application.Task5" />
       </list>
     </recent_temporary>
   </component>
@@ -133,22 +134,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1601803935015" />
-    <state width="295" height="600" key="GridCell.Tab.0.bottom" timestamp="1601907364572">
+    <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601927563165">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="295" height="600" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601907364572" />
-    <state width="295" height="600" key="GridCell.Tab.0.center" timestamp="1601907364571">
+    <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1601927563165" />
+    <state width="547" height="600" key="GridCell.Tab.0.bottom" timestamp="1601928967634">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="295" height="600" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1601907364571" />
-    <state width="295" height="600" key="GridCell.Tab.0.left" timestamp="1601907364571">
+    <state width="547" height="600" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601928967634" />
+    <state width="547" height="600" key="GridCell.Tab.0.center" timestamp="1601928967634">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="295" height="600" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1601907364571" />
-    <state width="295" height="600" key="GridCell.Tab.0.right" timestamp="1601907364571">
+    <state width="547" height="600" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1601928967634" />
+    <state width="547" height="600" key="GridCell.Tab.0.left" timestamp="1601928967634">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="295" height="600" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1601907364571" />
+    <state width="547" height="600" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1601928967634" />
+    <state width="547" height="600" key="GridCell.Tab.0.right" timestamp="1601928967634">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="547" height="600" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1601928967634" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1601804057877">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

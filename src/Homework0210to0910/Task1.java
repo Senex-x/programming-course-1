@@ -11,9 +11,9 @@ public class Task1 {
     private static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        ArrayList<Integer> array = Methods.inputIntArray();
+        ArrayList<Integer> array = Methods.inIntArray();
         quickSort(array, 0, array.size() - 1);
-        Methods.outputArray(array);
+        Methods.outArray(array);
     }
 
     private static void quickSort(ArrayList<Integer> array, int left, int right) {
@@ -22,11 +22,10 @@ public class Task1 {
         while (i <= j) {
             while (array.get(i) < key)
                 i++;
-
             while (array.get(j) > key)
                 j--;
 
-            if (i <= j) {//меняем местами
+            if (i <= j) {
                 int temp = array.get(i);
                 array.set(i, array.get(j));
                 array.set(j, temp);

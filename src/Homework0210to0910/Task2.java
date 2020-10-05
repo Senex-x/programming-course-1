@@ -9,9 +9,9 @@ import java.util.*;
 
 public class Task2 {
     public static void main(String[] args) {
-        ArrayList<Integer> array = Methods.inputIntArray();
+        ArrayList<Integer> array = Methods.inIntArray();
         Methods.sort(array);
-        Methods.outputArray(array);
+        Methods.outArray(array);
         System.out.println("Index of wanted element in the array: " +
                 binarySearch(array, Methods.getInt(), 0, array.size() - 1));
     }
