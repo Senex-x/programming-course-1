@@ -3,6 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="e8ea9990-40ff-4d6f-9d9a-8d7152ab9acd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/Homework0210to0910/Task1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java/Homework0210to0910/Task1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/Homework0210to0910/Task2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java/Homework0210to0910/Task2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/Homework0210to0910/Task3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java/Homework0210to0910/Task3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/Homework0210to0910/Task4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java/Homework0210to0910/Task4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1610/Task3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java/HomeworkTo1610/Task3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1610/Task4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/Methods/Methods.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java/Methods/Methods.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Homework0210to0910/Task1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Homework0210to0910/Task1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Homework0210to0910/Task2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Homework0210to0910/Task2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Homework0210to0910/Task3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Homework0210to0910/Task3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Homework0210to0910/Task4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Homework0210to0910/Task4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HomeworkTo1610/Task3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1610/Task3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Methods/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Methods/Methods.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +49,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
   </component>
-  <component name="RunManager" selected="Application.Task4 (1)">
+  <component name="RunManager" selected="Application.Task5">
     <configuration name="Task1 (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HomeworkTo1610.Task1" />
       <module name="Java" />
@@ -89,12 +102,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Task4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Homework0210to0910.Task4" />
+    <configuration name="Task5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HomeworkTo1610.Task5" />
       <module name="Java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Homework0210to0910.*" />
+          <option name="PATTERN" value="HomeworkTo1610.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -104,11 +117,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Task5" />
         <item itemvalue="Application.Task4 (1)" />
         <item itemvalue="Application.Task3 (1)" />
         <item itemvalue="Application.Task2 (1)" />
         <item itemvalue="Application.Task1 (2)" />
-        <item itemvalue="Application.Task4" />
       </list>
     </recent_temporary>
   </component>
@@ -131,26 +144,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1601803935015" />
-    <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601927563165">
+    <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602240114329">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1601927563165" />
-    <state width="547" height="600" key="GridCell.Tab.0.bottom" timestamp="1602232598388">
+    <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1602240114329" />
+    <state width="534" height="600" key="GridCell.Tab.0.bottom" timestamp="1602266868709">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="547" height="600" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602232598388" />
-    <state width="547" height="600" key="GridCell.Tab.0.center" timestamp="1602232598388">
+    <state width="534" height="600" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602266868709" />
+    <state width="534" height="600" key="GridCell.Tab.0.center" timestamp="1602266868708">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="547" height="600" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602232598388" />
-    <state width="547" height="600" key="GridCell.Tab.0.left" timestamp="1602232598388">
+    <state width="534" height="600" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602266868708" />
+    <state width="534" height="600" key="GridCell.Tab.0.left" timestamp="1602266868708">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="547" height="600" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602232598388" />
-    <state width="547" height="600" key="GridCell.Tab.0.right" timestamp="1602232598388">
+    <state width="534" height="600" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602266868708" />
+    <state width="534" height="600" key="GridCell.Tab.0.right" timestamp="1602266868709">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="547" height="600" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602232598388" />
+    <state width="534" height="600" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602266868709" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1601804057877">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

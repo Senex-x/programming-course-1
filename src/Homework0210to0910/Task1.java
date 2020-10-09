@@ -11,7 +11,7 @@ public class Task1 {
     private static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        ArrayList<Integer> array = Methods.inIntArray();
+        ArrayList<Integer> array = Methods.getIntArray();
         quickSort(array, 0, array.size() - 1);
         Methods.outArray(array);
     }

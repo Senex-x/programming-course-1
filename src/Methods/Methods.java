@@ -15,7 +15,7 @@ public abstract class Methods {
         return sc.nextLine();
     }
 
-    public static ArrayList<Integer> inIntArray(int size) {
+    public static ArrayList<Integer> getIntArray(int size) {
         ArrayList<Integer> array = new ArrayList<>();
         System.out.println("Enter " + size + " elements of an array: ");
         for (int i = 0; i < size; i++) {
@@ -24,13 +24,13 @@ public abstract class Methods {
         return array;
     }
 
-    public static ArrayList<Integer> inIntArray() {
+    public static ArrayList<Integer> getIntArray() {
         System.out.println("Enter the size of an array: ");
         int size = sc.nextInt();
-        return inIntArray(size);
+        return getIntArray(size);
     }
 
-    public static ArrayList<ArrayList<Integer>> inIntMatrix(int n, int m) {
+    public static ArrayList<ArrayList<Integer>> getIntMatrix(int n, int m) {
         ArrayList<ArrayList<Integer>> array = new ArrayList<>();
         System.out.println("Enter " + n * m + " elements of matrix:");
         for (int i = 0; i < n; i++) {
@@ -42,24 +42,24 @@ public abstract class Methods {
         return array;
     }
 
-    public static ArrayList<ArrayList<Integer>> inIntMatrix() {
+    public static ArrayList<ArrayList<Integer>> getIntMatrix() {
         System.out.println("Specify dimensions of the matrix: ");
         int n = sc.nextInt();
         int m = sc.nextInt();
-        return inIntMatrix(n, m);
+        return getIntMatrix(n, m);
     }
 
-    public static ArrayList<ArrayList<Integer>> inIntSquareMatrix(int n) {
-        return inIntMatrix(n, n);
+    public static ArrayList<ArrayList<Integer>> getIntSquareMatrix(int n) {
+        return getIntMatrix(n, n);
     }
 
-    public static ArrayList<ArrayList<Integer>> inIntSquareMatrix() {
+    public static ArrayList<ArrayList<Integer>> getIntSquareMatrix() {
         System.out.println("Specify size of the square matrix: ");
         int n = sc.nextInt();
-        return inIntMatrix(n, n);
+        return getIntMatrix(n, n);
     }
 
-    public static ArrayList<Integer> inAnyLengthIntArray() {
+    public static ArrayList<Integer> getAnyLengthIntArray() {
         ArrayList<Integer> array = new ArrayList<>();
         System.out.println("Enter elements of an array, then finish with '-1' sign: ");
         int current = sc.nextInt();
@@ -70,7 +70,7 @@ public abstract class Methods {
         return array;
     }
 
-    public static ArrayList<String> inStringArray(int size) {
+    public static ArrayList<String> getStringArray(int size) {
         ArrayList<String> array = new ArrayList<>();
         System.out.println("Enter " + size + " elements of an array: ");
         for (int i = 0; i < size; i++) {
@@ -79,10 +79,10 @@ public abstract class Methods {
         return array;
     }
 
-    public static ArrayList<String> inStringArray() {
+    public static ArrayList<String> getStringArray() {
         System.out.println("Enter the size of an array: ");
         int size = sc.nextInt();
-        return inStringArray(size);
+        return getStringArray(size);
     }
 
     public static <T> void outArray(ArrayList<T> array) {
@@ -94,7 +94,7 @@ public abstract class Methods {
         System.out.println();
     }
 
-    public static void outIntMatrix(ArrayList<ArrayList<Integer>> array) {
+    public static <T> void outMatrix(ArrayList<ArrayList<T>> array) {
         int n = array.size();
         int m = array.get(0).size();
         System.out.println("Matrix of " + array.size() * array.get(0).size() + " elements:");

@@ -16,7 +16,7 @@ import java.util.*;
  */
 public class Task3 {
     public static void main(String[] args) {
-        ArrayList<String> array = Methods.inStringArray();
+        ArrayList<String> array = Methods.getStringArray();
 
         array.sort((o1, o2) -> {
             for (int i = 0; i < o1.length() && i < o2.length(); i++) {

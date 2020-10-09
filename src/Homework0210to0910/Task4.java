@@ -12,7 +12,7 @@ import java.util.*;
 
 public class Task4 {
     public static void main(String[] args) {
-        ArrayList<ArrayList<Integer>> matrix = Methods.inIntSquareMatrix();
+        ArrayList<ArrayList<Integer>> matrix = Methods.getIntSquareMatrix();
         int n = matrix.size() / 2;
         if (matrix.size() == 1) {
             System.out.print("NO");

@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Task2 {
     public static void main(String[] args) {
-        ArrayList<Integer> array = Methods.inIntArray();
+        ArrayList<Integer> array = Methods.getIntArray();
         Methods.sort(array);
         Methods.outArray(array);
         System.out.println("Index of wanted element in the array: " +
