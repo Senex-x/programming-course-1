@@ -85,7 +85,7 @@ public abstract class Methods {
         return inStringArray(size);
     }
 
-    public static void outArray(ArrayList array) {
+    public static <T> void outArray(ArrayList<T> array) {
         System.out.println("Array of " + array.size() + " elements:");
         for (int i = 0; i < array.size(); i++) {
             System.out.print(array.get(i) + " ");
