@@ -5,7 +5,7 @@ import java.util.*;
 public abstract class Methods {
     private static final Scanner sc = new Scanner(System.in);
     private static final Random rand = new Random();
-    private static final int elementsInLine = 10;
+    private static final int ELEMENTS_IN_LINE = 10;
 
     public static int getInt() {
         return sc.nextInt();
@@ -89,7 +89,7 @@ public abstract class Methods {
         System.out.println("Array of " + array.size() + " elements:");
         for (int i = 0; i < array.size(); i++) {
             System.out.print(array.get(i) + " ");
-            if (i % elementsInLine == 0 && i != 0) System.out.println();
+            if (i % ELEMENTS_IN_LINE == 0 && i != 0) System.out.println();
         }
         System.out.println();
     }
@@ -101,7 +101,7 @@ public abstract class Methods {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 System.out.print(array.get(i).get(j) + " ");
-                if (j % elementsInLine == 0 && j != 0) System.out.println();
+                if (j % ELEMENTS_IN_LINE == 0 && j != 0) System.out.println();
             }
             System.out.println();
         }
