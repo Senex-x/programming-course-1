@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e8ea9990-40ff-4d6f-9d9a-8d7152ab9acd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Methods/Methods.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java/Methods/Methods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Methods/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Methods/Methods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1610/Task4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java/HomeworkTo1610/Task4.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,20 +37,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
   </component>
-  <component name="RunManager" selected="Application.Task4 (1)">
-    <configuration name="Task1 (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HomeworkTo1610.Task1" />
-      <module name="Java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="HomeworkTo1610.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Task6">
     <configuration name="Task2 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HomeworkTo1610.Task2" />
       <module name="Java" />
@@ -104,13 +90,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Task6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HomeworkTo1610.Task6" />
+      <module name="Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="HomeworkTo1610.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Task6" />
         <item itemvalue="Application.Task4 (1)" />
         <item itemvalue="Application.Task5" />
         <item itemvalue="Application.Task3 (1)" />
         <item itemvalue="Application.Task2 (1)" />
-        <item itemvalue="Application.Task1 (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -137,22 +136,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1602240114329" />
-    <state width="534" height="600" key="GridCell.Tab.0.bottom" timestamp="1602267643363">
+    <state width="534" height="600" key="GridCell.Tab.0.bottom" timestamp="1602268443404">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="534" height="600" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602267643363" />
-    <state width="534" height="600" key="GridCell.Tab.0.center" timestamp="1602267643362">
+    <state width="534" height="600" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602268443404" />
+    <state width="534" height="600" key="GridCell.Tab.0.center" timestamp="1602268443403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="534" height="600" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602267643362" />
-    <state width="534" height="600" key="GridCell.Tab.0.left" timestamp="1602267643362">
+    <state width="534" height="600" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602268443403" />
+    <state width="534" height="600" key="GridCell.Tab.0.left" timestamp="1602268443403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="534" height="600" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602267643362" />
-    <state width="534" height="600" key="GridCell.Tab.0.right" timestamp="1602267643362">
+    <state width="534" height="600" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602268443403" />
+    <state width="534" height="600" key="GridCell.Tab.0.right" timestamp="1602268443403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="534" height="600" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602267643362" />
+    <state width="534" height="600" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602268443403" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1601804057877">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -161,5 +160,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1601899554426" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1602267954234">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1602267954234" />
   </component>
 </project>
