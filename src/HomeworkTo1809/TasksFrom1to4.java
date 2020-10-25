@@ -1,8 +1,8 @@
-package Homework1809;
+package HomeworkTo1809;
 
 import java.util.*;
 
-public class Homework1809 {
+public class TasksFrom1to4 {
     private static final Scanner sc = new Scanner(System.in);
 
     private static int fact(int n) {

@@ -1,4 +1,4 @@
-package Homework0210to0910;
+package HomeworkTo0910;
 
 import Methods.Methods;
 import java.util.*;
