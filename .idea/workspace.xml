@@ -106,6 +106,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
   </component>
+<<<<<<< HEAD
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -125,12 +126,26 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="HomeworkTo2310.*" />
+=======
+  <component name="RunManager" selected="Application.Task3">
+    <configuration name="Task1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Classwork1610.Task1" />
+      <module name="Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Classwork1610.*" />
+>>>>>>> 84df17c99d982bc2a734cc88798359cc799bfeab
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
     </configuration>
+<<<<<<< HEAD
     <configuration name="Task2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HomeworkTo2310.Task2" />
+=======
+    <configuration name="Task3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HomeworkTo2310.Task3" />
+>>>>>>> 84df17c99d982bc2a734cc88798359cc799bfeab
       <module name="Java" />
       <extension name="coverage">
         <pattern>
@@ -178,11 +193,19 @@
     </list>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Application.Task4" />
         <item itemvalue="Application.Task3" />
         <item itemvalue="Application.Task2" />
         <item itemvalue="Application.Task1" />
         <item itemvalue="Application.Task6" />
+=======
+        <item itemvalue="Application.Task3" />
+        <item itemvalue="Application.Task1" />
+        <item itemvalue="Application.Task6" />
+        <item itemvalue="Application.Task4 (1)" />
+        <item itemvalue="Application.Task5" />
+>>>>>>> 84df17c99d982bc2a734cc88798359cc799bfeab
       </list>
     </recent_temporary>
   </component>
@@ -236,6 +259,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="WindowStateProjectService">
+<<<<<<< HEAD
     <state x="163" y="0" key="#Project_Structure" />
     <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" />
     <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" />
@@ -305,5 +329,43 @@
         </state>
       </provider>
     </entry>
+=======
+    <state x="163" y="0" key="#Project_Structure" timestamp="1601803935015">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1601803935015" />
+    <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602240114329">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1602240114329" />
+    <state width="534" height="600" key="GridCell.Tab.0.bottom" timestamp="1603437778448">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="534" height="600" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603437778448" />
+    <state width="534" height="600" key="GridCell.Tab.0.center" timestamp="1603437778448">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="534" height="600" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603437778448" />
+    <state width="534" height="600" key="GridCell.Tab.0.left" timestamp="1603437778448">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="534" height="600" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603437778448" />
+    <state width="534" height="600" key="GridCell.Tab.0.right" timestamp="1603437778448">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="534" height="600" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603437778448" />
+    <state x="184" y="9" key="SettingsEditor" timestamp="1601804057877">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1601804057877" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1601899554426">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1601899554426" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1602267954234">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1602267954234" />
+>>>>>>> 84df17c99d982bc2a734cc88798359cc799bfeab
   </component>
 </project>
