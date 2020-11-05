@@ -11,6 +11,26 @@ public abstract class Methods {
         return sc.nextInt();
     }
 
+    public static int getRandInt() {
+        return getRandInt(101);
+    }
+
+    public static int getRandInt(int bound) {
+        return rand.nextInt(bound);
+    }
+
+    public static int getRandInt(int lower, int upper) {
+        return lower + rand.nextInt(upper - lower);
+    }
+
+    public static double getRandDouble() {
+        return rand.nextDouble();
+    }
+
+    public static double getRandDouble(int bound) {
+        return getRandDouble() * bound;
+    }
+
     public static String getString() {
         return sc.nextLine();
     }
@@ -107,7 +127,7 @@ public abstract class Methods {
         }
     }
 
-    public static ArrayList<Integer> makeRandArray(int size, int bound) {
+    public static ArrayList<Integer> getRandArray(int size, int bound) {
         ArrayList<Integer> array = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             array.add(rand.nextInt(bound));
@@ -115,10 +135,10 @@ public abstract class Methods {
         return array;
     }
 
-    public static ArrayList<Integer> makeRandArray(int bound) {
+    public static ArrayList<Integer> getRandArray(int bound) {
         System.out.println("Enter the size of a randomly filled array: ");
         int size = sc.nextInt();
-        return makeRandArray(size, bound);
+        return getRandArray(size, bound);
     }
 
     public static void sort(ArrayList<Integer> array) {

@@ -21,6 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e8ea9990-40ff-4d6f-9d9a-8d7152ab9acd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/OtherWorks/CoffeeMashine/examtask/CTwo1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java/OtherWorks/CoffeeMashine/examtask/CTwo1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Methods/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Methods/Methods.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +62,7 @@
       <recent name="C:\Projects\Java\StudyProject\src\OtherWorks\CoffeeMashine\examtask" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CTwo1">
+  <component name="RunManager" selected="Application.VectorTest">
     <configuration name="CTwo1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="OtherWorks.CoffeeMashine.examtask.CTwo1" />
       <module name="Java" />
@@ -87,32 +89,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Task2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HomeworkTo2310.Task2" />
-      <module name="Java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="HomeworkTo2310.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Task3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HomeworkTo2310.Task3" />
-      <module name="Java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="HomeworkTo2310.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Task4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HomeworkTo2310.Task4" />
       <module name="Java" />
@@ -126,20 +102,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Vector2D$Vector2DTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HomeworkTo1106.Vector2D$Vector2DTest" />
+      <module name="Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="HomeworkTo1106.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VectorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HomeworkTo1106.VectorTest" />
+      <module name="Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="HomeworkTo1106.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.CoffeeMachineTest" />
-      <item itemvalue="Application.Task2" />
-      <item itemvalue="Application.Task3" />
       <item itemvalue="Application.Task4" />
       <item itemvalue="Application.CTwo1" />
+      <item itemvalue="Application.Vector2D$Vector2DTest" />
+      <item itemvalue="Application.VectorTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.VectorTest" />
+        <item itemvalue="Application.Vector2D$Vector2DTest" />
         <item itemvalue="Application.CTwo1" />
         <item itemvalue="Application.CoffeeMachineTest" />
         <item itemvalue="Application.Task4" />
-        <item itemvalue="Application.Task3" />
-        <item itemvalue="Application.Task2" />
       </list>
     </recent_temporary>
   </component>
@@ -172,24 +174,30 @@
   <component name="WindowStateProjectService">
     <state x="163" y="0" key="#Project_Structure" timestamp="1603628050513" />
     <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1603628050513" />
-    <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603628050513" />
-    <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1603628050513" />
-    <state width="1323" height="322" key="GridCell.Tab.0.bottom" timestamp="1604417217947">
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1604576395279">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="322" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604417217947" />
-    <state width="1323" height="322" key="GridCell.Tab.0.center" timestamp="1604417217947">
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1604576395279" />
+    <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604576722261">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="322" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604417217947" />
-    <state width="1323" height="322" key="GridCell.Tab.0.left" timestamp="1604417217946">
+    <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1604576722261" />
+    <state width="1323" height="482" key="GridCell.Tab.0.bottom" timestamp="1604578503990">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="322" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604417217946" />
-    <state width="1323" height="322" key="GridCell.Tab.0.right" timestamp="1604417217947">
+    <state width="1323" height="482" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604578503990" />
+    <state width="1323" height="482" key="GridCell.Tab.0.center" timestamp="1604578503990">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="322" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604417217947" />
+    <state width="1323" height="482" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604578503990" />
+    <state width="1323" height="482" key="GridCell.Tab.0.left" timestamp="1604578503990">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="482" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604578503990" />
+    <state width="1323" height="482" key="GridCell.Tab.0.right" timestamp="1604578503990">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="482" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604578503990" />
     <state x="184" y="0" key="SettingsEditor" timestamp="1603628137370">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
