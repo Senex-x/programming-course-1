@@ -20,51 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8ea9990-40ff-4d6f-9d9a-8d7152ab9acd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Classwork0210/Task1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Classwork1610/Task1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Homework0210to0910/Task1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Homework0210to0910/Task2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Homework0210to0910/Task3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Homework0210to0910/Task4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Homework1809/Homework1809.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Homework2909/Task2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Homework2909/Task3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Homework2909/Task4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Homework2909/Task5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Homework2909/Task6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1610/Task1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1610/Task2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1610/Task3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1610/Task4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1610/Task5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1610/Task6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo2310/Task1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo2310/Task2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Methods/Methods.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java/Methods/Methods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Classwork1610/Task1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassworkOf1016/Task1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClassworkOf0210/Task1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassworkOf1002/Task1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo0910/Task1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1009/Task1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo0910/Task2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1009/Task2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo0910/Task3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1009/Task3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo0910/Task4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1009/Task4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo1610/Task1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1016/Task1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo1610/Task2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1016/Task2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo1610/Task3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1016/Task3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo1610/Task4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1016/Task4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo1610/Task5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1016/Task5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo1610/Task6.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1016/Task6.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo1809/TasksFrom1to4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo0918/TasksFrom1to4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo2310/Task1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1023/Task1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo2310/Task2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1023/Task2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo2310/Task3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1023/Task3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo2310/Task4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1023/Task4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo2909/Task2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo0929/Task2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo2909/Task3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo0929/Task3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo2909/Task4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo0929/Task4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo2909/Task5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo0929/Task5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkTo2909/Task6.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo0929/Task6.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,12 +37,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
-    <option name="y" value="-8" />
-    <option name="width" value="976" />
-    <option name="height" value="1056" />
-  </component>
   <component name="ProjectId" id="1iPK85q9efEUw2ly14P9JUVmPWy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -96,6 +46,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1601801993559" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -104,13 +55,18 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
   </component>
-  <component name="RunManager" selected="Application.CoffeeMachineTest">
-    <configuration name="CoffeeMachineTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="OtherWorks.CoffeeMashine.CoffeeMachineTest" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\Java\StudyProject\src\OtherWorks\CoffeeMashine\examtask" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.CTwo1">
+    <configuration name="CTwo1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OtherWorks.CoffeeMashine.examtask.CTwo1" />
       <module name="Java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="OtherWorks.CoffeeMashine.*" />
+          <option name="PATTERN" value="OtherWorks.CoffeeMashine.examtask.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,12 +74,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Task1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HomeworkTo2310.Task1" />
+    <configuration name="CoffeeMachineTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OtherWorks.CoffeeMashine.CoffeeMachineTest" />
       <module name="Java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="HomeworkTo2310.*" />
+          <option name="PATTERN" value="OtherWorks.CoffeeMashine.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -171,23 +127,23 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Task1" />
+      <item itemvalue="Application.CoffeeMachineTest" />
       <item itemvalue="Application.Task2" />
       <item itemvalue="Application.Task3" />
       <item itemvalue="Application.Task4" />
-      <item itemvalue="Application.CoffeeMachineTest" />
+      <item itemvalue="Application.CTwo1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CTwo1" />
         <item itemvalue="Application.CoffeeMachineTest" />
         <item itemvalue="Application.Task4" />
         <item itemvalue="Application.Task3" />
         <item itemvalue="Application.Task2" />
-        <item itemvalue="Application.Task1" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -211,32 +167,37 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="163" y="0" key="#Project_Structure" timestamp="1603628050513" />
     <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1603628050513" />
     <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603628050513" />
     <state x="292" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1603628050513" />
-    <state width="534" height="600" key="GridCell.Tab.0.bottom" timestamp="1603629065027">
+    <state width="1323" height="322" key="GridCell.Tab.0.bottom" timestamp="1604417217947">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="534" height="600" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603629065027" />
-    <state width="534" height="600" key="GridCell.Tab.0.center" timestamp="1603629065027">
+    <state width="1323" height="322" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604417217947" />
+    <state width="1323" height="322" key="GridCell.Tab.0.center" timestamp="1604417217947">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="534" height="600" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603629065027" />
-    <state width="534" height="600" key="GridCell.Tab.0.left" timestamp="1603629065027">
+    <state width="1323" height="322" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604417217947" />
+    <state width="1323" height="322" key="GridCell.Tab.0.left" timestamp="1604417217946">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="534" height="600" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603629065027" />
-    <state width="534" height="600" key="GridCell.Tab.0.right" timestamp="1603629065027">
+    <state width="1323" height="322" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604417217946" />
+    <state width="1323" height="322" key="GridCell.Tab.0.right" timestamp="1604417217947">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="534" height="600" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603629065027" />
+    <state width="1323" height="322" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604417217947" />
     <state x="184" y="0" key="SettingsEditor" timestamp="1603628137370">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603628137370" />
+    <state x="65" y="0" key="new project wizard" timestamp="1603795835595">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1603795835595" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1603628050513" />
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1603628050513" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603628050513" />
