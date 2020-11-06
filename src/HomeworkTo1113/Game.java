@@ -4,6 +4,7 @@ import Methods.Methods;
 import org.apache.commons.lang3.math.NumberUtils;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 
 class GameTest {
@@ -65,7 +66,7 @@ public class Game {
                 "but aware that stronger the punch then less the chance to hit. \n" +
                 "Here is the list of probabilities to hit your opponent depending on the punch power: ");
         for (int i = 1; i <= MAX_STRENGTH; i++) {
-            System.out.println("Strength: " + i + " --> probability: " + Math.round(getChance(i) * 100) + "%");
+            System.out.println("Strength: " + i + " -> probability: " + getFormattedChance(i));
         }
         Methods.line();
     }
@@ -87,28 +88,41 @@ public class Game {
 
     private void hit(int power, boolean isFirstPlayerTurn) {
         String s;
-        if (Methods.getRandDouble() < getChance(power)) {
-            if (power == 1) s = "";
-            else s = "s";
-            if (isFirstPlayerTurn) {
+        if (power == 1) s = "";
+        else s = "s";
+
+        if (isFirstPlayerTurn) {
+            if (Methods.getRandDouble() < getChance(power)) {
                 System.out.println(
-                        "You got him! \n" +
+                        "You got him with a " + getFormattedChance(power) + " chance! \n" +
                                 secondPlayer.getName() + " looses " + power + " health point" + s + "!");
                 secondPlayer.setHp((byte) (secondPlayer.getHp() - power));
             } else {
+                System.out.println("Unfortunately, you missed with a " + getFormattedChance(power) + " chance!");
+            }
+        } else {
+            if (Methods.getRandDouble() < getChance(power)) {
                 System.out.println(
-                        "You got him! \n" +
+                        "You got him with a " + getFormattedChance(power) + " chance! \n" +
                                 firstPlayer.getName() + " looses " + power + " health point" + s + "!");
                 firstPlayer.setHp((byte) (firstPlayer.getHp() - power));
+            } else {
+                System.out.println("Unfortunately, you missed with a " + getFormattedChance(power) + " chance!");
             }
         }
+
+
     }
 
     private double getChance(int power) {
         double section = (MAX_CHANCE - MIN_CHANCE) / (MAX_STRENGTH - 1);
-        double chance = MIN_CHANCE + section * (MAX_STRENGTH - power);
+        return MIN_CHANCE + section * (MAX_STRENGTH - power);
+    }
 
-        return chance;
+    private String getFormattedChance(int power) {
+        BigDecimal bigDecimal = BigDecimal.valueOf(getChance(power) * 100);
+        bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
+        return bigDecimal.doubleValue() + "%";
     }
 
     private void setPlayers() {
