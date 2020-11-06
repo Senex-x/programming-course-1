@@ -20,49 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8ea9990-40ff-4d6f-9d9a-8d7152ab9acd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/ClassworkOf1002/Task1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/ClassworkOf1016/Task1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo0918/TasksFrom1to4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo0929/Task2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo0929/Task3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo0929/Task4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo0929/Task5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo0929/Task6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1009/Task1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1009/Task2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1009/Task3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1009/Task4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1016/Task1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1016/Task2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1016/Task3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1016/Task4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1016/Task5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1016/Task6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1023/Task1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1023/Task2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1023/Task3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1023/Task4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1106/Vector2D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1106/VectorTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1113/Game$Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1113/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/HomeworkTo1113/GameTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/Methods/Methods.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/OtherWorks/CoffeeMashine/CoffeeMachine$Additions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/OtherWorks/CoffeeMashine/CoffeeMachine$Ingredients.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/OtherWorks/CoffeeMashine/CoffeeMachine.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/OtherWorks/CoffeeMashine/CoffeeMachineTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/OtherWorks/CoffeeMashine/examtask/CTwo1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HomeworkTo1113/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkTo1113/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Methods/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Methods/Methods.java" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,21 +33,26 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/HomeworkTo1113/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+            <state relative-caret-position="120">
+              <caret line="125" column="40" lean-forward="true" selection-start-line="125" selection-start-column="40" selection-end-line="125" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4102#4103#0" expanded="true" />
+                <element signature="e#4135#4136#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Methods.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Methods.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Methods/Methods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="89" column="21" lean-forward="true" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
+            <state relative-caret-position="1241">
+              <caret line="89" column="21" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -123,8 +91,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -147,20 +113,22 @@
               <item name="StudyProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="PolyakovV_11005" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="HomeworkTo1113" type="462c0819:PsiDirectoryNode" />
-              <item name="Game.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="OtherWorks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="StudyProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="PolyakovV_11005" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Methods" type="462c0819:PsiDirectoryNode" />
+              <item name="OtherWorks" type="462c0819:PsiDirectoryNode" />
+              <item name="CoffeeMashine" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -170,8 +138,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1601801993559" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="D:/Main/Downloads/commons-lang3-3.11.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -278,33 +246,34 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" weight="0.32897604" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info id="Image Layers" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32897604" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32897604" />
-      <window_info id="Capture Tool" />
-      <window_info id="Designer" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32897604" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.7276688" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32897604" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info id="Favorites" side_tool="true" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39978212" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -371,17 +340,130 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/HomeworkTo1113/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+        <state relative-caret-position="357">
+          <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4102#4103#0" expanded="true" />
+            <element signature="e#4135#4136#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Methods/Methods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
+        <state relative-caret-position="1241">
           <caret line="89" column="21" lean-forward="true" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Methods/Methods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="89" column="21" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OtherWorks/CoffeeMashine/CoffeeMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="72" lean-forward="true" selection-start-line="6" selection-start-column="72" selection-end-line="6" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/java.base/java/lang/NumberFormatException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HomeworkTo1113/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="125" column="40" lean-forward="true" selection-start-line="125" selection-start-column="40" selection-end-line="125" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4102#4103#0" expanded="true" />
+            <element signature="e#4135#4136#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Java</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>commons-lang3-3.11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
