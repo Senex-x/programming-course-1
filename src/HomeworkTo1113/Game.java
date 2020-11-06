@@ -18,19 +18,20 @@ public class Game {
     private Player firstPlayer;
     private Player secondPlayer;
 
-    private final double MIN_CHANCE = 0.4f;
-    private final double MAX_CHANCE = 0.95f;
+    private final double MIN_CHANCE_TO_HIT = 0.3f;
+    private final double MAX_CHANCE_TO_HIT = 0.95f;
 
     private final int MAX_STRENGTH = 8;
 
     public void start() {
         displayRules();
+
         setPlayers();
 
         int turnCounter = 0;
         boolean isRetry = false;
-        while (!isSomeoneLost()) {
-            if (!isRetry) {
+        while (!isSomeoneLostGame()) {
+            if (!isRetry) { // skipping unnecessary stuff if needed
                 Methods.line();
                 System.out.println(
                         "Remaining health: \n" +
@@ -40,15 +41,15 @@ public class Game {
                 if (turnCounter % 2 == 0) {
                     System.out.println(
                             firstPlayer.getName() + "'s turn!");
-
                 } else {
                     System.out.println(
                             secondPlayer.getName() + "'s turn!");
                 }
             }
+
             System.out.println("Choose the strength of a punch from 1 to " + MAX_STRENGTH + ": ");
             int strength = Methods.getInt();
-            if (strength < 1 || strength > MAX_STRENGTH) {
+            if (strength < 1 || strength > MAX_STRENGTH) { // strength was not chosen properly
                 System.out.println("Please, choose punch power according to the rules!");
                 isRetry = true;
                 continue;
@@ -58,32 +59,38 @@ public class Game {
         }
     }
 
-    private void displayRules() {
-        Methods.line();
-        System.out.println("In this game your goal is to beat your opponent up \n" +
-                "each turn you have to punch him with strength measured from 1 to " + MAX_STRENGTH + ". \n" +
-                "If you don't miss the enemy, then he will lose health equal to your punch strength, \n" +
-                "but aware that stronger the punch then less the chance to hit. \n" +
-                "Here is the list of probabilities to hit your opponent depending on the punch power: ");
-        for (int i = 1; i <= MAX_STRENGTH; i++) {
-            System.out.println("Strength: " + i + " -> probability: " + getFormattedChance(i));
-        }
-        Methods.line();
-    }
+    private void setPlayers() {
+        firstPlayer = new Player();
+        secondPlayer = new Player();
 
-    private boolean isSomeoneLost() {
-        if (firstPlayer.getHp() <= 0) {
-            System.out.println(
-                    firstPlayer.getName() + " looses the game \n" +
-                            "Better luck next time!");
-            return true;
-        } else if (secondPlayer.getHp() <= 0) {
-            System.out.println(
-                    secondPlayer.getName() + " looses the game \n" +
-                            "Better luck next time!");
-            return true;
-        } else
-            return false;
+        // first player's name setting section
+        System.out.println("Enter first player's name: ");
+        String name;
+        while ((name = Methods.getString()).isEmpty()) { // skipping empty strings
+        }
+        firstPlayer.setName(name);
+
+        // second player's name setting section
+        System.out.println("Enter second player's name: ");
+        while ((name = Methods.getString()).isEmpty()) {
+        }
+        while (name.equals(firstPlayer.getName())) {
+            System.out.println("Players must not have same names! \n" +
+                    "Please choose another one:");
+            name = Methods.getString();
+        }
+        secondPlayer.setName(name);
+
+        // HP setting section
+        System.out.println("Enter health amount from 1 to 100 for each player: ");
+        byte health;
+        String input;
+        do {
+            input = Methods.getString();
+        } while (!isInputProper(input));
+        health = (byte) Integer.parseInt(input);
+        firstPlayer.setHp(health);
+        secondPlayer.setHp(health);
     }
 
     private void hit(int power, boolean isFirstPlayerTurn) {
@@ -94,53 +101,41 @@ public class Game {
         if (isFirstPlayerTurn) {
             if (Methods.getRandDouble() < getChance(power)) {
                 System.out.println(
-                        "You got him with a " + getFormattedChance(power) + " chance! \n" +
+                        "You got him with a " + getFormattedChance(power) + " chance to hit! \n" +
                                 secondPlayer.getName() + " looses " + power + " health point" + s + "!");
                 secondPlayer.setHp((byte) (secondPlayer.getHp() - power));
             } else {
-                System.out.println("Unfortunately, you missed with a " + getFormattedChance(power) + " chance!");
+                System.out.println("Unfortunately, you missed with a " + getFormattedChance(power) + " chance to hit!");
             }
         } else {
             if (Methods.getRandDouble() < getChance(power)) {
                 System.out.println(
-                        "You got him with a " + getFormattedChance(power) + " chance! \n" +
+                        "You got him with a " + getFormattedChance(power) + " chance to hit! \n" +
                                 firstPlayer.getName() + " looses " + power + " health point" + s + "!");
                 firstPlayer.setHp((byte) (firstPlayer.getHp() - power));
             } else {
-                System.out.println("Unfortunately, you missed with a " + getFormattedChance(power) + " chance!");
+                System.out.println("Unfortunately, you missed with a " + getFormattedChance(power) + " chance to hit!");
             }
         }
-
-
     }
 
-    private double getChance(int power) {
-        double section = (MAX_CHANCE - MIN_CHANCE) / (MAX_STRENGTH - 1);
-        return MIN_CHANCE + section * (MAX_STRENGTH - power);
-    }
-
-    private String getFormattedChance(int power) {
-        BigDecimal bigDecimal = BigDecimal.valueOf(getChance(power) * 100);
-        bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
-        return bigDecimal.doubleValue() + "%";
-    }
-
-    private void setPlayers() {
-        firstPlayer = new Player();
-        secondPlayer = new Player();
-        System.out.println("Enter first player's name: ");
-        firstPlayer.setName(Methods.getString());
-        System.out.println("Enter second player's name: ");
-        secondPlayer.setName(Methods.getString());
-        System.out.println("Enter health amount from 1 to 100 for each player: ");
-        byte health;
-        String input;
-        do {
-            input = Methods.getString();
-        } while (!isInputProper(input));
-        health = (byte) Integer.parseInt(input);
-        firstPlayer.setHp(health);
-        secondPlayer.setHp(health);
+    private boolean isSomeoneLostGame() {
+        if (firstPlayer.getHp() <= 0) {
+            System.out.println(
+                    "\n" + firstPlayer.getName() + " looses the game \n" +
+                            "Better luck to you next time!" +
+                            "\n\n" + secondPlayer.getName() + " wins! \n" +
+                            "Congratulations!");
+            return true;
+        } else if (secondPlayer.getHp() <= 0) {
+            System.out.println(
+                    "\n" + secondPlayer.getName() + " looses the game \n" +
+                            "Better luck to you next time!" +
+                            "\n\n" + firstPlayer.getName() + " wins! \n" +
+                            "Congratulations!");
+            return true;
+        } else
+            return false;
     }
 
     private boolean isInputProper(String input) {
@@ -155,6 +150,29 @@ public class Game {
         }
     }
 
+    private double getChance(int power) {
+        double section = (MAX_CHANCE_TO_HIT - MIN_CHANCE_TO_HIT) / (MAX_STRENGTH - 1);
+        return MIN_CHANCE_TO_HIT + section * (MAX_STRENGTH - power);
+    }
+
+    private String getFormattedChance(int power) {
+        BigDecimal bigDecimal = BigDecimal.valueOf(getChance(power) * 100);
+        bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
+        return bigDecimal.doubleValue() + "%";
+    }
+
+    private void displayRules() {
+        Methods.line();
+        System.out.println("In this game your goal is to beat your opponent up \n" +
+                "each turn you have to punch him with strength measured from 1 to " + MAX_STRENGTH + ". \n" +
+                "If you don't miss the enemy, then he will lose health equal to your punch strength, \n" +
+                "but aware that stronger the punch then less the chance to hit. \n" +
+                "Here is the list of probabilities to hit your opponent depending on the punch power: ");
+        for (int i = 1; i <= MAX_STRENGTH; i++) {
+            System.out.println("Strength: " + i + " -> probability: " + getFormattedChance(i));
+        }
+        Methods.line();
+    }
 
     private class Player {
         private String name;
