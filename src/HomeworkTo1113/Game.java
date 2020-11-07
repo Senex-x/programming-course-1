@@ -17,11 +17,12 @@ public class Game {
     private Player firstPlayer;
     private Player secondPlayer;
 
-    private final double MIN_CHANCE_TO_HIT = 0.3f;
-    private final double MAX_CHANCE_TO_HIT = 0.95f;
+    private static final double MIN_CHANCE_TO_HIT = 0.3f;
+    private static final double MAX_CHANCE_TO_HIT = 0.95f;
 
     // do not set more than Integer.MAX_VALUE;
-    private final int MAX_STRENGTH = 9;
+    private static final int MAX_STRENGTH = 9;
+    private static final int MAX_HP = 100;
 
     public void start() {
         displayRules();
@@ -76,12 +77,12 @@ public class Game {
         secondPlayer.setName(name);
 
         // HP setting section
-        System.out.println("Enter health amount from 1 to 100 for each player: ");
+        System.out.println("Enter health amount from 1 to " + MAX_HP + " for each player: ");
         byte health;
         String input;
         do {
             input = Methods.getString();
-        } while (!isInputProper(input, 100));
+        } while (!isInputProper(input, MAX_HP));
         health = (byte) Integer.parseInt(input);
         firstPlayer.setHp(health);
         secondPlayer.setHp(health);
@@ -157,8 +158,8 @@ public class Game {
 
     private void displayRules() {
         Methods.line();
-        System.out.println("In this game your goal is to beat your opponent up \n" +
-                "each turn you have to punch him with strength measured from 1 to " + MAX_STRENGTH + ". \n" +
+        System.out.println("In this game your goal is to beat your opponent up. \n" +
+                "Each turn you have to punch him with strength measured from 1 to " + MAX_STRENGTH + ". \n" +
                 "If you don't miss the enemy, then he will lose health equal to your punch strength, \n" +
                 "but aware that stronger the punch then less the chance to hit. \n" +
                 "Here is the list of probabilities to hit your opponent depending on the punch power: ");
