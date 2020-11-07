@@ -21,15 +21,10 @@ public class Game {
     private static final double MAX_CHANCE_TO_HIT = 0.95f;
 
     // do not set more than Integer.MAX_VALUE;
-    private static final int MAX_STRENGTH = 9;
+    private static final int MAX_STRENGTH = 10;
     private static final int MAX_HP = 100;
 
     public void start() {
-/*
-        for(int i=0;i<Colors.values().length;i++) {
-            System.out.println(Colors.values()[i].code() + "COLOR SAMPLE");
-        }
-*/
         displayRules();
 
         setPlayers();
@@ -49,7 +44,6 @@ public class Game {
                 System.out.println(
                         secondPlayer.getName() + "'s turn!");
             }
-
 
             System.out.println("Choose the strength of a punch from 1 to " + MAX_STRENGTH + ": ");
             String strength;
@@ -101,40 +95,44 @@ public class Game {
         if (isFirstPlayerTurn) {
             if (Methods.getRandDouble() < getChance(power)) {
                 System.out.println(
-                        "You got him with a " + getFormattedChance(power) + " chance to hit! \n" +
+                        "You " + Colors.CYAN.code() + "got him " + Colors.RESET.code() + " with a " + getFormattedChance(power) + " chance to hit! \n" +
                                 secondPlayer.getName() + " looses " + power + " health point" + s + "!");
                 secondPlayer.setHp((byte) (secondPlayer.getHp() - power));
             } else {
-                System.out.println("Unfortunately, you missed with a " + getFormattedChance(power) + " chance to hit!");
+                System.out.println("Unfortunately, " + Colors.RED.code() + "you missed" + Colors.RESET.code() + " with a " + getFormattedChance(power) + " chance to hit!");
             }
         } else {
             if (Methods.getRandDouble() < getChance(power)) {
                 System.out.println(
-                        "You got him with a " + getFormattedChance(power) + " chance to hit! \n" +
+                        "You " + Colors.CYAN.code() + "got him " + Colors.RESET.code() + "with a " + getFormattedChance(power) + " chance to hit! \n" +
                                 firstPlayer.getName() + " looses " + power + " health point" + s + "!");
                 firstPlayer.setHp((byte) (firstPlayer.getHp() - power));
             } else {
-                System.out.println("Unfortunately, you missed with a " + getFormattedChance(power) + " chance to hit!");
+
+                System.out.println("Unfortunately, " + Colors.RED.code() + "you missed " + Colors.RESET.code() + "with a " + getFormattedChance(power) + " chance to hit!");
             }
         }
     }
 
+
+
     private boolean isSomeoneLostGame() {
         if (firstPlayer.getHp() <= 0) {
             System.out.println(
-                    "\n" + firstPlayer.getName() +  Colors.RED.code() + " looses the game... \n" + Colors.RESET.code() +
+                    "\n" + firstPlayer.getName() + Colors.RED.code() + " looses the game... \n" + Colors.RESET.code() +
                             "Better luck to you next time!" +
                             "\n\n" + secondPlayer.getName() + Colors.CYAN.code() + " wins! \n" + Colors.RESET.code() +
                             "Congratulations!");
             return true;
         } else if (secondPlayer.getHp() <= 0) {
             System.out.println(
-                    "\n"  + secondPlayer.getName() +  Colors.RED.code() + " looses the game... \n" + Colors.RESET.code() +
+                    "\n" + secondPlayer.getName() + Colors.RED.code() + " looses the game... \n" + Colors.RESET.code() +
                             "Better luck to you next time!" +
                             "\n\n" + firstPlayer.getName() + Colors.CYAN.code() + " wins! \n" + Colors.RESET.code() +
                             "Congratulations!");
             return true;
         } else
+
             return false;
     }
 
@@ -158,7 +156,7 @@ public class Game {
     private String getFormattedChance(int power) {
         BigDecimal bigDecimal = BigDecimal.valueOf(getChance(power) * 100);
         bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
-        return bigDecimal.doubleValue() + "%";
+        return Colors.GREEN.code() + bigDecimal.doubleValue() + "%" + Colors.RESET.code();
     }
 
     private void displayRules() {
@@ -183,7 +181,7 @@ public class Game {
         }
 
         private void setName(String name, Colors color) {
-            this.name = color.code() +  name.replaceFirst(
+            this.name = color.code() + name.replaceFirst(
                     Character.toString(name.charAt(0)),
                     Character.toString(Character.toUpperCase(name.charAt(0)))
                             .replaceAll(" ", "")) + Colors.RESET.code();
@@ -209,8 +207,9 @@ public class Game {
         RESET("\u001B[0m"),
         RED("\u001B[31m"),
         BLUE("\u001B[34m"),
-        PURPLE("\u001B[35m"),
-        CYAN("\u001B[36m");
+        PURPLE("\033[0;95m"),
+        CYAN("\033[0;96m"),
+        GREEN("\033[0;92m");
 
         private String code;
 
