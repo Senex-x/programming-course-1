@@ -20,7 +20,8 @@ public class Game {
     private final double MIN_CHANCE_TO_HIT = 0.3f;
     private final double MAX_CHANCE_TO_HIT = 0.95f;
 
-    private final int MAX_STRENGTH = 8;
+    // do not set more than Integer.MAX_VALUE;
+    private final int MAX_STRENGTH = 9;
 
     public void start() {
         displayRules();
