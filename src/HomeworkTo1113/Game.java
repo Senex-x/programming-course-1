@@ -25,6 +25,11 @@ public class Game {
     private static final int MAX_HP = 100;
 
     public void start() {
+/*
+        for(int i=0;i<Colors.values().length;i++) {
+            System.out.println(Colors.values()[i].code() + "COLOR SAMPLE");
+        }
+*/
         displayRules();
 
         setPlayers();
@@ -64,7 +69,7 @@ public class Game {
         while ((name = Methods.getString()).isEmpty() || name.replaceAll(" ", "").isEmpty()) { // skipping empty strings
             System.out.println("Please, enter a valid name: ");
         }
-        firstPlayer.setName(name);
+        firstPlayer.setName(name, Colors.BLUE);
 
         // second player's name setting section
         System.out.println("Enter second player's name: ");
@@ -74,7 +79,7 @@ public class Game {
             System.out.println(name.equals(firstPlayer.getName()) ?
                     "Players must not have same names! " : "Please, enter a valid name: ");
         }
-        secondPlayer.setName(name);
+        secondPlayer.setName(name, Colors.PURPLE);
 
         // HP setting section
         System.out.println("Enter health amount from 1 to " + MAX_HP + " for each player: ");
@@ -117,16 +122,16 @@ public class Game {
     private boolean isSomeoneLostGame() {
         if (firstPlayer.getHp() <= 0) {
             System.out.println(
-                    "\n" + firstPlayer.getName() + " looses the game \n" +
+                    "\n" + firstPlayer.getName() +  Colors.RED.code() + " looses the game... \n" + Colors.RESET.code() +
                             "Better luck to you next time!" +
-                            "\n\n" + secondPlayer.getName() + " wins! \n" +
+                            "\n\n" + secondPlayer.getName() + Colors.CYAN.code() + " wins! \n" + Colors.RESET.code() +
                             "Congratulations!");
             return true;
         } else if (secondPlayer.getHp() <= 0) {
             System.out.println(
-                    "\n" + secondPlayer.getName() + " looses the game \n" +
+                    "\n"  + secondPlayer.getName() +  Colors.RED.code() + " looses the game... \n" + Colors.RESET.code() +
                             "Better luck to you next time!" +
-                            "\n\n" + firstPlayer.getName() + " wins! \n" +
+                            "\n\n" + firstPlayer.getName() + Colors.CYAN.code() + " wins! \n" + Colors.RESET.code() +
                             "Congratulations!");
             return true;
         } else
@@ -177,11 +182,11 @@ public class Game {
             return name;
         }
 
-        private void setName(String name) {
-            this.name = name.replaceFirst(
+        private void setName(String name, Colors color) {
+            this.name = color.code() +  name.replaceFirst(
                     Character.toString(name.charAt(0)),
                     Character.toString(Character.toUpperCase(name.charAt(0)))
-                            .replaceAll(" ", ""));
+                            .replaceAll(" ", "")) + Colors.RESET.code();
         }
 
         private byte getHp() {
@@ -197,6 +202,24 @@ public class Game {
             return "Player {" +
                     "name='" + name + '\'' +
                     '}';
+        }
+    }
+
+    private enum Colors {
+        RESET("\u001B[0m"),
+        RED("\u001B[31m"),
+        BLUE("\u001B[34m"),
+        PURPLE("\u001B[35m"),
+        CYAN("\u001B[36m");
+
+        private String code;
+
+        Colors(String code) {
+            this.code = code;
+        }
+
+        private String code() {
+            return code;
         }
     }
 }
