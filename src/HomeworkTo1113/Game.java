@@ -20,8 +20,7 @@ public class Game {
     private static final double MIN_CHANCE_TO_HIT = 0.3f;
     private static final double MAX_CHANCE_TO_HIT = 0.95f;
 
-    // do not set more than Integer.MAX_VALUE;
-    private static final int MAX_STRENGTH = 10;
+    private static final int MAX_STRENGTH = 9;
     private static final int MAX_HP = 100;
 
     public void start() {
@@ -31,26 +30,60 @@ public class Game {
 
         int turnCounter = 0;
         while (!isSomeoneLostGame()) {
-            Methods.line();
-            System.out.println(
-                    "Remaining health: \n" +
-                            firstPlayer.getName() + ": " + firstPlayer.getHp() + "\n" +
-                            secondPlayer.getName() + ": " + secondPlayer.getHp() + "\n");
-
-            if (turnCounter % 2 == 0) {
-                System.out.println(
-                        firstPlayer.getName() + "'s turn!");
+            if (turnCounter++ % 2 == 0) {
+                makeMove(firstPlayer);
             } else {
-                System.out.println(
-                        secondPlayer.getName() + "'s turn!");
+                makeMove(secondPlayer);
             }
-
-            System.out.println("Choose the strength of a punch from 1 to " + MAX_STRENGTH + ": ");
-            String strength;
-            while (!isInputProper(strength = Methods.getString(), MAX_STRENGTH)) {
-            }
-            hit(Integer.parseInt(strength), turnCounter++ % 2 == 0);
         }
+    }
+
+    private void makeMove(Player playerMakingMove) {
+        Methods.line("-");
+        System.out.println(
+                "Remaining health: \n" +
+                        firstPlayer.getName() + ": " + firstPlayer.getHp() +
+                        "\n" + secondPlayer.getName() + ": " + secondPlayer.getHp() +
+                        "\n\n" + playerMakingMove.getName() + "'s turn!");
+        System.out.println("Choose the strength of a punch from 1 to " + MAX_STRENGTH + ": ");
+        String strength;
+        while (!isInputProper(strength = Methods.getString(), MAX_STRENGTH)) {
+        }
+        hit(Integer.parseInt(strength), playerMakingMove == firstPlayer ? secondPlayer : firstPlayer);
+    }
+
+    private void hit(int power, Player playerToGetHit) {
+        String s;
+        if (power == 1) s = "";
+        else s = "s";
+        if (Methods.getRandDouble() < getChance(power)) {
+            System.out.println(
+                    "You " + Colors.CYAN.code() + "got him " + Colors.RESET.code() + " with a " + getFormattedChance(power) + " chance to hit! \n" +
+                            playerToGetHit.getName() + " looses " + power + " health point" + s + "!");
+            playerToGetHit.setHp((byte) (playerToGetHit.getHp() - power));
+        } else {
+            System.out.println("Unfortunately, " + Colors.RED.code() + "you missed" + Colors.RESET.code() + " with a " + getFormattedChance(power) + " chance to hit!");
+        }
+    }
+
+    private boolean isSomeoneLostGame() {
+        if (firstPlayer.getHp() <= 0) {
+            endgameMessage(firstPlayer);
+            return true;
+        } else if (secondPlayer.getHp() <= 0) {
+            endgameMessage(secondPlayer);
+            return true;
+        } else
+            return false;
+    }
+
+    private void endgameMessage(Player deadPlayer) {
+        Methods.line("=");
+        System.out.println(
+                deadPlayer.getName() + Colors.RED.code() + " looses the game... \n" + Colors.RESET.code() +
+                        "Better luck to you next time!" +
+                        "\n\n" +  (deadPlayer == firstPlayer ? secondPlayer.getName() : firstPlayer.getName()) + Colors.CYAN.code() + " wins! \n" + Colors.RESET.code() +
+                        "Congratulations!");
     }
 
     private void setPlayers() {
@@ -87,67 +120,6 @@ public class Game {
         secondPlayer.setHp(health);
     }
 
-    private void hit(int power, boolean isFirstPlayerTurn) {
-        String s;
-        if (power == 1) s = "";
-        else s = "s";
-
-        if (isFirstPlayerTurn) {
-            if (Methods.getRandDouble() < getChance(power)) {
-                System.out.println(
-                        "You " + Colors.CYAN.code() + "got him " + Colors.RESET.code() + " with a " + getFormattedChance(power) + " chance to hit! \n" +
-                                secondPlayer.getName() + " looses " + power + " health point" + s + "!");
-                secondPlayer.setHp((byte) (secondPlayer.getHp() - power));
-            } else {
-                System.out.println("Unfortunately, " + Colors.RED.code() + "you missed" + Colors.RESET.code() + " with a " + getFormattedChance(power) + " chance to hit!");
-            }
-        } else {
-            if (Methods.getRandDouble() < getChance(power)) {
-                System.out.println(
-                        "You " + Colors.CYAN.code() + "got him " + Colors.RESET.code() + "with a " + getFormattedChance(power) + " chance to hit! \n" +
-                                firstPlayer.getName() + " looses " + power + " health point" + s + "!");
-                firstPlayer.setHp((byte) (firstPlayer.getHp() - power));
-            } else {
-
-                System.out.println("Unfortunately, " + Colors.RED.code() + "you missed " + Colors.RESET.code() + "with a " + getFormattedChance(power) + " chance to hit!");
-            }
-        }
-    }
-
-
-
-    private boolean isSomeoneLostGame() {
-        if (firstPlayer.getHp() <= 0) {
-            System.out.println(
-                    "\n" + firstPlayer.getName() + Colors.RED.code() + " looses the game... \n" + Colors.RESET.code() +
-                            "Better luck to you next time!" +
-                            "\n\n" + secondPlayer.getName() + Colors.CYAN.code() + " wins! \n" + Colors.RESET.code() +
-                            "Congratulations!");
-            return true;
-        } else if (secondPlayer.getHp() <= 0) {
-            System.out.println(
-                    "\n" + secondPlayer.getName() + Colors.RED.code() + " looses the game... \n" + Colors.RESET.code() +
-                            "Better luck to you next time!" +
-                            "\n\n" + firstPlayer.getName() + Colors.CYAN.code() + " wins! \n" + Colors.RESET.code() +
-                            "Congratulations!");
-            return true;
-        } else
-
-            return false;
-    }
-
-    private boolean isInputProper(String input, int upperBound) {
-        if (input.length() <= 3 && // not too long
-                NumberUtils.isCreatable(input) && // is a number
-                Integer.parseInt(input) > 0 && // positive
-                Integer.parseInt(input) <= upperBound) { // not too big
-            return true;
-        } else {
-            System.out.println("Please, enter a valid number from 1 to " + upperBound + ": ");
-            return false;
-        }
-    }
-
     private double getChance(int power) {
         double section = (MAX_CHANCE_TO_HIT - MIN_CHANCE_TO_HIT) / (MAX_STRENGTH - 1);
         return MIN_CHANCE_TO_HIT + section * (MAX_STRENGTH - power);
@@ -159,8 +131,20 @@ public class Game {
         return Colors.GREEN.code() + bigDecimal.doubleValue() + "%" + Colors.RESET.code();
     }
 
+    private boolean isInputProper(String input, int upperBound) {
+        if (input.length() <= Integer.toString(upperBound).length() && // not too long
+                NumberUtils.isCreatable(input) && // is a number
+                Integer.parseInt(input) > 0 && // positive
+                Integer.parseInt(input) <= upperBound) { // not too big
+            return true;
+        } else {
+            System.out.println("Please, enter a valid number from 1 to " + upperBound + ": ");
+            return false;
+        }
+    }
+
     private void displayRules() {
-        Methods.line();
+        Methods.line("-");
         System.out.println("In this game your goal is to beat your opponent up. \n" +
                 "Each turn you have to punch him with strength measured from 1 to " + MAX_STRENGTH + ". \n" +
                 "If you don't miss the enemy, then he will lose health equal to your punch strength, \n" +
@@ -169,7 +153,7 @@ public class Game {
         for (int i = 1; i <= MAX_STRENGTH; i++) {
             System.out.println("Strength: " + i + " -> probability: " + getFormattedChance(i));
         }
-        Methods.line();
+        Methods.line("-");
     }
 
     private class Player {
@@ -193,13 +177,6 @@ public class Game {
 
         private void setHp(byte hp) {
             this.hp = hp;
-        }
-
-        @Override
-        public String toString() {
-            return "Player {" +
-                    "name='" + name + '\'' +
-                    '}';
         }
     }
 
