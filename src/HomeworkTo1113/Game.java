@@ -6,7 +6,6 @@ import org.apache.commons.lang3.math.NumberUtils;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-
 class GameTest {
     public static void main(String[] args) {
         Game newGame = new Game();
@@ -29,33 +28,27 @@ public class Game {
         setPlayers();
 
         int turnCounter = 0;
-        boolean isRetry = false;
         while (!isSomeoneLostGame()) {
-            if (!isRetry) { // skipping unnecessary stuff if needed
-                Methods.line();
-                System.out.println(
-                        "Remaining health: \n" +
-                                firstPlayer.getName() + ": " + firstPlayer.getHp() + "\n" +
-                                secondPlayer.getName() + ": " + secondPlayer.getHp() + "\n");
+            Methods.line();
+            System.out.println(
+                    "Remaining health: \n" +
+                            firstPlayer.getName() + ": " + firstPlayer.getHp() + "\n" +
+                            secondPlayer.getName() + ": " + secondPlayer.getHp() + "\n");
 
-                if (turnCounter % 2 == 0) {
-                    System.out.println(
-                            firstPlayer.getName() + "'s turn!");
-                } else {
-                    System.out.println(
-                            secondPlayer.getName() + "'s turn!");
-                }
+            if (turnCounter % 2 == 0) {
+                System.out.println(
+                        firstPlayer.getName() + "'s turn!");
+            } else {
+                System.out.println(
+                        secondPlayer.getName() + "'s turn!");
             }
+
 
             System.out.println("Choose the strength of a punch from 1 to " + MAX_STRENGTH + ": ");
-            int strength = Methods.getInt();
-            if (strength < 1 || strength > MAX_STRENGTH) { // strength was not chosen properly
-                System.out.println("Please, choose punch power according to the rules!");
-                isRetry = true;
-                continue;
+            String strength;
+            while (!isInputProper(strength = Methods.getString(), MAX_STRENGTH)) {
             }
-            isRetry = false;
-            hit(strength, turnCounter++ % 2 == 0);
+            hit(Integer.parseInt(strength), turnCounter++ % 2 == 0);
         }
     }
 
@@ -66,18 +59,18 @@ public class Game {
         // first player's name setting section
         System.out.println("Enter first player's name: ");
         String name;
-        while ((name = Methods.getString()).isEmpty()) { // skipping empty strings
+        while ((name = Methods.getString()).isEmpty() || name.replaceAll(" ", "").isEmpty()) { // skipping empty strings
+            System.out.println("Please, enter a valid name: ");
         }
         firstPlayer.setName(name);
 
         // second player's name setting section
         System.out.println("Enter second player's name: ");
-        while ((name = Methods.getString()).isEmpty()) {
-        }
-        while (name.equals(firstPlayer.getName())) {
-            System.out.println("Players must not have same names! \n" +
-                    "Please choose another one:");
-            name = Methods.getString();
+        while ((name = Methods.getString()).isEmpty() ||
+                name.replaceAll(" ", "").isEmpty() ||
+                name.equals(firstPlayer.getName())) {
+            System.out.println(name.equals(firstPlayer.getName()) ?
+                    "Players must not have same names! " : "Please, enter a valid name: ");
         }
         secondPlayer.setName(name);
 
@@ -87,7 +80,7 @@ public class Game {
         String input;
         do {
             input = Methods.getString();
-        } while (!isInputProper(input));
+        } while (!isInputProper(input, 100));
         health = (byte) Integer.parseInt(input);
         firstPlayer.setHp(health);
         secondPlayer.setHp(health);
@@ -138,14 +131,14 @@ public class Game {
             return false;
     }
 
-    private boolean isInputProper(String input) {
+    private boolean isInputProper(String input, int upperBound) {
         if (input.length() <= 3 && // not too long
                 NumberUtils.isCreatable(input) && // is a number
                 Integer.parseInt(input) > 0 && // positive
-                Integer.parseInt(input) < 101) { // not too big
+                Integer.parseInt(input) <= upperBound) { // not too big
             return true;
         } else {
-            System.out.println("Please, enter a valid number from 1 to 100: ");
+            System.out.println("Please, enter a valid number from 1 to " + upperBound + ": ");
             return false;
         }
     }
@@ -185,7 +178,8 @@ public class Game {
         private void setName(String name) {
             this.name = name.replaceFirst(
                     Character.toString(name.charAt(0)),
-                    Character.toString(Character.toUpperCase(name.charAt(0))));
+                    Character.toString(Character.toUpperCase(name.charAt(0)))
+                            .replaceAll(" ", ""));
         }
 
         private byte getHp() {
