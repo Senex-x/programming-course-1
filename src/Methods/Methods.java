@@ -169,9 +169,9 @@ public abstract class Methods {
             quickSort(array, i, right);
     }
 
-    public static void line() {
+    public static void line(String lineItem) {
         for(int i=0;i<400;i++) {
-            System.out.print('-');
+            System.out.print(lineItem);
         }
         System.out.println();
     }
