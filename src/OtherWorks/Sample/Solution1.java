@@ -5,6 +5,9 @@ import Methods.Methods;
 import java.math.BigInteger;
 
 /**
+ * How many numbers between n and m (n < m) consists of
+ * odd digits and how many consists of unique digits?
+ *
  * Сколько чисел между n и m (n<m) состоит из нечётных
  * цифр и сколько из различных цифр?
  */
@@ -20,10 +23,10 @@ public class Solution1 {
         boolean checkOdd;
         boolean checkUnique;
 
-        int counter = 0;
+        int counterOdd = 0;
+        int counterUnique = 0;
         while ((m = m.subtract(one)).compareTo(n) != 0) {
             number = m.toString();
-            System.out.println(number);
             digits = new boolean[10];
             checkOdd = true;
             checkUnique = true;
@@ -40,11 +43,11 @@ public class Solution1 {
                     checkUnique = false;
                 }
             }
-            if (checkOdd || checkUnique) {
-                counter++;
-            }
+            if (checkOdd) counterOdd++;
+            if (checkUnique) counterUnique++;
         }
-        System.out.println(counter);
+        System.out.println("Amount of numbers with odd digits: " + counterOdd + "\n" +
+                "Amount of numbers with unique digits: " + counterUnique);
     }
 }
 
