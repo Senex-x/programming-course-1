@@ -1,5 +1,6 @@
 package Methods;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public abstract class Methods {
@@ -32,6 +33,10 @@ public abstract class Methods {
     }
 
     public static String getString() {
+        return sc.next();
+    }
+
+    public static String getLine() {
         return sc.nextLine();
     }
 
@@ -176,3 +181,4 @@ public abstract class Methods {
         System.out.println();
     }
 }
+
