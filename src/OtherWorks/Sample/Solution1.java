@@ -2,7 +2,6 @@ package OtherWorks.Sample;
 
 import Methods.Methods;
 
-import java.lang.reflect.Array;
 import java.math.BigInteger;
 
 /**
@@ -15,6 +14,7 @@ public class Solution1 {
         BigInteger n = new BigInteger(Methods.getString());
         BigInteger m = new BigInteger(Methods.getString());
         BigInteger one = BigInteger.ONE;
+        String number;
         int digit;
         boolean[] digits;
         boolean checkOdd;
@@ -22,7 +22,8 @@ public class Solution1 {
 
         int counter = 0;
         while ((m = m.subtract(one)).compareTo(n) != 0) {
-            String number = m.toString();
+            number = m.toString();
+            System.out.println(number);
             digits = new boolean[10];
             checkOdd = true;
             checkUnique = true;
