@@ -4,7 +4,7 @@ import Methods.Methods;
 
 public class Task2 {
     public static void main(String[] args) {
-        String s = Methods.getString();
+        String s = Methods.getLine();
         System.out.println(reverse(s));
     }
 

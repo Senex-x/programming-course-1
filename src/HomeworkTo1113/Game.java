@@ -47,7 +47,7 @@ public class Game {
                         "\n\n" + playerMakingMove.getName() + "'s turn!");
         System.out.println("Choose the strength of a punch from 1 to " + MAX_STRENGTH + ": ");
         String strength;
-        while (!isInputProper(strength = Methods.getString(), MAX_STRENGTH)) {
+        while (!isInputProper(strength = Methods.getLine(), MAX_STRENGTH)) {
         }
         hit(Integer.parseInt(strength), playerMakingMove == firstPlayer ? secondPlayer : firstPlayer);
     }
@@ -93,14 +93,14 @@ public class Game {
         // first player's name setting section
         System.out.println("Enter first player's name: ");
         String name;
-        while ((name = Methods.getString()).isEmpty() || name.replaceAll(" ", "").isEmpty()) { // skipping empty strings
+        while ((name = Methods.getLine()).isEmpty() || name.replaceAll(" ", "").isEmpty()) { // skipping empty strings
             System.out.println("Please, enter a valid name: ");
         }
         firstPlayer.setName(name, Colors.BLUE);
 
         // second player's name setting section
         System.out.println("Enter second player's name: ");
-        while ((name = Methods.getString()).isEmpty() ||
+        while ((name = Methods.getLine()).isEmpty() ||
                 name.replaceAll(" ", "").isEmpty() ||
                 name.equals(firstPlayer.getName())) {
             System.out.println(name.equals(firstPlayer.getName()) ?
@@ -113,7 +113,7 @@ public class Game {
         byte health;
         String input;
         do {
-            input = Methods.getString();
+            input = Methods.getLine();
         } while (!isInputProper(input, MAX_HP));
         health = (byte) Integer.parseInt(input);
         firstPlayer.setHp(health);
