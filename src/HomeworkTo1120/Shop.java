@@ -8,17 +8,78 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Shop {
-    private FileReader productNamesReader;
     private ArrayList<Product> soldProducts = new ArrayList<>();
     private ArrayList<Customer> customers = new ArrayList<>();
     private ArrayList<ArrayList<Product>> storedProducts = new ArrayList<>();
+
+    void open() {
+        storedProducts = generateProductsStock(10);
+        customers = generateCustomers(100);
+
+        displayStoredProducts();
+
+        for (Customer customer : customers) {
+            for (int i = 0; i < Methods.getRandInt(0, 10) && storedProducts.size() > 0; i++) {
+                int sectionIndex = Methods.getRandInt(0, storedProducts.size() - 1);
+                Product product = storedProducts.get(sectionIndex).get(0);
+                if (customer.canAfford(product)) {
+                    buyProduct(customer, sectionIndex);
+                }
+            }
+        }
+
+        for (Customer customer : customers) {
+            customer.displayBalanceHistory();
+        }
+
+        displaySoldProducts();
+        displayStoredProducts();
+    }
+
+    void buyProduct(Customer customer, int sectionIndex) {
+        ArrayList<Product> row = storedProducts.get(sectionIndex);
+        int productIndex = row.size() - 1;
+        Product product = row.get(productIndex);
+
+        customer.buy(product, "11:30");
+        row.remove(productIndex);
+        soldProducts.add(product);
+        if (storedProducts.get(sectionIndex).size() == 0) {
+            Methods.line("////////////////////RAN OUT OF " + product.getName().toUpperCase());
+            storedProducts.remove(sectionIndex);
+        }
+
+    }
+
+    void displayStoredProducts() {
+        for (ArrayList<Product> section : storedProducts) {
+            System.out.println("Stored product: " + section.get(0).getName() + "\n" +
+                    "Total amount: " + section.size());
+            Methods.line("-");
+            for (Product product : section) {
+                System.out.println(product);
+            }
+            Methods.line("-");
+        }
+    }
+
+    void displaySoldProducts() {
+        System.out.println("Sales history \n" +
+                "Products sold total: " + soldProducts.size());
+        Methods.line("-");
+        for (Product product : soldProducts) {
+            System.out.println("Sold product: " + product);
+
+        }
+        Methods.line("-");
+    }
 
     private ArrayList<Customer> generateCustomers(int amount) {
         ArrayList<Customer> customers = new ArrayList<>();
         try {
             Scanner scanner = new Scanner(new FileReader("data/ShopDataStorage/customerNames.txt"));
             for (int i = 0; i < amount && scanner.hasNext(); i++) {
-                customers.add(new Customer("XXX", scanner.nextLine(), 100 + (float) i / 100));
+                customers.add(new Customer(generateCustomerId(3), scanner.nextLine(), 100 + (float) i / 100));
             }
             scanner.close();
         } catch (IOException e) {
@@ -26,7 +87,6 @@ class Shop {
         }
         return customers;
     }
-
 
     private ArrayList<ArrayList<Product>> generateProductsStock(int maxAmount) {
         ArrayList<ArrayList<Product>> storedProducts = new ArrayList<>();
@@ -61,36 +121,24 @@ class Shop {
         return storedProducts;
     }
 
-    void open() {
-        storedProducts = generateProductsStock(10);
-        customers = generateCustomers(100);
-        for (Customer customer : customers) {
-            System.out.println(customer);
-        }
-
-        displayStoredProducts();
-    }
-
-    void displayStoredProducts() {
-        for (ArrayList<Product> section : storedProducts) {
-            System.out.println("Stored product: " + section.get(0).getName() + "\n" +
-                    "Total amount: " + section.size());
-            Methods.line("-");
-            for (Product product : section) {
-                System.out.println(product);
-            }
-            Methods.line("-");
-        }
-    }
-
-    private int idCounter = 0;
+    private int productIdCounter = 0;
 
     private String generateProductId(int length) {
-        String id = Integer.toString(idCounter++);
+        String id = Integer.toString(productIdCounter++);
         while (id.length() != length) {
             id = "0" + id;
         }
         return "P" + id;
+    }
+
+    private int customerIdCounter = 0;
+
+    private String generateCustomerId(int length) {
+        String id = Integer.toString(customerIdCounter++);
+        while (id.length() != length) {
+            id = "0" + id;
+        }
+        return "C" + id;
     }
 
     public static void main(String[] args) {
@@ -113,34 +161,18 @@ class Shop {
         }
 
         void buy(Product product, String dateOfSale) {
-            changeBalance(product.getCost() * -1);
+            changeBalance(product.getCost() * -1, product);
             purchasedProducts.add(product);
             product.sellTo(this, dateOfSale);
         }
 
-        private void changeBalance(float balanceChange) {
+        private void changeBalance(float balanceChange, Product boughtProduct) {
             balance += balanceChange;
-            balanceChangeLog.add(balanceChange, balance);
+            balanceChangeLog.add(balanceChange, balance, boughtProduct);
         }
 
         boolean canAfford(Product product) {
             return balance - product.getCost() >= 0;
-        }
-
-        String getId() {
-            return id;
-        }
-
-        String getName() {
-            return name;
-        }
-
-        float getBalance() {
-            return balance;
-        }
-
-        ArrayList<Product> getPurchasedProducts() {
-            return purchasedProducts;
         }
 
         @Override
@@ -148,11 +180,10 @@ class Shop {
             return "Customer{" +
                     "id=" + id +
                     ", name='" + name + '\'' +
-                    ", balance=" + balance +
                     '}';
         }
 
-        void getBalanceHistory() {
+        void displayBalanceHistory() {
             balanceChangeLog.display();
         }
 
@@ -164,8 +195,8 @@ class Shop {
                 this.initialBalance = initialBalance;
             }
 
-            private void add(float balanceChange, float balanceRemain) {
-                log.add(new LogItem(log.size() + 1, balanceChange, balanceRemain));
+            private void add(float balanceChange, float balanceRemain, Product boughtProduct) {
+                log.add(new LogItem(log.size() + 1, boughtProduct, balanceChange, balanceRemain));
             }
 
             private void display() {
@@ -182,11 +213,13 @@ class Shop {
 
             private class LogItem {
                 private int number;
+                private Product boughtProduct;
                 private float balanceChange;
                 private float balanceRemain;
 
-                private LogItem(int number, float balanceChange, float balanceRemain) {
+                private LogItem(int number, Product boughtProduct, float balanceChange, float balanceRemain) {
                     this.number = number;
+                    this.boughtProduct = boughtProduct;
                     this.balanceChange = balanceChange;
                     this.balanceRemain = balanceRemain;
                 }
@@ -202,6 +235,7 @@ class Shop {
                 @Override
                 public String toString() {
                     return "Operation number: " + number + "\n" +
+                            "Bought product: " + boughtProduct.toString() + "\n" +
                             "Balance change: " + balanceChange + "$ \n" +
                             "Balance remain: " + balanceRemain + "$";
                 }
