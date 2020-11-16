@@ -21,7 +21,7 @@ public abstract class Methods {
     }
 
     public static int getRandInt(int lower, int upper) {
-        return lower + rand.nextInt(upper - lower);
+        return lower + rand.nextInt(upper - lower + 1);
     }
 
     public static double getRandDouble() {

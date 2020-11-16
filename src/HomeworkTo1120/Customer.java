@@ -5,13 +5,13 @@ import Methods.Methods;
 import java.util.ArrayList;
 
 class Customer {
-    private int id;
+    private String id;
     private String name;
-    private int balance;
+    private float balance;
     private ArrayList<Product> purchasedProducts = new ArrayList<>();
     private BalanceChangeLog balanceChangeLog;
 
-    Customer(int id, String name, int balance) {
+    Customer(String id, String name, float balance) {
         this.id = id;
         this.name = name;
         this.balance = balance;
@@ -24,7 +24,7 @@ class Customer {
         product.sellTo(this, dateOfSale);
     }
 
-    private void changeBalance(int balanceChange) {
+    private void changeBalance(float balanceChange) {
         balance += balanceChange;
         balanceChangeLog.add(balanceChange, balance);
     }
@@ -33,7 +33,7 @@ class Customer {
         return balance - product.getCost() >= 0;
     }
 
-    int getId() {
+    String getId() {
         return id;
     }
 
@@ -41,7 +41,7 @@ class Customer {
         return name;
     }
 
-    public int getBalance() {
+    public float getBalance() {
         return balance;
     }
 
@@ -63,14 +63,14 @@ class Customer {
     }
 
     private class BalanceChangeLog {
-        private int initialBalance;
+        private float initialBalance;
         private ArrayList<LogItem> log = new ArrayList<>();
 
-        private BalanceChangeLog(int initialBalance) {
+        private BalanceChangeLog(float initialBalance) {
             this.initialBalance = initialBalance;
         }
 
-        private void add(int balanceChange, int balanceRemain) {
+        private void add(float balanceChange, float balanceRemain) {
             log.add(new LogItem(log.size() + 1, balanceChange, balanceRemain));
         }
 
@@ -88,20 +88,20 @@ class Customer {
 
         private class LogItem {
             private int number;
-            private int balanceChange;
-            private int balanceRemain;
+            private float balanceChange;
+            private float balanceRemain;
 
-            private LogItem(int number, int balanceChange, int balanceRemain) {
+            private LogItem(int number, float balanceChange, float balanceRemain) {
                 this.number = number;
                 this.balanceChange = balanceChange;
                 this.balanceRemain = balanceRemain;
             }
 
-            private int getBalanceChange() {
+            private float getBalanceChange() {
                 return balanceChange;
             }
 
-            private int getBalanceRemain() {
+            private float getBalanceRemain() {
                 return balanceRemain;
             }
 
