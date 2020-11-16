@@ -1,29 +1,35 @@
 package HomeworkTo1120;
 
+import Methods.Methods;
+
 import java.util.ArrayList;
 
 class Customer {
     private int id;
     private String name;
     private int balance;
-    private ArrayList<Product> purchasedProducts;
+    private ArrayList<Product> purchasedProducts = new ArrayList<>();
     private BalanceChangeLog balanceChangeLog;
 
     Customer(int id, String name, int balance) {
         this.id = id;
         this.name = name;
         this.balance = balance;
-        balanceChangeLog = new BalanceChangeLog();
+        balanceChangeLog = new BalanceChangeLog(balance);
     }
 
     void buy(Product product, String dateOfSale) {
-        balance -= product.getCost();
-        balanceChangeLog.add();
+        changeBalance(product.getCost() * -1);
         purchasedProducts.add(product);
         product.sellTo(this, dateOfSale);
     }
 
-    boolean isAffordable(Product product) {
+    private void changeBalance(int balanceChange) {
+        balance += balanceChange;
+        balanceChangeLog.add(balanceChange, balance);
+    }
+
+    boolean canAfford(Product product) {
         return balance - product.getCost() >= 0;
     }
 
@@ -44,27 +50,58 @@ class Customer {
     }
 
     void getBalanceHistory() {
-
+        balanceChangeLog.display();
     }
 
     private class BalanceChangeLog {
-        int initialBalance;
-        ArrayList<LogItem> log = new ArrayList<>();
+        private int initialBalance;
+        private ArrayList<LogItem> log = new ArrayList<>();
 
-        public BalanceChangeLog(int initialBalance) {
-
+        private BalanceChangeLog(int initialBalance) {
+            this.initialBalance = initialBalance;
         }
 
-        private void add() {
-
+        private void add(int balanceChange, int balanceRemain) {
+            log.add(new LogItem(log.size() + 1, balanceChange, balanceRemain));
         }
 
         private void display() {
-
+            System.out.println(
+                    "Balance history of customer " + name + " (id: " + id + ") \n"
+                            + "Initial balance: " + initialBalance + "$"
+            );
+            for (LogItem logItem : log) {
+                Methods.line("-");
+                System.out.println(logItem);
+            }
+            Methods.line("-");
         }
 
         private class LogItem {
-            private int balance;
+            private int number;
+            private int balanceChange;
+            private int balanceRemain;
+
+            private LogItem(int number, int balanceChange, int balanceRemain) {
+                this.number = number;
+                this.balanceChange = balanceChange;
+                this.balanceRemain = balanceRemain;
+            }
+
+            private int getBalanceChange() {
+                return balanceChange;
+            }
+
+            private int getBalanceRemain() {
+                return balanceRemain;
+            }
+
+            @Override
+            public String toString() {
+                return "Operation number: " + number + "\n" +
+                        "Balance change: " + balanceChange + "$ \n" +
+                        "Balance remain: " + balanceRemain + "$";
+            }
         }
     }
 }
