@@ -1,6 +1,7 @@
 package Methods;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public abstract class Methods {
     private static final Scanner sc = new Scanner(System.in);
@@ -178,6 +179,14 @@ public abstract class Methods {
             System.out.print(lineItem);
         }
         System.out.println();
+    }
+
+    public static void sleep(int seconds) {
+        try {
+            TimeUnit.SECONDS.sleep(seconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public static String paint(String string, String code) {
