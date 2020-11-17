@@ -1,4 +1,0 @@
-Milk 2
-Bread 2
-Tomato 0.5
-Cucumber 0.5
