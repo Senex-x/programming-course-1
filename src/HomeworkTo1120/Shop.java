@@ -4,29 +4,94 @@ import Methods.Methods;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 class ShopTest {
     public static void main(String[] args) {
         Shop newShop = new Shop();
-        newShop.open();
+        newShop.start();
     }
 }
 
 public class Shop {
+
+    private class DateHolder {
+        private int day;
+        private int month;
+        private int year;
+
+        public void nextDay() {
+            if (day < 31) {
+                day++;
+            } else if (month < 12) {
+                day = 1;
+                month++;
+            } else {
+                day = 1;
+                month = 1;
+                year++;
+            }
+        }
+
+        public void setState(int day, int month, int year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+
+
+        public void setDay(int day) {
+            this.day = day;
+        }
+
+        public void setMonth(int month) {
+            this.month = month;
+        }
+
+        private String getFormattedDate() {
+            return day + "." + month + "." + year;
+        }
+
+        @Override
+        public String toString() {
+            return "Current date: " + getFormattedDate();
+        }
+    }
+
+
     private ArrayList<Product> soldProducts = new ArrayList<>();
     private ArrayList<Customer> customers = new ArrayList<>();
     private ArrayList<ArrayList<Product>> storedProducts = new ArrayList<>();
+    private DateHolder date = new DateHolder();
 
-    public void open() {
-        storedProducts = generateProductsStock(10);
+
+    {
+        Date currentDate = new Date();
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd.MM.yyyy");
+        String date = formatDate.format(currentDate);
+
+        this.date.setState(Integer.parseInt(date.substring(0, 2)),
+                Integer.parseInt(date.substring(3, 5)),
+                Integer.parseInt(date.substring(6)));
+    }
+
+
+    public void start() {
+        storedProducts = generateProductsStock(8);
         customers = generateCustomers(100);
 
         displayStoredProducts();
 
         System.out.println("Buyings log: ");
         Methods.line("-");
+
+        Methods.sleep(2);
+
+
         for (Customer customer : customers) {
             for (int i = 0; i < Methods.getRandInt(1, 10) && storedProducts.size() > 0; i++) {
                 int sectionIndex = Methods.getRandInt(0, storedProducts.size() - 1);
@@ -41,12 +106,19 @@ public class Shop {
             Methods.line("-");
         }
 
+
         for (Customer customer : customers) {
             customer.displayBalanceHistory();
         }
 
         displayStoredProducts();
         displaySoldProducts();
+
+        System.out.println(date);
+    }
+
+    boolean open(String date) {
+        return true;
     }
 
     private void buyProduct(Customer customer, int sectionIndex) {
@@ -58,7 +130,7 @@ public class Shop {
         row.remove(productIndex);
         soldProducts.add(product);
         if (storedProducts.get(sectionIndex).size() == 0) {
-            Methods.line("////////PRODUCT \"" + product.getName().toUpperCase() + "\" RAN OUT");
+            Methods.line(paint("////////PRODUCT \"" + product.getName().toUpperCase() + "\" RAN OUT", RED));
             storedProducts.remove(sectionIndex);
         }
 
@@ -150,6 +222,16 @@ public class Shop {
             id = "0" + id;
         }
         return "C" + id;
+    }
+
+    private String RES = Methods.Colors.RESET.code();
+    private String RED = Methods.Colors.RED.code();
+    private String PURPLE = Methods.Colors.PURPLE.code();
+    private String CYAN = Methods.Colors.CYAN.code();
+    private String GREEN = Methods.Colors.GREEN.code();
+
+    private String paint(String string, String colorCode) {
+        return Methods.paint(string, colorCode);
     }
 
     private static class Customer {
