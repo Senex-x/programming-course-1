@@ -18,56 +18,10 @@ class ShopTest {
 }
 
 public class Shop {
-
-    private class DateHolder {
-        private int day;
-        private int month;
-        private int year;
-
-        public void nextDay() {
-            if (day < 31) {
-                day++;
-            } else if (month < 12) {
-                day = 1;
-                month++;
-            } else {
-                day = 1;
-                month = 1;
-                year++;
-            }
-        }
-
-        public void setState(int day, int month, int year) {
-            this.day = day;
-            this.month = month;
-            this.year = year;
-        }
-
-
-        public void setDay(int day) {
-            this.day = day;
-        }
-
-        public void setMonth(int month) {
-            this.month = month;
-        }
-
-        private String getFormattedDate() {
-            return day + "." + month + "." + year;
-        }
-
-        @Override
-        public String toString() {
-            return "Current date: " + getFormattedDate();
-        }
-    }
-
-
     private ArrayList<Product> soldProducts = new ArrayList<>();
     private ArrayList<Customer> customers = new ArrayList<>();
     private ArrayList<ArrayList<Product>> storedProducts = new ArrayList<>();
     private DateHolder date = new DateHolder();
-
 
     {
         Date currentDate = new Date();
@@ -78,7 +32,6 @@ public class Shop {
                 Integer.parseInt(date.substring(3, 5)),
                 Integer.parseInt(date.substring(6)));
     }
-
 
     public void start() {
         storedProducts = generateProductsStock(8);
@@ -111,8 +64,6 @@ public class Shop {
 
         displayStoredProducts();
         displaySoldProducts();
-
-        System.out.println(date);
     }
 
     boolean open(String date) {
@@ -376,6 +327,48 @@ public class Shop {
                     ", dateOfSale='" + dateOfSale + '\'' +
                     ", buyer=" + buyer +
                     '}';
+        }
+    }
+
+    private class DateHolder {
+        private int day;
+        private int month;
+        private int year;
+
+        public void nextDay() {
+            if (day < 31) {
+                day++;
+            } else if (month < 12) {
+                day = 1;
+                month++;
+            } else {
+                day = 1;
+                month = 1;
+                year++;
+            }
+        }
+
+        public void setState(int day, int month, int year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+
+        public void setDay(int day) {
+            this.day = day;
+        }
+
+        public void setMonth(int month) {
+            this.month = month;
+        }
+
+        private String getFormattedDate() {
+            return day + "." + month + "." + year;
+        }
+
+        @Override
+        public String toString() {
+            return "Current date: " + getFormattedDate();
         }
     }
 }
