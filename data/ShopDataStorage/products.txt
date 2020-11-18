@@ -1,0 +1,4 @@
+Milk 20
+Bread 20
+Tomato 10.5
+Cucumber 10.5

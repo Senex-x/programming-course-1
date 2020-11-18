@@ -1,6 +1,7 @@
 package Methods;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public abstract class Methods {
     private static final Scanner sc = new Scanner(System.in);
@@ -20,7 +21,7 @@ public abstract class Methods {
     }
 
     public static int getRandInt(int lower, int upper) {
-        return lower + rand.nextInt(upper - lower);
+        return lower + rand.nextInt(upper - lower + 1);
     }
 
     public static double getRandDouble() {
@@ -32,6 +33,10 @@ public abstract class Methods {
     }
 
     public static String getString() {
+        return sc.next();
+    }
+
+    public static String getLine() {
         return sc.nextLine();
     }
 
@@ -170,9 +175,46 @@ public abstract class Methods {
     }
 
     public static void line(String lineItem) {
-        for(int i=0;i<400;i++) {
+        for (int i = 0; i < 400; i++) {
             System.out.print(lineItem);
         }
         System.out.println();
     }
+
+    public static void sleep(int seconds) {
+        try {
+            TimeUnit.SECONDS.sleep(seconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String paint(String string, String code) {
+        return code + string + Colors.RESET.code();
+    }
+
+    public static String paint(String string, Colors color) {
+        return paint(string, color.code());
+    }
+
+    public enum Colors {
+        RESET("\u001B[0m"),
+        RED("\u001B[31m"),
+        BLUE("\u001B[34m"),
+        PURPLE("\033[0;95m"),
+        CYAN("\033[0;96m"),
+        GREEN("\033[0;92m");
+
+        private String code;
+
+        Colors(String code) {
+            this.code = code;
+        }
+
+        public String code() {
+            return code;
+        }
+
+    }
 }
+
