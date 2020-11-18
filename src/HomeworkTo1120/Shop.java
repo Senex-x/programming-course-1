@@ -5,10 +5,7 @@ import Methods.Methods;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 
 class ShopTest {
     public static void main(String[] args) {
@@ -18,6 +15,10 @@ class ShopTest {
 }
 
 public class Shop {
+    private static final int PRODUCTS_STOCK_AMOUNT = 20;
+    private static final int CUSTOMERS_MONEY_AMOUNT_MIN = 20;
+    private static final int CUSTOMERS_MONEY_AMOUNT_MAX = 200;
+
     private ArrayList<Product> soldProducts = new ArrayList<>();
     private ArrayList<Customer> customers = new ArrayList<>();
     private ArrayList<ArrayList<Product>> storedProducts = new ArrayList<>();
@@ -34,40 +35,53 @@ public class Shop {
     }
 
     public void start() {
-        storedProducts = generateProductsStock(8);
-        customers = generateCustomers(100);
+        storedProducts = generateProductsStock(PRODUCTS_STOCK_AMOUNT);
+        customers = generateCustomers();
 
         displayStoredProducts();
 
-        System.out.println("Buyings log: ");
-        Methods.line("-");
-        for(int j =0;j<2;j++) {
-            for (Customer customer : customers) {
-                for (int i = 0; i < Methods.getRandInt(1, 10) && storedProducts.size() > 0; i++) {
-                    int sectionIndex = Methods.getRandInt(0, storedProducts.size() - 1);
-                    Product product = storedProducts.get(sectionIndex).get(0);
-                    if (customer.canAfford(product)) {
-                        System.out.println("Customer " + customer + " bought " + product);
-                        buyProduct(customer, sectionIndex);
-                    } else {
-                        System.out.println("Customer " + customer + " don't have enough money to buy " + product);
-                    }
-                }
-                Methods.line("-");
-            }
-            date.nextDay();
-        }
+        do {
+            startNewDay();
+        } while (open());
 
-        for (Customer customer : customers) {
-            customer.displayBalanceHistory();
-        }
+        customers.get(0).displayBalanceHistory();
 
         displayStoredProducts();
         displaySoldProducts();
     }
 
-    boolean open(String date) {
-        return true;
+    // crutch, better to fix
+    boolean isSomethingBought;
+
+    private void startNewDay() {
+        isSomethingBought = false;
+        System.out.println(paint("Buyings log for " + date.getFormattedDate() + ": ", PURPLE));
+        Methods.line("-");
+        for (Customer customer : customers) {
+            if (Methods.getRandDouble() > 0.5) continue; // skipping customer
+            for (int i = 0; i < Methods.getRandInt(1, 10) && storedProducts.size() > 0; i++) {
+                int sectionIndex = Methods.getRandInt(0, storedProducts.size());
+                Product product = storedProducts.get(sectionIndex).get(0);
+                if (customer.canAfford(product)) {
+                    isSomethingBought = true;
+                    System.out.println("Customer " + customer.getIdentifier() +
+                            " bought " + product.getIdentifier()
+                    );
+                    buyProduct(customer, sectionIndex);
+                } else {
+                    System.out.println("Customer " + customer.getIdentifier() +
+                            " don't have enough money to buy " + product.getIdentifier() +
+                            " for " + product.getCost() + "$"
+                    );
+                }
+            }
+            Methods.line("-");
+            date.nextDay();
+        }
+    }
+
+    boolean open() {
+        return storedProducts.size() != 0 && isSomethingBought;
     }
 
     private void buyProduct(Customer customer, int sectionIndex) {
@@ -82,24 +96,21 @@ public class Shop {
             Methods.line(paint("////////PRODUCT \"" + product.getName().toUpperCase() + "\" RAN OUT", RED));
             storedProducts.remove(sectionIndex);
         }
-
     }
 
     private void displayStoredProducts() {
         for (ArrayList<Product> section : storedProducts) {
-            System.out.println("Stored product: " + section.get(0).getName() + "\n" +
+            System.out.println("Stored product: " + section.get(0).getIdentifier() + "\n" +
                     "Total amount: " + section.size());
-            Methods.line("-");
-            for (Product product : section) {
-                System.out.println(product);
-            }
             Methods.line("-");
         }
     }
 
     private void displaySoldProducts() {
-        System.out.println("Sales history \n" +
-                "Products sold total: " + soldProducts.size());
+        System.out.println(
+                paint("Sales history \n" +
+                        "Products sold total: " + soldProducts.size(), PURPLE)
+        );
         Methods.line("-");
         for (Product product : soldProducts) {
             System.out.println("Sold product: " + product);
@@ -108,12 +119,18 @@ public class Shop {
         Methods.line("-");
     }
 
-    private static ArrayList<Customer> generateCustomers(int amount) {
+    private static ArrayList<Customer> generateCustomers() {
         ArrayList<Customer> customers = new ArrayList<>();
         try {
             Scanner scanner = new Scanner(new FileReader("data/ShopDataStorage/customers.txt"));
-            for (int i = 0; i < amount && scanner.hasNext(); i++) {
-                customers.add(new Customer(generateCustomerId(3), scanner.nextLine(), 100 + (float) i / 100));
+            while (scanner.hasNext()) {
+                customers.add(
+                        new Customer(
+                                generateCustomerId(3),
+                                scanner.nextLine(),
+                                Methods.getRandInt(CUSTOMERS_MONEY_AMOUNT_MIN, CUSTOMERS_MONEY_AMOUNT_MAX)
+                        )
+                );
             }
             scanner.close();
         } catch (IOException e) {
@@ -173,11 +190,10 @@ public class Shop {
         return "C" + id;
     }
 
-    private String RES = Methods.Colors.RESET.code();
-    private String RED = Methods.Colors.RED.code();
-    private String PURPLE = Methods.Colors.PURPLE.code();
-    private String CYAN = Methods.Colors.CYAN.code();
-    private String GREEN = Methods.Colors.GREEN.code();
+    private static final String RED = Methods.Colors.RED.code();
+    private static final String PURPLE = Methods.Colors.PURPLE.code();
+    private static final String CYAN = Methods.Colors.CYAN.code();
+    private static final String GREEN = Methods.Colors.GREEN.code();
 
     private String paint(String string, String colorCode) {
         return Methods.paint(string, colorCode);
@@ -187,7 +203,6 @@ public class Shop {
         private String id;
         private String name;
         private float balance;
-        private ArrayList<Product> purchasedProducts = new ArrayList<>();
         private BalanceChangeLog balanceChangeLog;
 
         private Customer(String id, String name, float balance) {
@@ -199,7 +214,6 @@ public class Shop {
 
         private void buy(Product product, String dateOfSale) {
             changeBalance(product.getCost() * -1, product);
-            purchasedProducts.add(product);
             product.sellTo(this, dateOfSale);
         }
 
@@ -210,6 +224,10 @@ public class Shop {
 
         private boolean canAfford(Product product) {
             return balance - product.getCost() >= 0;
+        }
+
+        public String getIdentifier() {
+            return name + " (id: " + id + ")";
         }
 
         @Override
@@ -226,7 +244,7 @@ public class Shop {
 
         private class BalanceChangeLog {
             private float initialBalance;
-            private ArrayList<LogItem> log = new ArrayList<>();
+            private final ArrayList<LogItem> log = new ArrayList<>();
 
             private BalanceChangeLog(float initialBalance) {
                 this.initialBalance = initialBalance;
@@ -261,14 +279,6 @@ public class Shop {
                     this.balanceRemain = balanceRemain;
                 }
 
-                private float getBalanceChange() {
-                    return balanceChange;
-                }
-
-                private float getBalanceRemain() {
-                    return balanceRemain;
-                }
-
                 @Override
                 public String toString() {
                     return "Operation number: " + number + "\n" +
@@ -298,12 +308,8 @@ public class Shop {
             this.dateOfSale = dateOfSale;
         }
 
-        private String getId() {
-            return id;
-        }
-
-        private Customer getBuyer() {
-            return buyer;
+        private String getIdentifier() {
+            return name + " (id: " + id + ")";
         }
 
         private String getName() {
@@ -312,10 +318,6 @@ public class Shop {
 
         private float getCost() {
             return cost;
-        }
-
-        private String getDateOfSale() {
-            return dateOfSale;
         }
 
         @Override
@@ -330,7 +332,7 @@ public class Shop {
         }
     }
 
-    private class DateHolder {
+    private static class DateHolder {
         private int day;
         private int month;
         private int year;
@@ -352,14 +354,6 @@ public class Shop {
             this.day = day;
             this.month = month;
             this.year = year;
-        }
-
-        public void setDay(int day) {
-            this.day = day;
-        }
-
-        public void setMonth(int month) {
-            this.month = month;
         }
 
         private String getFormattedDate() {
