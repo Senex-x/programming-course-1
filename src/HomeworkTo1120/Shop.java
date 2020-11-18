@@ -88,24 +88,22 @@ public class Shop {
 
         System.out.println("Buyings log: ");
         Methods.line("-");
-
-        Methods.sleep(2);
-
-
-        for (Customer customer : customers) {
-            for (int i = 0; i < Methods.getRandInt(1, 10) && storedProducts.size() > 0; i++) {
-                int sectionIndex = Methods.getRandInt(0, storedProducts.size() - 1);
-                Product product = storedProducts.get(sectionIndex).get(0);
-                if (customer.canAfford(product)) {
-                    System.out.println("Customer " + customer + " bought " + product);
-                    buyProduct(customer, sectionIndex);
-                } else {
-                    System.out.println("Customer " + customer + " don't have enough money to buy " + product);
+        for(int j =0;j<2;j++) {
+            for (Customer customer : customers) {
+                for (int i = 0; i < Methods.getRandInt(1, 10) && storedProducts.size() > 0; i++) {
+                    int sectionIndex = Methods.getRandInt(0, storedProducts.size() - 1);
+                    Product product = storedProducts.get(sectionIndex).get(0);
+                    if (customer.canAfford(product)) {
+                        System.out.println("Customer " + customer + " bought " + product);
+                        buyProduct(customer, sectionIndex);
+                    } else {
+                        System.out.println("Customer " + customer + " don't have enough money to buy " + product);
+                    }
                 }
+                Methods.line("-");
             }
-            Methods.line("-");
+            date.nextDay();
         }
-
 
         for (Customer customer : customers) {
             customer.displayBalanceHistory();
@@ -126,7 +124,7 @@ public class Shop {
         int productIndex = row.size() - 1;
         Product product = row.get(productIndex);
 
-        customer.buy(product, "11:30");
+        customer.buy(product, date.getFormattedDate());
         row.remove(productIndex);
         soldProducts.add(product);
         if (storedProducts.get(sectionIndex).size() == 0) {
