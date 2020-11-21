@@ -1,4 +1,23 @@
-Milk 20
-Bread 20
-Tomato 10.5
-Cucumber 10.5
+Milk 5
+Bread 2
+Tomato 0.5
+Cucumber 0.5
+Cheese 8
+Coffee 10
+Meat 20
+Chicken 10
+Broccoli 1.5
+Garlic 0.5
+Pumpkin 6
+Apple 0.5
+Banana 0.8
+Chocolate 5
+Cracker 3
+Jam 8
+Cake 20
+Sugar 5
+Juice 5
+Soda 5
+Water 2.5
+Soup 8
+
