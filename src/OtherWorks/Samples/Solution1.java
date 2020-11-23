@@ -1,4 +1,4 @@
-package OtherWorks.Sample;
+package OtherWorks.Samples;
 
 import Methods.Methods;
 
