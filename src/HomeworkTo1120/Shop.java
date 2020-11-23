@@ -42,7 +42,7 @@ public class Shop {
 
         do {
             startNewDay();
-        } while (open());
+        } while (isOpen());
 
         customers.get(0).displayBalanceHistory();
 
@@ -80,7 +80,7 @@ public class Shop {
         }
     }
 
-    boolean open() {
+    boolean isOpen() {
         return storedProducts.size() != 0 && isSomethingBought;
     }
 
