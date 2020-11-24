@@ -3,12 +3,10 @@ package OtherWorks.GamePolyRework;
 public class Player {
     private String name;
     private int hp;
-    private static Attack[] attacks;
 
-    public Player(String name, int hp, Attack[] attacks) {
+    public Player(String name, int hp) {
         this.name = name;
         this.hp = hp;
-        Player.attacks = attacks;
     }
 
     public String getName() {
@@ -25,10 +23,6 @@ public class Player {
 
     public boolean isAlive() {
         return hp > 0;
-    }
-
-    public Attack[] getAttacks() {
-        return attacks;
     }
 
 }

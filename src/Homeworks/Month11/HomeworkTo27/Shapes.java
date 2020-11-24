@@ -4,7 +4,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 abstract class Shape {
-    abstract float getArea();
+    protected float area;
+
+    protected abstract float getArea();
+
+    protected static float sq(float value) {
+        return value * value;
+    }
+
+    @Override
+    public abstract String toString();
 }
 
 class Circle extends Shape {
@@ -12,11 +21,20 @@ class Circle extends Shape {
 
     public Circle(float radius) {
         this.radius = radius;
+        area = (float) Math.PI * sq(radius);
     }
 
     @Override
-    float getArea() {
-        return (float) Math.PI * radius * radius;
+    public float getArea() {
+        return area;
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "area=" + area +
+                ", radius=" + radius +
+                '}';
     }
 }
 
@@ -27,17 +45,27 @@ class Rectangle extends Shape {
     public Rectangle(float height, float width) {
         this.height = height;
         this.width = width;
+        area = width * height;
     }
 
     @Override
-    float getArea() {
-        return width * height;
+    public float getArea() {
+        return area;
+    }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "area=" + area +
+                ", height=" + height +
+                ", width=" + width +
+                '}';
     }
 }
 
 class Triangle extends Shape {
-    private float edgeBase;
     private float height;
+    private float edgeBase;
     private float edgeLeft;
     private float edgeRight;
     private float alpha;
@@ -45,28 +73,6 @@ class Triangle extends Shape {
     private float cosAlpha;
 
     private Triangle() {
-
-    }
-
-    private static Triangle byHeight(float edgeBase, float edgeLeft, float height) {
-        Triangle triangle = new Triangle();
-        triangle.edgeBase = edgeBase;
-        triangle.edgeLeft = edgeLeft;
-        triangle.height = height;
-
-        triangle.sinAlpha = height / edgeLeft;
-        triangle.cosAlpha = (float) (
-                Math.sqrt(edgeLeft * edgeLeft - height * height)
-                        / edgeLeft
-        );
-        //triangle.alpha = (float)Math.asin(triangle.sinAlpha);
-
-        triangle.edgeRight = (float) Math.sqrt(
-                sq(edgeLeft) + sq(edgeBase)
-                        - 2 * edgeLeft * edgeBase * triangle.cosAlpha
-        );
-
-        return triangle;
     }
 
     static Triangle byEdges(float edgeBase, float edgeLeft, float edgeRight) {
@@ -74,6 +80,16 @@ class Triangle extends Shape {
         triangle.edgeBase = edgeBase;
         triangle.edgeLeft = edgeLeft;
         triangle.edgeRight = edgeRight;
+
+        float p = (edgeBase + edgeLeft + edgeRight ) / 2;
+        triangle.area = (float) Math.sqrt(p * (p - edgeBase) * (p - edgeLeft) * (p-edgeRight));
+
+        triangle.height = 2 * triangle.area / edgeBase;
+
+        triangle.sinAlpha = triangle.height / edgeLeft;
+        triangle.cosAlpha = (float) Math.sqrt(sq(edgeLeft) - sq(triangle.height)) / edgeLeft;
+        triangle.alpha = (float) Math.toDegrees(Math.asin(triangle.sinAlpha));
+
         return triangle;
     }
 
@@ -87,17 +103,33 @@ class Triangle extends Shape {
         triangle.cosAlpha = (float) Math.cos(Math.toRadians(angle));
 
         triangle.height = edgeLeft * triangle.sinAlpha;
+
+        triangle.area = triangle.height * edgeBase / 2;
+
+        triangle.edgeRight = (float) Math.sqrt(
+                sq(edgeBase) + sq(edgeLeft) - 2 * edgeBase * edgeLeft * triangle.cosAlpha
+        );
+
         return triangle;
     }
 
-    static float sq(float value) {
-        return value * value;
+    @Override
+    public float getArea() {
+        return area;
     }
 
-
     @Override
-    float getArea() {
-        return edgeBase * height;
+    public String toString() {
+        return "Triangle{" +
+                "area=" + area +
+                ", height=" + height +
+                ", edgeBase=" + edgeBase +
+                ", edgeLeft=" + edgeLeft +
+                ", edgeRight=" + edgeRight +
+                ", alpha=" + alpha +
+                ", sinAlpha=" + sinAlpha +
+                ", cosAlpha=" + cosAlpha +
+                '}';
     }
 }
 
@@ -105,16 +137,16 @@ class ShapesTest {
     public static void main(String[] args) {
         ArrayList<Shape> shapes = new ArrayList<>(
                 Arrays.asList(
-                        new Circle(10),
-                        new Rectangle(10, 20),
-                        Triangle.byAngle(45, 3, 4.24f)
+                        Triangle.byAngle(45, 3, 4.24f),
+                        Triangle.byEdges(3,4.24f,3),
+                        new Rectangle(134.2344f, 25.23453f),
+                        new Circle(14.2343f)
                 )
         );
 
         for (Shape shape : shapes) {
             System.out.println(
-                    shape.getClass().getSimpleName() +
-                            " area is " + shape.getArea()
+                    shape
             );
         }
     }

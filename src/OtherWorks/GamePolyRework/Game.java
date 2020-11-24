@@ -19,9 +19,9 @@ public class Game {
     public void makeNewPlayers() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter first player name:");
-        currentPlayer = new Player(sc.nextLine(), defaultHpValue, availableAttacks);
+        currentPlayer = new Player(sc.nextLine(), defaultHpValue);
         System.out.println("Enter first player name:");
-        anotherPlayer = new Player(sc.nextLine(), defaultHpValue, availableAttacks);
+        anotherPlayer = new Player(sc.nextLine(), defaultHpValue);
     }
 
     public void makeGame() {
