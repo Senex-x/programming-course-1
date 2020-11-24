@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class InnerClasses2 {
+
     public static void main(String[] args) {
         ArrayList<A> arrayA = new ArrayList<>(
                 Arrays.asList(
