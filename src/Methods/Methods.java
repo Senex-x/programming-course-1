@@ -175,7 +175,7 @@ public abstract class Methods {
     }
 
     public static void line(String lineItem) {
-        for (int i = 0; i < 400; i++) {
+        for (int i = 0; i < 400 / lineItem.length(); i++) {
             System.out.print(lineItem);
         }
         System.out.println();
