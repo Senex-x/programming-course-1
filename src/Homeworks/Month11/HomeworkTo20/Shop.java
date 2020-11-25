@@ -7,16 +7,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/*
-INSERT INTO customers (name)
-VALUES ('Makoto Naegi')
-INSERT INTO customers (name)
-VALUES ('Akane Owari');
-INSERT INTO customers (name)
-VALUES ('Kazuici Soda');
-
- */
-
 class ShopTest {
     public static void main(String[] args) {
         Shop newShop = new Shop();
