@@ -44,7 +44,6 @@ public class Containers1 {
             item.display();
         }
     }
-
 }
 
 class Item {
