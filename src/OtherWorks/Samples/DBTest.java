@@ -11,10 +11,27 @@ public class DBTest {
     public static void main(String[] args) {
         DBTest dbTest = new DBTest();
         dbTest.open();
-        dbTest.insert();
+        //dbTest.insert();
+        dbTest.selectAll();
+        String input = getLine();
+        dbTest.edit(
+                Integer.parseInt(input.substring(0, input.indexOf(' '))),
+                input.substring(input.indexOf(' ') + 1)
+        );
         dbTest.selectAll();
         dbTest.close();
+    }
 
+    private void edit(int idToEdit, String newName) {
+        String query = "UPDATE customers SET name = \"" + newName +
+                "\" WHERE id = " + idToEdit + ";";
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(query);
+            statement.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     private void selectAll() {
@@ -24,7 +41,7 @@ public class DBTest {
                     "FROM customers " +
                     "ORDER BY id;";
             ResultSet results = statement.executeQuery(query);
-            while(results.next()) {
+            while (results.next()) {
                 int id = results.getInt("id");
                 String name = results.getString("name");
                 System.out.println("id: " + id + ", name: " + name);
@@ -48,7 +65,7 @@ public class DBTest {
     private void insert() {
         System.out.println("Enter a name:");
         String name = getLine();
-        if(name.length() == 0) return;
+        if (name.length() == 0) return;
         String query = "INSERT INTO customers (name)" +
                 "VALUES ('" + name + "');";
         try {
@@ -59,7 +76,6 @@ public class DBTest {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
     }
 
     void open() {
