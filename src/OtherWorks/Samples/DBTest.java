@@ -1,11 +1,10 @@
 package OtherWorks.Samples;
 
-import org.sqlite.core.DB;
-
 import static Methods.Methods.*;
 
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 class DataBasetest {
@@ -58,26 +57,30 @@ public class DBTest {
     public void create(String tableName, TypeSetter typeSetter) {
         LinkedHashMap<String, Class<?>> dataSet = typeSetter.getValues();
         String[] keySet = dataSet.keySet().toArray(new String[0]);
-        Object[] typeSet = dataSet.values().toArray();
-        System.out.println(dataSet);
-        for(Class<?> object : dataSet.values()) {
-            System.out.println(object.getTypeName());
-        }
-        String[] queryTypes = new String[dataSet.size()];
-        for (int i = 0; i < typeSet.length; i++) {
-            System.out.println(typeSet[i].getClass().getTypeName());
-            if (typeSet[i] instanceof Integer) {
-                queryTypes[i] = "INTEGER";
-            } else if (typeSet[i] instanceof String) {
-                queryTypes[i] = "TEXT"; // VARCHAR(...);
+        String[] typeSet = new String[dataSet.size()];
+        Collection<Class<?>> types = dataSet.values();
+        Iterator<Class<?>> it = types.iterator();
+
+        for(int i=0;it.hasNext();i++) {
+            Class<?> type = it.next();
+            if (type.getTypeName().equals(String.class.getTypeName())) {
+                typeSet[i] = "TEXT";
+            } else if (type.getTypeName().equals(Integer.class.getTypeName())) {
+                typeSet[i] = "INTEGER";
             }
         }
 
-        String query = "CREATE TABLE " + tableName + " (\n";
-        for (int i = 0; i < dataSet.size() - 1; i++) {
-            query += keySet[i] + " " + queryTypes[i] + ",\n";
+        String isAutoIncrement = "";
+        if(typeSet[0].equals("INTEGER")) isAutoIncrement = " AUTOINCREMENT";
+
+        String query = "CREATE TABLE " + tableName + " (\n" +
+                keySet[0] + " " + typeSet[0] + " PRIMARY KEY" + isAutoIncrement + ",\n";
+
+        for (int i = 1; i < dataSet.size() - 1; i++) {
+            query += keySet[i] + " " + typeSet[i] + ",\n";
         }
-        query += keySet[dataSet.size() - 1] + " " + queryTypes[dataSet.size() - 1] + "\n" +
+
+        query += keySet[dataSet.size() - 1] + " " + typeSet[dataSet.size() - 1] + "\n" +
                 ");";
 
         System.out.println(query);
@@ -124,7 +127,6 @@ public class DBTest {
     }
 
     private void insert() {
-        System.out.println("Enter a name:");
         String name = getLine();
         if (name.length() == 0) return;
         String query = "INSERT INTO customers (name)" +
