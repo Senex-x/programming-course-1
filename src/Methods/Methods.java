@@ -189,11 +189,11 @@ public abstract class Methods {
         }
     }
 
-    public static String paint(String string, String code) {
+    public static String paint(String code, String string) {
         return code + string + Colors.RESET.code();
     }
 
-    public static String paint(String string, Colors color) {
+    public static String paint(Colors color, String string) {
         return paint(string, color.code());
     }
 
