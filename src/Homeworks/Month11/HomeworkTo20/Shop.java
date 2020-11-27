@@ -196,7 +196,7 @@ public class Shop {
     private static final String GREEN = Methods.Colors.GREEN.code();
 
     private String paint(String string, String colorCode) {
-        return Methods.paint(string, colorCode);
+        return Methods.paint(colorCode, string);
     }
 
     private static class Customer {
