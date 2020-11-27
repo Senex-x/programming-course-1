@@ -1,8 +1,24 @@
 package OtherWorks.Samples;
 
+import org.sqlite.core.DB;
+
 import static Methods.Methods.*;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+
+class DataBasetest {
+    public static void main(String[] args) {
+        DBTest.TypeSetter typesSet = new DBTest.TypeSetter();
+        typesSet.add("id", 0);
+        typesSet.add("name", "");
+
+        DBTest dbHandler = new DBTest();
+        dbHandler.create("names", typesSet);
+    }
+
+}
 
 public class DBTest {
     String DB_PATH = "C:\\Projects\\Java\\StudyProject\\data\\CustomersDB\\customers.db";
@@ -13,6 +29,7 @@ public class DBTest {
         dbTest.open();
         //dbTest.insert();
         dbTest.selectAll();
+
         String input = getLine();
         dbTest.edit(
                 Integer.parseInt(input.substring(0, input.indexOf(' '))),
@@ -20,6 +37,50 @@ public class DBTest {
         );
         dbTest.selectAll();
         dbTest.close();
+    }
+
+    public static class TypeSetter {
+        private final LinkedHashMap<String, Class<?>> values = new LinkedHashMap<>();
+
+        public void add(String name, Integer type) {
+            values.put(name, type.getClass());
+        }
+
+        public void add(String name, String type) {
+            values.put(name, type.getClass());
+        }
+
+        private LinkedHashMap<String, Class<?>> getValues() {
+            return values;
+        }
+    }
+
+    public void create(String tableName, TypeSetter typeSetter) {
+        LinkedHashMap<String, Class<?>> dataSet = typeSetter.getValues();
+        String[] keySet = dataSet.keySet().toArray(new String[0]);
+        Object[] typeSet = dataSet.values().toArray();
+        System.out.println(dataSet);
+        for(Class<?> object : dataSet.values()) {
+            System.out.println(object.getTypeName());
+        }
+        String[] queryTypes = new String[dataSet.size()];
+        for (int i = 0; i < typeSet.length; i++) {
+            System.out.println(typeSet[i].getClass().getTypeName());
+            if (typeSet[i] instanceof Integer) {
+                queryTypes[i] = "INTEGER";
+            } else if (typeSet[i] instanceof String) {
+                queryTypes[i] = "TEXT"; // VARCHAR(...);
+            }
+        }
+
+        String query = "CREATE TABLE " + tableName + " (\n";
+        for (int i = 0; i < dataSet.size() - 1; i++) {
+            query += keySet[i] + " " + queryTypes[i] + ",\n";
+        }
+        query += keySet[dataSet.size() - 1] + " " + queryTypes[dataSet.size() - 1] + "\n" +
+                ");";
+
+        System.out.println(query);
     }
 
     private void edit(int idToEdit, String newName) {

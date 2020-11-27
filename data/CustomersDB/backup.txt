@@ -1,0 +1,15 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE customers ( id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(50) );
+INSERT INTO customers VALUES(1,'Jonatan Joestar');
+INSERT INTO customers VALUES(2,'Hajime Hinata');
+INSERT INTO customers VALUES(3,'Makoto Naegi');
+INSERT INTO customers VALUES(4,'Akane Owari');
+INSERT INTO customers VALUES(5,'Kazuici Soda');
+INSERT INTO customers VALUES(6,'Mikan Tsumiki');
+DELETE FROM sqlite_sequence;
+INSERT INTO sqlite_sequence VALUES('customers',6);
+COMMIT;
+CREATE TABLE customers ( id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(50) );
+customers
+customers
