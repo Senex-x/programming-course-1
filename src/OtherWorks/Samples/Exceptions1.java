@@ -8,7 +8,21 @@ import java.util.logging.Logger;
 
 public class Exceptions1 {
     public static void main(String[] args) {
+        try {
+            exceptionChaining();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
 
+    static void exceptionChaining() throws NullPointerException {
+        try {
+            throw new Exception("Initial exception");
+        } catch (Exception exception) {
+            NullPointerException nextException = new NullPointerException("Second exception");
+            nextException.initCause(exception);
+            throw nextException;
+        }
     }
 
     static void rethrowingExceptionHandling() {
