@@ -2,16 +2,16 @@ package OtherWorks.Samples;
 
 public class InnerClasses1 {
     public static void main(String[] args) {
-        Parent.Inner inner = new Parent().new Inner();
+        ParentClass.Inner inner = new ParentClass().new Inner();
         // private access
         // int a = inner.innerField;
     }
 }
 
-class Parent {
+class ParentClass {
     private int parentField;
 
-    Parent() {
+    ParentClass() {
         Inner inner = new Inner();
         parentField = inner.innerField;
     }

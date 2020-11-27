@@ -1,10 +1,54 @@
 package OtherWorks.Samples;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.logging.Logger;
+
 public class Exceptions1 {
     public static void main(String[] args) {
+
+    }
+
+    static void rethrowingExceptionHandling() {
         try {
-            //throwException(new ClassCastException());
-            throwException(new MyException("MyException"));
+            rethrowingException();
+        } catch (Exception e) {
+            System.out.println("Second catch: ");
+            e.printStackTrace(System.out);
+            e.fillInStackTrace();
+            e.printStackTrace(System.out);
+        }
+    }
+
+    static void rethrowingException() throws Exception {
+        try {
+            throw new Exception("Simple exception");
+        } catch (Exception e) {
+            System.out.println("First catch: " + e);
+            e.printStackTrace(System.out);
+            e.fillInStackTrace();
+            e.printStackTrace(System.out);
+            throw e;
+        }
+    }
+
+    static void optionalExceptionHandling() {
+        try {
+            ArrayList<Integer> array = new ArrayList<>(10);
+            int a = array.get(20);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e);
+            for(StackTraceElement element : e.getStackTrace()) {
+                System.out.println(element);
+            }
+        }
+    }
+
+    static void basicExceptionHandling() {
+        try {
+            throwException(new MyException());
         } catch (Exception e) {
             System.out.println("Handling exception: " + e.getClass().getSimpleName());
         }
@@ -17,10 +61,19 @@ public class Exceptions1 {
     }
 
     static class MyException extends Exception {
-        private String desc;
+        private static final Logger log = Logger.getLogger("MyException");
 
-        MyException(String desc) {
-            this.desc = desc;
+        MyException() {
+            StringWriter stringWriter = new StringWriter();
+            printStackTrace(new PrintWriter(stringWriter));
+            log.severe(stringWriter.toString());
+            System.err.println("SEVERE END");
+        }
+
+        @Override
+        public String getMessage() {
+            System.out.println("StackTrace: ");
+            return super.getMessage();
         }
     }
 }
