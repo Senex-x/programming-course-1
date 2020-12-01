@@ -1,8 +1,13 @@
-package OtherWorks.CoffeeMashine.examtask;
+package OtherWorks.Solutions;
 
 import java.util.*;
 
-public class CTwo1 {
+/*
+Exam task solution
+Doesn't have actual meaning
+ */
+
+public class Solution3 {
     public static int getI(int k, int m) {
         return k;
     }
