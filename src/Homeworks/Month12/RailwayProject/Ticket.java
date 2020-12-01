@@ -7,5 +7,4 @@ public class Ticket {
     private int cost;
     private Train train;
 
-
 }
