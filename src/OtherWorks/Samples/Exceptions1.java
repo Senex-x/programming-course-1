@@ -2,7 +2,6 @@ package OtherWorks.Samples;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
