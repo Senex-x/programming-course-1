@@ -1,6 +1,11 @@
 package Homeworks.Month12.RailwayProject;
 
-public class StationMap {
+public class Station {
+    String id;
+    String name;
+
+
+    /*
     enum Stations {
         VAHITOVO,
         NOVATOROV,
@@ -14,5 +19,5 @@ public class StationMap {
         MOZHGA,
         PICHAS,
         KARAMBAI;
-    }
+    }*/
 }
