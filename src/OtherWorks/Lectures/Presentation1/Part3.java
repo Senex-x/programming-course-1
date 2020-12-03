@@ -1,4 +1,4 @@
-package OtherWorks.Lesson;
+package OtherWorks.Lectures.Presentation1;
 
 public class Part3 {
     int x = 100;

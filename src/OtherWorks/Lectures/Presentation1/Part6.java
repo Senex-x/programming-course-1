@@ -1,6 +1,4 @@
-package OtherWorks.Lesson;
-
-import Methods.Methods;
+package OtherWorks.Lectures.Presentation1;
 
 import java.util.Scanner;
 

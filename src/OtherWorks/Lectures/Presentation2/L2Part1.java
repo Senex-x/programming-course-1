@@ -1,4 +1,4 @@
-package OtherWorks.Lesson.Presentation2;
+package OtherWorks.Lectures.Presentation2;
 
 import java.util.ArrayList;
 

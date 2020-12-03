@@ -1,4 +1,4 @@
-package OtherWorks.Lesson;
+package OtherWorks.Lectures.Presentation1;
 
 public class Part2 {
     public static void main(String[] args) {
