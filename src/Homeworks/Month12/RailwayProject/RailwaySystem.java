@@ -21,7 +21,7 @@ class RailwaySystem {
 
     public void start() {
         Train testTrain = new Train(
-                0,
+                3,
                 "EP2K",
                 160,
                 200,
@@ -30,7 +30,7 @@ class RailwaySystem {
                 "0123"
         );
 
-        databaseHandler.add(testTrain);
+        databaseHandler.update(testTrain);
     }
 
     class Handler {
