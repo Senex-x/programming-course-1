@@ -14,8 +14,11 @@ CREATE TABLE timetable (
 );
 
 INSERT INTO timetable ( train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )
-VALUES ( 'Velaro EVS Sapsan', 300, 200, 2000, 0, 12345);
+VALUES ( 'Velaro EVS Sapsan', 300, 200, 2000, 0, '12345' );
 
 INSERT INTO timetable ( train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )
-VALUES ( 'EP1M', 120, 300, 800, 2, 123450);
+VALUES ( 'EP1M', 120, 300, 800, 2, '123450' );
+
+INSERT INTO timetable ( train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )
+VALUES ( 'EP2K', 160, 200, 600, 2, '0123' );
 
