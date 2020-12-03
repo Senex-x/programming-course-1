@@ -1,12 +1,9 @@
 package Homeworks.Month12.RailwayProject;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
-public class DatabaseHandler {
+class DatabaseHandler {
     private static final String TABLE_NAME = "timetable";
     private static final String DB_PATH = "D:\\Projects\\Java\\" +
             "PolyakovV_11005\\src\\Homeworks\\Month12" +
@@ -23,7 +20,7 @@ public class DatabaseHandler {
     private Connection connection;
 
 
-    public DatabaseHandler() {
+    DatabaseHandler() {
         openDatabase();
     }
 
@@ -36,8 +33,8 @@ public class DatabaseHandler {
         }
     }
 
-    public void add(Train train) {
-        Statement statement;
+    void add(Train train) {
+
         String query = "INSERT INTO " + TABLE_NAME + " " +
                 "( train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )\n" +
                 "VALUES ( '" +
@@ -52,7 +49,7 @@ public class DatabaseHandler {
         System.out.println(query);
 
         try {
-            statement = connection.createStatement();
+            Statement statement = connection.createStatement();
             //statement.executeUpdate(query);
             statement.close();
         } catch (SQLException exception) {
@@ -60,21 +57,55 @@ public class DatabaseHandler {
         }
     }
 
-    public void update(Train train) {
+    void update(Train train) {
         String query = "UPDATE " + TABLE_NAME + " SET\n" +
                 COLUMNS[1] + " = '" + train.getName() + "',\n" +
-                COLUMNS[2] + " = " + train.getSpeed()+ ",\n" +
-                COLUMNS[3] + " = " + train.getCapacity()+ ",\n" +
-                COLUMNS[4] + " = " + train.getTicketCost()+ ",\n" +
-                COLUMNS[5] + " = " + train.getTrainType().getId()+ ",\n" +
+                COLUMNS[2] + " = " + train.getSpeed() + ",\n" +
+                COLUMNS[3] + " = " + train.getCapacity() + ",\n" +
+                COLUMNS[4] + " = " + train.getTicketCost() + ",\n" +
+                COLUMNS[5] + " = " + train.getTrainType().getId() + ",\n" +
                 COLUMNS[6] + " = '" + train.getRouteCode() + "'\n" +
                 "WHERE\n" +
                 COLUMNS[0] + " = " + train.getId() + ";";
-
         System.out.println(query);
+
+        try {
+            Statement statement = connection.createStatement();
+            //statement.executeUpdate(query);
+            statement.close();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+
     }
 
-    public ArrayList<Train> getTrains() {
+    void displayDatabase() {
+        String query = "SELECT * FROM " + TABLE_NAME + ";";
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet results = statement.executeQuery(query);
+            while (results.next()) {
+                System.out.println(new Train(
+                        results.getInt(COLUMNS[0]),
+                        results.getString(COLUMNS[1]),
+                        results.getInt(COLUMNS[2]),
+                        results.getInt(COLUMNS[3]),
+                        results.getInt(COLUMNS[4]),
+                        TrainType.values()[results.getInt(COLUMNS[5])],
+                        results.getString(COLUMNS[6]))
+                );
+            }
+            results.close();
+            statement.close();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+
+    }
+
+    // Database parser
+    ArrayList<Train> getTrains() {
         ArrayList<Train> trains = new ArrayList<>();
 
         return trains;

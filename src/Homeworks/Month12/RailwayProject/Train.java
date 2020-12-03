@@ -25,6 +25,19 @@ public class Train {
         this.routeCode = routeCode;
     }
 
+    @Override
+    public String toString() {
+        return "Train{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", speed=" + speed +
+                ", capacity=" + capacity +
+                ", ticketCost=" + ticketCost +
+                ", trainType=" + trainType +
+                ", routeCode='" + routeCode + '\'' +
+                '}';
+    }
+
     public int getId() {
         return id;
     }
