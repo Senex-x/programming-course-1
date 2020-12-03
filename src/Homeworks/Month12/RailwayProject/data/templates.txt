@@ -1,0 +1,21 @@
+.cd  D:\\Projects\\Java\\PolyakovV_11005\\src\\Homeworks\\Month12\\RailwayProject\\data
+.open timetable.db
+.mode box
+SELECT * FROM timetable;
+
+CREATE TABLE timetable (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	train_name TEXT NOT NULL,
+	train_speed INTEGER NOT NULL,
+	train_capacity INTEGER NOT NULL,
+	train_ticket_cost INTEGER NOT NULL,
+	train_type INTEGER NOT NULL,
+	train_route TEXT NOT NULL
+);
+
+INSERT INTO timetable ( train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )
+VALUES ( 'Velaro EVS Sapsan', 300, 200, 2000, 0, 12345);
+
+INSERT INTO timetable ( train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )
+VALUES ( 'EP1M', 120, 300, 800, 2, 123450);
+
