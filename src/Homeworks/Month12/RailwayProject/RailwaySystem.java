@@ -1,6 +1,7 @@
 package Homeworks.Month12.RailwayProject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
@@ -13,16 +14,25 @@ class Test {
     }
 }
 
-public class RailwaySystem {
+class RailwaySystem {
     TimeHandler timeHandler = new TimeHandler();
+    TrainsMovementHandler trainsHandler = new TrainsMovementHandler();
 
 
+    public void start() {
+
+    }
 
     class Handler {
 
     }
 
-    static class TimeHandler {
+    private static class TrainsMovementHandler {
+        ArrayList<Train> trains;
+    }
+
+
+    private static class TimeHandler {
         private final GregorianCalendar calendar;
         private final SimpleDateFormat formatter;
         private String formattedDate;
