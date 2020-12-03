@@ -10,17 +10,27 @@ class Test {
     public static void main(String[] args) {
         RailwaySystem system = new RailwaySystem();
         system.start();
-        
+
     }
 }
 
 class RailwaySystem {
     TimeHandler timeHandler = new TimeHandler();
     TrainsMovementHandler trainsHandler = new TrainsMovementHandler();
-
+    DatabaseHandler databaseHandler = new DatabaseHandler();
 
     public void start() {
+        Train testTrain = new Train(
+                0,
+                "EP2K",
+                160,
+                200,
+                600,
+                TrainType.ECONOMY,
+                "0123"
+        );
 
+        databaseHandler.add(testTrain);
     }
 
     class Handler {

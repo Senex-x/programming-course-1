@@ -24,4 +24,32 @@ public class Train {
         this.trainType = trainType;
         this.routeCode = routeCode;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getTicketCost() {
+        return ticketCost;
+    }
+
+    public TrainType getTrainType() {
+        return trainType;
+    }
+
+    public String getRouteCode() {
+        return routeCode;
+    }
 }
