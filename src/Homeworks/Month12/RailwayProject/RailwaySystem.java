@@ -29,8 +29,6 @@ class RailwaySystem {
                 TrainType.ECONOMY,
                 "0123"
         );
-
-        databaseHandler.getTrains();
     }
 
     class Handler {

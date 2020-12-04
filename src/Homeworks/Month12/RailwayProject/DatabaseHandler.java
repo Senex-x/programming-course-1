@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class DatabaseHandler {
+    private static final String TRAINS_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/trains.txt";
+    private static final String STATIONS_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/stations.txt";
+    private static final String WAYMATRIX_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/waymatrix.txt";
     private static final String TABLE_NAME = "timetable";
     private static final String DB_PATH = "D:\\Projects\\Java\\" +
             "PolyakovV_11005\\src\\Homeworks\\Month12" +
@@ -21,7 +24,8 @@ class DatabaseHandler {
             "train_route"
     };
     private Connection connection;
-
+    private static final ArrayList<String> waymatrixRows = getWayMatrix();
+    private static final ArrayList<String> stationNames = getStationNames();
 
     DatabaseHandler() {
         openDatabase();
@@ -104,10 +108,10 @@ class DatabaseHandler {
 
     // Database parser
     static ArrayList<Train> getTrains() {
-        int idCounter = 1;
+        int idCounter = 0;
         ArrayList<Train> trains = new ArrayList<>();
         try {
-            Scanner scanner = new Scanner(new FileReader("src/Homeworks/Month12/RailwayProject/data/trains.txt"));
+            Scanner scanner = new Scanner(new FileReader(TRAINS_TXT_PATH));
             while (scanner.hasNext()) {
                 trains.add(new Train(
                         idCounter++,
@@ -129,7 +133,56 @@ class DatabaseHandler {
     // get all stations and set their ways
     static ArrayList<Station> getStations() {
         ArrayList<Station> stations = new ArrayList<>();
-
+        for (int i = 0; i < stationNames.size(); i++) {
+            stations.add(new Station(
+                    i,
+                    stationNames.get(i),
+                    getWaysFor(i)
+            ));
+        }
         return stations;
+    }
+
+    static ArrayList<String> getStationNames() {
+        ArrayList<String> stationNames = new ArrayList<>();
+        try {
+            Scanner scanner = new Scanner(new FileReader(STATIONS_TXT_PATH));
+            while (scanner.hasNext()) {
+                stationNames.add(scanner.next());
+            }
+            scanner.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stationNames;
+    }
+
+    // waymatrix.txt parser returns ArrayList of Strings each of which contains one row
+    static ArrayList<String> getWayMatrix() {
+        ArrayList<String> wayRows = new ArrayList<>();
+        try {
+            Scanner scanner = new Scanner(new FileReader(WAYMATRIX_TXT_PATH));
+            while (scanner.hasNext()) {
+                wayRows.add(scanner.nextLine());
+            }
+            scanner.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return wayRows;
+    }
+
+    // waymatrixRows parser for finding exact ways referring to station with give id
+    static ArrayList<Way> getWaysFor(int id) {
+        ArrayList<Way> ways = new ArrayList<>();
+        String wayRow = waymatrixRows.get(id);
+        String[] splittedRow = wayRow.split(" ");
+        for (int i = 0; i < splittedRow.length; i++) {
+            ways.add(new Way(
+
+            ));
+        }
+
+        return ways;
     }
 }
