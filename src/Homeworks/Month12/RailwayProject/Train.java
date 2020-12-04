@@ -25,6 +25,15 @@ public class Train {
         this.routeCode = routeCode;
     }
 
+    public Train(String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode) {
+        this.name = name;
+        this.speed = speed;
+        this.capacity = capacity;
+        this.ticketCost = ticketCost;
+        this.trainType = trainType;
+        this.routeCode = routeCode;
+    }
+
     @Override
     public String toString() {
         return "Train{" +

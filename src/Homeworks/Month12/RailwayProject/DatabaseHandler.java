@@ -34,7 +34,6 @@ class DatabaseHandler {
     }
 
     void add(Train train) {
-
         String query = "INSERT INTO " + TABLE_NAME + " " +
                 "( train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )\n" +
                 "VALUES ( '" +
