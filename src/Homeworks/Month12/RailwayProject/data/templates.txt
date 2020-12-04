@@ -1,4 +1,9 @@
-.cd  D:\\Projects\\Java\\PolyakovV_11005\\src\\Homeworks\\Month12\\RailwayProject\\data
+.cd C:\\Projects\\Java\\StudyProject\\src\\Homeworks\\Month12\\RailwayProject\\data
+.open timetable.db
+.mode box
+SELECT * FROM timetable;
+
+.cd D:\\Projects\\Java\\PolyakovV_11005\\src\\Homeworks\\Month12\\RailwayProject\\data
 .open timetable.db
 .mode box
 SELECT * FROM timetable;
