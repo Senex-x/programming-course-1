@@ -1,5 +1,7 @@
 package Homeworks.Month12.RailwayProject;
 
+import Methods.Methods;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -29,6 +31,10 @@ class RailwaySystem {
                 TrainType.ECONOMY,
                 "0123"
         );
+
+        for(Station station : DatabaseHandler.getStations()) {
+            System.out.println(station);
+        }
     }
 
     class Handler {

@@ -21,20 +21,12 @@ public class Station {
         return name;
     }
 
-    /*
-    enum Stations {
-        VAHITOVO,
-        NOVATOROV,
-        DERBYSHKI,
-        KAMAEVO,
-        ARSK,
-        KUKMOR,
-        YAGUL,
-        SOSNOVKA,
-        KIZNER,
-        MOZHGA,
-        PICHAS,
-        KARAMBAI;
-    }*/
-
+    @Override
+    public String toString() {
+        return "Station{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", ways=" + ways +
+                '}';
+    }
 }

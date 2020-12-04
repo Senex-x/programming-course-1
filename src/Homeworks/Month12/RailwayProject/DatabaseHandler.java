@@ -1,5 +1,7 @@
 package Homeworks.Month12.RailwayProject;
 
+import Methods.Methods;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
@@ -26,6 +28,8 @@ class DatabaseHandler {
     private Connection connection;
     private static final ArrayList<String> waymatrixRows = getWayMatrix();
     private static final ArrayList<String> stationNames = getStationNames();
+    private static final WaysHandler waysHandler = getAllWays();
+
 
     DatabaseHandler() {
         openDatabase();
@@ -137,7 +141,7 @@ class DatabaseHandler {
             stations.add(new Station(
                     i,
                     stationNames.get(i),
-                    getWaysFor(i)
+                    waysHandler.getWaysFor(stationNames.get(i))
             ));
         }
         return stations;
@@ -172,17 +176,22 @@ class DatabaseHandler {
         return wayRows;
     }
 
-    // waymatrixRows parser for finding exact ways referring to station with give id
-    static ArrayList<Way> getWaysFor(int id) {
+
+    // waymatrixRows parser for all ways referring to each station
+    static WaysHandler getAllWays() {
         ArrayList<Way> ways = new ArrayList<>();
-        String wayRow = waymatrixRows.get(id);
-        String[] splittedRow = wayRow.split(" ");
-        for (int i = 0; i < splittedRow.length; i++) {
-            ways.add(new Way(
-
-            ));
+        for (int i = 0; i < waymatrixRows.size(); i++) {
+            String wayRow = waymatrixRows.get(i);
+            if (wayRow.length() == 0) continue;
+            String[] splittedRow = wayRow.split(" ");
+            for (int j = 0; j < splittedRow.length; j += 2) {
+                ways.add(new Way(
+                        stationNames.get(i),
+                        stationNames.get(Integer.parseInt(splittedRow[j])),
+                        Integer.parseInt(splittedRow[j + 1])
+                ));
+            }
         }
-
-        return ways;
+        return new WaysHandler(ways);
     }
 }
