@@ -1,7 +1,10 @@
 package Homeworks.Month12.RailwayProject;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class DatabaseHandler {
     private static final String TABLE_NAME = "timetable";
@@ -42,11 +45,9 @@ class DatabaseHandler {
                 train.getCapacity() + ", " +
                 train.getTicketCost() + ", " +
                 train.getTrainType().getId() + ", '" +
-                train.getRouteCode() +
-                "' );";
+                train.getRouteCode() + "' );";
 
         System.out.println(query);
-
         try {
             Statement statement = connection.createStatement();
             //statement.executeUpdate(query);
@@ -66,8 +67,8 @@ class DatabaseHandler {
                 COLUMNS[6] + " = '" + train.getRouteCode() + "'\n" +
                 "WHERE\n" +
                 COLUMNS[0] + " = " + train.getId() + ";";
-        System.out.println(query);
 
+        System.out.println(query);
         try {
             Statement statement = connection.createStatement();
             //statement.executeUpdate(query);
@@ -75,7 +76,6 @@ class DatabaseHandler {
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
-
     }
 
     void displayDatabase() {
@@ -100,13 +100,36 @@ class DatabaseHandler {
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
-
     }
 
     // Database parser
-    ArrayList<Train> getTrains() {
+    static ArrayList<Train> getTrains() {
+        int idCounter = 1;
         ArrayList<Train> trains = new ArrayList<>();
-
+        try {
+            Scanner scanner = new Scanner(new FileReader("src/Homeworks/Month12/RailwayProject/data/trains.txt"));
+            while (scanner.hasNext()) {
+                trains.add(new Train(
+                        idCounter++,
+                        scanner.next(),
+                        scanner.nextInt(),
+                        scanner.nextInt(),
+                        scanner.nextInt(),
+                        TrainType.values()[scanner.nextInt()],
+                        scanner.next())
+                );
+            }
+            scanner.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return trains;
+    }
+
+    // get all stations and set their ways
+    static ArrayList<Station> getStations() {
+        ArrayList<Station> stations = new ArrayList<>();
+
+        return stations;
     }
 }

@@ -30,7 +30,7 @@ class RailwaySystem {
                 "0123"
         );
 
-        databaseHandler.displayDatabase();
+        databaseHandler.getTrains();
     }
 
     class Handler {

@@ -1,8 +1,13 @@
 package Homeworks.Month12.RailwayProject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Station {
     String id;
     String name;
+    ArrayList<Way> ways;
+
 
 
     /*
@@ -20,4 +25,5 @@ public class Station {
         PICHAS,
         KARAMBAI;
     }*/
+
 }
