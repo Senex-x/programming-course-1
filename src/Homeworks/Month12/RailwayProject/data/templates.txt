@@ -13,6 +13,16 @@ CREATE TABLE timetable (
 	train_route TEXT NOT NULL
 );
 
+UPDATE timetable SET 
+	train_name = 'New name',
+	train_speed = -1,
+	train_capacity = -1,
+	train_ticket_cost = -1,
+	train_type = -1,
+	train_route = 'New route code'
+WHERE
+	id = -1;
+
 INSERT INTO timetable ( train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )
 VALUES ( 'Velaro EVS Sapsan', 300, 200, 2000, 0, '12345' );
 
