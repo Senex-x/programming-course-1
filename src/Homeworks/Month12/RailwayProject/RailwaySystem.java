@@ -12,7 +12,6 @@ class Test {
     public static void main(String[] args) {
         RailwaySystem system = new RailwaySystem();
         system.start();
-
     }
 }
 

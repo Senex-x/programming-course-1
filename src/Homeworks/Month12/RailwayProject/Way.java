@@ -20,8 +20,6 @@ public class Way {
         return name.equals(from) || name.equals(where);
     }
 
-
-
     @Override
     public String toString() {
         return "Way{" +

@@ -1,7 +1,5 @@
 package Homeworks.Month12.RailwayProject;
 
-import Methods.Methods;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
@@ -28,8 +26,8 @@ class DatabaseHandler {
     private Connection connection;
     private static final ArrayList<String> waymatrixRows = getWayMatrix();
     private static final ArrayList<String> stationNames = getStationNames();
+    private static final ArrayList<Train> trains = getTrains();
     private static final WaysHandler waysHandler = getAllWays();
-
 
     DatabaseHandler() {
         openDatabase();
@@ -134,7 +132,7 @@ class DatabaseHandler {
         return trains;
     }
 
-    // get all stations and set their ways
+    // Get all stations and set their ways
     static ArrayList<Station> getStations() {
         ArrayList<Station> stations = new ArrayList<>();
         for (int i = 0; i < stationNames.size(); i++) {
@@ -147,6 +145,7 @@ class DatabaseHandler {
         return stations;
     }
 
+    // stations.txt parser returns ArrayList of station names
     static ArrayList<String> getStationNames() {
         ArrayList<String> stationNames = new ArrayList<>();
         try {
@@ -175,7 +174,6 @@ class DatabaseHandler {
         }
         return wayRows;
     }
-
 
     // waymatrixRows parser for all ways referring to each station
     static WaysHandler getAllWays() {
