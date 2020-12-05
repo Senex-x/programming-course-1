@@ -36,7 +36,10 @@ class RailwaySystem {
                 "0 1 2 3"
         );
 
-        databaseHandler.displayDatabase();
+        //databaseHandler.displayDatabase();
+
+        System.out.println(waysHandler.getRouteForTrain("0 1 2 10"));
+
     }
 
     class Handler {

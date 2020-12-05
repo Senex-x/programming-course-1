@@ -14,6 +14,7 @@ public class Train {
     private ArrayList<Way> route;
     // Passenger's id <--> Passenger's ticket
     private HashMap<String, Ticket> currentTickets;
+    private Way currentWay;
 
     public Train(int id, String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode) {
         this.id = id;
@@ -25,6 +26,17 @@ public class Train {
         this.routeCode = routeCode;
     }
 
+    public Train(int id, String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode, ArrayList<Way> route) {
+        this.id = id;
+        this.name = name;
+        this.speed = speed;
+        this.capacity = capacity;
+        this.ticketCost = ticketCost;
+        this.trainType = trainType;
+        this.routeCode = routeCode;
+        this.route = route;
+    }
+
     public Train(String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode) {
         this.name = name;
         this.speed = speed;
@@ -32,6 +44,16 @@ public class Train {
         this.ticketCost = ticketCost;
         this.trainType = trainType;
         this.routeCode = routeCode;
+    }
+
+    void move() {
+
+    }
+
+    Way getCurrentWay() {
+        Way current = null;
+
+        return current;
     }
 
     @Override
@@ -44,6 +66,7 @@ public class Train {
                 ", ticketCost=" + ticketCost +
                 ", trainType=" + trainType +
                 ", routeCode='" + routeCode + '\'' +
+                ", route=" + route +
                 '}';
     }
 
@@ -77,5 +100,9 @@ public class Train {
 
     public void setRouteCode(String routeCode) {
         this.routeCode = routeCode;
+    }
+
+    public void setRoute(ArrayList<Way> route) {
+        this.route = route;
     }
 }
