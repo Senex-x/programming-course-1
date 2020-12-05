@@ -1,5 +1,7 @@
 package Homeworks.Month12.RailwayProject;
 
+import static Methods.Methods.*;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
@@ -26,11 +28,12 @@ class DatabaseHandler {
     private Connection connection;
     private static final ArrayList<String> waymatrixRows = getWayMatrix();
     private static final ArrayList<String> stationNames = getStationNames();
-    private static final ArrayList<Train> trains = getTrains();
+    private final ArrayList<Train> trains;
     private static final WaysHandler waysHandler = getAllWays();
 
     DatabaseHandler() {
         openDatabase();
+        trains = getTrains(); // requires connection
     }
 
     private void openDatabase() {
@@ -84,14 +87,15 @@ class DatabaseHandler {
         }
     }
 
-    void displayDatabase() {
+    ArrayList<Train> getTrains() {
+        ArrayList<Train> trains = new ArrayList<>();
         String query = "SELECT * FROM " + TABLE_NAME + ";";
 
         try {
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery(query);
             while (results.next()) {
-                System.out.println(new Train(
+                trains.add(new Train(
                         results.getInt(COLUMNS[0]),
                         results.getString(COLUMNS[1]),
                         results.getInt(COLUMNS[2]),
@@ -106,10 +110,20 @@ class DatabaseHandler {
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
+        return trains;
+    }
+
+    void displayDatabase() {
+        System.out.println("Total amount of elements: " + trains.size());
+        line("-");
+        for(Train train : trains) {
+            System.out.println(train);
+        }
+        line("-");
     }
 
     // Database parser
-    static ArrayList<Train> getTrains() {
+    private static ArrayList<Train> getTrainsFromTxt() {
         int idCounter = 0;
         ArrayList<Train> trains = new ArrayList<>();
         try {
