@@ -11,7 +11,7 @@ public class Train {
     private int ticketCost;
     private TrainType trainType;
     private String routeCode;
-    private ArrayList<Station> route;
+    private ArrayList<Way> route;
     // Passenger's id <--> Passenger's ticket
     private HashMap<String, Ticket> currentTickets;
 
@@ -73,5 +73,9 @@ public class Train {
 
     public String getRouteCode() {
         return routeCode;
+    }
+
+    public void setRouteCode(String routeCode) {
+        this.routeCode = routeCode;
     }
 }

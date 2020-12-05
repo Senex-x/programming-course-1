@@ -13,9 +13,13 @@ class DatabaseHandler {
     private static final String STATIONS_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/stations.txt";
     private static final String WAYMATRIX_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/waymatrix.txt";
     private static final String TABLE_NAME = "timetable";
-    private static final String DB_PATH = "D:\\Projects\\Java\\" +
-            "PolyakovV_11005\\src\\Homeworks\\Month12" +
-            "\\RailwayProject\\data\\" + TABLE_NAME + ".db";
+    private static final String DB_PATH_PC = "D:\\Projects\\Java\\" +
+            "PolyakovV_11005\\src\\Homeworks\\Month12\\" +
+            "RailwayProject\\data\\" + TABLE_NAME + ".db";
+    private static final String DB_PATH = "C:\\Projects\\Java\\" +
+            "StudyProject\\src\\Homeworks\\Month12\\" +
+            "RailwayProject\\data\\" + TABLE_NAME + ".db";
+
     private static final String[] COLUMNS = {
             "id",
             "train_name",
@@ -28,6 +32,7 @@ class DatabaseHandler {
     private Connection connection;
     private static final ArrayList<String> waymatrixRows = getWayMatrix();
     private static final ArrayList<String> stationNames = getStationNames();
+    // Contains all the trains from database
     private final ArrayList<Train> trains;
     private static final WaysHandler waysHandler = getAllWays();
 
@@ -45,10 +50,11 @@ class DatabaseHandler {
         }
     }
 
-    void add(Train train) {
+    void addToDatabase(Train train) {
         String query = "INSERT INTO " + TABLE_NAME + " " +
-                "( train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )\n" +
-                "VALUES ( '" +
+                "( id, train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )\n" +
+                "VALUES ( " +
+                "0, '" +
                 train.getName() + "', " +
                 train.getSpeed() + ", " +
                 train.getCapacity() + ", " +
@@ -66,7 +72,7 @@ class DatabaseHandler {
         }
     }
 
-    void update(Train train) {
+    void updateDatabase(Train train) {
         String query = "UPDATE " + TABLE_NAME + " SET\n" +
                 COLUMNS[1] + " = '" + train.getName() + "',\n" +
                 COLUMNS[2] + " = " + train.getSpeed() + ",\n" +
@@ -80,7 +86,7 @@ class DatabaseHandler {
         System.out.println(query);
         try {
             Statement statement = connection.createStatement();
-            //statement.executeUpdate(query);
+            // statement.executeUpdate(query);
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
@@ -116,13 +122,20 @@ class DatabaseHandler {
     void displayDatabase() {
         System.out.println("Total amount of elements: " + trains.size());
         line("-");
-        for(Train train : trains) {
+        for (Train train : trains) {
             System.out.println(train);
         }
         line("-");
     }
 
-    // Database parser
+    void addAllTrainsFromTxtToDatabase() {
+        ArrayList<Train> trains = getTrainsFromTxt();
+        for (Train train : trains) {
+            addToDatabase(train);
+        }
+    }
+
+    // trains.txt parser used just for faster initial set of trains input
     private static ArrayList<Train> getTrainsFromTxt() {
         int idCounter = 0;
         ArrayList<Train> trains = new ArrayList<>();
@@ -153,7 +166,7 @@ class DatabaseHandler {
             stations.add(new Station(
                     i,
                     stationNames.get(i),
-                    waysHandler.getWaysFor(stationNames.get(i))
+                    waysHandler.getWaysForStation(stationNames.get(i))
             ));
         }
         return stations;
@@ -190,7 +203,7 @@ class DatabaseHandler {
     }
 
     // waymatrixRows parser for all ways referring to each station
-    static WaysHandler getAllWays() {
+    private static WaysHandler getAllWays() {
         ArrayList<Way> ways = new ArrayList<>();
         for (int i = 0; i < waymatrixRows.size(); i++) {
             String wayRow = waymatrixRows.get(i);
@@ -205,5 +218,27 @@ class DatabaseHandler {
             }
         }
         return new WaysHandler(ways);
+    }
+
+    WaysHandler getWaysHandler() {
+        return waysHandler;
+    }
+
+    // Legacy method once used to divide old route codes which was without spaces
+    private void divide() {
+        for (int i = 0; i < trains.size(); i++) {
+            Train train = trains.get(i);
+            String initialRoute = train.getRouteCode();
+            StringBuilder newRoute = new StringBuilder();
+            if(initialRoute.charAt(1) == ' ') continue;
+            for (int j = 0; j < initialRoute.length() - 1; j++) {
+                newRoute.append(initialRoute.charAt(j) - 48);
+                newRoute.append(" ");
+            }
+            newRoute.append(initialRoute.charAt(initialRoute.length() - 1) - 48);
+            train.setRouteCode(newRoute.toString());
+
+            //updateDatabase(train);
+        }
     }
 }

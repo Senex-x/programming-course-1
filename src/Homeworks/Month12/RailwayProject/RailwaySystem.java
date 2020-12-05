@@ -1,6 +1,6 @@
 package Homeworks.Month12.RailwayProject;
 
-import Methods.Methods;
+import static Methods.Methods.*;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,22 +18,25 @@ class Test {
 class RailwaySystem {
     TimeHandler timeHandler = new TimeHandler();
     TrainsMovementHandler trainsHandler = new TrainsMovementHandler();
+    // Doing all the work referred to data files
     DatabaseHandler databaseHandler = new DatabaseHandler();
+    // Contains list of all possible ways and offers different methods to work with this list
+    WaysHandler waysHandler = databaseHandler.getWaysHandler();
+    // Contains all trains from database
+    ArrayList<Train> trains = databaseHandler.getTrains();
 
     public void start() {
         Train testTrain = new Train(
-                3,
+                0,
                 "EP2K",
                 160,
                 200,
                 600,
                 TrainType.ECONOMY,
-                "0123"
+                "0 1 2 3"
         );
 
-        for(Station station : DatabaseHandler.getStations()) {
-            System.out.println(station);
-        }
+        databaseHandler.displayDatabase();
     }
 
     class Handler {
