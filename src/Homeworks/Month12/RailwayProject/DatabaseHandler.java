@@ -40,8 +40,8 @@ class DatabaseHandler {
 
     DatabaseHandler() {
         openDatabase();
-        trains = getTrains(); // requires connection
         waysHandler.setStations(stations); // requires stations list
+        trains = getTrains(); // requires connection and waysHandler's list of stations
     }
 
     private void openDatabase() {
@@ -111,9 +111,8 @@ class DatabaseHandler {
                         results.getInt(COLUMNS[3]),
                         results.getInt(COLUMNS[4]),
                         TrainType.values()[results.getInt(COLUMNS[5])],
-                        results.getString(COLUMNS[6]) //,
-                        //waysHandler.getRouteForTrain(results.getString(COLUMNS[6]))
-                        )
+                        results.getString(COLUMNS[6]),
+                        waysHandler.getRouteForTrain(results.getString(COLUMNS[6])))
                 );
 
             }

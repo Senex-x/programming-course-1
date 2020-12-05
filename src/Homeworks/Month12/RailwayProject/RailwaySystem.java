@@ -38,8 +38,14 @@ class RailwaySystem {
 
         //databaseHandler.displayDatabase();
 
-        System.out.println(waysHandler.getRouteForTrain("0 1 2 10"));
+        displayArray(trains);
+    }
 
+    private <T> void displayArray(ArrayList<T> array) {
+        System.out.println("ArrayList of " + array.size() + " " + array.get(0).getClass().getSimpleName() + "s : ");
+        for(T e : array) {
+            System.out.println(e);
+        }
     }
 
     class Handler {
