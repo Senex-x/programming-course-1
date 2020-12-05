@@ -110,16 +110,17 @@ public abstract class Methods {
         return getStringArray(size);
     }
 
-    public static <T> void outArray(ArrayList<T> array) {
+    public static <T> void displayArray(ArrayList<T> array, int elementsPerLine) {
         System.out.println("Array of " + array.size() + " elements:");
         for (int i = 0; i < array.size(); i++) {
             System.out.print(array.get(i) + " ");
-            if (i % ELEMENTS_IN_LINE == 0 && i != 0) System.out.println();
+            if (i % elementsPerLine == 0 && i != 0) System.out.println();
         }
         System.out.println();
     }
 
-    public static <T> void outMatrix(ArrayList<ArrayList<T>> array) {
+
+    public static <T> void displayMatrix(ArrayList<ArrayList<T>> array) {
         int n = array.size();
         int m = array.get(0).size();
         System.out.println("Matrix of " + array.size() * array.get(0).size() + " elements:");

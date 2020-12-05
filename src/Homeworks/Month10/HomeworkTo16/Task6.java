@@ -8,7 +8,7 @@ public class Task6 {
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> first = Methods.getIntMatrix();
         ArrayList<ArrayList<Integer>> second = Methods.getIntMatrix(first.size(), first.get(0).size());
-        Methods.outMatrix(summation(first, second));
+        Methods.displayMatrix(summation(first, second));
     }
 
     private static ArrayList<ArrayList<Integer>> summation(ArrayList<ArrayList<Integer>> first,

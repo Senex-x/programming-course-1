@@ -8,7 +8,7 @@ public class Task4 {
     public static void main(String[] args) {
         ArrayList<Integer> first = Methods.getIntArray();
         ArrayList<Integer> second = Methods.getIntArray();
-        Methods.outArray(concat(first, second));
+        Methods.displayArray(concat(first, second), 20);
     }
 
     private static <T> ArrayList<T> concat(ArrayList<T> first,

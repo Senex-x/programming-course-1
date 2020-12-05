@@ -11,7 +11,7 @@ public class Task2 {
     public static void main(String[] args) {
         ArrayList<Integer> array = Methods.getIntArray();
         Methods.sort(array);
-        Methods.outArray(array);
+        Methods.displayArray(array, 20);
         System.out.println("Index of wanted element in the array: " +
                 binarySearch(array, Methods.getInt(), 0, array.size() - 1));
     }

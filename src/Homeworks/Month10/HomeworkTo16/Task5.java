@@ -8,7 +8,7 @@ public class Task5 {
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> matrix = Methods.getIntMatrix();
         matrix = transposition(matrix);
-        Methods.outMatrix(matrix);
+        Methods.displayMatrix(matrix);
     }
 
     private static ArrayList<ArrayList<Integer>> transposition(ArrayList<ArrayList<Integer>> matrix) {

@@ -26,6 +26,6 @@ public class Task3 {
             return 0;
         });
 
-        Methods.outArray(array);
+        Methods.displayArray(array, 20);
     }
 }

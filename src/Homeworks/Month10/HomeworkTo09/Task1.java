@@ -13,7 +13,7 @@ public class Task1 {
     public static void main(String[] args) {
         ArrayList<Integer> array = Methods.getIntArray();
         quickSort(array, 0, array.size() - 1);
-        Methods.outArray(array);
+        Methods.displayArray(array, 20);
     }
 
     private static void quickSort(ArrayList<Integer> array, int left, int right) {
