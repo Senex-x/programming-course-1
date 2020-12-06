@@ -195,7 +195,7 @@ public abstract class Methods {
     }
 
     public static String paint(Colors color, String string) {
-        return paint(string, color.code());
+        return paint(color.code(), string);
     }
 
     public enum Colors {
