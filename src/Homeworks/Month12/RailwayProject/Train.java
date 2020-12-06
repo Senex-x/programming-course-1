@@ -16,7 +16,7 @@ public class Train {
     private ArrayList<Way> route;
     // Passenger's id <--> Passenger's ticket
     private HashMap<String, Ticket> currentTickets;
-    private Way currentWay;
+
     private MovementHandler movementHandler;
     private TimeHandler timeHandler;
 
@@ -56,6 +56,7 @@ public class Train {
         private int currentWayPoint = 0;
         private final ArrayList<Way> route;
         private Way currentWay;
+        private Way nextWay;
         private int timeBeforeArrival;
 
         public MovementHandler(ArrayList<Way> route, Way currentWay) {
@@ -64,37 +65,77 @@ public class Train {
         }
 
         void start() {
-            currentWay = route.get(currentWayPoint++);
+            currentWay = route.get(currentWayPoint);
             timeBeforeArrival = calculateTime();
+            line("-");
+            nextWay = calculateNextWay();
+
+            String departure = getDeparture(currentWay, nextWay);
+            String destination = getDestination(currentWay, nextWay);
+            //String departure =  currentWay.getOtherStation(Way.includedInBoth(currentWay));
+
             System.out.println(Train.this.getInfo() +
-                    "\nstarts from " + currentWay.getDeparture());
+                    "\nStarts from: " + departure +
+                    "\nTo: " + destination);
+
+
         }
 
         void move() {
             if (--timeBeforeArrival == 0) { // arrived
                 line("-");
+                String destination = getDestination(currentWay, nextWay);
                 System.out.println("Arrived train: " + Train.this.getInfo() +
-                        "\nAt station: " + currentWay.getDestination() +
-                        "\nCurrent date: " + timeHandler);
-                if (currentWayPoint + 1 < route.size()) {
-                    currentWay = route.get(currentWayPoint++);
-                } else {
-                    currentWayPoint = 0;
-                    currentWay = route.get(0);
-                }
+                        "\nCurrent date: " + timeHandler +
+                        "\nOn station: " + destination);
+                /*
+                System.out.println("Arrived train: " + Train.this.getInfo() +
+                                "\nCurrent date: " + timeHandler +
+                                "\nOn station: " + currentWay.getDestination());
+                */
+
+                currentWay = nextWay;
+                nextWay = calculateNextWay();
                 timeBeforeArrival = calculateTime();
+
+
+                destination = getDestination(currentWay, nextWay);
+                System.out.println("Next station: " + destination +
+                        "\nEstimated time on route: " + timeBeforeArrival + "h.");
+
+                /*
                 System.out.println("Next station: " + currentWay.getDestination() +
-                        "\nEstimated time on route: " + timeBeforeArrival);
+                                "\nEstimated time on route: " + timeBeforeArrival + "h.");
+            */
             }
+
+        }
+
+        Way calculateNextWay() {
+            Way nextWay;
+            if (currentWayPoint + 1 < route.size()) { // next
+                nextWay = route.get(++currentWayPoint);
+            } else { // circle
+                currentWayPoint = 0;
+                nextWay = route.get(currentWayPoint);
+            }
+            return nextWay;
+        }
+
+        String getDestination(Way current, Way next) {
+            String departure = Way.includedInBoth(current, next);
+            return departure;
+        }
+
+        String getDeparture(Way current, Way next) {
+            String departure = Way.includedInBoth(current, next);
+            String destination = current.getOtherStation(departure);
+            return destination;
         }
 
         int calculateTime() {
             return Math.round((float) currentWay.getDistance() / speed);
         }
-    }
-
-    Way getCurrentWay() {
-        return currentWay;
     }
 
     @Override
@@ -112,7 +153,7 @@ public class Train {
     }
 
     String getInfo() {
-        return "Train " + name + " (ID: " + id + ")";
+        return name + " (ID: " + id + ")";
     }
 
     public int getId() {

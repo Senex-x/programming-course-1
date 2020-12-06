@@ -3,10 +3,7 @@ package Homeworks.Month12.RailwayProject;
 import static Methods.Methods.*;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
+import java.util.*;
 
 class Test {
     public static void main(String[] args) {
@@ -33,18 +30,33 @@ class RailwaySystem {
                 200,
                 600,
                 TrainType.ECONOMY,
-                "0 1 2 3"
+                "0 1 2 3",
+                new ArrayList<>(Arrays.asList(new Way("Vahitovo", "Kamaevo", 320)))
         );
 
         //databaseHandler.displayDatabase();
+        //displayArray(trains, 1);
 
-        displayArray(trains);
-    }
+        /*
+        for(Train train : trains) {
+            train.start(timeHandler);
+        }
+        for (int i = 0; i < 72; i++) {
+            timeHandler.nextHour();
+            for(Train train : trains) {
+                train.move();
+            }
+        }
+        */
 
-    private <T> void displayArray(ArrayList<T> array) {
-        System.out.println("ArrayList of " + array.size() + " " + array.get(0).getClass().getSimpleName() + "s : ");
-        for(T e : array) {
-            System.out.println(e);
+
+        Train train = trains.get(1);
+        System.out.println(train);
+
+        train.start(timeHandler);
+        for (int i = 0; i < 12; i++) {
+            timeHandler.nextHour();
+            train.move();
         }
     }
 
@@ -56,42 +68,4 @@ class RailwaySystem {
         ArrayList<Train> trains;
     }
 
-
-    private static class TimeHandler {
-        private final GregorianCalendar calendar;
-        private final SimpleDateFormat formatter;
-        private String formattedDate;
-
-        private TimeHandler() {
-            Calendar currentDate = Calendar.getInstance();
-            calendar = new GregorianCalendar(
-                    currentDate.get(Calendar.YEAR),
-                    currentDate.get(Calendar.MONTH),
-                    currentDate.get(Calendar.DAY_OF_MONTH));
-            formatter = new SimpleDateFormat("HH 'ч.' dd MMMM yyyy", Locale.getDefault());
-            updateFormattedDate();
-        }
-
-        private void nextHour() {
-            calendar.add(Calendar.HOUR, 1);
-            updateFormattedDate();
-        }
-
-        private void updateFormattedDate() {
-            formattedDate = formatter.format(calendar.getTime());
-        }
-
-        private int getHour() {
-            return calendar.get(Calendar.HOUR);
-        }
-
-        private int getDay() {
-            return calendar.get(Calendar.MONTH);
-        }
-
-        @Override
-        public String toString() {
-            return formattedDate;
-        }
-    }
 }
