@@ -1,5 +1,7 @@
 package Homeworks.Month12.RailwayProject;
 
+import static Methods.Methods.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -16,6 +18,7 @@ public class Train {
     private HashMap<String, Ticket> currentTickets;
     private Way currentWay;
     private MovementHandler movementHandler;
+    private TimeHandler timeHandler;
 
     // only used in trains.txt parser for initial input
     public Train(int id, String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode) {
@@ -40,8 +43,9 @@ public class Train {
         movementHandler = new MovementHandler(route, route.get(0));
     }
 
-    void start() {
+    void start(TimeHandler timeHandler) {
         movementHandler.start();
+        this.timeHandler = timeHandler;
     }
 
     void move() {
@@ -62,24 +66,30 @@ public class Train {
         void start() {
             currentWay = route.get(currentWayPoint++);
             timeBeforeArrival = calculateTime();
-            System.out.println("On start: currentWay" + currentWay + ", timeBeforeArrival: " + timeBeforeArrival);
+            System.out.println(Train.this.getInfo() +
+                    "\nstarts from " + currentWay.getDeparture());
         }
 
         void move() {
-            if(--timeBeforeArrival == 0) { // arrived
-                if(currentWayPoint + 1 < route.size()) {
+            if (--timeBeforeArrival == 0) { // arrived
+                line("-");
+                System.out.println("Arrived train: " + Train.this.getInfo() +
+                        "\nAt station: " + currentWay.getDestination() +
+                        "\nCurrent date: " + timeHandler);
+                if (currentWayPoint + 1 < route.size()) {
                     currentWay = route.get(currentWayPoint++);
                 } else {
                     currentWayPoint = 0;
                     currentWay = route.get(0);
                 }
                 timeBeforeArrival = calculateTime();
+                System.out.println("Next station: " + currentWay.getDestination() +
+                        "\nEstimated time on route: " + timeBeforeArrival);
             }
-            System.out.println("On move: currentWay" + currentWay + ", timeBeforeArrival: " + timeBeforeArrival);
         }
 
         int calculateTime() {
-            return Math.round((float)currentWay.getDistance() / speed);
+            return Math.round((float) currentWay.getDistance() / speed);
         }
     }
 
@@ -99,6 +109,10 @@ public class Train {
                 ", routeCode='" + routeCode + '\'' +
                 ", route=" + route +
                 '}';
+    }
+
+    String getInfo() {
+        return "Train " + name + " (ID: " + id + ")";
     }
 
     public int getId() {

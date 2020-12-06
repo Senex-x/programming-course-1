@@ -24,6 +24,14 @@ public class Way {
         return distance;
     }
 
+    String getDestination() {
+        return where;
+    }
+
+    String getDeparture() {
+        return from;
+    }
+
     @Override
     public String toString() {
         return "Way{" +
