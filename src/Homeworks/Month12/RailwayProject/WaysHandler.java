@@ -2,11 +2,11 @@ package Homeworks.Month12.RailwayProject;
 
 import java.util.ArrayList;
 
-public class WaysHandler {
+class WaysHandler {
     private final ArrayList<Way> ways;
     private ArrayList<Station> stations;
 
-    public WaysHandler(ArrayList<Way> ways) {
+    WaysHandler(ArrayList<Way> ways) {
         this.ways = ways;
     }
 
@@ -79,7 +79,7 @@ public class WaysHandler {
         return route;
     }
 
-    public void setStations(ArrayList<Station> stations) {
+    void setStations(ArrayList<Station> stations) {
         this.stations = stations;
     }
 }

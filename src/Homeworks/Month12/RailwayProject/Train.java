@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Train {
-    private int id;
-    private String name;
+    private final int id;
+    private final String name;
     private int speed;
     private int capacity;
     private int ticketCost;
@@ -21,7 +21,7 @@ public class Train {
     private TimeHandler timeHandler;
 
     // only used in trains.txt parser for initial input
-    public Train(int id, String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode) {
+    Train(int id, String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode) {
         this.id = id;
         this.name = name;
         this.speed = speed;
@@ -31,7 +31,7 @@ public class Train {
         this.routeCode = routeCode;
     }
 
-    public Train(int id, String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode, ArrayList<Way> route) {
+    Train(int id, String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode, ArrayList<Way> route) {
         this.id = id;
         this.name = name;
         this.speed = speed;
@@ -72,7 +72,6 @@ public class Train {
 
             String departure = getDeparture(currentWay, nextWay);
             String destination = getDestination(currentWay, nextWay);
-            //String departure =  currentWay.getOtherStation(Way.includedInBoth(currentWay));
 
             System.out.println(Train.this.getInfo() +
                     "\nStarts from: " + departure +
@@ -88,25 +87,14 @@ public class Train {
                 System.out.println("Arrived train: " + Train.this.getInfo() +
                         "\nCurrent date: " + timeHandler +
                         "\nOn station: " + destination);
-                /*
-                System.out.println("Arrived train: " + Train.this.getInfo() +
-                                "\nCurrent date: " + timeHandler +
-                                "\nOn station: " + currentWay.getDestination());
-                */
 
                 currentWay = nextWay;
                 nextWay = calculateNextWay();
                 timeBeforeArrival = calculateTime();
 
-
                 destination = getDestination(currentWay, nextWay);
                 System.out.println("Next station: " + destination +
                         "\nEstimated time on route: " + timeBeforeArrival + "h.");
-
-                /*
-                System.out.println("Next station: " + currentWay.getDestination() +
-                                "\nEstimated time on route: " + timeBeforeArrival + "h.");
-            */
             }
 
         }
@@ -123,14 +111,12 @@ public class Train {
         }
 
         String getDestination(Way current, Way next) {
-            String departure = Way.includedInBoth(current, next);
-            return departure;
+            return Way.includedInBoth(current, next);
         }
 
         String getDeparture(Way current, Way next) {
             String departure = Way.includedInBoth(current, next);
-            String destination = current.getOtherStation(departure);
-            return destination;
+            return current.getOtherStation(departure);
         }
 
         int calculateTime() {
@@ -156,39 +142,39 @@ public class Train {
         return name + " (ID: " + id + ")";
     }
 
-    public int getId() {
+    int getId() {
         return id;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public int getSpeed() {
+    int getSpeed() {
         return speed;
     }
 
-    public int getCapacity() {
+    int getCapacity() {
         return capacity;
     }
 
-    public int getTicketCost() {
+    int getTicketCost() {
         return ticketCost;
     }
 
-    public TrainType getTrainType() {
+    TrainType getTrainType() {
         return trainType;
     }
 
-    public String getRouteCode() {
+    String getRouteCode() {
         return routeCode;
     }
 
-    public void setRouteCode(String routeCode) {
+    void setRouteCode(String routeCode) {
         this.routeCode = routeCode;
     }
 
-    public void setRoute(ArrayList<Way> route) {
+    void setRoute(ArrayList<Way> route) {
         this.route = route;
     }
 }

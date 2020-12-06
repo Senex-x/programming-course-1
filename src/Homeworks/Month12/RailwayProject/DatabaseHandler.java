@@ -37,7 +37,6 @@ class DatabaseHandler {
     // Contains all the trains from database
     private final ArrayList<Train> trains;
 
-
     DatabaseHandler() {
         openDatabase();
         waysHandler.setStations(stations); // requires stations list

@@ -22,7 +22,7 @@ class RailwaySystem {
     // Contains all trains from database
     ArrayList<Train> trains = databaseHandler.getTrains();
 
-    public void start() {
+    void start() {
         Train testTrain = new Train(
                 0,
                 "EP2K",
@@ -67,5 +67,4 @@ class RailwaySystem {
     private static class TrainsMovementHandler {
         ArrayList<Train> trains;
     }
-
 }

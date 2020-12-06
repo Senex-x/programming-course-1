@@ -5,7 +5,7 @@ public class Way {
     String where;
     int distance;
 
-    public Way(String from, String where, int distance) {
+    Way(String from, String where, int distance) {
         this.from = from;
         this.where = where;
         this.distance = distance;
@@ -39,7 +39,7 @@ public class Way {
         return name.equals(from) || name.equals(where);
     }
 
-    public int getDistance() {
+    int getDistance() {
         return distance;
     }
 
