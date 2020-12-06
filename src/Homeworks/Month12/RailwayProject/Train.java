@@ -15,7 +15,9 @@ public class Train {
     // Passenger's id <--> Passenger's ticket
     private HashMap<String, Ticket> currentTickets;
     private Way currentWay;
+    private MovementHandler movementHandler;
 
+    // only used in trains.txt parser for initial input
     public Train(int id, String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode) {
         this.id = id;
         this.name = name;
@@ -35,25 +37,54 @@ public class Train {
         this.trainType = trainType;
         this.routeCode = routeCode;
         this.route = route;
+        movementHandler = new MovementHandler(route, route.get(0));
     }
 
-    public Train(String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode) {
-        this.name = name;
-        this.speed = speed;
-        this.capacity = capacity;
-        this.ticketCost = ticketCost;
-        this.trainType = trainType;
-        this.routeCode = routeCode;
+    void start() {
+        movementHandler.start();
     }
 
     void move() {
+        movementHandler.move();
+    }
 
+    private class MovementHandler {
+        private int currentWayPoint = 0;
+        private final ArrayList<Way> route;
+        private Way currentWay;
+        private int timeBeforeArrival;
+
+        public MovementHandler(ArrayList<Way> route, Way currentWay) {
+            this.route = route;
+            this.currentWay = currentWay;
+        }
+
+        void start() {
+            currentWay = route.get(currentWayPoint++);
+            timeBeforeArrival = calculateTime();
+            System.out.println("On start: currentWay" + currentWay + ", timeBeforeArrival: " + timeBeforeArrival);
+        }
+
+        void move() {
+            if(--timeBeforeArrival == 0) { // arrived
+                if(currentWayPoint + 1 < route.size()) {
+                    currentWay = route.get(currentWayPoint++);
+                } else {
+                    currentWayPoint = 0;
+                    currentWay = route.get(0);
+                }
+                timeBeforeArrival = calculateTime();
+            }
+            System.out.println("On move: currentWay" + currentWay + ", timeBeforeArrival: " + timeBeforeArrival);
+        }
+
+        int calculateTime() {
+            return Math.round((float)currentWay.getDistance() / speed);
+        }
     }
 
     Way getCurrentWay() {
-        Way current = null;
-
-        return current;
+        return currentWay;
     }
 
     @Override
