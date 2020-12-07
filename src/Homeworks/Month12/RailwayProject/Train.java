@@ -14,6 +14,7 @@ public class Train {
     private TrainType trainType;
     private String routeCode;
     private ArrayList<Way> route;
+
     // Passenger's id <--> Passenger's ticket
     private HashMap<String, Ticket> currentTickets;
 
@@ -50,6 +51,12 @@ public class Train {
 
     void move() {
         movementHandler.move();
+    }
+
+    String calculateNextArrivalTime(Station station) {
+        String date;
+
+        return date;
     }
 
     private class MovementHandler {

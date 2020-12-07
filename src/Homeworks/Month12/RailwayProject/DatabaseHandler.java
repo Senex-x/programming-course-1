@@ -9,8 +9,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class DatabaseHandler {
+    // Contains trains for easy input, not needed in final build
     private static final String TRAINS_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/trains.txt";
+    // Contains all station names in proper order
     private static final String STATIONS_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/stations.txt";
+    // Contains all possible ways and their lengths for each station name
+    // Being associated by station ID's: ID = line in waymatrix with proper ways description
     private static final String WAYMATRIX_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/waymatrix.txt";
     private static final String TABLE_NAME = "timetable";
     private static final String DB_PATH_PC = "D:\\Projects\\Java\\" +
@@ -177,6 +181,7 @@ class DatabaseHandler {
     }
 
     // stations.txt parser returns ArrayList of station names
+    // To add a new station, stations.txt and waymatrix.txt updates needed
     static ArrayList<String> getStationNames() {
         ArrayList<String> stationNames = new ArrayList<>();
         try {

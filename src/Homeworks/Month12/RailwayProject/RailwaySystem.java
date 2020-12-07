@@ -1,5 +1,7 @@
 package Homeworks.Month12.RailwayProject;
 
+import Methods.Methods;
+
 import static Methods.Methods.*;
 
 import java.text.SimpleDateFormat;
@@ -14,31 +16,34 @@ class Test {
 
 /**
  * TODO
- *  - GENERIC TASKS
- *  - Authorization (with password saving using hash code maybe)
- *  - Dialog asking how long to continue simulation in loop
- *  - Sign out
- *  - Quit
- *  -
- *  - LOGGING
- *  - Tickets selling logging
- *  - Passenger's boardings logging
- *  - Train's movements logging
- *  - Save logs somewhere
- *  - Possibility to delete logs
- *  -
- *  - PASSENGER ACCOUNT
- *  - Account saving in database
- *  - Buying ticket to train (unavailable before previous is not cancelled or finished)
- *  - Cancelling ticket
- *  - Check history
- *  -
- *  - ADMINISTRATOR ACCOUNT privileges
- *  - Possibility to add new trains
- *  - Possibility to delete trains
- *  - Possibility to add new stations and routes
- *  - Possibility to edit train's route
- *  - Possibility to edit any info about train besides of ID
+ * - GENERIC TASKS
+ * - Authorization (with password saving using hash code maybe)
+ * - Dialog asking how long to continue simulation in loop
+ * - Sign out
+ * - Quit
+ * -
+ * - LOGGING
+ * - Tickets selling logging
+ * - Passenger's boardings logging
+ * - Train's movements logging
+ * - Save logs somewhere
+ * - Possibility to delete logs
+ * -
+ * - PASSENGER ACCOUNT
+ * - Account saving in database
+ * - Buying ticket to train (unavailable before previous is not cancelled or finished)
+ * - Find proper train according to demands
+ * - Check timetable for appropriate trains
+ * - Buy ticket to certain date
+ * - Cancelling ticket
+ * - Check history
+ * -
+ * - ADMINISTRATOR ACCOUNT privileges
+ * - Possibility to add new trains
+ * - Possibility to delete trains
+ * - Possibility to add new stations and routes
+ * - Possibility to edit train's route
+ * - Possibility to edit any info about train besides of ID
  */
 
 class RailwaySystem {
@@ -50,6 +55,7 @@ class RailwaySystem {
     WaysHandler waysHandler = databaseHandler.getWaysHandler();
     // Contains all trains from database
     ArrayList<Train> trains = databaseHandler.getTrains();
+    ArrayList<Station> stations = DatabaseHandler.getStations();
 
     void start() {
         Train testTrain = new Train(
@@ -63,33 +69,43 @@ class RailwaySystem {
                 new ArrayList<>(Arrays.asList(new Way("Vahitovo", "Kamaevo", 320)))
         );
 
-        //databaseHandler.displayDatabase();
-        //displayArray(trains, 1);
+        Passenger testPassenger = new Passenger(0, "Senex", "qwerty123");
+        System.out.println("You are logged in as: " + testPassenger);
+
+        System.out.println("If you want to buy ticket enter \"1\"");
+        if (getInt() == 1) {
+            displayArray(stations, 1);
+            System.out.println("Choose departure station ID: ");
+            Station departure = stations.get(getInt());
+            System.out.println("Choose destination station ID: ");
+            Station destination = stations.get(getInt());
 
 
 
-        for(Train train : trains) {
+        }
+    }
+
+    private void simulateAllTrains(int hours) {
+        for (Train train : trains) {
             train.start(timeHandler);
         }
-        for (int i = 0; i < 24; i++) {
+        for (int i = 0; i < hours; i++) {
             timeHandler.nextHour();
-            for(Train train : trains) {
+            for (Train train : trains) {
                 train.move();
             }
         }
+    }
 
-
-/*
-        Train train = trains.get(1);
+    private void simulateTrain(int id, int hours) {
+        Train train = trains.get(id);
         System.out.println(train);
 
         train.start(timeHandler);
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < hours; i++) {
             timeHandler.nextHour();
             train.move();
         }
-
- */
     }
 
     class Handler {
