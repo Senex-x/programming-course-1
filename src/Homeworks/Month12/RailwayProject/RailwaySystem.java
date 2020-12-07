@@ -12,6 +12,35 @@ class Test {
     }
 }
 
+/**
+ * TODO
+ *  - GENERIC TASKS
+ *  - Authorization (with password saving using hash code maybe)
+ *  - Dialog asking how long to continue simulation in loop
+ *  - Sign out
+ *  - Quit
+ *  -
+ *  - LOGGING
+ *  - Tickets selling logging
+ *  - Passenger's boardings logging
+ *  - Train's movements logging
+ *  - Save logs somewhere
+ *  - Possibility to delete logs
+ *  -
+ *  - PASSENGER ACCOUNT
+ *  - Account saving in database
+ *  - Buying ticket to train (unavailable before previous is not cancelled or finished)
+ *  - Cancelling ticket
+ *  - Check history
+ *  -
+ *  - ADMINISTRATOR ACCOUNT privileges
+ *  - Possibility to add new trains
+ *  - Possibility to delete trains
+ *  - Possibility to add new stations and routes
+ *  - Possibility to edit train's route
+ *  - Possibility to edit any info about train besides of ID
+ */
+
 class RailwaySystem {
     TimeHandler timeHandler = new TimeHandler();
     TrainsMovementHandler trainsHandler = new TrainsMovementHandler();
@@ -37,19 +66,20 @@ class RailwaySystem {
         //databaseHandler.displayDatabase();
         //displayArray(trains, 1);
 
-        /*
+
+
         for(Train train : trains) {
             train.start(timeHandler);
         }
-        for (int i = 0; i < 72; i++) {
+        for (int i = 0; i < 24; i++) {
             timeHandler.nextHour();
             for(Train train : trains) {
                 train.move();
             }
         }
-        */
 
 
+/*
         Train train = trains.get(1);
         System.out.println(train);
 
@@ -58,6 +88,8 @@ class RailwaySystem {
             timeHandler.nextHour();
             train.move();
         }
+
+ */
     }
 
     class Handler {
