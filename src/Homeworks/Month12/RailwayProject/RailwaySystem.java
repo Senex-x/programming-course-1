@@ -68,21 +68,20 @@ class RailwaySystem {
                 "0 1 2 3",
                 new ArrayList<>(Arrays.asList(new Way("Vahitovo", "Kamaevo", 320)))
         );
-
+/*
         Passenger testPassenger = new Passenger(0, "Senex", "qwerty123");
         System.out.println("You are logged in as: " + testPassenger);
+        displayArray(stations, 1);
+        System.out.println("Choose departure station ID: ");
+        Station departure = stations.get(getInt());
+        System.out.println("Choose destination station ID: ");
+        Station destination = stations.get(getInt());
+*/
+        //testTrain.calculateNextArrivalTime(null);
 
-        System.out.println("If you want to buy ticket enter \"1\"");
-        if (getInt() == 1) {
-            displayArray(stations, 1);
-            System.out.println("Choose departure station ID: ");
-            Station departure = stations.get(getInt());
-            System.out.println("Choose destination station ID: ");
-            Station destination = stations.get(getInt());
+        simulateTrain(testTrain, 6);
 
-
-
-        }
+        //testTrain.calculateNextArrivalTime(null);
     }
 
     private void simulateAllTrains(int hours) {
@@ -97,8 +96,7 @@ class RailwaySystem {
         }
     }
 
-    private void simulateTrain(int id, int hours) {
-        Train train = trains.get(id);
+    private void simulateTrain(Train train, int hours) {
         System.out.println(train);
 
         train.start(timeHandler);

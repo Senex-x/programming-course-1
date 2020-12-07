@@ -21,6 +21,12 @@ public class Way {
         else return from;
     }
 
+    static String includedInSameStationOtherThan(Way sameWay, String excludedString) {
+        return sameWay.getDeparture().equals(excludedString) ? sameWay.getDestination() : sameWay.getDeparture();
+    }
+
+    static int counter = 0;
+
     static String includedInBoth(Way first, Way second) {
         String dp1 = first.getDeparture();
         String ds1 = first.getDestination();

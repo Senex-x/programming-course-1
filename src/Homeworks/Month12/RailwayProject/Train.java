@@ -45,18 +45,58 @@ public class Train {
     }
 
     void start(TimeHandler timeHandler) {
-        movementHandler.start();
         this.timeHandler = timeHandler;
+        if(route.size() == 1) {
+            movementHandler.singleWayStart();
+        } else {
+            movementHandler.start();
+        }
     }
 
     void move() {
-        movementHandler.move();
+        if(route.size() == 1) {
+            movementHandler.singleWayMove();
+        } else {
+            movementHandler.move();
+        }
     }
 
     String calculateNextArrivalTime(Station station) {
-        String date;
+        String date = "";
+        MovementCalculator movementCalculator = new MovementCalculator(movementHandler.getCurrentWay());
+        /*
+        Way current = movementHandler.getCurrentWay();
+        Way next = movementHandler.getNextWay();
+        String nextStationName = movementHandler.getDestination(current, next);
+        System.out.println(nextStationName);
 
+*/
         return date;
+    }
+    
+    private class MovementCalculator {
+        int currentWayPoint;
+        Way currentWay;
+        // Station currentStation;
+        // Station nextStation;
+
+        public MovementCalculator(Way currentWay) {
+            this.currentWay = currentWay;
+            currentWayPoint = route.indexOf(currentWay);
+            Way nextWay = calculateNextWay();
+            System.out.println(nextWay);
+        }
+
+        Way calculateNextWay() {
+            Way nextWay;
+            if (currentWayPoint + 1 < route.size()) { // next
+                nextWay = route.get(++currentWayPoint);
+            } else { // circle
+                currentWayPoint = 0;
+                nextWay = route.get(currentWayPoint);
+            }
+            return nextWay;
+        }
     }
 
     private class MovementHandler {
@@ -83,8 +123,6 @@ public class Train {
             System.out.println(Train.this.getInfo() +
                     "\nStarts from: " + departure +
                     "\nTo: " + destination);
-
-
         }
 
         void move() {
@@ -95,6 +133,8 @@ public class Train {
                         "\nCurrent date: " + timeHandler +
                         "\nOn station: " + destination);
 
+                System.out.println("current: " + currentWay +
+                        "\nnext: " + nextWay);
                 currentWay = nextWay;
                 nextWay = calculateNextWay();
                 timeBeforeArrival = calculateTime();
@@ -103,7 +143,12 @@ public class Train {
                 System.out.println("Next station: " + destination +
                         "\nEstimated time on route: " + timeBeforeArrival + "h.");
             }
+        }
 
+        void singleWayStart() {
+        }
+
+        public void singleWayMove() {
         }
 
         Way calculateNextWay() {
@@ -117,6 +162,8 @@ public class Train {
             return nextWay;
         }
 
+
+
         String getDestination(Way current, Way next) {
             return Way.includedInBoth(current, next);
         }
@@ -128,6 +175,14 @@ public class Train {
 
         int calculateTime() {
             return Math.round((float) currentWay.getDistance() / speed);
+        }
+
+        public Way getCurrentWay() {
+            return currentWay;
+        }
+
+        public Way getNextWay() {
+            return nextWay;
         }
     }
 
