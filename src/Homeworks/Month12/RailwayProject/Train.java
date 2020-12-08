@@ -94,13 +94,18 @@ public class Train {
             this.timeBeforeArrival = timeBeforeArrival;
             this.desiredStation = desiredStation;
             timeHandlerSnapshot = timeHandler.getSilentSnapshot();
-            if(timeBeforeArrival != 0) {
-                String departure = getDeparture(currentWay, nextWay);
-                if (departure.equals(desiredStation.getName())) {
-                    desiredDate = paint(Colors.BLUE, timeHandlerSnapshot.toString());
-                    return;
+            if (timeBeforeArrival != 0) { // train in move (not tested when train just arrived)
+                String departure;
+                if (route.size() != 1) {
+                    departure = getDeparture(currentWay, nextWay);
+                } else {
+                    singleWayCurrentDestination = movementHandler.getSingleWayCurrentDestination();
+                    departure = movementHandler.getSingleWayCurrentDeparture();
+                    //System.out.println("FOUND CURRENT DESTINATION: " + singleWayCurrentDestination);
+                    //System.out.println("FOUND CURRENT DEPARTURE: " + departure);
                 }
-                this.timeBeforeArrival ++; // ????
+
+                this.timeBeforeArrival++; // ????
                 findDesiredStation();
             } else {
                 if (route.size() == 1) {
@@ -254,7 +259,6 @@ public class Train {
         private final TimeHandler timeHandler;
 
         private MovementHandler(Way currentWay, TimeHandler timeHandler) {
-
             this.currentWay = currentWay;
             this.timeHandler = timeHandler;
         }
@@ -316,9 +320,6 @@ public class Train {
                 System.out.println("Arrived train: " + Train.this.getInfo() +
                         "\nCurrent date: " + timeHandler +
                         "\nOn station: " + singleWayCurrentDestination);
-
-                System.out.println("current: " + currentWay +
-                        "\nnext: " + currentWay);
 
                 System.out.println("Next station: " + singleWayCurrentDeparture +
                         "\nEstimated time on route: " + timeBeforeArrival + "h.");
