@@ -68,22 +68,28 @@ class RailwaySystem {
                 "0 1 2 3",
                 new ArrayList<>(Arrays.asList(new Way("Vahitovo", "Kamaevo", 320)))
         );
-/*
+
         Passenger testPassenger = new Passenger(0, "Senex", "qwerty123");
         System.out.println("You are logged in as: " + testPassenger);
+
+        /*
         displayArray(stations, 1);
         System.out.println("Choose departure station ID: ");
         Station departure = stations.get(getInt());
         System.out.println("Choose destination station ID: ");
         Station destination = stations.get(getInt());
 */
-        //testTrain.calculateNextArrivalTime(null);
+        testTrain.calculateNextArrivalTime(null);
 
-        simulateTrain(testTrain, 6);
+        simulateTrain(trains.get(0), 6);
+
 
         displayArray(trains, 1);
 
         //testTrain.calculateNextArrivalTime(null);
+
+        testTrain.calculateNextArrivalTime(null);
+
     }
 
     private void simulateAllTrains(int hours) {
@@ -105,6 +111,7 @@ class RailwaySystem {
         for (int i = 0; i < hours; i++) {
             timeHandler.nextHour();
             train.move();
+            train.calculateNextArrivalTime(null);
         }
     }
 
