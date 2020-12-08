@@ -50,7 +50,7 @@ class DatabaseHandler {
     private void openDatabase() {
         try {
             Class.forName("org.sqlite.JDBC"); // class loading
-            connection = DriverManager.getConnection("jdbc:sqlite:" + DB_PATH);
+            connection = DriverManager.getConnection("jdbc:sqlite:" + DB_PATH_PC);
         } catch (SQLException | ClassNotFoundException exception) {
             exception.printStackTrace();
         }

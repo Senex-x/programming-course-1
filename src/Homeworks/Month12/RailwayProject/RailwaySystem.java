@@ -81,6 +81,8 @@ class RailwaySystem {
 
         simulateTrain(testTrain, 6);
 
+        displayArray(trains, 1);
+
         //testTrain.calculateNextArrivalTime(null);
     }
 
