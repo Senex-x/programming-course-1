@@ -79,8 +79,10 @@ class RailwaySystem {
 
         Train train = trains.get(0);
         train.start(timeHandler);
-        System.out.println(train.calculateNextArrivalTimeAt(stations.get(6))); // Kizner
+        System.out.println(train);
+        System.out.println(train.calculateNextArrivalTimeAt(Station.getStationByName(stations, "Karambai")));
 
+        simulateTrain(train, 14);
 
         //simulateTrain(train, 10);
     }
@@ -99,7 +101,6 @@ class RailwaySystem {
 
     private void simulateTrain(Train train, int hours) {
         System.out.println(train);
-
         train.start(timeHandler);
         for (int i = 0; i < hours; i++) {
             timeHandler.nextHour();
