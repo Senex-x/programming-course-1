@@ -8,9 +8,20 @@ import java.util.logging.Logger;
 public class Exceptions1 {
     public static void main(String[] args) {
         try {
-            exceptionChaining();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
+            lostException();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    private static void lostException() throws Exception {
+        try {
+            throw new Exception();
+        } finally {
+            int a;
+            a = 100;
+            System.out.println(a);
+            return;
         }
     }
 
