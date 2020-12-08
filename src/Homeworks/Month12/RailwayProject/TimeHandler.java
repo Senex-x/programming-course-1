@@ -20,7 +20,6 @@ class TimeHandler {
                 currentDate.get(Calendar.DAY_OF_MONTH));
         formatter = new SimpleDateFormat("HH 'ч.' dd MMMM yyyy", Locale.US);
         updateFormattedDate();
-        printDate();
     }
 
     void nextHour() {
@@ -47,6 +46,7 @@ class TimeHandler {
 
     TimeHandler getSilentSnapshot() {
         TimeHandler timeHandlerSnapshot = new TimeHandler() {
+
             /*
             @Override
             void printDate() {

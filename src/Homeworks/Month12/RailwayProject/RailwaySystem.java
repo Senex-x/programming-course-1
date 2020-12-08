@@ -1,5 +1,7 @@
 package Homeworks.Month12.RailwayProject;
 
+import static Methods.Methods.*;
+
 import java.util.*;
 
 class Test {
@@ -55,6 +57,8 @@ class RailwaySystem {
     ArrayList<Station> stations = DatabaseHandler.getStations();
 
     void start() {
+        timeHandler.printDate();
+
         Train testTrain = new Train(
                 0,
                 "EP2K",
@@ -77,10 +81,14 @@ class RailwaySystem {
         Station destination = stations.get(getInt());
 */
 
+
         Train train = trains.get(0);
-        train.start(timeHandler);
         System.out.println(train);
-        System.out.println(train.calculateNextArrivalTimeAt(Station.getStationByName(stations, "Karambai")));
+        train.start(timeHandler);
+
+        System.out.println(
+                train.calculateNextArrivalTimeAt(
+                        Station.getStationByName(stations, "Sosnovka")));
 
         simulateTrain(train, 14);
 
