@@ -34,4 +34,8 @@ public class Passenger {
             ArrayList<Ticket> tripsHistory;
         }
     }
+
+    /*
+    Человек спопобен на многое, но многое, в свою очередь, способно его убить
+     */
 }
