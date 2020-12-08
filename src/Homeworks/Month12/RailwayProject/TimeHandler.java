@@ -8,7 +8,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 class TimeHandler {
-    private final GregorianCalendar calendar;
+    private GregorianCalendar calendar;
     private final SimpleDateFormat formatter;
     private String formattedDate;
 
@@ -43,6 +43,20 @@ class TimeHandler {
 
     int getDay() {
         return calendar.get(Calendar.MONTH);
+    }
+
+    TimeHandler getSilentSnapshot() {
+        TimeHandler timeHandlerSnapshot = new TimeHandler() {
+            /*
+            @Override
+            void printDate() {
+
+            }
+            */
+        };
+        timeHandlerSnapshot.calendar = (GregorianCalendar)calendar.clone();
+        timeHandlerSnapshot.formattedDate = new String(formattedDate);
+        return timeHandlerSnapshot;
     }
 
     @Override

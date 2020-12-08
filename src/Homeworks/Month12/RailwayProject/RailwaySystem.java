@@ -1,10 +1,5 @@
 package Homeworks.Month12.RailwayProject;
 
-import Methods.Methods;
-
-import static Methods.Methods.*;
-
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 class Test {
@@ -54,7 +49,9 @@ class RailwaySystem {
     // Contains list of all possible ways and offers different methods to work with this list
     WaysHandler waysHandler = databaseHandler.getWaysHandler();
     // Contains all trains from database
+    // Singleton pattern
     ArrayList<Train> trains = databaseHandler.getTrains();
+    // Singleton pattern
     ArrayList<Station> stations = DatabaseHandler.getStations();
 
     void start() {
@@ -70,7 +67,7 @@ class RailwaySystem {
         );
 
         Passenger testPassenger = new Passenger(0, "Senex", "qwerty123");
-        System.out.println("You are logged in as: " + testPassenger);
+        // System.out.println("You are logged in as: " + testPassenger);
 
         /*
         displayArray(stations, 1);
@@ -79,17 +76,13 @@ class RailwaySystem {
         System.out.println("Choose destination station ID: ");
         Station destination = stations.get(getInt());
 */
-        testTrain.calculateNextArrivalTime(null);
 
-        simulateTrain(trains.get(0), 6);
+        Train train = trains.get(0);
+        train.start(timeHandler);
+        System.out.println(train.calculateNextArrivalTimeAt(stations.get(6))); // Kizner
 
 
-        displayArray(trains, 1);
-
-        //testTrain.calculateNextArrivalTime(null);
-
-        testTrain.calculateNextArrivalTime(null);
-
+        //simulateTrain(train, 10);
     }
 
     private void simulateAllTrains(int hours) {
@@ -111,7 +104,7 @@ class RailwaySystem {
         for (int i = 0; i < hours; i++) {
             timeHandler.nextHour();
             train.move();
-            train.calculateNextArrivalTime(null);
+
         }
     }
 
@@ -122,4 +115,9 @@ class RailwaySystem {
     private static class TrainsMovementHandler {
         ArrayList<Train> trains;
     }
+
+    DatabaseHandler getDatabaseHandler() {
+        return databaseHandler;
+    }
+
 }

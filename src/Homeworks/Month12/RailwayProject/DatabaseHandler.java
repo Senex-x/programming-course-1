@@ -37,14 +37,14 @@ class DatabaseHandler {
     private static final ArrayList<String> waymatrixRows = getWayMatrix();
     private static final ArrayList<String> stationNames = getStationNames();
     private static final WaysHandler waysHandler = getAllWays();
-    private static final ArrayList<Station> stations = getStations(); // requires waysHandler
+    private static final ArrayList<Station> stations = parseStations(); // requires waysHandler
     // Contains all the trains from database
     private final ArrayList<Train> trains;
 
     DatabaseHandler() {
         openDatabase();
         waysHandler.setStations(stations); // requires stations list
-        trains = getTrains(); // requires connection and waysHandler's list of stations
+        trains = parseTrains(); // requires connection and waysHandler's list of stations
     }
 
     private void openDatabase() {
@@ -100,6 +100,10 @@ class DatabaseHandler {
     }
 
     ArrayList<Train> getTrains() {
+        return trains;
+    }
+
+    private ArrayList<Train> parseTrains() {
         ArrayList<Train> trains = new ArrayList<>();
         String query = "SELECT * FROM " + TABLE_NAME + ";";
 
@@ -168,7 +172,7 @@ class DatabaseHandler {
     }
 
     // Get all stations and set their ways
-    static ArrayList<Station> getStations() {
+    private static ArrayList<Station> parseStations() {
         ArrayList<Station> stations = new ArrayList<>();
         for (int i = 0; i < stationNames.size(); i++) {
             stations.add(new Station(
@@ -232,6 +236,11 @@ class DatabaseHandler {
     WaysHandler getWaysHandler() {
         return waysHandler;
     }
+
+    static ArrayList<Station> getStations() {
+        return stations;
+    }
+
 
     // Legacy method once used to divide old route codes which was without spaces
     private void divide() {

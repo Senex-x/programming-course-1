@@ -13,6 +13,15 @@ public class Station {
         this.ways = ways;
     }
 
+    static Station getStationByName(ArrayList<Station> stations, String stationName) {
+        for (Station station : stations) {
+            if (station.getName().equals(stationName)) {
+                return station;
+            }
+        }
+        return null;
+    }
+
     public int getId() {
         return id;
     }
