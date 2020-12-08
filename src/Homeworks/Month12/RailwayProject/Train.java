@@ -145,10 +145,39 @@ public class Train {
             }
         }
 
+        private String singleWayCurrentDeparture;
+        private String singleWayCurrentDestination;
+
         void singleWayStart() {
+            currentWay = route.get(currentWayPoint);
+            timeBeforeArrival = calculateTime();
+            line("-");
+
+            singleWayCurrentDeparture = currentWay.getDeparture();
+            singleWayCurrentDestination = currentWay.getDestination();
+
+            System.out.println(Train.this.getInfo() +
+                    "\nStarts from: " + singleWayCurrentDeparture +
+                    "\nTo: " + singleWayCurrentDestination);
         }
 
         public void singleWayMove() {
+            if (--timeBeforeArrival == 0) { // arrived
+                timeBeforeArrival = calculateTime();
+                line("-");
+                System.out.println("Arrived train: " + Train.this.getInfo() +
+                        "\nCurrent date: " + timeHandler +
+                        "\nOn station: " + singleWayCurrentDestination);
+
+                System.out.println("current: " + currentWay +
+                        "\nnext: " + currentWay);
+
+                System.out.println("Next station: " + singleWayCurrentDeparture +
+                        "\nEstimated time on route: " + timeBeforeArrival + "h.");
+
+                singleWayCurrentDeparture = currentWay.getOtherStation(singleWayCurrentDeparture);
+                singleWayCurrentDestination = currentWay.getOtherStation(singleWayCurrentDestination);
+            }
         }
 
         Way calculateNextWay() {
