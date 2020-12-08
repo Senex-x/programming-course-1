@@ -86,11 +86,13 @@ class RailwaySystem {
         System.out.println(train);
         train.start(timeHandler);
 
+        simulateTrain(train, 3); // 3 -> 18
+
         System.out.println(
                 train.calculateNextArrivalTimeAt(
                         Station.getStationByName(stations, "Sosnovka")));
 
-        simulateTrain(train, 14);
+
 
         //simulateTrain(train, 10);
     }
@@ -108,13 +110,14 @@ class RailwaySystem {
     }
 
     private void simulateTrain(Train train, int hours) {
+        line("SIMULATION START // ");
         System.out.println(train);
         train.start(timeHandler);
         for (int i = 0; i < hours; i++) {
             timeHandler.nextHour();
             train.move();
-
         }
+        line("SIMULATION END // ");
     }
 
     class Handler {
