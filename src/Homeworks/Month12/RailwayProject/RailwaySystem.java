@@ -73,15 +73,26 @@ class RailwaySystem {
         Passenger testPassenger = new Passenger(0, "Senex", "qwerty123");
         // System.out.println("You are logged in as: " + testPassenger);
 
-        /*
+
         displayArray(stations, 1);
         System.out.println("Choose departure station ID: ");
         Station departure = stations.get(getInt());
         System.out.println("Choose destination station ID: ");
         Station destination = stations.get(getInt());
-*/
 
+        for(Train train : trains) {
+            train.silentStart(timeHandler);
+            if(train.hasStationInRoute(departure)) {
+                System.out.println(train.getInfo());
+                System.out.println("Will arrive at station " + departure +
+                        " \nAt: " + train.calculateNextArrivalTimeAt(departure));
+            }
+        }
 
+        // bug
+        simulateTrain(trains.get(2), 10);
+
+/*
         Train train = trains.get(0);
         //Train train = testTrain;
         System.out.println(train);
@@ -91,7 +102,7 @@ class RailwaySystem {
                 train.calculateNextArrivalTimeAt(Station.getStationByName(stations, "Sosnovka")));
 
         simulateTrain(train, 2); // 3 -> 18
-
+*/
 
 
         //simulateTrain(train, 10);

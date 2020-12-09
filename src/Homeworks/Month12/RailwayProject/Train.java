@@ -55,6 +55,18 @@ class Train {
         }
     }
 
+    void silentStart(TimeHandler timeHandler) {
+        this.timeHandler = timeHandler;
+        movementHandler = new MovementHandler(route.get(0), timeHandler);
+        if (route.size() == 1) {
+            movementHandler.singleWayStart();
+        } else {
+            movementHandler.silentStart();
+        }
+    }
+
+
+
     void move() {
         if (route.size() == 1) {
             movementHandler.singleWayMove();
@@ -75,6 +87,14 @@ class Train {
 
         return movementCalculator.getNextDateOfArrival();
     }
+
+    boolean hasStationInRoute(Station desiredStation) {
+        for(Way way : route) {
+            if(way.isIncluded(desiredStation)) return true;
+        }
+        return false;
+    }
+
 
     // Responsible for movement simulation in isolation
     // Doesn't affect any of other classes, only their copies
@@ -266,19 +286,24 @@ class Train {
         }
 
         private void start() {
-            currentWay = route.get(currentWayPoint);
-            timeBeforeArrival = calculateTime();
-            line("-");
-            nextWay = calculateNextWay();
+            silentStart();
 
+            // Verbose things
+            line("-");
             String departure = getDeparture(currentWay, nextWay);
             String destination = getDestination(currentWay, nextWay);
-
             System.out.println(Train.this.getInfo() +
                     "\nStarts from: " + departure +
                     "\nTo: " + destination +
                     "\nEstimated time on route: " + timeBeforeArrival + "h.");
         }
+
+        private void silentStart() {
+            currentWay = route.get(currentWayPoint);
+            timeBeforeArrival = calculateTime();
+            nextWay = calculateNextWay();
+        }
+
 
         private void move() {
             if (--timeBeforeArrival == 0) { // arrived

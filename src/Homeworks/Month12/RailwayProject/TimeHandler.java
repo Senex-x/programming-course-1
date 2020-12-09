@@ -46,13 +46,9 @@ class TimeHandler {
 
     TimeHandler getSilentSnapshot() {
         TimeHandler timeHandlerSnapshot = new TimeHandler() {
-
-            /*
             @Override
             void printDate() {
-
             }
-            */
         };
         timeHandlerSnapshot.calendar = (GregorianCalendar)calendar.clone();
         timeHandlerSnapshot.formattedDate = new String(formattedDate);
