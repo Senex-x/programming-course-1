@@ -83,14 +83,14 @@ class RailwaySystem {
 
 
         Train train = trains.get(0);
+        //Train train = testTrain;
         System.out.println(train);
         train.start(timeHandler);
 
-        simulateTrain(train, 2); // 3 -> 18
-
         System.out.println(
-                train.calculateNextArrivalTimeAt(
-                        Station.getStationByName(stations, "Sosnovka")));
+                train.calculateNextArrivalTimeAt(Station.getStationByName(stations, "Sosnovka")));
+
+        simulateTrain(train, 2); // 3 -> 18
 
 
 
