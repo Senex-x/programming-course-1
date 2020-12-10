@@ -46,6 +46,7 @@ class Train {
     }
 
     void start(TimeHandler timeHandler) {
+        /*
         this.timeHandler = timeHandler;
         movementHandler = new MovementHandler(route.get(0), timeHandler);
         if (route.size() == 1) {
@@ -53,9 +54,11 @@ class Train {
         } else {
             movementHandler.start();
         }
+         */
     }
 
     void silentStart(TimeHandler timeHandler) {
+        /*
         this.timeHandler = timeHandler;
         movementHandler = new MovementHandler(route.get(0), timeHandler);
         if (route.size() == 1) {
@@ -63,16 +66,21 @@ class Train {
         } else {
             movementHandler.silentStart();
         }
+
+         */
     }
 
 
 
     void move() {
+        /*
         if (route.size() == 1) {
             movementHandler.singleWayMove();
         } else {
             movementHandler.move();
         }
+
+         */
     }
 
     // Returns the date of the first meet with desired station
@@ -89,9 +97,11 @@ class Train {
     }
 
     boolean hasStationInRoute(Station desiredStation) {
+        /*
         for(Way way : route) {
             if(way.isIncluded(desiredStation)) return true;
         }
+         */
         return false;
     }
 
@@ -114,6 +124,7 @@ class Train {
             this.timeBeforeArrival = timeBeforeArrival;
             this.desiredStation = desiredStation;
             timeHandlerSnapshot = timeHandler.getSilentSnapshot();
+            /*
             if (timeBeforeArrival != movementHandler.calculateTime()) { // train in move
                 this.timeBeforeArrival++; // ????
                 findDesiredStation(); // continue separate simulation with copied state
@@ -129,6 +140,8 @@ class Train {
                     start();
                 }
             }
+
+             */
         }
 
         private String getNextDateOfArrival() {
@@ -136,6 +149,7 @@ class Train {
         }
 
         private void findDesiredStation() {
+            /*
             if (route.size() == 1) {
                 if (!singleWayMove()) { // if still not found
                     timeHandlerSnapshot.nextHour();
@@ -147,10 +161,15 @@ class Train {
                     findDesiredStation();
                 } // else finishing
             }
+
+             */
         }
 
         private void start() {
+            /*
             currentWay = route.get(currentWayPoint);
+
+             */
             timeBeforeArrival = calculateTime() + 1;
             // System.out.println("TIME BEFORE ARRIVAL: " + timeBeforeArrival);
             //line("-");
@@ -209,7 +228,10 @@ class Train {
         private String singleWayCurrentDestination;
 
         private void singleWayStart() {
+            /*
             currentWay = route.get(currentWayPoint);
+
+             */
             timeBeforeArrival = calculateTime() + 1;
             // line("-");
 
@@ -249,6 +271,7 @@ class Train {
         }
 
         private Way calculateNextWay() {
+            /*
             Way nextWay;
             if (currentWayPoint + 1 < route.size()) { // next
                 nextWay = route.get(++currentWayPoint);
@@ -256,6 +279,8 @@ class Train {
                 currentWayPoint = 0;
                 nextWay = route.get(currentWayPoint);
             }
+
+             */
             return nextWay;
         }
 
@@ -299,9 +324,12 @@ class Train {
         }
 
         private void silentStart() {
+            /*
             currentWay = route.get(currentWayPoint);
             timeBeforeArrival = calculateTime();
             nextWay = calculateNextWay();
+
+             */
         }
 
 
@@ -328,7 +356,9 @@ class Train {
         private String singleWayCurrentDestination;
 
         private void singleWayStart() {
+            /*
             currentWay = route.get(currentWayPoint);
+             */
             timeBeforeArrival = calculateTime();
             line("-");
 
@@ -357,6 +387,7 @@ class Train {
         }
 
         private Way calculateNextWay() {
+            /*
             Way nextWay;
             if (currentWayPoint + 1 < route.size()) { // next
                 nextWay = route.get(++currentWayPoint);
@@ -364,6 +395,7 @@ class Train {
                 currentWayPoint = 0;
                 nextWay = route.get(currentWayPoint);
             }
+            */
             return nextWay;
         }
 
@@ -456,6 +488,6 @@ class Train {
     }
 
     void setRoute(ArrayList<Way> route) {
-        this.route = route;
+        //this.route = route;
     }
 }
