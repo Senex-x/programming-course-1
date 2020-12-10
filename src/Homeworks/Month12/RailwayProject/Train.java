@@ -13,8 +13,8 @@ class Train {
     private int ticketCost;
     private TrainType trainType;
     private String routeCode;
-    private ArrayList<Way> route;
     private ArrayList<Station> stations;
+    private Route route;
 
     // Passenger's id <--> Passenger's ticket
     private HashMap<String, Ticket> currentTickets;
@@ -33,7 +33,7 @@ class Train {
         this.routeCode = routeCode;
     }
 
-    Train(int id, String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode, ArrayList<Way> route) {
+    Train(int id, String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode, Route route) {
         this.id = id;
         this.name = name;
         this.speed = speed;
