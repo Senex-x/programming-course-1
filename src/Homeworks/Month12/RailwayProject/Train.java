@@ -93,22 +93,22 @@ class Train {
         int timeBeforeArrival;
 
         Route(ArrayList<Station> stations, ArrayList<Way> wayMap) {
-            System.out.println("ORIGINAL: " + wayMap);
             this.stations = stations;
 
             if (wayMap.size() == 1) {
                 Station departure = Station.getStationByName(stations, wayMap.get(0).getDeparture());
                 Station destination = Station.getStationByName(stations, wayMap.get(0).getDestination());
-
                 route.add(new Path(
                         departure,
                         wayMap.get(0).getDistance()));
                 route.add(new Path(
                         destination,
                         wayMap.get(0).getDistance()));
+
                 currentStation = departure;
                 nextStation = destination;
                 currentPath = route.get(0);
+                timeBeforeArrival = calculateTimeBeforeArrival();
                 return;
             }
 
@@ -120,15 +120,31 @@ class Train {
                         Station.getStationByName(stations, departure),
                         wayMap.get(i).getDistance()));
             }
-            System.out.println("RESULT: " + route);
 
             currentStation = route.get(0).getStation();
             nextStation = route.get(1).getStation();
             currentPath = route.get(0);
+            timeBeforeArrival = calculateTimeBeforeArrival();
         }
 
         int calculateTimeBeforeArrival() {
             return Math.round((float) currentPath.getDistance() / speed);
+        }
+
+        public Path getCurrentPath() {
+            return currentPath;
+        }
+
+        public Station getCurrentStation() {
+            return currentStation;
+        }
+
+        public Station getNextStation() {
+            return nextStation;
+        }
+
+        public int getTimeBeforeArrival() {
+            return timeBeforeArrival;
         }
 
         @Override
@@ -567,5 +583,9 @@ class Train {
 
     void setRoute(ArrayList<Way> route) {
         //this.route = route;
+    }
+
+    int getTimeBeforeArrival() {
+        return route.getTimeBeforeArrival();
     }
 }

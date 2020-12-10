@@ -72,7 +72,9 @@ class RailwaySystem {
 
         System.out.println("testTrain: " + testTrain);
 
-        System.out.println(trains.get(0));
+        Train train = trains.get(0);
+        System.out.println(train);
+
 
 
 /*
