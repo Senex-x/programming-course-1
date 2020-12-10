@@ -119,7 +119,7 @@ class DatabaseHandler {
                         results.getInt(COLUMNS[4]),
                         TrainType.values()[results.getInt(COLUMNS[5])],
                         results.getString(COLUMNS[6]),
-                        new Route(stations, waysHandler.getRouteForTrain(results.getString(COLUMNS[6]))))
+                        waysHandler.getRouteForTrain(results.getString(COLUMNS[6])))
                 );
 
             }

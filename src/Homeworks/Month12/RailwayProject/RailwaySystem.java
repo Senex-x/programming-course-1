@@ -62,14 +62,20 @@ class RailwaySystem {
         Train testTrain = new Train(
                 0,
                 "EP2K",
-                160,
+                100,
                 200,
                 600,
                 TrainType.ECONOMY,
-                "0 1 2 3",
+                "null",
                 new ArrayList<>(Arrays.asList(new Way("Vahitovo", "Kamaevo", 320)))
         );
 
+        System.out.println("testTrain: " + testTrain);
+
+        System.out.println(trains.get(0));
+
+
+/*
         Passenger testPassenger = new Passenger(0, "Senex", "qwerty123");
         // System.out.println("You are logged in as: " + testPassenger);
 
@@ -92,6 +98,8 @@ class RailwaySystem {
         // bug
         simulateTrain(trains.get(2), 10);
 
+
+ */
 /*
         Train train = trains.get(0);
         //Train train = testTrain;

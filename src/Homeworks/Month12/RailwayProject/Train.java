@@ -33,7 +33,7 @@ class Train {
         this.routeCode = routeCode;
     }
 
-    Train(int id, String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode, Route route) {
+    Train(int id, String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode, ArrayList<Way> wayMap) {
         this.id = id;
         this.name = name;
         this.speed = speed;
@@ -41,8 +41,8 @@ class Train {
         this.ticketCost = ticketCost;
         this.trainType = trainType;
         this.routeCode = routeCode;
-        this.route = route;
         stations = DatabaseHandler.getStations();
+        this.route = new Route(stations, wayMap);
     }
 
     void start(TimeHandler timeHandler) {
@@ -82,6 +82,84 @@ class Train {
 
          */
     }
+
+    class Route {
+        ArrayList<Path> route = new ArrayList<>();
+        ArrayList<Station> stations;
+
+        Path currentPath;
+        Station currentStation;
+        Station nextStation;
+        int timeBeforeArrival;
+
+        Route(ArrayList<Station> stations, ArrayList<Way> wayMap) {
+            System.out.println("ORIGINAL: " + wayMap);
+            this.stations = stations;
+
+            if (wayMap.size() == 1) {
+                Station departure = Station.getStationByName(stations, wayMap.get(0).getDeparture());
+                Station destination = Station.getStationByName(stations, wayMap.get(0).getDestination());
+
+                route.add(new Path(
+                        departure,
+                        wayMap.get(0).getDistance()));
+                route.add(new Path(
+                        destination,
+                        wayMap.get(0).getDistance()));
+                currentStation = departure;
+                nextStation = destination;
+                currentPath = route.get(0);
+                return;
+            }
+
+            wayMap.add(wayMap.get(0));
+            for (int i = 0; i < wayMap.size() - 1; i++) {
+                String destination = Way.includedInBoth(wayMap.get(i), wayMap.get(i + 1));
+                String departure = wayMap.get(i).getOtherStation(destination);
+                route.add(new Path(
+                        Station.getStationByName(stations, departure),
+                        wayMap.get(i).getDistance()));
+            }
+            System.out.println("RESULT: " + route);
+
+            currentStation = route.get(0).getStation();
+            nextStation = route.get(1).getStation();
+            currentPath = route.get(0);
+        }
+
+        int calculateTimeBeforeArrival() {
+            return Math.round((float) currentPath.getDistance() / speed);
+        }
+
+        @Override
+        public String toString() {
+            return "Route: " + route;
+        }
+
+        private class Path {
+            Station station;
+            int distance;
+
+            public Path(Station station, int distance) {
+                this.station = station;
+                this.distance = distance;
+            }
+
+            Station getStation() {
+                return station;
+            }
+
+            int getDistance() {
+                return distance;
+            }
+
+            @Override
+            public String toString() {
+                return "Path: Start: " + station + ", distance to next station: " + distance;
+            }
+        }
+    }
+
 
     // Returns the date of the first meet with desired station
     String calculateNextArrivalTimeAt(Station station) {
