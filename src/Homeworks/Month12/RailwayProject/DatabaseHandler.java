@@ -1,5 +1,7 @@
 package Homeworks.Month12.RailwayProject;
 
+import com.google.gson.Gson;
+
 import static Methods.Methods.*;
 
 import java.io.FileReader;
@@ -16,13 +18,15 @@ class DatabaseHandler {
     // Contains all possible ways and their lengths for each station name
     // Being associated by station ID's: ID = line in waymatrix with proper ways description
     private static final String WAYMATRIX_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/waymatrix.txt";
-    private static final String TABLE_NAME = "timetable";
+    private static final String DB_NAME = "railway_project_data";
+    private static final String TRAINS_TABLE_NAME = "timetable";
+    private static final String PASSENGERS_TABLE_NAME = "passengers";
     private static final String DB_PATH_PC = "D:\\Projects\\Java\\" +
             "PolyakovV_11005\\src\\Homeworks\\Month12\\" +
-            "RailwayProject\\data\\" + TABLE_NAME + ".db";
+            "RailwayProject\\data\\" + DB_NAME + ".db";
     private static final String DB_PATH = "C:\\Projects\\Java\\" +
             "StudyProject\\src\\Homeworks\\Month12\\" +
-            "RailwayProject\\data\\" + TABLE_NAME + ".db";
+            "RailwayProject\\data\\" + DB_NAME + ".db";
 
     private static final String[] COLUMNS = {
             "id",
@@ -44,7 +48,7 @@ class DatabaseHandler {
     DatabaseHandler() {
         openDatabase();
         waysHandler.setStations(stations); // requires stations list
-        trains = parseTrains(); // requires connection and waysHandler's list of stations
+        trains = getTrainsFromDB(); // requires connection and waysHandler's list of stations
     }
 
     private void openDatabase() {
@@ -57,10 +61,9 @@ class DatabaseHandler {
     }
 
     void addToDatabase(Train train) {
-        String query = "INSERT INTO " + TABLE_NAME + " " +
-                "( id, train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )\n" +
+        String query = "INSERT INTO " + TRAINS_TABLE_NAME + " " +
+                "( train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )\n" +
                 "VALUES ( " +
-                "0, '" +
                 train.getName() + "', " +
                 train.getSpeed() + ", " +
                 train.getCapacity() + ", " +
@@ -73,7 +76,7 @@ class DatabaseHandler {
     }
 
     void updateDatabase(Train train) {
-        String query = "UPDATE " + TABLE_NAME + " SET\n" +
+        String query = "UPDATE " + TRAINS_TABLE_NAME + " SET\n" +
                 COLUMNS[1] + " = '" + train.getName() + "',\n" +
                 COLUMNS[2] + " = " + train.getSpeed() + ",\n" +
                 COLUMNS[3] + " = " + train.getCapacity() + ",\n" +
@@ -91,9 +94,9 @@ class DatabaseHandler {
         return trains;
     }
 
-    private ArrayList<Train> parseTrains() {
+    private ArrayList<Train> getTrainsFromDB() {
         ArrayList<Train> trains = new ArrayList<>();
-        String query = "SELECT * FROM " + TABLE_NAME + ";";
+        String query = "SELECT * FROM " + TRAINS_TABLE_NAME + ";";
 
         try {
             Statement statement = connection.createStatement();
@@ -221,8 +224,21 @@ class DatabaseHandler {
         return new WaysHandler(ways);
     }
 
-    void createTable() {
+    void addToTablePassengers(Passenger passenger) {
+        String query = "INSERT INTO " + PASSENGERS_TABLE_NAME + " " +
+                "( passenger_name, passenger_password, passenger_history )\n" +
+                "VALUES ( \n\t'" +
+                passenger.getName() + "', \n\t'" +
+                passenger.getPassword() + "', \n\t'" +
+                new Gson().toJson(passenger.getTripsHistory()) + "'\n );";
+        System.out.println(query);
+        // executeUpdate(query);
+    }
 
+    ArrayList<Passenger> getPassengersFromDB() {
+        ArrayList<Passenger> passengers = new ArrayList<>();
+
+        return passengers;
     }
 
     WaysHandler getWaysHandler() {
@@ -260,7 +276,7 @@ class DatabaseHandler {
             Train train = trains.get(i);
             String initialRoute = train.getRouteCode();
             StringBuilder newRoute = new StringBuilder();
-            if(initialRoute.charAt(1) == ' ') continue;
+            if (initialRoute.charAt(1) == ' ') continue;
             for (int j = 0; j < initialRoute.length() - 1; j++) {
                 newRoute.append(initialRoute.charAt(j) - 48);
                 newRoute.append(" ");
@@ -272,13 +288,13 @@ class DatabaseHandler {
         }
     }
 
-    void createTablePassengers() {
-        String query = "CREATE TABLE passengers (\n" +
+    private void createTablePassengers() {
+        String query = "CREATE TABLE " + PASSENGERS_TABLE_NAME + " (\n" +
                 "\tpassenger_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
                 "\tpassenger_name TEXT NOT NULL,\n" +
                 "\tpassenger_password INTEGER NOT NULL,\n" +
                 "\tpassenger_history TEXT NOT NULL\n" +
                 ");";
-
+        executeUpdate(query);
     }
 }

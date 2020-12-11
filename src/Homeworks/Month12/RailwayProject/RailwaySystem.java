@@ -1,7 +1,10 @@
 package Homeworks.Month12.RailwayProject;
 
+import com.google.gson.Gson;
+
 import static Methods.Methods.*;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 class Test {
@@ -73,7 +76,17 @@ class RailwaySystem {
         Passenger testPassenger = new Passenger(0, "Senex", "qwerty123");
         // System.out.println("You are logged in as: " + testPassenger);
 
-        databaseHandler.createTablePassengers();
+        Passenger passenger = new Passenger(
+                -1,
+                "Hajime Hinata",
+                "11037"
+        );
+
+        passenger.buyTicket(new Ticket(
+                -1,
+                100));
+
+        databaseHandler.addToTablePassengers(passenger);
 
 /*
         displayArray(stations, 1);
