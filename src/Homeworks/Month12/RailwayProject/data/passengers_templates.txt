@@ -1,0 +1,21 @@
+FOR LAPTOP:
+.cd C:\\Projects\\Java\\StudyProject\\src\\Homeworks\\Month12\\RailwayProject\\data
+.open railway_project_data.db
+.mode box
+SELECT * FROM passengers;
+
+FOR PC:
+.cd D:\\Projects\\Java\\PolyakovV_11005\\src\\Homeworks\\Month12\\RailwayProject\\data
+.open railway_project_data.db
+.mode box
+SELECT * FROM passengers;
+
+CREATE TABLE passengers (
+	passenger_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	passenger_name TEXT NOT NULL,
+	passenger_password INTEGER NOT NULL,
+	passenger_history TEXT NOT NULL
+);
+
+INSERT INTO passengers ( passenger_name, passenger_password, passenger_history )
+VALUES ( 'Kirill Anikin', 'password', );
