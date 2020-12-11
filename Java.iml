@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="commons-lang3-3.11" level="project" />
     <orderEntry type="library" name="sqlite-jdbc-3.32.3.2" level="project" />
+    <orderEntry type="library" name="com.google.code.gson:gson:2.8.6" level="project" />
   </component>
 </module>
