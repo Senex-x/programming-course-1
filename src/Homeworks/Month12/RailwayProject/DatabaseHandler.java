@@ -50,7 +50,7 @@ class DatabaseHandler {
     private void openDatabase() {
         try {
             Class.forName("org.sqlite.JDBC"); // class loading
-            connection = DriverManager.getConnection("jdbc:sqlite:" + DB_PATH_PC);
+            connection = DriverManager.getConnection("jdbc:sqlite:" + DB_PATH);
         } catch (SQLException | ClassNotFoundException exception) {
             exception.printStackTrace();
         }
@@ -69,13 +69,7 @@ class DatabaseHandler {
                 train.getRouteCode() + "' );";
 
         System.out.println(query);
-        try {
-            Statement statement = connection.createStatement();
-            //statement.executeUpdate(query);
-            statement.close();
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
+        // executeUpdate(query);
     }
 
     void updateDatabase(Train train) {
@@ -90,13 +84,7 @@ class DatabaseHandler {
                 COLUMNS[0] + " = " + train.getId() + ";";
 
         System.out.println(query);
-        try {
-            Statement statement = connection.createStatement();
-            // statement.executeUpdate(query);
-            statement.close();
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
+        // executeUpdate(query);
     }
 
     ArrayList<Train> getTrains() {
@@ -233,12 +221,36 @@ class DatabaseHandler {
         return new WaysHandler(ways);
     }
 
+    void createTable() {
+
+    }
+
     WaysHandler getWaysHandler() {
         return waysHandler;
     }
 
     static ArrayList<Station> getStations() {
         return stations;
+    }
+
+    void executeUpdate(String query) {
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(query);
+            statement.close();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    ResultSet executeQuery(String query) {
+        try {
+            Statement statement = connection.createStatement();
+            return statement.executeQuery(query);
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+            return null;
+        }
     }
 
 
@@ -258,5 +270,15 @@ class DatabaseHandler {
 
             //updateDatabase(train);
         }
+    }
+
+    void createTablePassengers() {
+        String query = "CREATE TABLE passengers (\n" +
+                "\tpassenger_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
+                "\tpassenger_name TEXT NOT NULL,\n" +
+                "\tpassenger_password INTEGER NOT NULL,\n" +
+                "\tpassenger_history TEXT NOT NULL\n" +
+                ");";
+
     }
 }

@@ -73,7 +73,9 @@ class RailwaySystem {
         Passenger testPassenger = new Passenger(0, "Senex", "qwerty123");
         // System.out.println("You are logged in as: " + testPassenger);
 
+        databaseHandler.createTablePassengers();
 
+/*
         displayArray(stations, 1);
         System.out.println("Choose departure station ID: ");
         Station departure = stations.get(getInt());
