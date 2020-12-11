@@ -58,6 +58,8 @@ class RailwaySystem {
     ArrayList<Train> trains = databaseHandler.getTrains();
     // Singleton pattern
     ArrayList<Station> stations = DatabaseHandler.getStations();
+    ArrayList<Passenger> passengers = databaseHandler.getPassengers();
+    Gson gson = new Gson();
 
     void start() {
         timeHandler.printDate();
@@ -73,20 +75,33 @@ class RailwaySystem {
                 new ArrayList<>(Arrays.asList(new Way("Vahitovo", "Kamaevo", 320)))
         );
 
-        Passenger testPassenger = new Passenger(0, "Senex", "qwerty123");
+        Passenger testPassenger = new Passenger(
+                0,
+                "Senex",
+                "qwerty123",
+                new ArrayList<>());
         // System.out.println("You are logged in as: " + testPassenger);
 
         Passenger passenger = new Passenger(
                 -1,
                 "Hajime Hinata",
-                "11037"
+                "11037",
+                new ArrayList<>(Arrays.asList(
+                        new Ticket(0, 100),
+                        new Ticket(0, 200),
+                        new Ticket(0, 1300),
+                        new Ticket(0, 140),
+                        new Ticket(0, 50)))
         );
+
+
+        System.out.println(gson.toJson(passenger));
 
         passenger.buyTicket(new Ticket(
                 -1,
                 100));
 
-        databaseHandler.addToTablePassengers(passenger);
+        //displayArray(passengers, 1);
 
 /*
         displayArray(stations, 1);
@@ -103,6 +118,8 @@ class RailwaySystem {
                         " \nAt: " + train.calculateNextArrivalTimeAt(departure));
             }
         }
+
+ */
 
         // bug
         simulateTrain(trains.get(2), 10);
@@ -136,14 +153,14 @@ class RailwaySystem {
     }
 
     private void simulateTrain(Train train, int hours) {
-        line(paint(Colors.RED,"SIMULATION START // "));
+        line(paint(Colors.RED, "SIMULATION START // "));
         System.out.println(train);
         train.start(timeHandler);
         for (int i = 0; i < hours; i++) {
             timeHandler.nextHour();
             train.move();
         }
-        line(paint(Colors.RED,"SIMULATION END // "));
+        line(paint(Colors.RED, "SIMULATION END // "));
     }
 
     class Handler {

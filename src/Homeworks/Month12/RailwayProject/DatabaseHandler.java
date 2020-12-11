@@ -44,11 +44,13 @@ class DatabaseHandler {
     private static final ArrayList<Station> stations = parseStations(); // requires waysHandler
     // Contains all the trains from database
     private final ArrayList<Train> trains;
+    private final ArrayList<Passenger> passengers;
 
     DatabaseHandler() {
         openDatabase();
         waysHandler.setStations(stations); // requires stations list
         trains = getTrainsFromDB(); // requires connection and waysHandler's list of stations
+        passengers = getPassengersFromDB();
     }
 
     private void openDatabase() {
@@ -235,9 +237,31 @@ class DatabaseHandler {
         // executeUpdate(query);
     }
 
-    ArrayList<Passenger> getPassengersFromDB() {
+    private ArrayList<Passenger> getPassengersFromDB() {
         ArrayList<Passenger> passengers = new ArrayList<>();
+        String query = "SELECT * FROM " + PASSENGERS_TABLE_NAME + ";";
+        ResultSet results = executeQuery(query);
+        while (true) {
+            try {
+                if (!results.next()) break;
+                String historyHolderJson =
+                        results.getString("passenger_history");
+                ArrayList<Ticket> tickets = new ArrayList<>();
 
+                passengers.add(new Passenger(
+                        results.getInt("passenger_id"),
+                        results.getString("passenger_name"),
+                        results.getString("passenger_password"),
+                        tickets
+                ));
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        return passengers;
+    }
+
+    ArrayList<Passenger> getPassengers() {
         return passengers;
     }
 

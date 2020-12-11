@@ -9,11 +9,11 @@ public class Passenger {
     private Ticket currentTicket;
     private HistoryHolder historyHolder;
 
-    public Passenger(int id, String name, String password) {
+    public Passenger(int id, String name, String password, ArrayList<Ticket> history) {
         this.id = id;
         this.name = name;
         this.password = password;
-        historyHolder = new HistoryHolder();
+        historyHolder = new HistoryHolder(history);
     }
 
     void buyTicket(Ticket ticket) {
@@ -51,7 +51,11 @@ public class Passenger {
     }
 
     static class HistoryHolder {
-        ArrayList<Ticket> tripsHistory = new ArrayList<>();
+        ArrayList<Ticket> tripsHistory;
+
+        public HistoryHolder(ArrayList<Ticket> tripsHistory) {
+            this.tripsHistory = tripsHistory;
+        }
 
         void addToHistory(Ticket ticket) {
             tripsHistory.add(ticket);
