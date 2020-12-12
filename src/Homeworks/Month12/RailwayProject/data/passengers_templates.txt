@@ -17,5 +17,9 @@ CREATE TABLE passengers (
 	passenger_history TEXT NOT NULL
 );
 
+DELETE FROM passengers
+WHERE passenger_id = -1;
+
+
 INSERT INTO passengers ( passenger_name, passenger_password, passenger_history )
 VALUES ( 'Kirill Anikin', 'password', );
