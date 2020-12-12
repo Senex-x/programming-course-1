@@ -232,9 +232,9 @@ class DatabaseHandler {
                 "VALUES ( \n\t'" +
                 passenger.getName() + "', \n\t'" +
                 passenger.getPassword() + "', \n\t'" +
-                new Gson().toJson(passenger.getTripsHistory()) + "'\n );";
+                new Gson().toJson(passenger.getHistoryHolder()) + "'\n );";
         System.out.println(query);
-        // executeUpdate(query);
+        executeUpdate(query);
     }
 
     private ArrayList<Passenger> getPassengersFromDB() {
@@ -244,21 +244,29 @@ class DatabaseHandler {
         while (true) {
             try {
                 if (!results.next()) break;
-                String historyHolderJson =
-                        results.getString("passenger_history");
-                ArrayList<Ticket> tickets = new ArrayList<>();
-
                 passengers.add(new Passenger(
                         results.getInt("passenger_id"),
                         results.getString("passenger_name"),
                         results.getString("passenger_password"),
-                        tickets
+                        new Gson().fromJson(results.getString("passenger_history"), Passenger.HistoryHolder.class)
                 ));
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
         }
         return passengers;
+    }
+
+    void deleteRowById(String tableName, int id) {
+        String query = "default";
+        if (tableName.equals(PASSENGERS_TABLE_NAME)) {
+            query = "DELETE FROM " + tableName + "\n" +
+                    "WHERE passenger_id = " + id + ";";
+        } else if (tableName.equals(TRAINS_TABLE_NAME)) {
+            query = "DELETE FROM " + tableName + "\n" +
+                    "WHERE id = " + id + ";";
+        }
+        executeUpdate(query);
     }
 
     ArrayList<Passenger> getPassengers() {

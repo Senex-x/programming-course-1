@@ -13,4 +13,17 @@ public class Ticket {
         this.passengerId = passengerId;
         this.cost = cost;
     }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "passengerId=" + passengerId +
+                ", cost=" + cost +
+                ", trainId=" + trainId +
+                ", dateOfDeparture='" + dateOfDeparture + '\'' +
+                ", dateOfDestination='" + dateOfDestination + '\'' +
+                ", departure=" + departure +
+                ", destination=" + destination +
+                '}';
+    }
 }

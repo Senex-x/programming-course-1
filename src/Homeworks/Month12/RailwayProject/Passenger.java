@@ -16,6 +16,13 @@ public class Passenger {
         historyHolder = new HistoryHolder(history);
     }
 
+    public Passenger(int id, String name, String password, HistoryHolder history) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        historyHolder = history;
+    }
+
     void buyTicket(Ticket ticket) {
         historyHolder.addToHistory(ticket);
     }
@@ -36,11 +43,18 @@ public class Passenger {
         return historyHolder.getTripsHistory();
     }
 
+    public HistoryHolder getHistoryHolder() {
+        return historyHolder;
+    }
+
     @Override
     public String toString() {
         return "Passenger{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", currentTicket=" + currentTicket +
+                ", historyHolder=" + historyHolder +
                 '}';
     }
 
@@ -63,6 +77,13 @@ public class Passenger {
 
         public ArrayList<Ticket> getTripsHistory() {
             return tripsHistory;
+        }
+
+        @Override
+        public String toString() {
+            return "HistoryHolder{" +
+                    "tripsHistory=" + tripsHistory +
+                    '}';
         }
     }
 

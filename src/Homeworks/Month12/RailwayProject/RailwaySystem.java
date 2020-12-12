@@ -83,7 +83,7 @@ class RailwaySystem {
         // System.out.println("You are logged in as: " + testPassenger);
 
         Passenger passenger = new Passenger(
-                -1,
+                0,
                 "Hajime Hinata",
                 "11037",
                 new ArrayList<>(Arrays.asList(
@@ -91,11 +91,17 @@ class RailwaySystem {
                         new Ticket(0, 200),
                         new Ticket(0, 1300),
                         new Ticket(0, 140),
-                        new Ticket(0, 50)))
-        );
+                        new Ticket(0, 50))));
 
+        displayArray(passengers, 1);
 
-        System.out.println(gson.toJson(passenger));
+        /*
+        System.out.println(passenger);
+        String passengerJsonString = gson.toJson(passenger);
+        System.out.println(passengerJsonString);
+
+        Passenger passengerFromJson = gson.fromJson(passengerJsonString, Passenger.class);
+        System.out.println(passengerFromJson);
 
         passenger.buyTicket(new Ticket(
                 -1,
@@ -122,7 +128,7 @@ class RailwaySystem {
  */
 
         // bug
-        simulateTrain(trains.get(2), 10);
+        // simulateTrain(trains.get(2), 10);
 
 /*
         Train train = trains.get(0);
