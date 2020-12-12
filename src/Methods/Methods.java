@@ -114,7 +114,7 @@ public abstract class Methods {
         System.out.println("Array of " + array.size() + " elements:");
         for (int i = 0; i < array.size(); i++) {
             System.out.print(array.get(i) + " ");
-            if (i % elementsPerLine == 0 && i != 0) System.out.println();
+            if (i % elementsPerLine == 0 && i != array.size() - 1) System.out.println();
         }
         System.out.println();
     }
