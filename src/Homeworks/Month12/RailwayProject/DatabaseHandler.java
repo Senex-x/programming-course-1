@@ -80,7 +80,7 @@ class DatabaseHandler {
         // executeUpdate(query);
     }
 
-    void updateDatabase(Train train) {
+    void updateTrainsDB(Train train) {
         String query = "UPDATE " + TRAINS_TABLE_NAME + " SET\n" +
                 COLUMNS[1] + " = '" + train.getName() + "',\n" +
                 COLUMNS[2] + " = " + train.getSpeed() + ",\n" +
@@ -235,9 +235,13 @@ class DatabaseHandler {
                 "VALUES ( \n\t'" +
                 passenger.getName() + "', \n\t'" +
                 passenger.getPassword() + "', \n\t'" +
-                new Gson().toJson(passenger.getHistoryHolder()) + "'\n );";
+                historyHolderToJson(passenger.getHistoryHolder()) + "'\n );";
         System.out.println(query);
         executeUpdate(query);
+    }
+
+    String historyHolderToJson(Passenger.HistoryHolder historyHolder) {
+        return new Gson().toJson(historyHolder);
     }
 
     private ArrayList<Passenger> getPassengersFromDB() {
@@ -260,11 +264,11 @@ class DatabaseHandler {
         return passengers;
     }
 
-     ArrayList<Passenger> getPassengersFromTxt() {
+    ArrayList<Passenger> getPassengersFromTxt() {
         ArrayList<Passenger> passengers = new ArrayList<>();
         try {
             Scanner scanner = new Scanner(new FileReader(PASSENGERS_TXT_PATH));
-            while(scanner.hasNext()) {
+            while (scanner.hasNext()) {
                 String name = scanner.nextLine();
                 passengers.add(new Passenger(
                         0,
@@ -281,10 +285,20 @@ class DatabaseHandler {
 
     private String generatePassword(int length) {
         StringBuilder password = new StringBuilder();
-        for(int i=0;i<length;i++) {
-            password.append((char)getRandInt(48, 123));
+        for (int i = 0; i < length; i++) {
+            password.append((char) getRandInt(48, 123));
         }
         return password.toString();
+    }
+
+    void updatePassengersDB(Passenger passenger) {
+        String query = "UPDATE " + PASSENGERS_TABLE_NAME + " SET\n" +
+                "\tpassenger_name = '" + passenger.getName() + "',\n" +
+                "\tpassenger_password = '" + passenger.getPassword() + "',\n" +
+                "\tpassenger_history = '" + historyHolderToJson(passenger.getHistoryHolder()) + "'\n" +
+                "WHERE\n" +
+                "\tpassenger_id = " + passenger.getId() + ";";
+        executeUpdate(query);
     }
 
     void deleteRowById(String tableName, int id) {

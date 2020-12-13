@@ -74,14 +74,19 @@ class RailwaySystem {
                 new ArrayList<>(Arrays.asList(new Way("Vahitovo", "Kamaevo", 320)))
         );
 
-        Passenger testPassenger = new Passenger(
+        Passenger testPassenger1 = new Passenger(
                 0,
                 "Senex",
                 "qwerty123",
                 new ArrayList<>());
         // System.out.println("You are logged in as: " + testPassenger);
 
-        Passenger testPassenger2 = passengers.get(0);
+        Passenger testPassenger2 = passengers.get(1);
+
+        displayArray(passengers, 1);
+
+        //displayArray(passengers, 1);
+
 
         /*
         System.out.println(passenger);
@@ -168,5 +173,4 @@ class RailwaySystem {
     DatabaseHandler getDatabaseHandler() {
         return databaseHandler;
     }
-
 }

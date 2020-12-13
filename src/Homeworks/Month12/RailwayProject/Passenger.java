@@ -41,6 +41,10 @@ public class Passenger {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public ArrayList<Ticket> getTripsHistory() {
         return historyHolder.getTripsHistory();
     }
