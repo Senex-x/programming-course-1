@@ -9,6 +9,8 @@ public class Passenger {
     private Ticket currentTicket;
     private HistoryHolder historyHolder;
 
+
+
     public Passenger(int id, String name, String password, ArrayList<Ticket> history) {
         this.id = id;
         this.name = name;

@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 
 import static Methods.Methods.*;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 class Test {
@@ -93,7 +92,9 @@ class RailwaySystem {
                         new Ticket(0, 140),
                         new Ticket(0, 50))));
 
-        displayArray(passengers, 1);
+
+
+        //displayArray(passengers, 1);
 
         /*
         System.out.println(passenger);

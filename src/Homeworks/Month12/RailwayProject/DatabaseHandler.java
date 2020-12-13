@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 
 import static Methods.Methods.*;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
@@ -13,6 +15,7 @@ import java.util.Scanner;
 class DatabaseHandler {
     // Contains trains for easy input, not needed in final build
     private static final String TRAINS_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/trains.txt";
+    private static final String PASSENGERS_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/passengers.txt";
     // Contains all station names in proper order
     private static final String STATIONS_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/stations.txt";
     // Contains all possible ways and their lengths for each station name
@@ -255,6 +258,33 @@ class DatabaseHandler {
             }
         }
         return passengers;
+    }
+
+    private ArrayList<Passenger> getPassengersFromTxt() {
+        ArrayList<Passenger> passengers = new ArrayList<>();
+        try {
+            Scanner scanner = new Scanner(new FileReader(PASSENGERS_TXT_PATH));
+            while(scanner.hasNext()) {
+                String name = scanner.nextLine();
+                passengers.add(new Passenger(
+                        0,
+                        name,
+                        generatePassword(10),
+                        new ArrayList<>()
+                ));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return passengers;
+    }
+
+    private String generatePassword(int length) {
+        StringBuilder password = new StringBuilder();
+        for(int i=0;i<length;i++) {
+            password.append((char)getRandInt(48, 123));
+        }
+        return password.toString();
     }
 
     void deleteRowById(String tableName, int id) {
