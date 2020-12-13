@@ -260,7 +260,7 @@ class DatabaseHandler {
         return passengers;
     }
 
-    private ArrayList<Passenger> getPassengersFromTxt() {
+     ArrayList<Passenger> getPassengersFromTxt() {
         ArrayList<Passenger> passengers = new ArrayList<>();
         try {
             Scanner scanner = new Scanner(new FileReader(PASSENGERS_TXT_PATH));

@@ -81,20 +81,7 @@ class RailwaySystem {
                 new ArrayList<>());
         // System.out.println("You are logged in as: " + testPassenger);
 
-        Passenger passenger = new Passenger(
-                0,
-                "Hajime Hinata",
-                "11037",
-                new ArrayList<>(Arrays.asList(
-                        new Ticket(0, 100),
-                        new Ticket(0, 200),
-                        new Ticket(0, 1300),
-                        new Ticket(0, 140),
-                        new Ticket(0, 50))));
-
-
-
-        //displayArray(passengers, 1);
+        Passenger testPassenger2 = passengers.get(0);
 
         /*
         System.out.println(passenger);
