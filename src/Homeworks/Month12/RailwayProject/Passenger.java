@@ -7,16 +7,50 @@ public class Passenger {
     private String name;
     private String password;
     private Ticket currentTicket;
-    private ArrayList<Ticket> tripsHistory;
+    private HistoryHolder historyHolder;
 
-    public Passenger(int id, String name, String password) {
+
+
+    public Passenger(int id, String name, String password, ArrayList<Ticket> history) {
         this.id = id;
         this.name = name;
         this.password = password;
+        historyHolder = new HistoryHolder(history);
+    }
+
+    public Passenger(int id, String name, String password, HistoryHolder history) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        historyHolder = history;
     }
 
     void buyTicket(Ticket ticket) {
+        historyHolder.addToHistory(ticket);
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public ArrayList<Ticket> getTripsHistory() {
+        return historyHolder.getTripsHistory();
+    }
+
+    public HistoryHolder getHistoryHolder() {
+        return historyHolder;
     }
 
     @Override
@@ -24,14 +58,38 @@ public class Passenger {
         return "Passenger{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", currentTicket=" + currentTicket +
+                ", historyHolder=" + historyHolder +
                 '}';
     }
 
     class TicketHandler {
         Ticket currentTicket;
 
-        class HistoryHolder {
-            ArrayList<Ticket> tripsHistory;
+
+    }
+
+    static class HistoryHolder {
+        ArrayList<Ticket> tripsHistory;
+
+        public HistoryHolder(ArrayList<Ticket> tripsHistory) {
+            this.tripsHistory = tripsHistory;
+        }
+
+        void addToHistory(Ticket ticket) {
+            tripsHistory.add(ticket);
+        }
+
+        public ArrayList<Ticket> getTripsHistory() {
+            return tripsHistory;
+        }
+
+        @Override
+        public String toString() {
+            return "HistoryHolder{" +
+                    "tripsHistory=" + tripsHistory +
+                    '}';
         }
     }
 

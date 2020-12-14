@@ -1,5 +1,7 @@
 package Homeworks.Month12.RailwayProject;
 
+import com.google.gson.Gson;
+
 import static Methods.Methods.*;
 
 import java.util.*;
@@ -55,6 +57,8 @@ class RailwaySystem {
     ArrayList<Train> trains = databaseHandler.getTrains();
     // Singleton pattern
     ArrayList<Station> stations = DatabaseHandler.getStations();
+    ArrayList<Passenger> passengers = databaseHandler.getPassengers();
+    Gson gson = new Gson();
 
     void start() {
         timeHandler.printDate();
@@ -70,6 +74,7 @@ class RailwaySystem {
                 new ArrayList<>(Arrays.asList(new Way("Vahitovo", "Kamaevo", 320)))
         );
 
+
         System.out.println("testTrain: " + testTrain);
 
         Train train = trains.get(0);
@@ -79,9 +84,31 @@ class RailwaySystem {
 
 /*
         Passenger testPassenger = new Passenger(0, "Senex", "qwerty123");
+
         // System.out.println("You are logged in as: " + testPassenger);
 
+        Passenger testPassenger2 = passengers.get(1);
 
+        displayArray(passengers, 1);
+
+        //displayArray(passengers, 1);
+
+
+        /*
+        System.out.println(passenger);
+        String passengerJsonString = gson.toJson(passenger);
+        System.out.println(passengerJsonString);
+
+        Passenger passengerFromJson = gson.fromJson(passengerJsonString, Passenger.class);
+        System.out.println(passengerFromJson);
+
+        passenger.buyTicket(new Ticket(
+                -1,
+                100));
+
+        //displayArray(passengers, 1);
+
+/*
         displayArray(stations, 1);
         System.out.println("Choose departure station ID: ");
         Station departure = stations.get(getInt());
@@ -97,11 +124,13 @@ class RailwaySystem {
             }
         }
 
-        // bug
-        simulateTrain(trains.get(2), 10);
-
-
  */
+
+        // bug
+        // simulateTrain(trains.get(2), 10);
+
+
+
 /*
         Train train = trains.get(0);
         //Train train = testTrain;
@@ -131,14 +160,14 @@ class RailwaySystem {
     }
 
     private void simulateTrain(Train train, int hours) {
-        line(paint(Colors.RED,"SIMULATION START // "));
+        line(paint(Colors.RED, "SIMULATION START // "));
         System.out.println(train);
         train.start(timeHandler);
         for (int i = 0; i < hours; i++) {
             timeHandler.nextHour();
             train.move();
         }
-        line(paint(Colors.RED,"SIMULATION END // "));
+        line(paint(Colors.RED, "SIMULATION END // "));
     }
 
     class Handler {
@@ -152,5 +181,4 @@ class RailwaySystem {
     DatabaseHandler getDatabaseHandler() {
         return databaseHandler;
     }
-
 }

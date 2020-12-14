@@ -1,10 +1,29 @@
 package Homeworks.Month12.RailwayProject;
 
 public class Ticket {
-    private Passenger passenger;
+    private int passengerId;
     private int cost;
-    private Train train;
-    private String date;
+    private int trainId;
+    private String dateOfDeparture;
+    private String dateOfDestination;
     private Station departure;
     private Station destination;
+
+    public Ticket(int passengerId, int cost) {
+        this.passengerId = passengerId;
+        this.cost = cost;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "passengerId=" + passengerId +
+                ", cost=" + cost +
+                ", trainId=" + trainId +
+                ", dateOfDeparture='" + dateOfDeparture + '\'' +
+                ", dateOfDestination='" + dateOfDestination + '\'' +
+                ", departure=" + departure +
+                ", destination=" + destination +
+                '}';
+    }
 }

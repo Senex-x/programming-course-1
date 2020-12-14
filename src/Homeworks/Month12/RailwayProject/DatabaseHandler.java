@@ -1,7 +1,11 @@
 package Homeworks.Month12.RailwayProject;
 
+import com.google.gson.Gson;
+
 import static Methods.Methods.*;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
@@ -11,18 +15,21 @@ import java.util.Scanner;
 class DatabaseHandler {
     // Contains trains for easy input, not needed in final build
     private static final String TRAINS_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/trains.txt";
+    private static final String PASSENGERS_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/passengers.txt";
     // Contains all station names in proper order
     private static final String STATIONS_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/stations.txt";
     // Contains all possible ways and their lengths for each station name
     // Being associated by station ID's: ID = line in waymatrix with proper ways description
     private static final String WAYMATRIX_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/waymatrix.txt";
-    private static final String TABLE_NAME = "timetable";
+    private static final String DB_NAME = "railway_project_data";
+    private static final String TRAINS_TABLE_NAME = "timetable";
+    private static final String PASSENGERS_TABLE_NAME = "passengers";
     private static final String DB_PATH_PC = "D:\\Projects\\Java\\" +
             "PolyakovV_11005\\src\\Homeworks\\Month12\\" +
-            "RailwayProject\\data\\" + TABLE_NAME + ".db";
+            "RailwayProject\\data\\" + DB_NAME + ".db";
     private static final String DB_PATH = "C:\\Projects\\Java\\" +
             "StudyProject\\src\\Homeworks\\Month12\\" +
-            "RailwayProject\\data\\" + TABLE_NAME + ".db";
+            "RailwayProject\\data\\" + DB_NAME + ".db";
 
     private static final String[] COLUMNS = {
             "id",
@@ -40,27 +47,28 @@ class DatabaseHandler {
     private static final ArrayList<Station> stations = parseStations(); // requires waysHandler
     // Contains all the trains from database
     private final ArrayList<Train> trains;
+    private final ArrayList<Passenger> passengers;
 
     DatabaseHandler() {
         openDatabase();
         waysHandler.setStations(stations); // requires stations list
-        trains = parseTrains(); // requires connection and waysHandler's list of stations
+        trains = getTrainsFromDB(); // requires connection and waysHandler's list of stations
+        passengers = getPassengersFromDB();
     }
 
     private void openDatabase() {
         try {
             Class.forName("org.sqlite.JDBC"); // class loading
-            connection = DriverManager.getConnection("jdbc:sqlite:" + DB_PATH_PC);
+            connection = DriverManager.getConnection("jdbc:sqlite:" + DB_PATH);
         } catch (SQLException | ClassNotFoundException exception) {
             exception.printStackTrace();
         }
     }
 
     void addToDatabase(Train train) {
-        String query = "INSERT INTO " + TABLE_NAME + " " +
-                "( id, train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )\n" +
+        String query = "INSERT INTO " + TRAINS_TABLE_NAME + " " +
+                "( train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )\n" +
                 "VALUES ( " +
-                "0, '" +
                 train.getName() + "', " +
                 train.getSpeed() + ", " +
                 train.getCapacity() + ", " +
@@ -69,17 +77,11 @@ class DatabaseHandler {
                 train.getRouteCode() + "' );";
 
         System.out.println(query);
-        try {
-            Statement statement = connection.createStatement();
-            //statement.executeUpdate(query);
-            statement.close();
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
+        // executeUpdate(query);
     }
 
-    void updateDatabase(Train train) {
-        String query = "UPDATE " + TABLE_NAME + " SET\n" +
+    void updateTrainsDB(Train train) {
+        String query = "UPDATE " + TRAINS_TABLE_NAME + " SET\n" +
                 COLUMNS[1] + " = '" + train.getName() + "',\n" +
                 COLUMNS[2] + " = " + train.getSpeed() + ",\n" +
                 COLUMNS[3] + " = " + train.getCapacity() + ",\n" +
@@ -90,22 +92,16 @@ class DatabaseHandler {
                 COLUMNS[0] + " = " + train.getId() + ";";
 
         System.out.println(query);
-        try {
-            Statement statement = connection.createStatement();
-            // statement.executeUpdate(query);
-            statement.close();
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
+        // executeUpdate(query);
     }
 
     ArrayList<Train> getTrains() {
         return trains;
     }
 
-    private ArrayList<Train> parseTrains() {
+    private ArrayList<Train> getTrainsFromDB() {
         ArrayList<Train> trains = new ArrayList<>();
-        String query = "SELECT * FROM " + TABLE_NAME + ";";
+        String query = "SELECT * FROM " + TRAINS_TABLE_NAME + ";";
 
         try {
             Statement statement = connection.createStatement();
@@ -233,12 +229,120 @@ class DatabaseHandler {
         return new WaysHandler(ways);
     }
 
+    void addToTablePassengers(Passenger passenger) {
+        String query = "INSERT INTO " + PASSENGERS_TABLE_NAME + " " +
+                "( passenger_name, passenger_password, passenger_history )\n" +
+                "VALUES ( \n\t'" +
+                passenger.getName() + "', \n\t'" +
+                passenger.getPassword() + "', \n\t'" +
+                historyHolderToJson(passenger.getHistoryHolder()) + "'\n );";
+        System.out.println(query);
+        executeUpdate(query);
+    }
+
+    String historyHolderToJson(Passenger.HistoryHolder historyHolder) {
+        return new Gson().toJson(historyHolder);
+    }
+
+    private ArrayList<Passenger> getPassengersFromDB() {
+        ArrayList<Passenger> passengers = new ArrayList<>();
+        String query = "SELECT * FROM " + PASSENGERS_TABLE_NAME + ";";
+        ResultSet results = executeQuery(query);
+        while (true) {
+            try {
+                if (!results.next()) break;
+                passengers.add(new Passenger(
+                        results.getInt("passenger_id"),
+                        results.getString("passenger_name"),
+                        results.getString("passenger_password"),
+                        new Gson().fromJson(results.getString("passenger_history"), Passenger.HistoryHolder.class)
+                ));
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        return passengers;
+    }
+
+    ArrayList<Passenger> getPassengersFromTxt() {
+        ArrayList<Passenger> passengers = new ArrayList<>();
+        try {
+            Scanner scanner = new Scanner(new FileReader(PASSENGERS_TXT_PATH));
+            while (scanner.hasNext()) {
+                String name = scanner.nextLine();
+                passengers.add(new Passenger(
+                        0,
+                        name,
+                        generatePassword(10),
+                        new ArrayList<>()
+                ));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return passengers;
+    }
+
+    private String generatePassword(int length) {
+        StringBuilder password = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            password.append((char) getRandInt(48, 123));
+        }
+        return password.toString();
+    }
+
+    void updatePassengersDB(Passenger passenger) {
+        String query = "UPDATE " + PASSENGERS_TABLE_NAME + " SET\n" +
+                "\tpassenger_name = '" + passenger.getName() + "',\n" +
+                "\tpassenger_password = '" + passenger.getPassword() + "',\n" +
+                "\tpassenger_history = '" + historyHolderToJson(passenger.getHistoryHolder()) + "'\n" +
+                "WHERE\n" +
+                "\tpassenger_id = " + passenger.getId() + ";";
+        executeUpdate(query);
+    }
+
+    void deleteRowById(String tableName, int id) {
+        String query = "default";
+        if (tableName.equals(PASSENGERS_TABLE_NAME)) {
+            query = "DELETE FROM " + tableName + "\n" +
+                    "WHERE passenger_id = " + id + ";";
+        } else if (tableName.equals(TRAINS_TABLE_NAME)) {
+            query = "DELETE FROM " + tableName + "\n" +
+                    "WHERE id = " + id + ";";
+        }
+        executeUpdate(query);
+    }
+
+    ArrayList<Passenger> getPassengers() {
+        return passengers;
+    }
+
     WaysHandler getWaysHandler() {
         return waysHandler;
     }
 
     static ArrayList<Station> getStations() {
         return stations;
+    }
+
+    void executeUpdate(String query) {
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(query);
+            statement.close();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    ResultSet executeQuery(String query) {
+        try {
+            Statement statement = connection.createStatement();
+            return statement.executeQuery(query);
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+            return null;
+        }
     }
 
 
@@ -248,7 +352,7 @@ class DatabaseHandler {
             Train train = trains.get(i);
             String initialRoute = train.getRouteCode();
             StringBuilder newRoute = new StringBuilder();
-            if(initialRoute.charAt(1) == ' ') continue;
+            if (initialRoute.charAt(1) == ' ') continue;
             for (int j = 0; j < initialRoute.length() - 1; j++) {
                 newRoute.append(initialRoute.charAt(j) - 48);
                 newRoute.append(" ");
@@ -258,5 +362,15 @@ class DatabaseHandler {
 
             //updateDatabase(train);
         }
+    }
+
+    private void createTablePassengers() {
+        String query = "CREATE TABLE " + PASSENGERS_TABLE_NAME + " (\n" +
+                "\tpassenger_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
+                "\tpassenger_name TEXT NOT NULL,\n" +
+                "\tpassenger_password INTEGER NOT NULL,\n" +
+                "\tpassenger_history TEXT NOT NULL\n" +
+                ");";
+        executeUpdate(query);
     }
 }
