@@ -82,6 +82,11 @@ class RailwaySystem {
 
 
 
+
+        // minimal interaction needed
+        // minimal ticket logic needed
+        // minimal logging needed
+
 /*
         Passenger testPassenger = new Passenger(0, "Senex", "qwerty123");
 
