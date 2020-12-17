@@ -79,10 +79,12 @@ class RailwaySystem {
 
         Train train = trains.get(0);
         System.out.println(train);
-        System.out.println(train.getRouteString());
-        System.out.println(train.getRoute().getStateDescription());
 
-
+        for (int i = 0; i < 5; i++) {
+            line("-");
+            train.move();
+            System.out.println(train.getRoute().getStateDescription());
+        }
 
 
         // minimal interaction needed

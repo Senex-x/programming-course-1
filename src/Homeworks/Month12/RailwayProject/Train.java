@@ -73,14 +73,7 @@ class Train {
 
 
     void move() {
-        /*
-        if (route.size() == 1) {
-            movementHandler.singleWayMove();
-        } else {
-            movementHandler.move();
-        }
-
-         */
+        route.move();
     }
 
     class Route {
@@ -89,6 +82,7 @@ class Train {
         Station currentStation;
         Station nextStation;
         int timeBeforeArrival;
+        int currentStationIndex;
 
         Route(ArrayList<Way> wayMap) {
             if (wayMap.size() == 1) {
@@ -102,6 +96,7 @@ class Train {
                         wayMap.get(0).getDistance()));
 
                 currentStation = departure;
+                currentStationIndex = 0;
                 nextStation = destination;
                 currentPath = route.get(0);
                 timeBeforeArrival = calculateTimeBeforeArrival();
@@ -118,14 +113,30 @@ class Train {
             }
 
             currentStation = route.get(0).getStation();
+            currentStationIndex = 0;
             nextStation = route.get(1).getStation();
             currentPath = route.get(0);
             timeBeforeArrival = calculateTimeBeforeArrival();
         }
 
         void move() {
+            if(--timeBeforeArrival == 0) { // arrived
+                System.out.println("Train " + getInfo() + " arrived on station: " + currentStation);
+                if(currentStationIndex + 1 == route.size()) {
+                    currentStationIndex = 0;
+                } else {
+                    currentStationIndex++;
+                }
+                currentPath = route.get(currentStationIndex);
+                currentStation = route.get(currentStationIndex).getStation();
+                nextStation = route.get(currentStationIndex + 1).getStation();
+                timeBeforeArrival = calculateTimeBeforeArrival();
+            } else {
 
+            }
         }
+
+
 
         int calculateTimeBeforeArrival() {
             return Math.round((float) currentPath.getDistance() / speed);
