@@ -1,5 +1,7 @@
 package Homeworks.Month12.RailwayProject;
 
+import Methods.Methods;
+
 import java.util.ArrayList;
 
 public class Station {

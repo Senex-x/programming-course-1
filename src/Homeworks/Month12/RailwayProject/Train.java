@@ -122,14 +122,19 @@ class Train {
         void move() {
             if(--timeBeforeArrival == 0) { // arrived
                 System.out.println("Train " + getInfo() + " arrived on station: " + currentStation);
-                if(currentStationIndex + 1 == route.size()) {
+                //System.out.println("CURR " + currentStationIndex);
+                if(currentStationIndex + 1 == route.size()) { // next loop
                     currentStationIndex = 0;
+                    nextStation = route.get(currentStationIndex + 1).getStation();
+                } else if(currentStationIndex + 2 == route.size()) { // last in route handling
+                    currentStationIndex++;
+                    nextStation = route.get(0).getStation();
                 } else {
                     currentStationIndex++;
+                    nextStation = route.get(currentStationIndex + 1).getStation();
                 }
                 currentPath = route.get(currentStationIndex);
                 currentStation = route.get(currentStationIndex).getStation();
-                nextStation = route.get(currentStationIndex + 1).getStation();
                 timeBeforeArrival = calculateTimeBeforeArrival();
             } else {
 

@@ -78,9 +78,11 @@ class RailwaySystem {
         //System.out.println("testTrain: " + testTrain);
 
         Train train = trains.get(0);
+        //train = testTrain;
         System.out.println(train);
 
-        for (int i = 0; i < 5; i++) {
+        System.out.println(train.getRoute().getStateDescription());
+        for (int i = 0; i < 24; i++) {
             line("-");
             train.move();
             System.out.println(train.getRoute().getStateDescription());
