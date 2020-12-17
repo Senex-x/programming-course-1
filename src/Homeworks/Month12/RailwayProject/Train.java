@@ -42,7 +42,7 @@ class Train {
         this.trainType = trainType;
         this.routeCode = routeCode;
         stations = DatabaseHandler.getStations();
-        this.route = new Route(stations, wayMap);
+        this.route = new Route(wayMap);
     }
 
     void start(TimeHandler timeHandler) {
@@ -85,16 +85,12 @@ class Train {
 
     class Route {
         ArrayList<Path> route = new ArrayList<>();
-        ArrayList<Station> stations;
-
         Path currentPath;
         Station currentStation;
         Station nextStation;
         int timeBeforeArrival;
 
-        Route(ArrayList<Station> stations, ArrayList<Way> wayMap) {
-            this.stations = stations;
-
+        Route(ArrayList<Way> wayMap) {
             if (wayMap.size() == 1) {
                 Station departure = Station.getStationByName(stations, wayMap.get(0).getDeparture());
                 Station destination = Station.getStationByName(stations, wayMap.get(0).getDestination());
@@ -127,6 +123,10 @@ class Train {
             timeBeforeArrival = calculateTimeBeforeArrival();
         }
 
+        void move() {
+
+        }
+
         int calculateTimeBeforeArrival() {
             return Math.round((float) currentPath.getDistance() / speed);
         }
@@ -145,6 +145,13 @@ class Train {
 
         public int getTimeBeforeArrival() {
             return timeBeforeArrival;
+        }
+
+        String getStateDescription() {
+            return "Current path: " + currentPath +
+                    "\nCurrent station: " + currentStation +
+                    "\nNextStation: " + nextStation +
+                    "\nTime before arrival: " + timeBeforeArrival;
         }
 
         @Override
@@ -583,6 +590,14 @@ class Train {
 
     void setRoute(ArrayList<Way> route) {
         //this.route = route;
+    }
+
+    Route getRoute() {
+        return route;
+    }
+
+    String getRouteString() {
+        return route.toString();
     }
 
     int getTimeBeforeArrival() {

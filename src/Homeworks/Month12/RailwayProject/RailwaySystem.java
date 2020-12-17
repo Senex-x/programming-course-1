@@ -75,10 +75,12 @@ class RailwaySystem {
         );
 
 
-        System.out.println("testTrain: " + testTrain);
+        //System.out.println("testTrain: " + testTrain);
 
         Train train = trains.get(0);
         System.out.println(train);
+        System.out.println(train.getRouteString());
+        System.out.println(train.getRoute().getStateDescription());
 
 
 
