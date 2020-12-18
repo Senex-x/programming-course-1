@@ -58,19 +58,8 @@ class Train {
     }
 
     void silentStart(TimeHandler timeHandler) {
-        /*
         this.timeHandler = timeHandler;
-        movementHandler = new MovementHandler(route.get(0), timeHandler);
-        if (route.size() == 1) {
-            movementHandler.singleWayStart();
-        } else {
-            movementHandler.silentStart();
-        }
-
-         */
     }
-
-
 
     void move() {
         route.move();
@@ -120,13 +109,12 @@ class Train {
         }
 
         void move() {
-            if(--timeBeforeArrival == 0) { // arrived
+            if (--timeBeforeArrival == 0) { // arrived
                 System.out.println("Train " + getInfo() + " arrived on station: " + currentStation);
-                //System.out.println("CURR " + currentStationIndex);
-                if(currentStationIndex + 1 == route.size()) { // next loop
+                if (currentStationIndex + 1 == route.size()) { // next loop
                     currentStationIndex = 0;
                     nextStation = route.get(currentStationIndex + 1).getStation();
-                } else if(currentStationIndex + 2 == route.size()) { // last in route handling
+                } else if (currentStationIndex + 2 == route.size()) { // last in route handling
                     currentStationIndex++;
                     nextStation = route.get(0).getStation();
                 } else {
@@ -136,11 +124,59 @@ class Train {
                 currentPath = route.get(currentStationIndex);
                 currentStation = route.get(currentStationIndex).getStation();
                 timeBeforeArrival = calculateTimeBeforeArrival();
-            } else {
-
             }
         }
 
+        // from current path and current timeBeforeArrival finds time to next stations
+        int calculateRemainingTimeTo(Station desiredStation) {
+            int currentIndex = currentStationIndex;
+            int remainingTime = this.timeBeforeArrival;
+            //int timeBeforeArrival = this.timeBeforeArrival;
+            Station currentStationBuffer = currentStation;
+            Station nextStationBuffer = nextStation;
+
+            while (true) {
+                if(timeBeforeArrival-- == calculateTimeBeforeArrival()) { // arrived now
+
+                } else {
+
+                }
+                break;
+            }
+            int ind = indexOfStationInRoute(desiredStation);
+            int startInd = currentStationIndex;
+
+            return remainingTime;
+        }
+
+        class Calculator {
+            Path currentPath;
+            Station currentStation;
+            Station nextStation;
+            int timeBeforeArrival;
+            int currentStationIndex;
+
+
+        }
+
+
+        int indexOfStationInRoute(Station station) {
+            for (int i = 0; i < route.size(); i++) {
+                if (route.get(i).getStation().equals(station)) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        boolean isStationIncluded(Station station) {
+            for (Path path : route) {
+                if (path.getStation().equals(station)) {
+                    return true;
+                }
+            }
+            return false;
+        }
 
 
         int calculateTimeBeforeArrival() {
@@ -608,7 +644,7 @@ class Train {
         //this.route = route;
     }
 
-    Route getRoute() {
+    Route route() {
         return route;
     }
 

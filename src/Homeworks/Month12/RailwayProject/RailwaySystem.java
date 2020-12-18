@@ -80,12 +80,16 @@ class RailwaySystem {
         Train train = trains.get(0);
         //train = testTrain;
         System.out.println(train);
+        System.out.println(stations.get(9));
+        System.out.println(train.route().isStationIncluded(stations.get(9)));
 
-        System.out.println(train.getRoute().getStateDescription());
-        for (int i = 0; i < 24; i++) {
+
+
+        System.out.println(train.route().getStateDescription());
+        for (int i = 0; i < 2; i++) {
             line("-");
             train.move();
-            System.out.println(train.getRoute().getStateDescription());
+            System.out.println(train.route().getStateDescription());
         }
 
 
