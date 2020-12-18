@@ -114,7 +114,7 @@ class Train {
 
         void move() {
             if (--timeBeforeArrival == 0) { // arrived
-                System.out.println("Train " + getInfo() + " arrived on station: " + currentStation);
+                System.out.println("Train " + getInfo() + " arrived on station: " + nextStation);
                 if (currentStationIndex + 1 == route.size()) { // next loop
                     currentStationIndex = 0;
                     nextStation = route.get(currentStationIndex + 1).getStation();
@@ -131,11 +131,40 @@ class Train {
             }
         }
 
+        // from departure to destination
+        int calculateTimeBetween(Station departure, Station destination) {
+            int currentIndex = indexOfStationInRoute(departure);
+            int remainingTime = 0;
+
+            if(currentIndex + 1 == route.size()) {
+                currentIndex = 0;
+            } else {
+                currentIndex++;
+            }
+
+            while (!route.get(currentIndex).getStation().equals(destination)) {
+                remainingTime += calculateTimeBeforeArrival(route.get(currentIndex));
+                if(currentIndex + 1 == route.size()) {
+                    currentIndex = 0;
+                } else {
+                    currentIndex++;
+                }
+            }
+
+            remainingTime += calculateTimeBeforeArrival(route.get(currentIndex));
+            return remainingTime;
+        }
+
         // from current path and current timeBeforeArrival finds time to next stations
         int calculateRemainingTimeTo(Station desiredStation) {
             int currentIndex = currentStationIndex;
-            System.out.println("CURRENT INDEX: " + currentIndex);
             int remainingTime = this.timeBeforeArrival;
+
+            // desired station is next
+            /*if (route.get(currentIndex).getStation().equals(desiredStation)) {
+                return calculateTimeBeforeArrival(route.get(currentIndex));
+            }
+             */
 
             if(currentIndex + 1 == route.size()) {
                 currentIndex = 0;
@@ -152,18 +181,7 @@ class Train {
                 }
             }
 
-            remainingTime += calculateTimeBeforeArrival(route.get(currentIndex));
             return remainingTime;
-        }
-
-        class Calculator {
-            Path currentPath;
-            Station currentStation;
-            Station nextStation;
-            int timeBeforeArrival;
-            int currentStationIndex;
-
-
         }
 
 

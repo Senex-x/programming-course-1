@@ -83,21 +83,33 @@ class RailwaySystem {
         //train = testTrain;
         System.out.println(train);
         System.out.println(train.getRouteString());
+        System.out.println(train.route().getStateDescription());
 
-        Station departure = withName("karambai");
-        Station destination = withName("sosnovka");
+        Station departure = withName("Sosnovka");
+        Station destination = withName("Karambai");
 
+        // bug with counting time between stations (needs to be less by one)
+
+        System.out.println(train.route().calculateRemainingTimeTo(departure));
+        simulateTrain(train, train.route().calculateRemainingTimeTo(departure));
+        System.out.println(train.route().calculateRemainingTimeTo(destination));
+        simulateTrain(train, train.route().calculateRemainingTimeTo(destination));
+
+        System.out.println(train.route().calculateTimeBetween(departure, destination));
+
+/*
         passenger.buyTicket(new Ticket(
                 passenger.getId(),
-             //   train.calculateCost(train.route().calculateRemainingTimeTo(departure),
+                train.calculateCost(train.route().calculateTimeBetween(departure, destination)),
                 train.getId(),
                 timeHandler.toString(),
                 departure,
                 destination
         ));
 
+         */
 
-        simulateTrain(train, 27);
+        //simulateTrain(train, 27);
 
 
 
