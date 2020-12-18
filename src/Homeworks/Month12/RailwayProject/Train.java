@@ -130,22 +130,25 @@ class Train {
         // from current path and current timeBeforeArrival finds time to next stations
         int calculateRemainingTimeTo(Station desiredStation) {
             int currentIndex = currentStationIndex;
+            System.out.println("CURRENT INDEX: " + currentIndex);
             int remainingTime = this.timeBeforeArrival;
-            //int timeBeforeArrival = this.timeBeforeArrival;
-            Station currentStationBuffer = currentStation;
-            Station nextStationBuffer = nextStation;
 
-            while (true) {
-                if(timeBeforeArrival-- == calculateTimeBeforeArrival()) { // arrived now
-
-                } else {
-
-                }
-                break;
+            if(currentIndex + 1 == route.size()) {
+                currentIndex = 0;
+            } else {
+                currentIndex++;
             }
-            int ind = indexOfStationInRoute(desiredStation);
-            int startInd = currentStationIndex;
 
+            while (!route.get(currentIndex).getStation().equals(desiredStation)) {
+                remainingTime += calculateTimeBeforeArrival(route.get(currentIndex));
+                if(currentIndex + 1 == route.size()) {
+                    currentIndex = 0;
+                } else {
+                    currentIndex++;
+                }
+            }
+
+            remainingTime += calculateTimeBeforeArrival(route.get(currentIndex));
             return remainingTime;
         }
 
@@ -181,6 +184,10 @@ class Train {
 
         int calculateTimeBeforeArrival() {
             return Math.round((float) currentPath.getDistance() / speed);
+        }
+
+        int calculateTimeBeforeArrival(Path path) {
+            return Math.round((float) path.getDistance() / speed);
         }
 
         public Path getCurrentPath() {

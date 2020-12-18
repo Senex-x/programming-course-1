@@ -80,17 +80,22 @@ class RailwaySystem {
         Train train = trains.get(0);
         //train = testTrain;
         System.out.println(train);
-        System.out.println(stations.get(9));
-        System.out.println(train.route().isStationIncluded(stations.get(9)));
+        System.out.println(train.getRouteString());
 
 
 
-        System.out.println(train.route().getStateDescription());
-        for (int i = 0; i < 2; i++) {
-            line("-");
-            train.move();
-            System.out.println(train.route().getStateDescription());
-        }
+
+        simulateTrain(train, 27);
+
+        simulateTrain(
+                train,
+                train.route().calculateRemainingTimeTo(withName("Karambai"))
+        );
+
+        //System.out.println(train.route().calculateRemainingTimeTo(stations.get(7)));
+
+
+// 8
 
 
         // minimal interaction needed
@@ -141,25 +146,10 @@ class RailwaySystem {
 
  */
 
-        // bug
-        // simulateTrain(trains.get(2), 10);
+    }
 
-
-
-/*
-        Train train = trains.get(0);
-        //Train train = testTrain;
-        System.out.println(train);
-        train.start(timeHandler);
-
-        System.out.println(
-                train.calculateNextArrivalTimeAt(Station.getStationByName(stations, "Sosnovka")));
-
-        simulateTrain(train, 2); // 3 -> 18
-*/
-
-
-        //simulateTrain(train, 10);
+    private Station withName(String name) {
+        return Station.getStationByName(stations, name);
     }
 
     private void simulateAllTrains(int hours) {
@@ -177,8 +167,9 @@ class RailwaySystem {
     private void simulateTrain(Train train, int hours) {
         line(paint(Colors.RED, "SIMULATION START // "));
         System.out.println(train);
-        train.start(timeHandler);
+        //train.start(timeHandler);
         for (int i = 0; i < hours; i++) {
+            line("-");
             timeHandler.nextHour();
             train.move();
         }
