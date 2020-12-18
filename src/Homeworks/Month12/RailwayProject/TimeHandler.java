@@ -55,6 +55,7 @@ class TimeHandler {
         return timeHandlerSnapshot;
     }
 
+
     @Override
     public String toString() {
         return formattedDate;

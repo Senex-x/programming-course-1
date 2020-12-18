@@ -65,6 +65,10 @@ class Train {
         route.move();
     }
 
+    public int calculateCost(int timeOnBoard) {
+        return ticketCost * timeOnBoard;
+    }
+
     class Route {
         ArrayList<Path> route = new ArrayList<>();
         Path currentPath;

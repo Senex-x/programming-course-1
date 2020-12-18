@@ -10,7 +10,6 @@ public class Passenger {
     private HistoryHolder historyHolder;
 
 
-
     public Passenger(int id, String name, String password, ArrayList<Ticket> history) {
         this.id = id;
         this.name = name;

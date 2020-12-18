@@ -77,24 +77,33 @@ class RailwaySystem {
 
         //System.out.println("testTrain: " + testTrain);
 
+        Passenger passenger = passengers.get(0);
+        System.out.println(passenger);
         Train train = trains.get(0);
         //train = testTrain;
         System.out.println(train);
         System.out.println(train.getRouteString());
 
+        Station departure = withName("karambai");
+        Station destination = withName("sosnovka");
 
+        passenger.buyTicket(new Ticket(
+                passenger.getId(),
+             //   train.calculateCost(train.route().calculateRemainingTimeTo(departure),
+                train.getId(),
+                timeHandler.toString(),
+                departure,
+                destination
+        ));
 
 
         simulateTrain(train, 27);
 
-        simulateTrain(
-                train,
-                train.route().calculateRemainingTimeTo(withName("Karambai"))
-        );
+
+
+
 
         //System.out.println(train.route().calculateRemainingTimeTo(stations.get(7)));
-
-
 // 8
 
 
