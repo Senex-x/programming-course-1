@@ -97,6 +97,7 @@ class RailwaySystem {
 
         System.out.println(train.route().calculateTimeBetween(departure, destination));
 
+
 /*
         passenger.buyTicket(new Ticket(
                 passenger.getId(),
