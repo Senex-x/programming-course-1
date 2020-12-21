@@ -23,10 +23,10 @@ public class Passenger {
         historyHolder = history;
     }
 
-    static Passenger getPassengerById(int id,ArrayList<Passenger> passengers) {
-        for(Passenger passenger : passengers) {
-            if(passenger.getId() == id) {
-                return  passenger;
+    static Passenger getPassengerById(int id, ArrayList<Passenger> passengers) {
+        for (Passenger passenger : passengers) {
+            if (passenger.getId() == id) {
+                return passenger;
             }
         }
         return null;
@@ -62,13 +62,7 @@ public class Passenger {
 
     @Override
     public String toString() {
-        return "Passenger{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", currentTicket=" + currentTicket +
-                ", historyHolder=" + historyHolder +
-                '}';
+        return "Passenger: " + name + " (ID: " + id + ")";
     }
 
     static class HistoryHolder {

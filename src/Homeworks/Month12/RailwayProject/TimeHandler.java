@@ -28,6 +28,13 @@ class TimeHandler {
         printDate();
     }
 
+    String getTimeForwardedBy(int hours) {
+        Calendar copy = (Calendar)calendar.clone();
+        copy.add(Calendar.HOUR, hours);
+        return formatter.format(copy.getTime());
+    }
+
+
     void printDate() {
         System.out.println(paint(Colors.GREEN,"#####   CURRENT DATE: " + formattedDate + "   #####"));
     }
@@ -43,18 +50,6 @@ class TimeHandler {
     int getDay() {
         return calendar.get(Calendar.MONTH);
     }
-
-    TimeHandler getSilentSnapshot() {
-        TimeHandler timeHandlerSnapshot = new TimeHandler() {
-            @Override
-            void printDate() {
-            }
-        };
-        timeHandlerSnapshot.calendar = (GregorianCalendar)calendar.clone();
-        timeHandlerSnapshot.formattedDate = new String(formattedDate);
-        return timeHandlerSnapshot;
-    }
-
 
     @Override
     public String toString() {
