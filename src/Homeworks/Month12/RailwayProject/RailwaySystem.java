@@ -98,75 +98,79 @@ class RailwaySystem {
         // passenger = loggingInUser(inp);
         passenger = passengers.get(passengers.size() - 1);
 
-        System.out.println("If you want to exit enter (0).\n" +
-                "If you want to buy a ticket enter (1).\n" +
-                "If you want to check your trips history enter (2).");
-        inp = Integer.parseInt(getLine());
         while (true) {
-            if(inp == 0) {
-                System.out.println("Thanks for using our system, shutting down ERS...");
-                System.exit(0);
-            }
-            if (inp == 1) {
-                System.out.println("Please enter following information. ");
-                displayArray(stations, 1);
-                System.out.println("Please, enter desired departure station ID: ");
-                int stationId = getInt();
-                Station departure = stationWithId(stationId);
-                System.out.println("Please, enter desired destination station ID: ");
-                stationId = getInt();
-                Station destination = stationWithId(stationId);
+            System.out.println("If you want to exit enter (0).\n" +
+                    "If you want to buy a ticket enter (1).\n" +
+                    "If you want to check your trips history enter (2).");
+            inp = Integer.parseInt(getLine());
+            switch (inp) {
+                case 0:
+                    System.out.println("Thanks for using our system, shutting down ERS...");
+                    System.exit(0);
+                    break;
+                case 1:
+                    System.out.println("Please enter following information. ");
+                    displayArray(stations, 1);
+                    System.out.println("Please, enter desired departure station ID: ");
+                    int stationId = getInt();
+                    Station departure = stationWithId(stationId);
+                    System.out.println("Please, enter desired destination station ID: ");
+                    stationId = getInt();
+                    Station destination = stationWithId(stationId);
 
-                System.out.println("Chosen departure: " + departure +
-                        "\nChosen destination: " + destination + "\n");
+                    System.out.println("Chosen departure: " + departure +
+                            "\nChosen destination: " + destination + "\n");
 
-                ArrayList<Train> suitableTrains = new ArrayList<>();
-                for (Train t : trains) {
-                    if (t.route().isStationIncluded(departure) && t.route().isStationIncluded(destination)) {
-                        suitableTrains.add(t);
+                    ArrayList<Train> suitableTrains = new ArrayList<>();
+                    for (Train t : trains) {
+                        if (t.route().isStationIncluded(departure) && t.route().isStationIncluded(destination)) {
+                            suitableTrains.add(t);
+                        }
                     }
-                }
 
-                System.out.println("Trains suitable for trip: ");
-                for (Train t : suitableTrains) {
+                    System.out.println("Trains suitable for trip: ");
+                    for (Train t : suitableTrains) {
+                        line("-");
+                        System.out.println(t);
+                        System.out.println("Time before departure: " + t.route().calculateRemainingTimeTo(departure));
+                        System.out.println("Time on board: " + t.route().calculateTimeBetween(departure, destination));
+                    }
+
+                    System.out.println("Please enter desired train ID: ");
+                    int desiredTrainId = getInt();
+                    Train chosenTrain = trainWithId(desiredTrainId);
+
+                    System.out.println("You have picked: " + chosenTrain);
+
+                    int timeBeforeDeparture = chosenTrain.route().calculateRemainingTimeTo(departure);
+                    int timeOnBoard = chosenTrain.route().calculateTimeBetween(departure, destination);
+                    Ticket newTicket = new Ticket(
+                            passenger.getId(),
+                            chosenTrain.calculateCost(timeOnBoard),
+                            chosenTrain.getId(),
+                            timeHandler.getTimeForwardedBy(timeBeforeDeparture),
+                            departure,
+                            destination
+                    );
+                    passenger.buyTicket(newTicket);
+                    databaseHandler.updatePassengersDB(passenger);
+                    databaseHandler.updatePassengers();
+
+                    simulateAllTrains(chosenTrain.route().calculateRemainingTimeTo(departure));
+                    System.out.println(paint(Colors.PURPLE, "Your train have arrived to departure point."));
+                    simulateAllTrains(chosenTrain.route().calculateRemainingTimeTo(destination));
+                    System.out.println(paint(Colors.PURPLE, "Your train have arrived to destination point."));
+
+                    break;
+                case 2:
+                    for (Ticket currentTicket : passenger.getTripsHistory()) {
+                        line("-");
+                        System.out.println(currentTicket.getInfo(passengers, stations));
+                    }
                     line("-");
-                    System.out.println(t);
-                    System.out.println("Time before departure: " + t.route().calculateRemainingTimeTo(departure));
-                    System.out.println("Time on board: " + t.route().calculateTimeBetween(departure, destination));
-                }
-
-                System.out.println("Please enter desired train ID: ");
-                int desiredTrainId = getInt();
-                Train chosenTrain = trainWithId(desiredTrainId);
-
-                System.out.println("You have picked: " + chosenTrain);
-
-                int timeBeforeDeparture = chosenTrain.route().calculateRemainingTimeTo(departure);
-                int timeOnBoard = chosenTrain.route().calculateTimeBetween(departure, destination);
-                Ticket ticket = new Ticket(
-                        passenger.getId(),
-                        chosenTrain.calculateCost(timeOnBoard),
-                        chosenTrain.getId(),
-                        timeHandler.getTimeForwardedBy(timeBeforeDeparture),
-                        departure,
-                        destination
-                );
-                passenger.buyTicket(ticket);
-                databaseHandler.updatePassengersDB(passenger);
-                databaseHandler.updatePassengers();
-
-                simulateAllTrains(chosenTrain.route().calculateRemainingTimeTo(departure));
-                System.out.println(paint(Colors.PURPLE, "Your train have arrived to departure point."));
-                simulateAllTrains(chosenTrain.route().calculateRemainingTimeTo(destination));
-                System.out.println(paint(Colors.PURPLE, "Your train have arrived to destination point."));
-
-                break;
-            } if(inp == 2) { // checking history
-                displayArray(passenger.getTripsHistory(), 1);
-                break;
-            }
-            else {
-                System.out.println("Incorrect input, please try again.");
+                    break;
+                default:
+                    System.out.println("Incorrect input, please try again.");
             }
         }
     }
