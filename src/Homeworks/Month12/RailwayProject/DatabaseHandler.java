@@ -22,8 +22,8 @@ class DatabaseHandler {
     // Being associated by station ID's: ID = line in waymatrix with proper ways description
     private static final String WAYMATRIX_TXT_PATH = "src/Homeworks/Month12/RailwayProject/data/waymatrix.txt";
     private static final String DB_NAME = "railway_project_data";
-    private static final String TRAINS_TABLE_NAME = "timetable";
-    private static final String PASSENGERS_TABLE_NAME = "passengers";
+    static final String TRAINS_TABLE_NAME = "timetable";
+    static final String PASSENGERS_TABLE_NAME = "passengers";
     private static final String DB_PATH_PC = "D:\\Projects\\Java\\" +
             "PolyakovV_11005\\src\\Homeworks\\Month12\\" +
             "RailwayProject\\data\\" + DB_NAME + ".db";
@@ -242,7 +242,7 @@ class DatabaseHandler {
                 passenger.getName() + "', \n\t'" +
                 passenger.getPassword() + "', \n\t'" +
                 historyHolderToJson(passenger.getHistoryHolder()) + "'\n );";
-        System.out.println(query);
+        //System.out.println(query);
         executeUpdate(query);
     }
 

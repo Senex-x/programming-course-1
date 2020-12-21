@@ -84,22 +84,28 @@ class RailwaySystem {
         qwerty123
          */
 
-        Passenger pass = passengers.get(0);
+        Passenger passengerTest = passengers.get(0);
         Train train = trains.get(0);
         //train = testTrain;
 
-        Station departure = withName("Sosnovka");
-        Station destination = withName("Karambai");
+        displayArray(passengers, 1);
+
+        Station departureTest = withName("Sosnovka");
+        Station destinationTest = withName("Karambai");
 
         System.out.println("... Welcome to Electronic Railway System (ERS) ...\n" +
                 "Please sign up (1) or log in (2)");
-        while (true) {
-            int inp;
+        int inp;
+        while(true) {
             try {
                 inp = Integer.parseInt(getLine());
+                break;
             } catch (Exception e) {
-                inp = -1;
+                System.out.println("Incorrect input, please try again.");
             }
+        }
+
+        while (true) {
             if (inp == 1) {
                 System.out.println("To sign up please enter following information.\n" +
                         "Your name: ");
@@ -130,6 +136,10 @@ class RailwaySystem {
                         passenger = p;
                     }
                 }
+                if(passenger == null) {
+                    System.out.println("User not found, please try again.");
+                    continue;
+                }
                 break;
             } else {
                 System.out.println("Incorrect input, try again.");
@@ -137,66 +147,32 @@ class RailwaySystem {
         }
 
         System.out.println("If you want to buy a ticket enter (1).");
-        int inp = Integer.parseInt(getLine());
+        inp = Integer.parseInt(getLine());
         if(inp == 1) {
-            System.out.println("Please enter following information: ");
+            System.out.println("Please enter following information. ");
+            displayArray(stations, 1);
+            System.out.println("Please, enter desired departure station ID: ");
+            int stationId = Integer.parseInt(getLine());
+            Station departure = withId(stationId);
+            System.out.println("Please, enter desired destination station ID: ");
+            stationId = Integer.parseInt(getLine());
+            Station destination = withId(stationId);
+
+            System.out.println("Trains suitable for trip: ");
+            for(Train t : trains) {
+                if(t.route().isStationIncluded(departure) && t.route().isStationIncluded(destination)) {
+                    System.out.println(train);
+                }
+            }
         }
-
-/*
-        passenger.buyTicket(new Ticket(
-                passenger.getId(),
-                train.calculateCost(train.route().calculateTimeBetween(departure, destination)),
-                train.getId(),
-                timeHandler.toString(),
-                departure,
-                destination
-        ));
-
-         */
-
-        //simulateTrain(train, 27);
-
-
-        //System.out.println(train.route().calculateRemainingTimeTo(stations.get(7)));
-// 8
-
-
-        // minimal interaction needed
-        // minimal ticket logic needed
-        // minimal logging needed
-
-/*
-        Passenger testPassenger = new Passenger(0, "Senex", "qwerty123");
-
-        // System.out.println("You are logged in as: " + testPassenger);
-
-        Passenger testPassenger2 = passengers.get(1);
-
-        displayArray(passengers, 1);
-
-        //displayArray(passengers, 1);
-
-
-        /*
-        System.out.println(passenger);
-        String passengerJsonString = gson.toJson(passenger);
-        System.out.println(passengerJsonString);
-
-        Passenger passengerFromJson = gson.fromJson(passengerJsonString, Passenger.class);
-        System.out.println(passengerFromJson);
-
-        passenger.buyTicket(new Ticket(
-                -1,
-                100));
-
-        //displayArray(passengers, 1);
-
-*/
-
     }
 
     private Station withName(String name) {
         return Station.getStationByName(stations, name);
+    }
+
+    private Station withId(int id) {
+        return Station.getStationById(stations, id);
     }
 
     private void simulateAllTrains(int hours) {
