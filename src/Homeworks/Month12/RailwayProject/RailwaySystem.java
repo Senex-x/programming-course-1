@@ -46,6 +46,7 @@ class Test {
  */
 
 class RailwaySystem {
+    private static final int ADMIN_ID = 108;
     TimeHandler timeHandler = new TimeHandler();
     TrainsMovementHandler trainsHandler = new TrainsMovementHandler();
     // Doing all the work referred to data files
@@ -76,7 +77,6 @@ class RailwaySystem {
                 new ArrayList<>(Arrays.asList(new Way("Vahitovo", "Kamaevo", 320)))
         );
 
-
         //System.out.println("testTrain: " + testTrain);
 
         /*
@@ -88,23 +88,91 @@ class RailwaySystem {
         Train train = trains.get(0);
         //train = testTrain;
 
-        displayArray(passengers, 1);
-
-        Station departureTest = withName("Sosnovka");
-        Station destinationTest = withName("Karambai");
+        Station departureTest = stationWithName("Sosnovka");
+        Station destinationTest = stationWithName("Karambai");
 
         System.out.println("... Welcome to Electronic Railway System (ERS) ...\n" +
                 "Please sign up (1) or log in (2)");
-        int inp;
-        while(true) {
-            try {
-                inp = Integer.parseInt(getLine());
+        int inp = getInt();
+
+        // passenger = loggingInUser(inp);
+        passenger = passengers.get(passengers.size() - 1);
+
+        System.out.println("If you want to exit enter (0).\n" +
+                "If you want to buy a ticket enter (1).\n" +
+                "If you want to check your trips history enter (2).");
+        inp = Integer.parseInt(getLine());
+        while (true) {
+            if(inp == 0) {
+                System.out.println("Thanks for using our system, shutting down ERS...");
+                System.exit(0);
+            }
+            if (inp == 1) {
+                System.out.println("Please enter following information. ");
+                displayArray(stations, 1);
+                System.out.println("Please, enter desired departure station ID: ");
+                int stationId = getInt();
+                Station departure = stationWithId(stationId);
+                System.out.println("Please, enter desired destination station ID: ");
+                stationId = getInt();
+                Station destination = stationWithId(stationId);
+
+                System.out.println("Chosen departure: " + departure +
+                        "\nChosen destination: " + destination + "\n");
+
+                ArrayList<Train> suitableTrains = new ArrayList<>();
+                for (Train t : trains) {
+                    if (t.route().isStationIncluded(departure) && t.route().isStationIncluded(destination)) {
+                        suitableTrains.add(t);
+                    }
+                }
+
+                System.out.println("Trains suitable for trip: ");
+                for (Train t : suitableTrains) {
+                    line("-");
+                    System.out.println(t);
+                    System.out.println("Time before departure: " + t.route().calculateRemainingTimeTo(departure));
+                    System.out.println("Time on board: " + t.route().calculateTimeBetween(departure, destination));
+                }
+
+                System.out.println("Please enter desired train ID: ");
+                int desiredTrainId = getInt();
+                Train chosenTrain = trainWithId(desiredTrainId);
+
+                System.out.println("You have picked: " + chosenTrain);
+
+                int timeBeforeDeparture = chosenTrain.route().calculateRemainingTimeTo(departure);
+                int timeOnBoard = chosenTrain.route().calculateTimeBetween(departure, destination);
+                Ticket ticket = new Ticket(
+                        passenger.getId(),
+                        chosenTrain.calculateCost(timeOnBoard),
+                        chosenTrain.getId(),
+                        timeHandler.getTimeForwardedBy(timeBeforeDeparture),
+                        departure,
+                        destination
+                );
+                passenger.buyTicket(ticket);
+                databaseHandler.updatePassengersDB(passenger);
+                databaseHandler.updatePassengers();
+
+                simulateAllTrains(chosenTrain.route().calculateRemainingTimeTo(departure));
+                System.out.println(paint(Colors.PURPLE, "Your train have arrived to departure point."));
+                simulateAllTrains(chosenTrain.route().calculateRemainingTimeTo(destination));
+                System.out.println(paint(Colors.PURPLE, "Your train have arrived to destination point."));
+
                 break;
-            } catch (Exception e) {
+            } if(inp == 2) { // checking history
+                displayArray(passenger.getTripsHistory(), 1);
+                break;
+            }
+            else {
                 System.out.println("Incorrect input, please try again.");
             }
         }
+    }
 
+    Passenger loggingInUser(int inp) {
+        Passenger passenger = null;
         while (true) {
             if (inp == 1) {
                 System.out.println("To sign up please enter following information.\n" +
@@ -119,7 +187,7 @@ class RailwaySystem {
                 );
 
                 databaseHandler.addToTablePassengers(newPassenger);
-                databaseHandler.updatePassengers(passengers);
+                databaseHandler.updatePassengers();
                 passenger = passengers.get(passengers.size() - 1);
                 break;
 
@@ -136,7 +204,7 @@ class RailwaySystem {
                         passenger = p;
                     }
                 }
-                if(passenger == null) {
+                if (passenger == null) {
                     System.out.println("User not found, please try again.");
                     continue;
                 }
@@ -145,40 +213,35 @@ class RailwaySystem {
                 System.out.println("Incorrect input, try again.");
             }
         }
-
-        System.out.println("If you want to buy a ticket enter (1).");
-        inp = Integer.parseInt(getLine());
-        if(inp == 1) {
-            System.out.println("Please enter following information. ");
-            displayArray(stations, 1);
-            System.out.println("Please, enter desired departure station ID: ");
-            int stationId = Integer.parseInt(getLine());
-            Station departure = withId(stationId);
-            System.out.println("Please, enter desired destination station ID: ");
-            stationId = Integer.parseInt(getLine());
-            Station destination = withId(stationId);
-
-            System.out.println("Trains suitable for trip: ");
-            for(Train t : trains) {
-                if(t.route().isStationIncluded(departure) && t.route().isStationIncluded(destination)) {
-                    System.out.println(train);
-                }
-            }
-        }
+        return passenger;
     }
 
-    private Station withName(String name) {
+    int getInt() {
+        int input;
+        try {
+            input = Integer.parseInt(getLine());
+        } catch (Exception e) {
+            System.out.println("Incorrect input, please try again.");
+            input = this.getInt();
+        }
+        return input;
+    }
+
+    private Train trainWithId(int id) {
+        return Train.getTrainWithId(id, trains);
+    }
+
+    private Station stationWithName(String name) {
         return Station.getStationByName(stations, name);
     }
 
-    private Station withId(int id) {
+    private Station stationWithId(int id) {
         return Station.getStationById(stations, id);
     }
 
     private void simulateAllTrains(int hours) {
-        for (Train train : trains) {
-        }
         for (int i = 0; i < hours; i++) {
+            line("-");
             timeHandler.nextHour();
             for (Train train : trains) {
                 train.move();
@@ -187,19 +250,14 @@ class RailwaySystem {
     }
 
     private void simulateTrain(Train train, int hours) {
-        line(paint(Colors.RED, "SIMULATION START // "));
-        System.out.println(train);
+        //line(paint(Colors.RED, "SIMULATION START // "));
         //train.start(timeHandler);
         for (int i = 0; i < hours; i++) {
             line("-");
             timeHandler.nextHour();
             train.move();
         }
-        line(paint(Colors.RED, "SIMULATION END // "));
-    }
-
-    class Handler {
-
+        //line(paint(Colors.RED, "SIMULATION END // "));
     }
 
     private static class TrainsMovementHandler {

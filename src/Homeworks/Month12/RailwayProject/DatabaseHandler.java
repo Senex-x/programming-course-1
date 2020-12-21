@@ -229,10 +229,33 @@ class DatabaseHandler {
         return new WaysHandler(ways);
     }
 
-    void updatePassengers(ArrayList<Passenger> passengers) {
-        ArrayList<Passenger> newPassengers = getPassengers();
-        passengers.add(newPassengers.get(newPassengers.size() - 1)); // updating given list
-        this.passengers.add(newPassengers.get(newPassengers.size() - 1)); // updating local list
+    void updatePassengers() {
+        ArrayList<Passenger> oldPassengers = passengers;
+        ArrayList<Passenger> newPassengers = getPassengersFromDB();
+        if(newPassengers.size() > oldPassengers.size()) { // new one added
+            oldPassengers.add(newPassengers.get(newPassengers.size() - 1));
+            return;
+        }
+        if(newPassengers.size() < oldPassengers.size()) { // old one deleted
+            for (int i = 0; i < oldPassengers.size(); i++) {
+                Passenger oldPassenger = oldPassengers.get(i);
+                Passenger newPassenger = newPassengers.get(i);
+                if(oldPassenger.getId() != newPassenger.getId()) { // changes made
+                    oldPassengers.remove(i);
+                    return;
+                }
+            }
+        }
+        for (int i = 0; i < newPassengers.size(); i++) {
+            Passenger oldPassenger = oldPassengers.get(i);
+            Passenger newPassenger = newPassengers.get(i);
+            if(!oldPassenger.equals(newPassenger)) { // changes made
+                if(oldPassenger.getId() == newPassenger.getId()) { // inner data changed
+                    oldPassenger = newPassenger;
+                    return;
+                }
+            }
+        }
     }
 
     void addToTablePassengers(Passenger passenger) {
