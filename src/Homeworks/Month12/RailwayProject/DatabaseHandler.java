@@ -229,6 +229,35 @@ class DatabaseHandler {
         return new WaysHandler(ways);
     }
 
+    public void updateTrains() {
+        ArrayList<Train> oldTrains = trains;
+        ArrayList<Train> newTrains = getTrainsFromDB();
+        if(newTrains.size() > oldTrains.size()) { // new one added
+            oldTrains.add(newTrains.get(newTrains.size() - 1));
+            return;
+        }
+        if(newTrains.size() < oldTrains.size()) { // old one deleted
+            for (int i = 0; i < oldTrains.size(); i++) {
+                Train oldTrain = oldTrains.get(i);
+                Train newpassenger = newTrains.get(i);
+                if(oldTrain.getId() != newpassenger.getId()) { // changes made
+                    oldTrains.remove(i);
+                    return;
+                }
+            }
+        }
+        for (int i = 0; i < newTrains.size(); i++) {
+            Train oldTrain = oldTrains.get(i);
+            Train newTrain = newTrains.get(i);
+            if(!oldTrain.equals(newTrain)) { // changes made
+                if(oldTrain.getId() == newTrain.getId()) { // inner data changed
+                    oldTrain = newTrain;
+                    return;
+                }
+            }
+        }
+    }
+
     void updatePassengers() {
         ArrayList<Passenger> oldPassengers = passengers;
         ArrayList<Passenger> newPassengers = getPassengersFromDB();

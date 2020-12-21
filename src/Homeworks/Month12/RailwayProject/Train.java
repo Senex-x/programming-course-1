@@ -178,6 +178,7 @@ class Train {
         }
 
 
+
         int calculateTimeBeforeArrival() {
             return Math.round((float) currentPath.getDistance() / speed);
         }
@@ -238,8 +239,22 @@ class Train {
         }
     }
 
+    static Train getTrainWithId(int id, ArrayList<Train> trains) {
+        for(Train train : trains) {
+            if(train.getId() == id) {
+                return train;
+            }
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
+        return "Train: " + name + " (ID: " + id + ")";
+    }
+
+
+    String getInfo() {
         return "Train{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
@@ -248,12 +263,34 @@ class Train {
                 ", ticketCost=" + ticketCost +
                 ", trainType=" + trainType +
                 ", routeCode='" + routeCode + '\'' +
+                ", stations=" + stations +
                 ", route=" + route +
+                ", currentTickets=" + currentTickets +
                 '}';
     }
 
-    String getInfo() {
-        return name + " (ID: " + id + ")";
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public void setTicketCost(int ticketCost) {
+        this.ticketCost = ticketCost;
+    }
+
+    public void setTrainType(TrainType trainType) {
+        this.trainType = trainType;
+    }
+
+    public void setStations(ArrayList<Station> stations) {
+        this.stations = stations;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
     }
 
     int getId() {

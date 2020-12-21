@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 
 import static Methods.Methods.*;
 
+import java.sql.SQLOutput;
 import java.util.*;
 
 class Test {
@@ -102,8 +103,12 @@ class RailwaySystem {
             System.out.println("If you want to exit enter (0).\n" +
                     "If you want to buy a ticket enter (1).\n" +
                     "If you want to check your trips history enter (2).");
+            if (passenger.getId() == ADMIN_ID) {
+                System.out.println("If you want to change train parameters enter (3).");
+                System.out.println("If you want to add new train enter (4).");
+            }
             inp = Integer.parseInt(getLine());
-            switch (inp) {
+            outer: switch (inp) {
                 case 0:
                     System.out.println("Thanks for using our system, shutting down ERS...");
                     System.exit(0);
@@ -169,6 +174,54 @@ class RailwaySystem {
                     }
                     line("-");
                     break;
+                case 3: // change parameters
+                    if (passenger.getId() != ADMIN_ID) break;
+                    displayArray(trains, 1);
+                    System.out.println("Please enter ID of a train to change parameters of: ");
+                    int trainIdInput = getInt();
+                    Train chosenTrainToEdit = Train.getTrainWithId(trainIdInput, trains);
+                    System.out.println("Chosen train: " + chosenTrainToEdit.getInfo());
+
+                    System.out.println("If you want to edit speed enter (1).\n" +
+                            "If you want to edit train capacity enter (2).\n" +
+                            "If you want to edit train ticket cost enter (3).\n" +
+                            "If you want to edit train type enter (4).\n" +
+                            "If you want to edit route code of a train enter (5).\n" +
+                            "If you want to cancel operation enter (0)" );
+                    int trainEditInput = getInt();
+                    switch (trainEditInput) {
+                        case 1: //speed
+                            System.out.println("Enter new train speed in km/h: ");
+                            int newSpeed = getInt();
+                            chosenTrainToEdit.setSpeed(newSpeed);
+                            databaseHandler.updateTrains();
+
+                            for(Train train1 : trains) {
+                                System.out.println(train1.getInfo());
+                            }
+                            break outer;
+                        case 2: // capacity
+                            System.out.println("Enter new train capacity: ");
+                            int newCapacity = getInt();
+                            break outer;
+                        case 3: // ticket cost
+                            System.out.println("Enter new train ticket cost: ");
+                            int newCost = getInt();
+                            break outer;
+                        case 4: //train type
+                            System.out.println("Enter new train type: \n" +
+                                    "LUXE (1), COMFORT (2), ECONOMY (3).");
+                            int newType = getInt();
+                            TrainType trainType = TrainType.values()[newType - 1];
+                            break outer;
+                        case 5: // route code
+                            break outer;
+                    }
+
+
+                case 4: // add new train
+                    if (passenger.getId() != ADMIN_ID) break;
+
                 default:
                     System.out.println("Incorrect input, please try again.");
             }
