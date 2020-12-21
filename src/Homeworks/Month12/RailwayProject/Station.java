@@ -24,6 +24,15 @@ public class Station {
         return null;
     }
 
+    static Station getStationById(ArrayList<Station> stations, int stationId) {
+        for (Station station : stations) {
+            if (station.getId() == stationId) {
+                return station;
+            }
+        }
+        return null;
+    }
+
     public int getId() {
         return id;
     }

@@ -3,18 +3,17 @@ package Homeworks.Month12.RailwayProject;
 import java.util.ArrayList;
 
 public class Passenger {
-    private final int id;
+    private int id;
     private String name;
     private String password;
     private Ticket currentTicket;
     private HistoryHolder historyHolder;
 
 
-    public Passenger(int id, String name, String password, ArrayList<Ticket> history) {
-        this.id = id;
+    public Passenger(String name, String password) {
         this.name = name;
         this.password = password;
-        historyHolder = new HistoryHolder(history);
+        historyHolder = new HistoryHolder(new ArrayList<>());
     }
 
     public Passenger(int id, String name, String password, HistoryHolder history) {
@@ -22,6 +21,15 @@ public class Passenger {
         this.name = name;
         this.password = password;
         historyHolder = history;
+    }
+
+    static Passenger getPassengerById(int id,ArrayList<Passenger> passengers) {
+        for(Passenger passenger : passengers) {
+            if(passenger.getId() == id) {
+                return  passenger;
+            }
+        }
+        return null;
     }
 
     void buyTicket(Ticket ticket) {
@@ -61,12 +69,6 @@ public class Passenger {
                 ", currentTicket=" + currentTicket +
                 ", historyHolder=" + historyHolder +
                 '}';
-    }
-
-    class TicketHandler {
-        Ticket currentTicket;
-
-
     }
 
     static class HistoryHolder {

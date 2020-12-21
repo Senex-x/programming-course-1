@@ -1,5 +1,7 @@
 package Homeworks.Month12.RailwayProject;
 
+import java.util.ArrayList;
+
 public class Ticket {
     private int passengerId;
     private int cost;
@@ -22,9 +24,16 @@ public class Ticket {
         this.cost = cost;
     }
 
+    String getInfo(ArrayList<Passenger> passengers, ArrayList<Station> stations) {
+        return "Ticket: Passenger: " + Passenger.getPassengerById(passengerId, passengers) +
+                " (ID: " + passengerId + ")," +
+                "\nCost: " + cost +
+                ",\nDeparture: " + departure + ", Destination: " + destination;
+    }
+
     @Override
     public String toString() {
-        return "Ticket{" +
+        return "Ticket:" +
                 "passengerId=" + passengerId +
                 ", cost=" + cost +
                 ", trainId=" + trainId +
