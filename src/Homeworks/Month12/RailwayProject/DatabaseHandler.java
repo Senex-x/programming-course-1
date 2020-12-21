@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 
 import static Methods.Methods.*;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -65,7 +64,7 @@ class DatabaseHandler {
         }
     }
 
-    void addToDatabase(Train train) {
+    void addToTableTrains(Train train) {
         String query = "INSERT INTO " + TRAINS_TABLE_NAME + " " +
                 "( train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )\n" +
                 "VALUES ( " +
@@ -91,8 +90,8 @@ class DatabaseHandler {
                 "WHERE\n" +
                 COLUMNS[0] + " = " + train.getId() + ";";
 
-        System.out.println(query);
-        // executeUpdate(query);
+        //System.out.println(query);
+        executeUpdate(query);
     }
 
     ArrayList<Train> getTrains() {
@@ -139,7 +138,7 @@ class DatabaseHandler {
     void addAllTrainsFromTxtToDatabase() {
         ArrayList<Train> trains = getTrainsFromTxt();
         for (Train train : trains) {
-            addToDatabase(train);
+            addToTableTrains(train);
         }
     }
 
@@ -151,7 +150,6 @@ class DatabaseHandler {
             Scanner scanner = new Scanner(new FileReader(TRAINS_TXT_PATH));
             while (scanner.hasNext()) {
                 trains.add(new Train(
-                        idCounter++,
                         scanner.next(),
                         scanner.nextInt(),
                         scanner.nextInt(),

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 class Train {
-    private final int id;
+    private int id;
     private final String name;
     private int speed;
     private int capacity;
@@ -20,8 +20,7 @@ class Train {
     private HashMap<String, Ticket> currentTickets;
 
     // only used in trains.txt parser for initial input
-    Train(int id, String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode) {
-        this.id = id;
+    Train(String name, int speed, int capacity, int ticketCost, TrainType trainType, String routeCode) {
         this.name = name;
         this.speed = speed;
         this.capacity = capacity;
