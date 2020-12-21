@@ -229,6 +229,12 @@ class DatabaseHandler {
         return new WaysHandler(ways);
     }
 
+    void updatePassengers(ArrayList<Passenger> passengers) {
+        ArrayList<Passenger> newPassengers = getPassengers();
+        passengers.add(newPassengers.get(newPassengers.size() - 1)); // updating given list
+        this.passengers.add(newPassengers.get(newPassengers.size() - 1)); // updating local list
+    }
+
     void addToTablePassengers(Passenger passenger) {
         String query = "INSERT INTO " + PASSENGERS_TABLE_NAME + " " +
                 "( passenger_name, passenger_password, passenger_history )\n" +
@@ -271,10 +277,8 @@ class DatabaseHandler {
             while (scanner.hasNext()) {
                 String name = scanner.nextLine();
                 passengers.add(new Passenger(
-                        0,
                         name,
-                        generatePassword(10),
-                        new ArrayList<>()
+                        generatePassword(10)
                 ));
             }
         } catch (FileNotFoundException e) {
