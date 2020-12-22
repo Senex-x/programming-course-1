@@ -105,7 +105,7 @@ class RailwaySystem {
             if (passenger.getId() == ADMIN_ID) {
                 System.out.println("If you want to change train parameters, enter (3).\n" +
                         "If you want to add new train, enter (4).\n" +
-                                "If you want to add new station, enter (5).");
+                        "If you want to add new station, enter (5).");
             }
             inp = Integer.parseInt(getLine());
             outer:
@@ -262,9 +262,26 @@ class RailwaySystem {
                             trainRouteCode);
                     databaseHandler.addToTableTrains(newTrain);
                     databaseHandler.updateTrains();
+                    break;
                 case 5: // add new station
+                    System.out.println("Please enter the following information to create a new station.\n" +
+                            "Station name: ");
+                    String stationName = getLine();
+                    System.out.println("Station route distances to all the other stations in order.\n" +
+                            "It's " + stations.size() + " stations in system currently. ");
+                    StringBuilder newLineInWaymatrix = new StringBuilder();
+                    for(int i=0;i<stations.size();i++) {
+                        System.out.println("please, enter distance to " + stations.get(i));
+                        int newDistance = getInt();
+                        newLineInWaymatrix.append(i + " " + newDistance + " ");
+                    }
+                    newLineInWaymatrix.deleteCharAt(newLineInWaymatrix.length() - 1);
+                    databaseHandler.addNewLineToWayMatrix(newLineInWaymatrix.toString());
+                    databaseHandler.addNewStationName(stationName);
+                    databaseHandler.updateStations();
 
-
+                    displayArray(stations, 1);
+                    break;
                 default:
                     System.out.println("Incorrect input, please try again.");
             }

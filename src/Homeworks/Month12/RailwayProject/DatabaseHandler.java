@@ -6,6 +6,7 @@ import static Methods.Methods.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -63,6 +64,7 @@ class DatabaseHandler {
             exception.printStackTrace();
         }
     }
+
 
     void addToTableTrains(Train train) {
         String query = "INSERT INTO " + TRAINS_TABLE_NAME + " " +
@@ -178,6 +180,32 @@ class DatabaseHandler {
         return stations;
     }
 
+    void addNewStationName(String newName) {
+        try (FileWriter writer = new FileWriter(STATIONS_TXT_PATH, true)) {
+            writer.write(newName + "\n");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // adding or changing
+    void updateStations() {
+        ArrayList<String> oldNames = stationNames; // local file
+        ArrayList<String> newNames = getStationNames(); // from updated DB
+
+        if (oldNames.size() < newNames.size()) { // new one added
+            oldNames.add(newNames.get(newNames.size() - 1)); // adding last element
+        } else { // old one changed
+            for (int i = 0; i < oldNames.size(); i++) {
+                if (!oldNames.get(i).equals(newNames.get(i))) { // changes made
+                    oldNames = newNames;
+                    break;
+                }
+            }
+        }
+    }
+
     // stations.txt parser returns ArrayList of station names
     // To add a new station, stations.txt and waymatrix.txt updates needed
     static ArrayList<String> getStationNames() {
@@ -230,15 +258,15 @@ class DatabaseHandler {
     public void updateTrains() {
         ArrayList<Train> oldTrains = trains;
         ArrayList<Train> newTrains = getTrainsFromDB();
-        if(newTrains.size() > oldTrains.size()) { // new one added
+        if (newTrains.size() > oldTrains.size()) { // new one added
             oldTrains.add(newTrains.get(newTrains.size() - 1));
             return;
         }
-        if(newTrains.size() < oldTrains.size()) { // old one deleted
+        if (newTrains.size() < oldTrains.size()) { // old one deleted
             for (int i = 0; i < oldTrains.size(); i++) {
                 Train oldTrain = oldTrains.get(i);
                 Train newpassenger = newTrains.get(i);
-                if(oldTrain.getId() != newpassenger.getId()) { // changes made
+                if (oldTrain.getId() != newpassenger.getId()) { // changes made
                     oldTrains.remove(i);
                     return;
                 }
@@ -247,8 +275,8 @@ class DatabaseHandler {
         for (int i = 0; i < newTrains.size(); i++) {
             Train oldTrain = oldTrains.get(i);
             Train newTrain = newTrains.get(i);
-            if(!oldTrain.equals(newTrain)) { // changes made
-                if(oldTrain.getId() == newTrain.getId()) { // inner data changed
+            if (!oldTrain.equals(newTrain)) { // changes made
+                if (oldTrain.getId() == newTrain.getId()) { // inner data changed
                     oldTrain = newTrain;
                     return;
                 }
@@ -259,15 +287,15 @@ class DatabaseHandler {
     void updatePassengers() {
         ArrayList<Passenger> oldPassengers = passengers;
         ArrayList<Passenger> newPassengers = getPassengersFromDB();
-        if(newPassengers.size() > oldPassengers.size()) { // new one added
+        if (newPassengers.size() > oldPassengers.size()) { // new one added
             oldPassengers.add(newPassengers.get(newPassengers.size() - 1));
             return;
         }
-        if(newPassengers.size() < oldPassengers.size()) { // old one deleted
+        if (newPassengers.size() < oldPassengers.size()) { // old one deleted
             for (int i = 0; i < oldPassengers.size(); i++) {
                 Passenger oldPassenger = oldPassengers.get(i);
                 Passenger newPassenger = newPassengers.get(i);
-                if(oldPassenger.getId() != newPassenger.getId()) { // changes made
+                if (oldPassenger.getId() != newPassenger.getId()) { // changes made
                     oldPassengers.remove(i);
                     return;
                 }
@@ -276,8 +304,8 @@ class DatabaseHandler {
         for (int i = 0; i < newPassengers.size(); i++) {
             Passenger oldPassenger = oldPassengers.get(i);
             Passenger newPassenger = newPassengers.get(i);
-            if(!oldPassenger.equals(newPassenger)) { // changes made
-                if(oldPassenger.getId() == newPassenger.getId()) { // inner data changed
+            if (!oldPassenger.equals(newPassenger)) { // changes made
+                if (oldPassenger.getId() == newPassenger.getId()) { // inner data changed
                     oldPassenger = newPassenger;
                     return;
                 }
@@ -426,5 +454,14 @@ class DatabaseHandler {
                 "\tpassenger_history TEXT NOT NULL\n" +
                 ");";
         executeUpdate(query);
+    }
+
+    public void addNewLineToWayMatrix(String newLine) {
+        try (FileWriter writer = new FileWriter(WAYMATRIX_TXT_PATH, true)) {
+            writer.write(newLine + "\n");
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
