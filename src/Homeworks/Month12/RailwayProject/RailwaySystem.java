@@ -92,21 +92,27 @@ class RailwaySystem {
         Station destinationTest = stationWithName("Karambai");
 
         System.out.println("... Welcome to Electronic Railway System (ERS) ...\n" +
-                "Please sign up (1) or log in (2)");
+                "Please sign up (1) or log in (2).");
         int inp = getInt();
 
         // passenger = loggingInUser(inp);
         passenger = passengers.get(passengers.size() - 1);
 
         while (true) {
+            line("-");
             System.out.println("If you want to exit, enter (0).\n" +
                     "If you want to buy a ticket, enter (1).\n" +
                     "If you want to check your trips history, enter (2).");
             if (passenger.getId() == ADMIN_ID) {
                 System.out.println("If you want to change train parameters, enter (3).\n" +
                         "If you want to add new train, enter (4).\n" +
-                        "If you want to add new station, enter (5).");
+                        "If you want to add new station, enter (5).\n" +
+                        "If you want to delete a train, enter (6).\n" +
+                        "If you want to delete station, enter (7).\n" +
+                        "If you want to see info about trains, enter (8).\n" +
+                        "If you want to see info about stations, enter (9).");
             }
+            line("-");
             inp = Integer.parseInt(getLine());
             outer:
             switch (inp) {
@@ -129,7 +135,8 @@ class RailwaySystem {
 
                     ArrayList<Train> suitableTrains = new ArrayList<>();
                     for (Train t : trains) {
-                        if (t.route().isStationIncluded(departure) && t.route().isStationIncluded(destination)) {
+                        if (t.route().isStationIncluded(departure)
+                                && t.route().isStationIncluded(destination)) {
                             suitableTrains.add(t);
                         }
                     }
@@ -236,23 +243,28 @@ class RailwaySystem {
                     }
                 case 4: // add new train
                     if (passenger.getId() != ADMIN_ID) break;
-                    String trainName;
-                    int trainSpeed;
-                    int trainCapacity;
-                    int trainTicketCost;
-                    TrainType trainType;
-                    String trainRouteCode;
                     System.out.println("Please enter following information about new train.\n" +
-                            "Train name: " + (trainName = getLine()) +
-                            "\nTrain speed: " + (trainSpeed = getInt()) +
-                            "\nTrain capacity: " + (trainCapacity = getInt()) +
-                            "\nTrain ticketCost: " + (trainTicketCost = getInt()) +
+                            "Train name: ");
+                    String trainName = getLine();
+                    System.out.println(
+                            "Train speed: "
+                    );
+                    int trainSpeed = getInt();
+                    System.out.println(
+                            "Train capacity: ");
+                    int trainCapacity = getInt();
+                    System.out.println(
+                            "Train ticketCost: ");
+                    int trainTicketCost = getInt();
+                    System.out.println(
                             "Train type \n" +
-                            "[LUXE (1), COMFORT(2), ECONOMY(3)]: " + (trainType = TrainType.values()[getInt() - 1]) +
-                            "Route code \n" +
+                                    "[LUXE (1), COMFORT(2), ECONOMY(3)]: ");
+                    TrainType trainType = TrainType.values()[getInt() - 1];
+                    System.out.println("Route code \n" +
                             "[Route code contains numbers associated with stations ID's.\n" +
                             "Enter route code with spaces in proper order.\n" +
-                            "Do not repeat first station ID in the end.]: " + (trainRouteCode = getLine()));
+                            "Do not repeat first station ID in the end.]: ");
+                    String trainRouteCode = getLine();
                     Train newTrain = new Train(
                             trainName,
                             trainSpeed,
@@ -268,9 +280,9 @@ class RailwaySystem {
                             "Station name: ");
                     String stationName = getLine();
                     System.out.println("Station route distances to all the other stations in order.\n" +
-                            "It's " + stations.size() + " stations in system currently. ");
+                            "There are " + stations.size() + " stations in system currently. ");
                     StringBuilder newLineInWaymatrix = new StringBuilder();
-                    for(int i=0;i<stations.size();i++) {
+                    for (int i = 0; i < stations.size(); i++) {
                         System.out.println("please, enter distance to " + stations.get(i));
                         int newDistance = getInt();
                         newLineInWaymatrix.append(i + " " + newDistance + " ");
@@ -279,8 +291,42 @@ class RailwaySystem {
                     databaseHandler.addNewLineToWayMatrix(newLineInWaymatrix.toString());
                     databaseHandler.addNewStationName(stationName);
                     databaseHandler.updateStations();
-
+                    break;
+                case 6: // delete train
+                    if (passenger.getId() != ADMIN_ID) break;
+                    line("-");
+                    displayArray(trains, 1);
+                    System.out.println("Please, enter an ID of the train you want to delete.");
+                    int idToDeleteInput = getInt();
+                    Train trainToDelete = Train.getTrainWithId(idToDeleteInput, trains);
+                    System.out.println("You have deleted " + trainToDelete);
+                    databaseHandler.deleteRowById(DatabaseHandler.TRAINS_TABLE_NAME, idToDeleteInput);
+                    databaseHandler.updateTrains();
+                    break;
+                case 7: // delete station
+                    if (passenger.getId() != ADMIN_ID) break;
+                    line("-");
                     displayArray(stations, 1);
+                    System.out.println("Please, enter an ID of the station you want to delete.");
+                    int idToDeleteStationInput = getInt();
+                    Station stationToDelete = Station.getStationById(stations, idToDeleteStationInput);
+                    System.out.println("You have deleted " + stationToDelete);
+                    databaseHandler.deleteFromStationTxt(stationToDelete.getName());
+                    databaseHandler.updateStations();
+                    break;
+                case 8: // info about trains
+                    if (passenger.getId() != ADMIN_ID) break;
+                    line("-");
+                    displayArrayInfo(trains, 1);
+                    line("-");
+                    System.out.println("List of info about all the trains in the ERS.");
+                    break;
+                case 9: // info about stations
+                    if (passenger.getId() != ADMIN_ID) break;
+                    line("-");
+                    displayArrayInfo(stations, 1);
+                    line("-");
+                    System.out.println("List of info about all the stations in the ERS.");
                     break;
                 default:
                     System.out.println("Incorrect input, please try again.");
@@ -307,7 +353,6 @@ class RailwaySystem {
                 databaseHandler.updatePassengers();
                 passenger = passengers.get(passengers.size() - 1);
                 break;
-
             } else if (inp == 2) {
                 System.out.println("To log in please enter following information.\n" +
                         "Your name: ");
@@ -342,6 +387,15 @@ class RailwaySystem {
             input = this.getInt();
         }
         return input;
+    }
+
+    static void displayArrayInfo(ArrayList<? extends Informative> array, int elementsPerLine) {
+        for (int i = 0; i < array.size(); i++) {
+            System.out.print(array.get(i).getInfo() + " ");
+            if ((i != 0 || elementsPerLine == 1) && i % elementsPerLine == 0) {
+                System.out.println();
+            }
+        }
     }
 
     private Train trainWithId(int id) {
