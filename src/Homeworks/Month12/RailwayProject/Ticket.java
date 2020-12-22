@@ -24,7 +24,7 @@ public class Ticket {
         this.cost = cost;
     }
 
-    String getInfo(ArrayList<Passenger> passengers, ArrayList<Station> stations) {
+    public String getInfo(ArrayList<Passenger> passengers, ArrayList<Station> stations) {
         return "Ticket: Passenger: " + Passenger.getPassengerById(passengerId, passengers) +
                 "\nCost: " + cost +
                 ",\nDeparture: " + departure + ", Destination: " + destination;

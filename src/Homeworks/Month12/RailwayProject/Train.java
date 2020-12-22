@@ -5,7 +5,7 @@ import static Methods.Methods.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-class Train {
+class Train implements Informative {
     private int id;
     private final String name;
     private int speed;
@@ -118,7 +118,7 @@ class Train {
 
             while (!route.get(currentIndex).getStation().equals(destination)) {
                 remainingTime += calculateTimeBeforeArrival(route.get(currentIndex));
-                if(currentIndex + 1 == route.size()) {
+                if (currentIndex + 1 == route.size()) {
                     currentIndex = 0;
                 } else {
                     currentIndex++;
@@ -139,7 +139,7 @@ class Train {
             }
              */
 
-            if(currentIndex + 1 == route.size()) {
+            if (currentIndex + 1 == route.size()) {
                 currentIndex = 0;
             } else {
                 currentIndex++;
@@ -147,7 +147,7 @@ class Train {
 
             while (!route.get(currentIndex).getStation().equals(desiredStation)) {
                 remainingTime += calculateTimeBeforeArrival(route.get(currentIndex));
-                if(currentIndex + 1 == route.size()) {
+                if (currentIndex + 1 == route.size()) {
                     currentIndex = 0;
                 } else {
                     currentIndex++;
@@ -175,7 +175,6 @@ class Train {
             }
             return false;
         }
-
 
 
         int calculateTimeBeforeArrival() {
@@ -239,8 +238,8 @@ class Train {
     }
 
     static Train getTrainWithId(int id, ArrayList<Train> trains) {
-        for(Train train : trains) {
-            if(train.getId() == id) {
+        for (Train train : trains) {
+            if (train.getId() == id) {
                 return train;
             }
         }
@@ -252,8 +251,8 @@ class Train {
         return "Train: " + name + " (ID: " + id + ")";
     }
 
-
-    String getInfo() {
+    @Override
+    public String getInfo() {
         return "Train{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
@@ -262,7 +261,6 @@ class Train {
                 ", ticketCost=" + ticketCost +
                 ", trainType=" + trainType +
                 ", routeCode='" + routeCode + '\'' +
-                ", stations=" + stations +
                 ", route=" + route +
                 ", currentTickets=" + currentTickets +
                 '}';

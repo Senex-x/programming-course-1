@@ -46,6 +46,7 @@ class WaysHandler {
 
     //1 2 3 10
     ArrayList<Way> getRouteForTrain(String routeCode) {
+        //System.out.println("INITIAL ROUTE CODE: " + routeCode);
         ArrayList<Way> route = new ArrayList<>();
         StringBuilder code = new StringBuilder(routeCode);
         code.append(" ");
@@ -66,6 +67,9 @@ class WaysHandler {
             ));
             //System.out.println(currentStationId + " --> " + nextStationId);
         }
+        if(routeCode.length() == 3) {
+            return route;
+        }
         route.add(new Way(
                 stations.get(startStationId).getName(),
                 stations.get(nextStationId).getName(),
@@ -77,6 +81,13 @@ class WaysHandler {
         //System.out.println(startStationId + " --> " + nextStationId);
         //System.out.println(code);
         return route;
+    }
+
+    @Override
+    public String toString() {
+        return "WaysHandler{" +
+                "ways=" + ways +
+                '}';
     }
 
     void setStations(ArrayList<Station> stations) {
