@@ -41,9 +41,9 @@ class DatabaseHandler {
             "train_route"
     };
     private Connection connection;
-    private static final ArrayList<String> waymatrixRows = getWayMatrix();
-    private static final ArrayList<String> stationNames = getStationNames();
-    private static final WaysHandler waysHandler = getAllWays();
+    private static ArrayList<String> waymatrixRows = getWayMatrix();
+    private static ArrayList<String> stationNames = getStationNames();
+    private static WaysHandler waysHandler = getAllWays();
     private static final ArrayList<Station> stations = parseStations(); // requires waysHandler
     // Contains all the trains from database
     private final ArrayList<Train> trains;
@@ -189,21 +189,90 @@ class DatabaseHandler {
     }
 
 
-    // adding or changing
+    // updating local lists
     void updateStations() {
+        stationNames = getStationNames(); // parser of already changed stations.txt file
+        waysHandler = getAllWays();
+
+        ArrayList<Station> oldStations = stations;
+        ArrayList<Station> newStations = parseStations(); // requires waymatrix.txt and stations.txt
+
+        line("/");
+        RailwaySystem.displayArrayInfo(oldStations, 1);
+        line("/");
+        RailwaySystem.displayArrayInfo(newStations, 1);
+        line("/");
+
+        if (newStations.size() > oldStations.size()) { // new one added
+            oldStations.add(newStations.get(newStations.size() - 1));
+            return;
+        }
+        if (newStations.size() < oldStations.size()) { // old one deleted
+            for (int i = 0; i < oldStations.size(); i++) {
+                Station oldTrain = oldStations.get(i);
+                Station newPassenger = newStations.get(i);
+                if (oldTrain.getId() != newPassenger.getId()) { // changes made
+                    oldStations.remove(i);
+                    return;
+                }
+            }
+        }
+        for (int i = 0; i < newStations.size(); i++) {
+            Station oldStation = oldStations.get(i);
+            Station newStation = newStations.get(i);
+            if (!oldStation.equals(newStation)) { // changes made
+                if (oldStation.getId() == newStation.getId()) { // inner data changed
+                    oldStation = newStation;
+                    return;
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
         ArrayList<String> oldNames = stationNames; // local file
         ArrayList<String> newNames = getStationNames(); // from updated DB
 
+        System.out.println(oldNames);
+        System.out.println(newNames);
+
         if (oldNames.size() < newNames.size()) { // new one added
             oldNames.add(newNames.get(newNames.size() - 1)); // adding last element
+            updateStationsList();
+        } else if (oldNames.size() > newNames.size()) { // old one deleted
+            for (int i = 0; i < newNames.size(); i++) {
+                if(!oldNames.get(i).equals(newNames.get(i))) { // mismatch
+                    oldNames.remove(i);
+                    updateStationsList();
+                    return;
+                }
+                oldNames.remove(oldNames.size() - 1);
+            }
         } else { // old one changed
             for (int i = 0; i < oldNames.size(); i++) {
                 if (!oldNames.get(i).equals(newNames.get(i))) { // changes made
                     oldNames = newNames;
-                    break;
+                    updateStationsList();
+                    return;
                 }
             }
         }
+
+
+    }
+
+    // updating lists
+    private void updateStationsList() {
+
     }
 
     // stations.txt parser returns ArrayList of station names
@@ -220,6 +289,24 @@ class DatabaseHandler {
             e.printStackTrace();
         }
         return stationNames;
+    }
+
+    void deleteFromStationNamesTxt(String name) {
+        try (FileReader reader = new FileReader(STATIONS_TXT_PATH)) {
+            FileWriter writer = new FileWriter(STATIONS_TXT_PATH, true);
+            StringBuilder result = new StringBuilder();
+            Scanner sc = new Scanner(reader);
+            while (sc.hasNext()) {
+                String currentName = sc.next();
+                if (!currentName.equals(name)) { // all besides of deleted one
+                    result.append(name + "\n");
+                }
+            }
+            writer.write(result.toString());
+            writer.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // waymatrix.txt parser returns ArrayList of Strings each of which contains one row
