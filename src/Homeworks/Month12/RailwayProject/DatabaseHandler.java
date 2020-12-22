@@ -69,7 +69,7 @@ class DatabaseHandler {
     void addToTableTrains(Train train) {
         String query = "INSERT INTO " + TRAINS_TABLE_NAME + " " +
                 "( train_name, train_speed, train_capacity, train_ticket_cost, train_type, train_route )\n" +
-                "VALUES ( " +
+                "VALUES ( '" +
                 train.getName() + "', " +
                 train.getSpeed() + ", " +
                 train.getCapacity() + ", " +
@@ -77,8 +77,8 @@ class DatabaseHandler {
                 train.getTrainType().getId() + ", '" +
                 train.getRouteCode() + "' );";
 
-        System.out.println(query);
-        // executeUpdate(query);
+        //System.out.println(query);
+        executeUpdate(query);
     }
 
     void updateTrainsDB(Train train) {
@@ -118,7 +118,6 @@ class DatabaseHandler {
                         results.getString(COLUMNS[6]),
                         waysHandler.getRouteForTrain(results.getString(COLUMNS[6])))
                 );
-
             }
             results.close();
             statement.close();
@@ -192,30 +191,25 @@ class DatabaseHandler {
     // updating local lists
     void updateStations() {
         stationNames = getStationNames(); // parser of already changed stations.txt file
+        waymatrixRows = getWayMatrix();
         waysHandler = getAllWays();
 
         ArrayList<Station> oldStations = stations;
         ArrayList<Station> newStations = parseStations(); // requires waymatrix.txt and stations.txt
 
-        line("/");
-        RailwaySystem.displayArrayInfo(oldStations, 1);
-        line("/");
-        RailwaySystem.displayArrayInfo(newStations, 1);
-        line("/");
-
         if (newStations.size() > oldStations.size()) { // new one added
             oldStations.add(newStations.get(newStations.size() - 1));
             return;
-        }
-        if (newStations.size() < oldStations.size()) { // old one deleted
-            for (int i = 0; i < oldStations.size(); i++) {
-                Station oldTrain = oldStations.get(i);
-                Station newPassenger = newStations.get(i);
-                if (oldTrain.getId() != newPassenger.getId()) { // changes made
+        } else if (newStations.size() < oldStations.size()) { // old one deleted
+            for (int i = 0; i < newStations.size(); i++) {
+                Station oldStation = oldStations.get(i);
+                Station newStation = newStations.get(i);
+                if (oldStation.getId() != newStation.getId()) { // changes made
                     oldStations.remove(i);
                     return;
                 }
             }
+            oldStations.remove(oldStations.size() - 1);
         }
         for (int i = 0; i < newStations.size(); i++) {
             Station oldStation = oldStations.get(i);
@@ -229,7 +223,7 @@ class DatabaseHandler {
         }
 
 
-
+/*
 
 
 
@@ -267,7 +261,7 @@ class DatabaseHandler {
             }
         }
 
-
+*/
     }
 
     // updating lists
@@ -291,19 +285,29 @@ class DatabaseHandler {
         return stationNames;
     }
 
-    void deleteFromStationNamesTxt(String name) {
-        try (FileReader reader = new FileReader(STATIONS_TXT_PATH)) {
-            FileWriter writer = new FileWriter(STATIONS_TXT_PATH, true);
-            StringBuilder result = new StringBuilder();
-            Scanner sc = new Scanner(reader);
-            while (sc.hasNext()) {
-                String currentName = sc.next();
+    void deleteFromStationTxt(String name) {
+        try {
+            FileReader readerOfStations = new FileReader(STATIONS_TXT_PATH);
+            FileReader readerOfMatrix = new FileReader(WAYMATRIX_TXT_PATH);
+            StringBuilder resultStations = new StringBuilder();
+            StringBuilder resultWaymatrix = new StringBuilder();
+            Scanner scannerOfStations = new Scanner(readerOfStations);
+            Scanner scannerOfWaymatrix = new Scanner(readerOfMatrix);
+            while (scannerOfStations.hasNext()) {
+                String currentName = scannerOfStations.next();
+                String currentLine = scannerOfWaymatrix.nextLine();
                 if (!currentName.equals(name)) { // all besides of deleted one
-                    result.append(name + "\n");
+                    resultStations.append(currentName + "\n");
+                    resultWaymatrix.append(currentLine + "\n");
                 }
             }
-            writer.write(result.toString());
-            writer.flush();
+
+            FileWriter writerOfStations = new FileWriter(STATIONS_TXT_PATH, false);
+            FileWriter writerOfWaymatrix = new FileWriter(WAYMATRIX_TXT_PATH, false);
+            writerOfStations.write(resultStations.toString());
+            writerOfWaymatrix.write(resultWaymatrix.toString());
+            writerOfStations.flush();
+            writerOfWaymatrix.flush();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -350,7 +354,7 @@ class DatabaseHandler {
             return;
         }
         if (newTrains.size() < oldTrains.size()) { // old one deleted
-            for (int i = 0; i < oldTrains.size(); i++) {
+            for (int i = 0; i < newTrains.size(); i++) {
                 Train oldTrain = oldTrains.get(i);
                 Train newpassenger = newTrains.get(i);
                 if (oldTrain.getId() != newpassenger.getId()) { // changes made
@@ -358,6 +362,7 @@ class DatabaseHandler {
                     return;
                 }
             }
+            oldTrains.remove(oldTrains.size() - 1);
         }
         for (int i = 0; i < newTrains.size(); i++) {
             Train oldTrain = oldTrains.get(i);
