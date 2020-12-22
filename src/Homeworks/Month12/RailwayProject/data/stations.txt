@@ -9,3 +9,6 @@ Mozhga
 Pushkina
 Karambai
 Pichas
+Kornilovo
+TEST1
+TEST2
