@@ -4,7 +4,7 @@ import Methods.Methods;
 
 import java.util.ArrayList;
 
-public class Station {
+public class Station implements Informative {
     private int id;
     private String name;
     ArrayList<Way> ways;
@@ -39,6 +39,15 @@ public class Station {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String getInfo() {
+        return "Station{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", ways=" + ways +
+                '}';
     }
 
     @Override
