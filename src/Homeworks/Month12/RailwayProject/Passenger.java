@@ -2,7 +2,7 @@ package Homeworks.Month12.RailwayProject;
 
 import java.util.ArrayList;
 
-public class Passenger {
+public class Passenger implements Informative {
     private int id;
     private String name;
     private String password;
@@ -63,6 +63,17 @@ public class Passenger {
     @Override
     public String toString() {
         return "Passenger: " + name + " (ID: " + id + ")";
+    }
+
+    @Override
+    public String getInfo() {
+        return "Passenger{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", currentTicket=" + currentTicket +
+                ", historyHolder=" + historyHolder +
+                '}';
     }
 
     static class HistoryHolder {
