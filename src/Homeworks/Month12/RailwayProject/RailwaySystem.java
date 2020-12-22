@@ -66,37 +66,12 @@ class RailwaySystem {
         Passenger passenger = null;
         timeHandler.printDate();
 
-        Train testTrain = new Train(
-                0,
-                "EP2K",
-                100,
-                200,
-                600,
-                TrainType.ECONOMY,
-                "null",
-                new ArrayList<>(Arrays.asList(new Way("Vahitovo", "Kamaevo", 320)))
-        );
-
-        //System.out.println("testTrain: " + testTrain);
-
-        /*
-        Senex
-        qwerty123
-         */
-
-        Passenger passengerTest = passengers.get(0);
-        Train train = trains.get(0);
-        //train = testTrain;
-
-        Station departureTest = stationWithName("Sosnovka");
-        Station destinationTest = stationWithName("Karambai");
-
         System.out.println("... Welcome to Electronic Railway System (ERS) ...\n" +
                 "Please sign up (1) or log in (2).");
         int inp = getInt();
 
-        // passenger = loggingInUser(inp);
-        passenger = passengers.get(passengers.size() - 1);
+        passenger = loggingInUser(inp);
+        //passenger = passengers.get(passengers.size() - 1);
 
         while (true) {
             line("-");
@@ -421,14 +396,11 @@ class RailwaySystem {
     }
 
     private void simulateTrain(Train train, int hours) {
-        //line(paint(Colors.RED, "SIMULATION START // "));
-        //train.start(timeHandler);
         for (int i = 0; i < hours; i++) {
             line("-");
             timeHandler.nextHour();
             train.move();
         }
-        //line(paint(Colors.RED, "SIMULATION END // "));
     }
 
     private static class TrainsMovementHandler {
