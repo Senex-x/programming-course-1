@@ -7,11 +7,6 @@ import java.util.logging.Logger;
 
 public class Exceptions1 {
     public static void main(String[] args) {
-        try {
-            lostException();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
     }
 
     private static void lostException() throws Exception {
