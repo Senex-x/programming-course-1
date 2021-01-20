@@ -13,38 +13,6 @@ class Test {
     }
 }
 
-/**
- * TODO
- * - GENERIC TASKS
- * - Authorization (with password saving using hash code maybe)
- * - Dialog asking how long to continue simulation in loop
- * - Sign out
- * - Quit
- * -
- * - LOGGING
- * - Tickets selling logging
- * - Passenger's boardings logging
- * - Train's movements logging
- * - Save logs somewhere
- * - Possibility to delete logs
- * -
- * - PASSENGER ACCOUNT
- * - Account saving in database
- * - Buying ticket to train (unavailable before previous is not cancelled or finished)
- * - Find proper train according to demands
- * - Check timetable for appropriate trains
- * - Buy ticket to certain date
- * - Cancelling ticket
- * - Check history
- * -
- * - ADMINISTRATOR ACCOUNT privileges
- * - Possibility to add new trains
- * - Possibility to delete trains
- * - Possibility to add new stations and routes
- * - Possibility to edit train's route
- * - Possibility to edit any info about train besides of ID
- */
-
 class RailwaySystem {
     private static final int ADMIN_ID = 108;
     TimeHandler timeHandler = new TimeHandler();
