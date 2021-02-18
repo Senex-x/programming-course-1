@@ -7,7 +7,18 @@ import java.util.logging.Logger;
 
 public class Exceptions1 {
     public static void main(String[] args) {
+        finallyTest();
     }
+
+    private static void finallyTest() {
+        try {
+            System.out.println("Before return");
+            return;
+        } finally {
+            System.out.println("Finally there!");
+        }
+    }
+
 
     private static void lostException() throws Exception {
         try {
