@@ -1,4 +1,4 @@
-package Homeworks.SecondSemester.Month02.HomeworkTo0103;
+package Homeworks.SecondSemester.Month03.HomeworkTo01;
 
 public class Task2 {
     public static void main(String[] args) {

@@ -1,6 +1,4 @@
-package Homeworks.SecondSemester.Month02.HomeworkTo0103;
-
-import Methods.Methods;
+package Homeworks.SecondSemester.Month03.HomeworkTo01;
 
 import java.util.Iterator;
 

@@ -190,6 +190,15 @@ public abstract class Methods {
         }
     }
 
+    public static boolean isParseable(String number) {
+        try {
+            Integer.parseInt(number);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
     public static String paint(String code, String string) {
         return code + string + Colors.RESET.code();
     }
