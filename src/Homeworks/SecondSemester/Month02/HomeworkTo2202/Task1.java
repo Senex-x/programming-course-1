@@ -2,7 +2,8 @@ package Homeworks.SecondSemester.Month02.HomeworkTo2202;
 
 public class Task1 {
     public static void main(String[] args) {
-        FourTuple<Integer, Integer, Integer, Integer> fourTuple = new FourTuple<>(1, 2, 3, 4);
+        FourTuple<Integer, Integer, Integer, Integer> fourTuple =
+                new FourTuple<>(1, 2, 3, 4);
         System.out.println(fourTuple.a);
     }
 
