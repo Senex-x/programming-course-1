@@ -22,13 +22,13 @@ public class Task1 {
 
 class Stack<T> implements Iterable<T> {
 
-    interface StackIterator<T> extends Iterator<T> {
+    abstract class StackIterator implements Iterator<T> {
 
     }
 
     @Override
     public Iterator<T> iterator() {
-        return new StackIterator<T>() {
+        return new StackIterator() {
             Node<T> temp = head.next;
 
             @Override

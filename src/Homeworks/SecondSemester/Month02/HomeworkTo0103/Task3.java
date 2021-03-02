@@ -1,5 +1,7 @@
 package Homeworks.SecondSemester.Month02.HomeworkTo0103;
 
+import java.util.Iterator;
+
 public class Task3 {
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<>();
@@ -14,10 +16,19 @@ public class Task3 {
         list.remove(list.size() - 1);
         list.remove(3);
         list.display();
+
+        for(Integer item : list) {
+            System.out.print(item + " ");
+        }
     }
 }
 
-class LinkedList<T> {
+class LinkedList<T> implements Iterable<T> {
+    @Override
+    public Iterator<T> iterator() {
+        return new ListIterator();
+    }
+
     private static class Node<T> {
         T item;
         Node<T> next;
@@ -36,6 +47,22 @@ class LinkedList<T> {
 
         boolean isEnd() {
             return item == null;
+        }
+    }
+
+    class ListIterator implements Iterator<T> {
+        Node<T> temp = head;
+
+        @Override
+        public boolean hasNext() {
+            return temp != null;
+        }
+
+        @Override
+        public T next() {
+            T item = temp.item;
+            temp = temp.next;
+            return item;
         }
     }
 
