@@ -48,7 +48,6 @@ public class OrdersHandler {
     Buyer getBuyer(String name) {
         for (int i = 0; i < buyers.size(); i++) {
             if (buyers.get(i).getName().equals(name)) {
-                //System.out.println(buyers.get(i));
                 return buyers.get(i);
             }
         }
@@ -158,7 +157,7 @@ public class OrdersHandler {
 
         @Override
         public String toString() {
-            return "Buyer{" +
+            return "\nBuyer{" +
                     "name='" + name + '\'' +
                     ", cities=" + cities +
                     '}';
@@ -186,7 +185,7 @@ public class OrdersHandler {
 
             @Override
             public String toString() {
-                return "City{" +
+                return "\t\t\nCity{" +
                         "name='" + name + '\'' +
                         ", orders=" + orders +
                         '}';

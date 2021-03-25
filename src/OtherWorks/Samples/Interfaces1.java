@@ -26,3 +26,18 @@ class SampleClass implements SampleInterface{
         System.out.println("Sample method invoke");
     }
 }
+
+interface Inter1 {
+    void method();
+}
+
+interface Inter2 {
+    void method();
+}
+
+class InterTest implements Inter1, Inter2 {
+    @Override
+    public void method() {
+        System.out.println("OK");
+    }
+}
