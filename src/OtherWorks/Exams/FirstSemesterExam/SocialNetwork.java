@@ -1,4 +1,4 @@
-package OtherWorks.Exam;
+package OtherWorks.Exams.FirstSemesterExam;
 
 public class SocialNetwork {
     public static void main(String[] args) {

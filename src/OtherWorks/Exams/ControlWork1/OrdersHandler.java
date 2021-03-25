@@ -1,11 +1,9 @@
-package OtherWorks.Exam.ControlWork1;
+package OtherWorks.Exams.ControlWork1;
 
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.TreeSet;
 
@@ -21,7 +19,7 @@ class Test {
 
 
 public class OrdersHandler {
-    private static final String PATH = "src/OtherWorks/Exam/ControlWork1/data/list.txt";
+    private static final String PATH = "src/OtherWorks/Exams/ControlWork1/data/list.txt";
     ArrayList<Buyer> buyers = new ArrayList<>();
 
     public OrdersHandler() {
@@ -63,8 +61,8 @@ public class OrdersHandler {
                 '}';
     }
 
-    private static final String PATH_SORTED_BY_NAME = "src/Homeworks/SecondSemester/Month03/HomeworkTo25/data/sortedByName.txt";
-    private static final String PATH_SORTED_BY_ORDERS = "src/Homeworks/SecondSemester/Month03/HomeworkTo25/data/sortedByOrders.txt";
+    private static final String PATH_SORTED_BY_NAME = "src/OtherWorks/Exams/ControlWork1/data/sortedByName.txt";
+    private static final String PATH_SORTED_BY_ORDERS = "src/OtherWorks/Exams/ControlWork1/data/sortedByOrders.txt";
 
     public void firstSort() {
         TreeSet<Buyer> buyers = new TreeSet<>(
@@ -185,7 +183,7 @@ public class OrdersHandler {
 
             @Override
             public String toString() {
-                return "\t\t\nCity{" +
+                return "\n    City{" +
                         "name='" + name + '\'' +
                         ", orders=" + orders +
                         '}';
@@ -202,7 +200,7 @@ public class OrdersHandler {
 
                 @Override
                 public String toString() {
-                    return "Order{" +
+                    return "\n        Order{" +
                             "name='" + name + '\'' +
                             ", count=" + count +
                             '}';

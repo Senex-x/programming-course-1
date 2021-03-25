@@ -1,4 +1,4 @@
-package OtherWorks.Exam;
+package OtherWorks.Exams.FirstSemesterExam;
 
 import java.util.Scanner;
 

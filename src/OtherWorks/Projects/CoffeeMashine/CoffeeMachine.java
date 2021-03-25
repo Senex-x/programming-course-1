@@ -1,4 +1,4 @@
-package OtherWorks.CoffeeMashine;
+package OtherWorks.Projects.CoffeeMashine;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
