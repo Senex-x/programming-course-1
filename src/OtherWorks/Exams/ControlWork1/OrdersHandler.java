@@ -170,7 +170,15 @@ public class OrdersHandler {
             }
 
             void addOrder(String name, int count) {
+                for (Order o : orders) {
+                    if (o.getName().equals(name)) {
+                        o.addCount(count);
+                        return;
+                    }
+                }
+
                 orders.add(new Order(name, count));
+                addOrder(name, count);
             }
 
             public String getName() {
@@ -198,6 +206,14 @@ public class OrdersHandler {
                     this.count = count;
                 }
 
+                public String getName() {
+                    return name;
+                }
+
+                public void addCount(int addition) {
+                    count += addition;
+                }
+
                 @Override
                 public String toString() {
                     return "\n        Order{" +
@@ -208,6 +224,4 @@ public class OrdersHandler {
             }
         }
     }
-
-
 }

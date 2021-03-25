@@ -7,75 +7,27 @@
         "orders": [
           {
             "name": "стул",
-            "count": 10
+            "count": 47
           },
           {
             "name": "стол",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 6
+            "count": 16
           },
           {
             "name": "ноутбук",
-            "count": 2
-          },
-          {
-            "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "ручка",
             "count": 6
           },
           {
-            "name": "ноутбук",
-            "count": 2
-          },
-          {
-            "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "стул",
-            "count": 2
+            "name": "ручка",
+            "count": 17
           },
           {
             "name": "шкаф",
-            "count": 5
+            "count": 10
           },
           {
             "name": "книга",
-            "count": 4
-          },
-          {
-            "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 6
-          },
-          {
-            "name": "стул",
-            "count": 8
-          },
-          {
-            "name": "ручка",
-            "count": 1
-          },
-          {
-            "name": "ручка",
-            "count": 1
-          },
-          {
-            "name": "книга",
-            "count": 1
+            "count": 9
           }
         ]
       },
@@ -84,55 +36,27 @@
         "orders": [
           {
             "name": "шкаф",
-            "count": 10
+            "count": 22
           },
           {
             "name": "ноутбук",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 10
-          },
-          {
-            "name": "стол",
             "count": 8
           },
           {
-            "name": "шкаф",
-            "count": 2
+            "name": "книга",
+            "count": 31
           },
           {
             "name": "стол",
-            "count": 7
-          },
-          {
-            "name": "книга",
-            "count": 8
+            "count": 23
           },
           {
             "name": "ручка",
-            "count": 6
-          },
-          {
-            "name": "ручка",
-            "count": 7
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 6
-          },
-          {
-            "name": "книга",
-            "count": 3
+            "count": 27
           },
           {
             "name": "стул",
-            "count": 2
+            "count": 4
           }
         ]
       },
@@ -141,35 +65,23 @@
         "orders": [
           {
             "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "шкаф",
-            "count": 3
-          },
-          {
-            "name": "шкаф",
-            "count": 2
-          },
-          {
-            "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
             "count": 6
           },
           {
-            "name": "ноутбук",
-            "count": 3
+            "name": "шкаф",
+            "count": 8
+          },
+          {
+            "name": "стул",
+            "count": 8
           },
           {
             "name": "ноутбук",
-            "count": 4
+            "count": 19
           },
           {
             "name": "стол",
-            "count": 7
+            "count": 14
           }
         ]
       },
@@ -178,39 +90,27 @@
         "orders": [
           {
             "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 7
+            "count": 19
           },
           {
             "name": "ручка",
-            "count": 10
+            "count": 20
           },
           {
             "name": "ноутбук",
-            "count": 6
+            "count": 13
           },
           {
             "name": "стул",
-            "count": 7
+            "count": 14
           },
           {
             "name": "книга",
-            "count": 5
+            "count": 10
           },
           {
             "name": "шкаф",
-            "count": 3
-          },
-          {
-            "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "ноутбук",
-            "count": 1
+            "count": 12
           }
         ]
       },
@@ -219,31 +119,23 @@
         "orders": [
           {
             "name": "ноутбук",
-            "count": 2
+            "count": 4
           },
           {
             "name": "шкаф",
-            "count": 10
+            "count": 20
           },
           {
             "name": "стол",
-            "count": 2
+            "count": 14
           },
           {
             "name": "стул",
-            "count": 3
+            "count": 13
           },
           {
             "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 7
-          },
-          {
-            "name": "стол",
-            "count": 10
+            "count": 6
           }
         ]
       },
@@ -252,43 +144,19 @@
         "orders": [
           {
             "name": "ручка",
-            "count": 3
+            "count": 13
           },
           {
             "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "ноутбук",
-            "count": 2
+            "count": 29
           },
           {
             "name": "стол",
-            "count": 10
+            "count": 20
           },
           {
             "name": "стул",
-            "count": 1
-          },
-          {
-            "name": "ручка",
-            "count": 7
-          },
-          {
-            "name": "стул",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
-            "count": 4
+            "count": 3
           }
         ]
       },
@@ -297,51 +165,23 @@
         "orders": [
           {
             "name": "шкаф",
-            "count": 2
+            "count": 15
           },
           {
             "name": "книга",
-            "count": 1
-          },
-          {
-            "name": "ручка",
-            "count": 1
-          },
-          {
-            "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "стул",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "шкаф",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 3
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "шкаф",
             "count": 2
           },
           {
+            "name": "ручка",
+            "count": 11
+          },
+          {
             "name": "стул",
-            "count": 7
+            "count": 26
+          },
+          {
+            "name": "стол",
+            "count": 2
           }
         ]
       },
@@ -350,27 +190,15 @@
         "orders": [
           {
             "name": "ручка",
-            "count": 2
+            "count": 4
           },
           {
             "name": "стул",
-            "count": 7
+            "count": 17
           },
           {
             "name": "стол",
-            "count": 5
-          },
-          {
-            "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "стол",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 3
+            "count": 23
           }
         ]
       }
@@ -384,55 +212,27 @@
         "orders": [
           {
             "name": "ручка",
-            "count": 9
+            "count": 18
           },
           {
             "name": "стул",
-            "count": 4
+            "count": 21
           },
           {
             "name": "шкаф",
-            "count": 5
+            "count": 13
           },
           {
             "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "стул",
-            "count": 8
+            "count": 27
           },
           {
             "name": "ноутбук",
-            "count": 5
-          },
-          {
-            "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 3
+            "count": 13
           },
           {
             "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "шкаф",
-            "count": 3
+            "count": 10
           }
         ]
       },
@@ -441,63 +241,19 @@
         "orders": [
           {
             "name": "стол",
-            "count": 1
+            "count": 26
           },
           {
             "name": "ручка",
-            "count": 5
+            "count": 14
           },
           {
             "name": "книга",
-            "count": 4
-          },
-          {
-            "name": "стол",
-            "count": 1
+            "count": 14
           },
           {
             "name": "ноутбук",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
-            "count": 7
-          },
-          {
-            "name": "стол",
-            "count": 7
-          },
-          {
-            "name": "ноутбук",
-            "count": 8
-          },
-          {
-            "name": "книга",
-            "count": 2
-          },
-          {
-            "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "ручка",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
+            "count": 37
           }
         ]
       },
@@ -506,47 +262,23 @@
         "orders": [
           {
             "name": "ноутбук",
-            "count": 6
+            "count": 28
           },
           {
             "name": "стол",
-            "count": 7
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 1
+            "count": 16
           },
           {
             "name": "ручка",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 1
+            "count": 15
           },
           {
             "name": "шкаф",
-            "count": 9
-          },
-          {
-            "name": "шкаф",
-            "count": 2
+            "count": 20
           },
           {
             "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 7
+            "count": 10
           }
         ]
       },
@@ -555,47 +287,23 @@
         "orders": [
           {
             "name": "стол",
-            "count": 5
+            "count": 18
           },
           {
             "name": "ноутбук",
-            "count": 4
+            "count": 17
           },
           {
             "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 10
+            "count": 23
           },
           {
             "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 8
+            "count": 14
           },
           {
             "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "шкаф",
-            "count": 2
+            "count": 22
           }
         ]
       },
@@ -604,625 +312,26 @@
         "orders": [
           {
             "name": "книга",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
-            "count": 4
-          },
-          {
-            "name": "стул",
             "count": 8
           },
           {
-            "name": "стол",
-            "count": 9
+            "name": "ноутбук",
+            "count": 20
           },
           {
             "name": "стул",
-            "count": 10
-          },
-          {
-            "name": "ноутбук",
-            "count": 7
-          },
-          {
-            "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 10
-          },
-          {
-            "name": "стул",
-            "count": 6
-          },
-          {
-            "name": "ноутбук",
-            "count": 5
+            "count": 35
           },
           {
             "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 1
+            "count": 19
           },
           {
             "name": "ручка",
-            "count": 10
-          },
-          {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          }
-        ]
-      },
-      {
-        "name": "Екатеринбург",
-        "orders": [
-          {
-            "name": "стол",
-            "count": 5
-          },
-          {
-            "name": "книга",
-            "count": 5
+            "count": 28
           },
           {
             "name": "шкаф",
-            "count": 9
-          },
-          {
-            "name": "книга",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "книга",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 10
-          },
-          {
-            "name": "шкаф",
-            "count": 9
-          },
-          {
-            "name": "ноутбук",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 8
-          },
-          {
-            "name": "стол",
-            "count": 4
-          },
-          {
-            "name": "шкаф",
-            "count": 10
-          }
-        ]
-      },
-      {
-        "name": "Сочи",
-        "orders": [
-          {
-            "name": "стол",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "стол",
-            "count": 7
-          },
-          {
-            "name": "шкаф",
-            "count": 3
-          },
-          {
-            "name": "стол",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 1
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 8
-          }
-        ]
-      },
-      {
-        "name": "Москва",
-        "orders": [
-          {
-            "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "шкаф",
-            "count": 10
-          },
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "ноутбук",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "стул",
-            "count": 9
-          },
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "ноутбук",
-            "count": 7
-          },
-          {
-            "name": "шкаф",
-            "count": 9
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "Мартин",
-    "cities": [
-      {
-        "name": "Питер",
-        "orders": [
-          {
-            "name": "ручка",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 3
-          },
-          {
-            "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 3
-          },
-          {
-            "name": "стол",
-            "count": 7
-          },
-          {
-            "name": "книга",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 7
-          },
-          {
-            "name": "книга",
-            "count": 7
-          },
-          {
-            "name": "шкаф",
-            "count": 8
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
-            "count": 6
-          }
-        ]
-      },
-      {
-        "name": "Москва",
-        "orders": [
-          {
-            "name": "шкаф",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "шкаф",
-            "count": 7
-          },
-          {
-            "name": "ручка",
-            "count": 1
-          },
-          {
-            "name": "книга",
-            "count": 2
-          },
-          {
-            "name": "шкаф",
-            "count": 10
-          },
-          {
-            "name": "шкаф",
-            "count": 10
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "ноутбук",
-            "count": 8
-          },
-          {
-            "name": "шкаф",
-            "count": 2
-          },
-          {
-            "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 6
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "книга",
-            "count": 2
-          }
-        ]
-      },
-      {
-        "name": "Владивосток",
-        "orders": [
-          {
-            "name": "книга",
-            "count": 4
-          },
-          {
-            "name": "стул",
-            "count": 7
-          },
-          {
-            "name": "книга",
-            "count": 7
-          },
-          {
-            "name": "шкаф",
-            "count": 7
-          },
-          {
-            "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "стул",
-            "count": 8
-          },
-          {
-            "name": "стол",
-            "count": 5
-          },
-          {
-            "name": "шкаф",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 8
-          },
-          {
-            "name": "книга",
-            "count": 2
-          }
-        ]
-      },
-      {
-        "name": "Нижний Новгород",
-        "orders": [
-          {
-            "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 1
-          },
-          {
-            "name": "ручка",
-            "count": 7
-          },
-          {
-            "name": "стул",
-            "count": 6
-          },
-          {
-            "name": "книга",
-            "count": 3
-          },
-          {
-            "name": "книга",
-            "count": 3
-          },
-          {
-            "name": "стол",
-            "count": 5
-          },
-          {
-            "name": "книга",
-            "count": 9
-          }
-        ]
-      },
-      {
-        "name": "Сочи",
-        "orders": [
-          {
-            "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "ноутбук",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "книга",
-            "count": 10
-          },
-          {
-            "name": "стул",
-            "count": 6
-          },
-          {
-            "name": "книга",
-            "count": 10
-          },
-          {
-            "name": "шкаф",
-            "count": 1
-          },
-          {
-            "name": "книга",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "книга",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "шкаф",
-            "count": 3
-          }
-        ]
-      },
-      {
-        "name": "Казань",
-        "orders": [
-          {
-            "name": "шкаф",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 10
-          },
-          {
-            "name": "книга",
-            "count": 7
-          },
-          {
-            "name": "стол",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 6
-          },
-          {
-            "name": "ноутбук",
-            "count": 6
-          },
-          {
-            "name": "книга",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          }
-        ]
-      },
-      {
-        "name": "Самара",
-        "orders": [
-          {
-            "name": "ручка",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 7
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 8
-          },
-          {
-            "name": "шкаф",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "книга",
-            "count": 3
-          },
-          {
-            "name": "ноутбук",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
-            "count": 4
-          },
-          {
-            "name": "шкаф",
-            "count": 7
-          },
-          {
-            "name": "ноутбук",
-            "count": 8
-          },
-          {
-            "name": "стул",
-            "count": 8
-          },
-          {
-            "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "стул",
-            "count": 9
-          },
-          {
-            "name": "стол",
             "count": 10
           }
         ]
@@ -1232,39 +341,69 @@
         "orders": [
           {
             "name": "стол",
-            "count": 6
+            "count": 20
+          },
+          {
+            "name": "книга",
+            "count": 21
           },
           {
             "name": "шкаф",
-            "count": 8
+            "count": 37
+          },
+          {
+            "name": "ручка",
+            "count": 28
           },
           {
             "name": "ноутбук",
-            "count": 7
+            "count": 10
+          }
+        ]
+      },
+      {
+        "name": "Сочи",
+        "orders": [
+          {
+            "name": "стол",
+            "count": 29
           },
           {
-            "name": "книга",
-            "count": 3
+            "name": "стул",
+            "count": 4
           },
           {
             "name": "шкаф",
-            "count": 1
+            "count": 6
           },
           {
-            "name": "книга",
+            "name": "ноутбук",
             "count": 2
           },
           {
             "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "стол",
-            "count": 3
-          },
+            "count": 18
+          }
+        ]
+      },
+      {
+        "name": "Москва",
+        "orders": [
           {
             "name": "книга",
-            "count": 5
+            "count": 21
+          },
+          {
+            "name": "шкаф",
+            "count": 39
+          },
+          {
+            "name": "ноутбук",
+            "count": 24
+          },
+          {
+            "name": "стул",
+            "count": 18
           }
         ]
       }
@@ -1278,63 +417,23 @@
         "orders": [
           {
             "name": "книга",
-            "count": 2
+            "count": 23
           },
           {
             "name": "шкаф",
-            "count": 2
-          },
-          {
-            "name": "шкаф",
-            "count": 8
-          },
-          {
-            "name": "книга",
-            "count": 2
-          },
-          {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "книга",
-            "count": 6
+            "count": 17
           },
           {
             "name": "стул",
-            "count": 8
+            "count": 30
           },
           {
             "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 4
-          },
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "книга",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 6
+            "count": 18
           },
           {
             "name": "ручка",
-            "count": 3
+            "count": 6
           }
         ]
       },
@@ -1343,79 +442,19 @@
         "orders": [
           {
             "name": "ноутбук",
-            "count": 3
+            "count": 26
           },
           {
             "name": "шкаф",
-            "count": 3
+            "count": 28
           },
           {
             "name": "стол",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "шкаф",
-            "count": 8
-          },
-          {
-            "name": "стол",
-            "count": 2
+            "count": 40
           },
           {
             "name": "ручка",
-            "count": 1
-          },
-          {
-            "name": "ручка",
-            "count": 7
-          },
-          {
-            "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "ноутбук",
-            "count": 8
-          },
-          {
-            "name": "шкаф",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
-            "count": 2
-          },
-          {
-            "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "шкаф",
-            "count": 8
-          },
-          {
-            "name": "ручка",
-            "count": 5
-          },
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 8
+            "count": 23
           }
         ]
       },
@@ -1424,35 +463,23 @@
         "orders": [
           {
             "name": "ноутбук",
-            "count": 2
+            "count": 9
           },
           {
             "name": "книга",
-            "count": 1
+            "count": 11
           },
           {
             "name": "стол",
-            "count": 9
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
+            "count": 18
           },
           {
             "name": "шкаф",
-            "count": 5
+            "count": 10
           },
           {
             "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "книга",
-            "count": 9
-          },
-          {
-            "name": "ноутбук",
-            "count": 2
+            "count": 4
           }
         ]
       },
@@ -1461,67 +488,27 @@
         "orders": [
           {
             "name": "книга",
-            "count": 6
+            "count": 17
           },
           {
             "name": "ручка",
-            "count": 5
+            "count": 28
           },
           {
             "name": "шкаф",
-            "count": 7
-          },
-          {
-            "name": "шкаф",
-            "count": 4
+            "count": 39
           },
           {
             "name": "стул",
-            "count": 6
-          },
-          {
-            "name": "ручка",
-            "count": 10
+            "count": 12
           },
           {
             "name": "ноутбук",
-            "count": 2
-          },
-          {
-            "name": "шкаф",
-            "count": 8
+            "count": 14
           },
           {
             "name": "стол",
-            "count": 5
-          },
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "ноутбук",
-            "count": 6
-          },
-          {
-            "name": "ручка",
-            "count": 8
-          },
-          {
-            "name": "ноутбук",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "шкаф",
-            "count": 8
+            "count": 18
           }
         ]
       },
@@ -1530,35 +517,23 @@
         "orders": [
           {
             "name": "стол",
-            "count": 7
+            "count": 14
           },
           {
             "name": "ручка",
-            "count": 10
+            "count": 25
           },
           {
             "name": "книга",
-            "count": 6
+            "count": 12
           },
           {
             "name": "стул",
-            "count": 10
+            "count": 23
           },
           {
             "name": "ноутбук",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 5
-          },
-          {
-            "name": "ноутбук",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 3
+            "count": 9
           }
         ]
       },
@@ -1567,79 +542,23 @@
         "orders": [
           {
             "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "ручка",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 8
-          },
-          {
-            "name": "стол",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 9
-          },
-          {
-            "name": "стул",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "стол",
-            "count": 4
-          },
-          {
-            "name": "книга",
             "count": 10
           },
           {
             "name": "стол",
-            "count": 5
+            "count": 52
           },
           {
             "name": "ручка",
-            "count": 5
+            "count": 20
           },
           {
-            "name": "стол",
-            "count": 10
+            "name": "книга",
+            "count": 35
           },
           {
-            "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "стол",
-            "count": 9
+            "name": "стул",
+            "count": 11
           }
         ]
       },
@@ -1648,51 +567,27 @@
         "orders": [
           {
             "name": "шкаф",
-            "count": 7
+            "count": 25
           },
           {
             "name": "стол",
-            "count": 2
+            "count": 21
           },
           {
             "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "шкаф",
-            "count": 8
-          },
-          {
-            "name": "шкаф",
-            "count": 3
+            "count": 18
           },
           {
             "name": "стул",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "стул",
-            "count": 10
+            "count": 28
           },
           {
             "name": "ноутбук",
-            "count": 7
-          },
-          {
-            "name": "стол",
-            "count": 2
+            "count": 14
           },
           {
             "name": "книга",
-            "count": 8
-          },
-          {
-            "name": "стол",
-            "count": 5
+            "count": 16
           }
         ]
       },
@@ -1701,34 +596,677 @@
         "orders": [
           {
             "name": "стул",
-            "count": 1
+            "count": 19
           },
           {
             "name": "стол",
-            "count": 9
+            "count": 19
+          },
+          {
+            "name": "книга",
+            "count": 12
+          },
+          {
+            "name": "ручка",
+            "count": 6
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Джон",
+    "cities": [
+      {
+        "name": "Питер",
+        "orders": [
+          {
+            "name": "ноутбук",
+            "count": 20
+          },
+          {
+            "name": "шкаф",
+            "count": 26
           },
           {
             "name": "стул",
+            "count": 4
+          },
+          {
+            "name": "книга",
+            "count": 26
+          },
+          {
+            "name": "ручка",
+            "count": 20
+          },
+          {
+            "name": "стол",
+            "count": 18
+          }
+        ]
+      },
+      {
+        "name": "Нижний Новгород",
+        "orders": [
+          {
+            "name": "ручка",
+            "count": 32
+          },
+          {
+            "name": "шкаф",
+            "count": 8
+          },
+          {
+            "name": "стол",
+            "count": 8
+          },
+          {
+            "name": "книга",
+            "count": 12
+          },
+          {
+            "name": "ноутбук",
+            "count": 14
+          },
+          {
+            "name": "стул",
+            "count": 4
+          }
+        ]
+      },
+      {
+        "name": "Екатеринбург",
+        "orders": [
+          {
+            "name": "шкаф",
+            "count": 45
+          },
+          {
+            "name": "стул",
+            "count": 30
+          },
+          {
+            "name": "ручка",
+            "count": 43
+          },
+          {
+            "name": "книга",
+            "count": 27
+          },
+          {
+            "name": "стол",
+            "count": 21
+          }
+        ]
+      },
+      {
+        "name": "Казань",
+        "orders": [
+          {
+            "name": "стол",
+            "count": 8
+          },
+          {
+            "name": "шкаф",
+            "count": 20
+          },
+          {
+            "name": "ноутбук",
+            "count": 18
+          },
+          {
+            "name": "книга",
+            "count": 12
+          },
+          {
+            "name": "стул",
+            "count": 29
+          }
+        ]
+      },
+      {
+        "name": "Сочи",
+        "orders": [
+          {
+            "name": "ручка",
+            "count": 26
+          },
+          {
+            "name": "стул",
+            "count": 14
+          },
+          {
+            "name": "шкаф",
+            "count": 12
+          },
+          {
+            "name": "книга",
+            "count": 21
+          },
+          {
+            "name": "ноутбук",
+            "count": 18
+          }
+        ]
+      },
+      {
+        "name": "Москва",
+        "orders": [
+          {
+            "name": "стул",
+            "count": 18
+          },
+          {
+            "name": "ручка",
+            "count": 30
+          },
+          {
+            "name": "ноутбук",
+            "count": 28
+          },
+          {
+            "name": "шкаф",
+            "count": 18
+          },
+          {
+            "name": "книга",
+            "count": 18
+          },
+          {
+            "name": "стол",
+            "count": 20
+          }
+        ]
+      },
+      {
+        "name": "Владивосток",
+        "orders": [
+          {
+            "name": "ручка",
+            "count": 10
+          },
+          {
+            "name": "книга",
+            "count": 14
+          },
+          {
+            "name": "шкаф",
+            "count": 2
+          },
+          {
+            "name": "стол",
+            "count": 60
+          }
+        ]
+      },
+      {
+        "name": "Самара",
+        "orders": [
+          {
+            "name": "шкаф",
+            "count": 14
+          },
+          {
+            "name": "книга",
+            "count": 16
+          },
+          {
+            "name": "ручка",
+            "count": 11
+          },
+          {
+            "name": "стул",
+            "count": 32
+          },
+          {
+            "name": "ноутбук",
+            "count": 33
+          },
+          {
+            "name": "стол",
+            "count": 8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Джейкоб",
+    "cities": [
+      {
+        "name": "Нижний Новгород",
+        "orders": [
+          {
+            "name": "ручка",
+            "count": 7
+          },
+          {
+            "name": "стул",
+            "count": 10
+          },
+          {
+            "name": "стол",
+            "count": 26
+          },
+          {
+            "name": "шкаф",
+            "count": 23
+          }
+        ]
+      },
+      {
+        "name": "Владивосток",
+        "orders": [
+          {
+            "name": "ноутбук",
+            "count": 14
+          },
+          {
+            "name": "ручка",
+            "count": 29
+          },
+          {
+            "name": "стул",
+            "count": 30
+          },
+          {
+            "name": "шкаф",
+            "count": 18
+          },
+          {
+            "name": "книга",
+            "count": 24
+          },
+          {
+            "name": "стол",
+            "count": 20
+          }
+        ]
+      },
+      {
+        "name": "Москва",
+        "orders": [
+          {
+            "name": "шкаф",
+            "count": 34
+          },
+          {
+            "name": "книга",
+            "count": 29
+          },
+          {
+            "name": "стул",
+            "count": 28
+          },
+          {
+            "name": "ручка",
+            "count": 27
+          },
+          {
+            "name": "стол",
+            "count": 20
+          },
+          {
+            "name": "ноутбук",
+            "count": 23
+          }
+        ]
+      },
+      {
+        "name": "Сочи",
+        "orders": [
+          {
+            "name": "стул",
+            "count": 10
+          },
+          {
+            "name": "шкаф",
+            "count": 36
+          },
+          {
+            "name": "книга",
+            "count": 27
+          },
+          {
+            "name": "стол",
+            "count": 34
+          },
+          {
+            "name": "ноутбук",
+            "count": 14
+          },
+          {
+            "name": "ручка",
+            "count": 20
+          }
+        ]
+      },
+      {
+        "name": "Казань",
+        "orders": [
+          {
+            "name": "ручка",
+            "count": 24
+          },
+          {
+            "name": "ноутбук",
+            "count": 32
+          },
+          {
+            "name": "стол",
+            "count": 27
+          },
+          {
+            "name": "шкаф",
+            "count": 32
+          },
+          {
+            "name": "книга",
+            "count": 38
+          },
+          {
+            "name": "стул",
+            "count": 25
+          }
+        ]
+      },
+      {
+        "name": "Екатеринбург",
+        "orders": [
+          {
+            "name": "стул",
+            "count": 25
+          },
+          {
+            "name": "ноутбук",
+            "count": 29
+          },
+          {
+            "name": "шкаф",
+            "count": 35
+          },
+          {
+            "name": "ручка",
+            "count": 16
+          },
+          {
+            "name": "стол",
+            "count": 32
+          },
+          {
+            "name": "книга",
+            "count": 20
+          }
+        ]
+      },
+      {
+        "name": "Питер",
+        "orders": [
+          {
+            "name": "ноутбук",
+            "count": 12
+          },
+          {
+            "name": "книга",
+            "count": 55
+          },
+          {
+            "name": "стул",
+            "count": 23
+          },
+          {
+            "name": "ручка",
+            "count": 25
+          },
+          {
+            "name": "шкаф",
+            "count": 30
+          },
+          {
+            "name": "стол",
+            "count": 7
+          }
+        ]
+      },
+      {
+        "name": "Самара",
+        "orders": [
+          {
+            "name": "ноутбук",
+            "count": 16
+          },
+          {
+            "name": "стул",
+            "count": 11
+          },
+          {
+            "name": "ручка",
             "count": 6
           },
           {
-            "name": "стол",
-            "count": 1
+            "name": "книга",
+            "count": 20
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Мартин",
+    "cities": [
+      {
+        "name": "Питер",
+        "orders": [
+          {
+            "name": "ручка",
+            "count": 21
           },
           {
             "name": "стул",
-            "count": 5
+            "count": 22
+          },
+          {
+            "name": "стол",
+            "count": 15
+          },
+          {
+            "name": "книга",
+            "count": 9
+          },
+          {
+            "name": "шкаф",
+            "count": 16
+          },
+          {
+            "name": "ноутбук",
+            "count": 12
+          }
+        ]
+      },
+      {
+        "name": "Москва",
+        "orders": [
+          {
+            "name": "шкаф",
+            "count": 33
+          },
+          {
+            "name": "ноутбук",
+            "count": 32
+          },
+          {
+            "name": "ручка",
+            "count": 11
           },
           {
             "name": "книга",
             "count": 6
           },
           {
-            "name": "ручка",
-            "count": 3
+            "name": "стул",
+            "count": 10
+          }
+        ]
+      },
+      {
+        "name": "Владивосток",
+        "orders": [
+          {
+            "name": "книга",
+            "count": 23
           },
           {
             "name": "стул",
+            "count": 27
+          },
+          {
+            "name": "шкаф",
+            "count": 25
+          },
+          {
+            "name": "ручка",
+            "count": 26
+          },
+          {
+            "name": "стол",
+            "count": 10
+          }
+        ]
+      },
+      {
+        "name": "Нижний Новгород",
+        "orders": [
+          {
+            "name": "стул",
+            "count": 14
+          },
+          {
+            "name": "ноутбук",
+            "count": 6
+          },
+          {
+            "name": "книга",
+            "count": 17
+          },
+          {
+            "name": "ручка",
+            "count": 14
+          },
+          {
+            "name": "стол",
+            "count": 10
+          }
+        ]
+      },
+      {
+        "name": "Сочи",
+        "orders": [
+          {
+            "name": "стол",
+            "count": 28
+          },
+          {
+            "name": "ноутбук",
+            "count": 22
+          },
+          {
+            "name": "шкаф",
+            "count": 8
+          },
+          {
+            "name": "ручка",
+            "count": 20
+          },
+          {
+            "name": "стул",
+            "count": 10
+          },
+          {
+            "name": "книга",
+            "count": 41
+          }
+        ]
+      },
+      {
+        "name": "Казань",
+        "orders": [
+          {
+            "name": "шкаф",
+            "count": 6
+          },
+          {
+            "name": "стул",
+            "count": 20
+          },
+          {
+            "name": "книга",
+            "count": 16
+          },
+          {
+            "name": "стол",
+            "count": 8
+          },
+          {
+            "name": "ноутбук",
+            "count": 28
+          },
+          {
+            "name": "ручка",
+            "count": 18
+          }
+        ]
+      },
+      {
+        "name": "Самара",
+        "orders": [
+          {
+            "name": "ручка",
+            "count": 25
+          },
+          {
+            "name": "книга",
+            "count": 23
+          },
+          {
+            "name": "стол",
+            "count": 24
+          },
+          {
+            "name": "ноутбук",
+            "count": 41
+          },
+          {
+            "name": "шкаф",
+            "count": 9
+          },
+          {
+            "name": "стул",
+            "count": 29
+          }
+        ]
+      },
+      {
+        "name": "Екатеринбург",
+        "orders": [
+          {
+            "name": "стол",
+            "count": 15
+          },
+          {
+            "name": "шкаф",
+            "count": 17
+          },
+          {
+            "name": "ноутбук",
+            "count": 14
+          },
+          {
+            "name": "книга",
+            "count": 13
+          },
+          {
+            "name": "ручка",
             "count": 6
           }
         ]
@@ -1743,51 +1281,23 @@
         "orders": [
           {
             "name": "книга",
-            "count": 3
+            "count": 13
           },
           {
             "name": "шкаф",
-            "count": 4
+            "count": 16
           },
           {
             "name": "ручка",
-            "count": 7
-          },
-          {
-            "name": "книга",
-            "count": 7
+            "count": 22
           },
           {
             "name": "стол",
-            "count": 5
+            "count": 20
           },
           {
             "name": "стул",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 4
-          },
-          {
-            "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 8
-          },
-          {
-            "name": "стул",
-            "count": 9
-          },
-          {
-            "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 8
+            "count": 26
           }
         ]
       },
@@ -1796,43 +1306,23 @@
         "orders": [
           {
             "name": "ручка",
-            "count": 9
+            "count": 18
           },
           {
             "name": "стул",
-            "count": 7
+            "count": 14
           },
           {
             "name": "книга",
-            "count": 4
+            "count": 23
           },
           {
             "name": "ноутбук",
-            "count": 6
+            "count": 23
           },
           {
             "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "книга",
-            "count": 10
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "ноутбук",
-            "count": 8
-          },
-          {
-            "name": "книга",
-            "count": 1
-          },
-          {
-            "name": "книга",
-            "count": 4
+            "count": 20
           }
         ]
       },
@@ -1841,59 +1331,27 @@
         "orders": [
           {
             "name": "ручка",
-            "count": 7
+            "count": 25
           },
           {
             "name": "ноутбук",
-            "count": 8
+            "count": 25
           },
           {
             "name": "стол",
-            "count": 2
-          },
-          {
-            "name": "книга",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 3
-          },
-          {
-            "name": "книга",
-            "count": 4
-          },
-          {
-            "name": "ручка",
-            "count": 5
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 2
-          },
-          {
-            "name": "ручка",
             "count": 6
           },
           {
-            "name": "шкаф",
-            "count": 1
+            "name": "книга",
+            "count": 6
           },
           {
             "name": "стул",
-            "count": 4
+            "count": 18
           },
           {
             "name": "шкаф",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 8
+            "count": 5
           }
         ]
       },
@@ -1902,63 +1360,27 @@
         "orders": [
           {
             "name": "книга",
-            "count": 8
+            "count": 20
           },
           {
             "name": "стол",
-            "count": 8
+            "count": 21
           },
           {
             "name": "стул",
-            "count": 7
-          },
-          {
-            "name": "стул",
-            "count": 2
+            "count": 22
           },
           {
             "name": "ноутбук",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 8
-          },
-          {
-            "name": "стол",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 1
+            "count": 17
           },
           {
             "name": "шкаф",
-            "count": 10
-          },
-          {
-            "name": "книга",
-            "count": 4
-          },
-          {
-            "name": "шкаф",
-            "count": 9
+            "count": 29
           },
           {
             "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 2
+            "count": 18
           }
         ]
       },
@@ -1967,67 +1389,27 @@
         "orders": [
           {
             "name": "шкаф",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 7
-          },
-          {
-            "name": "книга",
             "count": 8
           },
           {
-            "name": "ноутбук",
-            "count": 7
-          },
-          {
             "name": "книга",
-            "count": 9
+            "count": 41
           },
           {
             "name": "ноутбук",
-            "count": 10
+            "count": 52
           },
           {
             "name": "стол",
-            "count": 3
-          },
-          {
-            "name": "ноутбук",
-            "count": 7
+            "count": 8
           },
           {
             "name": "стул",
-            "count": 4
+            "count": 18
           },
           {
             "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "ноутбук",
-            "count": 8
-          },
-          {
-            "name": "ноутбук",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 10
+            "count": 6
           }
         ]
       },
@@ -2036,59 +1418,27 @@
         "orders": [
           {
             "name": "ручка",
-            "count": 7
+            "count": 27
           },
           {
             "name": "книга",
-            "count": 7
+            "count": 24
           },
           {
             "name": "стол",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "книга",
-            "count": 5
+            "count": 32
           },
           {
             "name": "шкаф",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 6
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 7
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "стул",
             "count": 2
+          },
+          {
+            "name": "стул",
+            "count": 12
+          },
+          {
+            "name": "ноутбук",
+            "count": 15
           }
         ]
       },
@@ -2097,193 +1447,26 @@
         "orders": [
           {
             "name": "стул",
-            "count": 1
+            "count": 7
           },
           {
             "name": "книга",
-            "count": 1
+            "count": 6
           },
           {
             "name": "стол",
-            "count": 10
+            "count": 28
           },
           {
             "name": "ноутбук",
-            "count": 4
+            "count": 16
           },
           {
             "name": "шкаф",
-            "count": 3
-          },
-          {
-            "name": "книга",
-            "count": 4
-          },
-          {
-            "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "стол",
-            "count": 2
-          },
-          {
-            "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 9
+            "count": 26
           },
           {
             "name": "ручка",
-            "count": 1
-          },
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "ноутбук",
-            "count": 8
-          }
-        ]
-      },
-      {
-        "name": "Москва",
-        "orders": [
-          {
-            "name": "стул",
-            "count": 7
-          },
-          {
-            "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "ноутбук",
-            "count": 1
-          },
-          {
-            "name": "ручка",
-            "count": 7
-          },
-          {
-            "name": "ноутбук",
-            "count": 6
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 1
-          },
-          {
-            "name": "книга",
-            "count": 4
-          },
-          {
-            "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "ручка",
-            "count": 8
-          },
-          {
-            "name": "ручка",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 4
-          },
-          {
-            "name": "ручка",
-            "count": 7
-          },
-          {
-            "name": "книга",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 3
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "Олег",
-    "cities": [
-      {
-        "name": "Нижний Новгород",
-        "orders": [
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "книга",
-            "count": 8
-          },
-          {
-            "name": "книга",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "шкаф",
-            "count": 7
-          },
-          {
-            "name": "шкаф",
-            "count": 10
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "ручка",
-            "count": 7
-          },
-          {
-            "name": "ноутбук",
-            "count": 7
-          },
-          {
-            "name": "ноутбук",
             "count": 2
           }
         ]
@@ -2293,930 +1476,23 @@
         "orders": [
           {
             "name": "стул",
-            "count": 1
+            "count": 18
           },
           {
             "name": "шкаф",
-            "count": 6
+            "count": 16
           },
           {
             "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "шкаф",
-            "count": 1
+            "count": 17
           },
           {
             "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 1
-          },
-          {
-            "name": "книга",
-            "count": 8
-          },
-          {
-            "name": "книга",
-            "count": 8
-          },
-          {
-            "name": "ноутбук",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 10
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          }
-        ]
-      },
-      {
-        "name": "Самара",
-        "orders": [
-          {
-            "name": "стул",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "шкаф",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "стол",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 2
-          },
-          {
-            "name": "книга",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "ручка",
-            "count": 7
-          },
-          {
-            "name": "книга",
-            "count": 3
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 8
-          },
-          {
-            "name": "стул",
-            "count": 8
-          },
-          {
-            "name": "шкаф",
-            "count": 8
-          }
-        ]
-      },
-      {
-        "name": "Владивосток",
-        "orders": [
-          {
-            "name": "ручка",
-            "count": 4
-          },
-          {
-            "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "стул",
-            "count": 7
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "книга",
-            "count": 2
-          },
-          {
-            "name": "шкаф",
-            "count": 4
-          },
-          {
-            "name": "ручка",
-            "count": 1
-          },
-          {
-            "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 9
-          }
-        ]
-      },
-      {
-        "name": "Казань",
-        "orders": [
-          {
-            "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "шкаф",
-            "count": 1
-          },
-          {
-            "name": "ручка",
-            "count": 8
-          },
-          {
-            "name": "стул",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
-            "count": 7
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 7
-          },
-          {
-            "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "ноутбук",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 8
-          }
-        ]
-      },
-      {
-        "name": "Екатеринбург",
-        "orders": [
-          {
-            "name": "шкаф",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "книга",
-            "count": 1
-          },
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 5
-          }
-        ]
-      },
-      {
-        "name": "Питер",
-        "orders": [
-          {
-            "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 2
-          },
-          {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 1
-          },
-          {
-            "name": "стол",
-            "count": 7
-          },
-          {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "книга",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "шкаф",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 1
-          }
-        ]
-      },
-      {
-        "name": "Сочи",
-        "orders": [
-          {
-            "name": "ручка",
-            "count": 8
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
-            "count": 7
-          },
-          {
-            "name": "стол",
-            "count": 2
-          },
-          {
-            "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 10
-          },
-          {
-            "name": "книга",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 4
-          },
-          {
-            "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "шкаф",
-            "count": 8
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "ручка",
-            "count": 3
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "Джон",
-    "cities": [
-      {
-        "name": "Питер",
-        "orders": [
-          {
-            "name": "ноутбук",
-            "count": 4
-          },
-          {
-            "name": "шкаф",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "шкаф",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 10
-          },
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "стол",
-            "count": 9
-          },
-          {
-            "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "книга",
-            "count": 8
-          },
-          {
-            "name": "ноутбук",
-            "count": 5
-          },
-          {
-            "name": "ноутбук",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "книга",
-            "count": 8
-          }
-        ]
-      },
-      {
-        "name": "Нижний Новгород",
-        "orders": [
-          {
-            "name": "ручка",
-            "count": 8
-          },
-          {
-            "name": "шкаф",
-            "count": 2
-          },
-          {
-            "name": "стол",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 2
-          },
-          {
-            "name": "шкаф",
-            "count": 4
-          },
-          {
-            "name": "ручка",
-            "count": 7
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
-            "count": 1
-          },
-          {
-            "name": "книга",
-            "count": 4
-          }
-        ]
-      },
-      {
-        "name": "Екатеринбург",
-        "orders": [
-          {
-            "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "стул",
-            "count": 6
-          },
-          {
-            "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 7
-          },
-          {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 10
+            "count": 48
           },
           {
             "name": "книга",
             "count": 10
-          },
-          {
-            "name": "шкаф",
-            "count": 3
-          },
-          {
-            "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "ручка",
-            "count": 8
-          },
-          {
-            "name": "ручка",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 9
-          },
-          {
-            "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "шкаф",
-            "count": 8
-          },
-          {
-            "name": "ручка",
-            "count": 7
-          }
-        ]
-      },
-      {
-        "name": "Казань",
-        "orders": [
-          {
-            "name": "стол",
-            "count": 4
-          },
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "ноутбук",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 7
-          },
-          {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "шкаф",
-            "count": 10
-          },
-          {
-            "name": "стул",
-            "count": 7
-          },
-          {
-            "name": "стул",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 8
-          },
-          {
-            "name": "стул",
-            "count": 5
-          }
-        ]
-      },
-      {
-        "name": "Сочи",
-        "orders": [
-          {
-            "name": "ручка",
-            "count": 4
-          },
-          {
-            "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 10
-          },
-          {
-            "name": "ручка",
-            "count": 1
-          },
-          {
-            "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "стул",
-            "count": 1
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "стул",
-            "count": 3
-          },
-          {
-            "name": "книга",
-            "count": 3
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 5
-          },
-          {
-            "name": "книга",
-            "count": 9
-          },
-          {
-            "name": "книга",
-            "count": 1
-          },
-          {
-            "name": "книга",
-            "count": 5
-          }
-        ]
-      },
-      {
-        "name": "Москва",
-        "orders": [
-          {
-            "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "ручка",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 9
-          },
-          {
-            "name": "книга",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 10
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "стул",
-            "count": 10
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "ноутбук",
-            "count": 7
-          },
-          {
-            "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 1
-          }
-        ]
-      },
-      {
-        "name": "Владивосток",
-        "orders": [
-          {
-            "name": "ручка",
-            "count": 5
-          },
-          {
-            "name": "книга",
-            "count": 7
-          },
-          {
-            "name": "шкаф",
-            "count": 1
-          },
-          {
-            "name": "стол",
-            "count": 7
-          },
-          {
-            "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 5
-          },
-          {
-            "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "стол",
-            "count": 8
-          }
-        ]
-      },
-      {
-        "name": "Самара",
-        "orders": [
-          {
-            "name": "шкаф",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "ручка",
-            "count": 4
-          },
-          {
-            "name": "стул",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 10
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "книга",
-            "count": 3
-          },
-          {
-            "name": "книга",
-            "count": 1
-          },
-          {
-            "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 7
-          },
-          {
-            "name": "стул",
-            "count": 3
           }
         ]
       }
@@ -3230,55 +1506,23 @@
         "orders": [
           {
             "name": "ноутбук",
-            "count": 1
+            "count": 16
           },
           {
             "name": "книга",
-            "count": 8
+            "count": 28
           },
           {
             "name": "ручка",
-            "count": 8
+            "count": 33
           },
           {
             "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "ручка",
-            "count": 9
+            "count": 23
           },
           {
             "name": "шкаф",
-            "count": 10
-          },
-          {
-            "name": "ручка",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 3
-          },
-          {
-            "name": "книга",
-            "count": 9
-          },
-          {
-            "name": "ноутбук",
-            "count": 8
-          },
-          {
-            "name": "стол",
-            "count": 7
-          },
-          {
-            "name": "ручка",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 6
+            "count": 20
           }
         ]
       },
@@ -3287,91 +1531,27 @@
         "orders": [
           {
             "name": "стол",
-            "count": 1
+            "count": 29
           },
           {
             "name": "книга",
-            "count": 2
-          },
-          {
-            "name": "стол",
-            "count": 8
+            "count": 17
           },
           {
             "name": "ручка",
-            "count": 10
-          },
-          {
-            "name": "книга",
-            "count": 9
+            "count": 34
           },
           {
             "name": "шкаф",
-            "count": 3
-          },
-          {
-            "name": "шкаф",
-            "count": 10
+            "count": 24
           },
           {
             "name": "ноутбук",
-            "count": 8
-          },
-          {
-            "name": "ноутбук",
-            "count": 2
+            "count": 48
           },
           {
             "name": "стул",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
             "count": 9
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "шкаф",
-            "count": 8
-          },
-          {
-            "name": "книга",
-            "count": 4
-          },
-          {
-            "name": "ручка",
-            "count": 7
-          },
-          {
-            "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 7
-          },
-          {
-            "name": "ноутбук",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 4
-          },
-          {
-            "name": "ручка",
-            "count": 7
           }
         ]
       },
@@ -3380,87 +1560,27 @@
         "orders": [
           {
             "name": "шкаф",
-            "count": 9
+            "count": 30
           },
           {
             "name": "стол",
-            "count": 8
+            "count": 21
           },
           {
             "name": "стул",
-            "count": 9
-          },
-          {
-            "name": "стул",
-            "count": 6
+            "count": 41
           },
           {
             "name": "ручка",
-            "count": 10
-          },
-          {
-            "name": "шкаф",
-            "count": 1
+            "count": 28
           },
           {
             "name": "книга",
-            "count": 8
+            "count": 36
           },
           {
             "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "ручка",
-            "count": 8
-          },
-          {
-            "name": "ноутбук",
-            "count": 7
-          },
-          {
-            "name": "книга",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 5
-          },
-          {
-            "name": "ноутбук",
-            "count": 2
-          },
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 8
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "стул",
-            "count": 7
-          },
-          {
-            "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "ноутбук",
-            "count": 4
-          },
-          {
-            "name": "книга",
-            "count": 4
+            "count": 31
           }
         ]
       },
@@ -3469,55 +1589,27 @@
         "orders": [
           {
             "name": "ноутбук",
-            "count": 2
+            "count": 4
           },
           {
             "name": "стол",
-            "count": 3
+            "count": 28
           },
           {
             "name": "книга",
-            "count": 3
-          },
-          {
-            "name": "книга",
-            "count": 7
-          },
-          {
-            "name": "книга",
-            "count": 3
-          },
-          {
-            "name": "стол",
-            "count": 7
-          },
-          {
-            "name": "стол",
-            "count": 7
-          },
-          {
-            "name": "стол",
-            "count": 8
+            "count": 16
           },
           {
             "name": "шкаф",
-            "count": 6
+            "count": 19
           },
           {
             "name": "ручка",
-            "count": 10
-          },
-          {
-            "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "шкаф",
-            "count": 7
+            "count": 23
           },
           {
             "name": "стул",
-            "count": 7
+            "count": 14
           }
         ]
       },
@@ -3526,78 +1618,26 @@
         "orders": [
           {
             "name": "ручка",
-            "count": 7
-          },
-          {
-            "name": "ручка",
-            "count": 8
+            "count": 57
           },
           {
             "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "ручка",
-            "count": 5
+            "count": 41
           },
           {
             "name": "стол",
-            "count": 8
-          },
-          {
-            "name": "ручка",
-            "count": 10
-          },
-          {
-            "name": "ручка",
-            "count": 1
+            "count": 17
           },
           {
             "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 8
+            "count": 27
           },
           {
             "name": "книга",
-            "count": 7
-          },
-          {
-            "name": "ручка",
-            "count": 10
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "стул",
-            "count": 3
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "стул",
-            "count": 6
+            "count": 14
           },
           {
             "name": "шкаф",
-            "count": 3
-          },
-          {
-            "name": "ноутбук",
-            "count": 5
-          },
-          {
-            "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
             "count": 6
           }
         ]
@@ -3607,51 +1647,27 @@
         "orders": [
           {
             "name": "шкаф",
-            "count": 1
+            "count": 14
           },
           {
             "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "шкаф",
-            "count": 4
+            "count": 20
           },
           {
             "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 3
-          },
-          {
-            "name": "книга",
-            "count": 7
-          },
-          {
-            "name": "стол",
-            "count": 9
-          },
-          {
-            "name": "книга",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 1
-          },
-          {
-            "name": "шкаф",
             "count": 8
           },
           {
-            "name": "ноутбук",
+            "name": "книга",
+            "count": 16
+          },
+          {
+            "name": "ручка",
             "count": 2
+          },
+          {
+            "name": "ноутбук",
+            "count": 4
           }
         ]
       },
@@ -3660,51 +1676,23 @@
         "orders": [
           {
             "name": "шкаф",
-            "count": 8
-          },
-          {
-            "name": "шкаф",
-            "count": 8
-          },
-          {
-            "name": "шкаф",
-            "count": 2
+            "count": 40
           },
           {
             "name": "стул",
-            "count": 3
+            "count": 24
           },
           {
             "name": "ручка",
-            "count": 10
+            "count": 29
           },
           {
             "name": "книга",
-            "count": 2
-          },
-          {
-            "name": "стул",
-            "count": 9
-          },
-          {
-            "name": "стул",
-            "count": 9
-          },
-          {
-            "name": "шкаф",
-            "count": 5
+            "count": 4
           },
           {
             "name": "ноутбук",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "шкаф",
-            "count": 9
+            "count": 10
           }
         ]
       },
@@ -3713,218 +1701,61 @@
         "orders": [
           {
             "name": "шкаф",
-            "count": 7
+            "count": 28
           },
           {
             "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "стол",
-            "count": 1
+            "count": 12
           },
           {
             "name": "ручка",
-            "count": 2
+            "count": 18
           },
           {
             "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "книга",
-            "count": 1
-          },
-          {
-            "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 3
-          },
-          {
-            "name": "книга",
-            "count": 7
-          },
-          {
-            "name": "шкаф",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
-            "count": 8
-          },
-          {
-            "name": "книга",
-            "count": 7
-          },
-          {
-            "name": "ручка",
             "count": 4
           },
           {
-            "name": "шкаф",
-            "count": 8
-          },
-          {
-            "name": "ноутбук",
-            "count": 7
-          },
-          {
-            "name": "ноутбук",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 10
-          },
-          {
-            "name": "ноутбук",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 4
-          },
-          {
-            "name": "ноутбук",
-            "count": 8
-          },
-          {
             "name": "книга",
-            "count": 4
+            "count": 20
+          },
+          {
+            "name": "ноутбук",
+            "count": 42
           }
         ]
       }
     ]
   },
   {
-    "name": "Джейкоб",
+    "name": "Олег",
     "cities": [
       {
         "name": "Нижний Новгород",
         "orders": [
           {
+            "name": "шкаф",
+            "count": 27
+          },
+          {
+            "name": "книга",
+            "count": 29
+          },
+          {
+            "name": "стол",
+            "count": 16
+          },
+          {
             "name": "ручка",
-            "count": 1
+            "count": 11
           },
           {
             "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "стол",
             "count": 10
           },
-          {
-            "name": "стол",
-            "count": 2
-          },
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "шкаф",
-            "count": 1
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 1
-          },
-          {
-            "name": "шкаф",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 4
-          },
-          {
-            "name": "шкаф",
-            "count": 2
-          }
-        ]
-      },
-      {
-        "name": "Владивосток",
-        "orders": [
           {
             "name": "ноутбук",
-            "count": 7
-          },
-          {
-            "name": "ручка",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 7
-          },
-          {
-            "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "шкаф",
-            "count": 1
-          },
-          {
-            "name": "ручка",
-            "count": 6
-          },
-          {
-            "name": "книга",
-            "count": 9
-          },
-          {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 9
-          },
-          {
-            "name": "стол",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 7
-          },
-          {
-            "name": "шкаф",
-            "count": 7
-          },
-          {
-            "name": "стул",
-            "count": 5
-          },
-          {
-            "name": "ручка",
-            "count": 8
-          },
-          {
-            "name": "стол",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "стул",
-            "count": 6
+            "count": 15
           }
         ]
       },
@@ -3932,157 +1763,82 @@
         "name": "Москва",
         "orders": [
           {
-            "name": "шкаф",
-            "count": 3
-          },
-          {
-            "name": "книга",
-            "count": 8
-          },
-          {
             "name": "стул",
             "count": 3
           },
           {
-            "name": "стул",
-            "count": 10
-          },
-          {
-            "name": "ручка",
-            "count": 7
-          },
-          {
             "name": "шкаф",
-            "count": 6
+            "count": 13
           },
           {
-            "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "ручка",
-            "count": 5
-          },
-          {
-            "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "шкаф",
-            "count": 3
+            "name": "ноутбук",
+            "count": 37
           },
           {
             "name": "ручка",
-            "count": 1
+            "count": 16
           },
           {
             "name": "книга",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 10
-          },
-          {
-            "name": "книга",
-            "count": 4
-          },
-          {
-            "name": "шкаф",
-            "count": 2
-          },
-          {
-            "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "стул",
-            "count": 8
-          },
-          {
-            "name": "ноутбук",
-            "count": 4
-          },
-          {
-            "name": "ручка",
-            "count": 6
-          },
-          {
-            "name": "ноутбук",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
-            "count": 5
-          },
-          {
-            "name": "шкаф",
-            "count": 1
+            "count": 24
           }
         ]
       },
       {
-        "name": "Сочи",
+        "name": "Самара",
         "orders": [
           {
             "name": "стул",
+            "count": 35
+          },
+          {
+            "name": "стол",
+            "count": 20
+          },
+          {
+            "name": "шкаф",
+            "count": 12
+          },
+          {
+            "name": "ручка",
+            "count": 23
+          },
+          {
+            "name": "ноутбук",
+            "count": 15
+          },
+          {
+            "name": "книга",
+            "count": 21
+          }
+        ]
+      },
+      {
+        "name": "Владивосток",
+        "orders": [
+          {
+            "name": "ручка",
+            "count": 9
+          },
+          {
+            "name": "стол",
+            "count": 45
+          },
+          {
+            "name": "стул",
+            "count": 18
+          },
+          {
+            "name": "книга",
             "count": 4
           },
           {
             "name": "шкаф",
-            "count": 10
-          },
-          {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 9
-          },
-          {
-            "name": "шкаф",
-            "count": 10
-          },
-          {
-            "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "книга",
-            "count": 10
-          },
-          {
-            "name": "стол",
-            "count": 6
+            "count": 8
           },
           {
             "name": "ноутбук",
-            "count": 7
-          },
-          {
-            "name": "шкаф",
-            "count": 6
-          },
-          {
-            "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 10
+            "count": 18
           }
         ]
       },
@@ -4091,91 +1847,27 @@
         "orders": [
           {
             "name": "ручка",
-            "count": 8
+            "count": 14
           },
           {
             "name": "ноутбук",
-            "count": 4
+            "count": 47
           },
           {
             "name": "стол",
-            "count": 6
+            "count": 12
           },
           {
             "name": "шкаф",
-            "count": 8
-          },
-          {
-            "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "ноутбук",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 8
-          },
-          {
-            "name": "книга",
-            "count": 7
-          },
-          {
-            "name": "стул",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
-            "count": 8
-          },
-          {
-            "name": "стол",
-            "count": 5
-          },
-          {
-            "name": "ноутбук",
-            "count": 7
-          },
-          {
-            "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "шкаф",
-            "count": 7
-          },
-          {
-            "name": "стул",
-            "count": 8
-          },
-          {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "книга",
             "count": 2
           },
           {
-            "name": "книга",
-            "count": 6
-          },
-          {
             "name": "стул",
-            "count": 7
+            "count": 11
           },
           {
             "name": "книга",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 8
-          },
-          {
-            "name": "шкаф",
-            "count": 9
+            "count": 15
           }
         ]
       },
@@ -4183,88 +1875,28 @@
         "name": "Екатеринбург",
         "orders": [
           {
-            "name": "стул",
-            "count": 9
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
-          },
-          {
             "name": "шкаф",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "шкаф",
-            "count": 8
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "шкаф",
-            "count": 9
-          },
-          {
-            "name": "ручка",
-            "count": 4
-          },
-          {
-            "name": "ручка",
-            "count": 6
+            "count": 28
           },
           {
             "name": "стол",
-            "count": 6
-          },
-          {
-            "name": "шкаф",
-            "count": 3
+            "count": 38
           },
           {
             "name": "ноутбук",
             "count": 6
           },
           {
-            "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "стол",
-            "count": 10
-          },
-          {
-            "name": "шкаф",
-            "count": 5
-          },
-          {
-            "name": "стул",
-            "count": 3
+            "name": "ручка",
+            "count": 18
           },
           {
             "name": "книга",
-            "count": 10
+            "count": 2
           },
           {
-            "name": "шкаф",
-            "count": 6
+            "name": "стул",
+            "count": 10
           }
         ]
       },
@@ -4272,80 +1904,41 @@
         "name": "Питер",
         "orders": [
           {
-            "name": "ноутбук",
-            "count": 4
-          },
-          {
             "name": "книга",
-            "count": 10
+            "count": 29
           },
           {
             "name": "стул",
-            "count": 7
-          },
-          {
-            "name": "стул",
-            "count": 4
-          },
-          {
-            "name": "ручка",
-            "count": 9
-          },
-          {
-            "name": "шкаф",
-            "count": 9
-          },
-          {
-            "name": "книга",
-            "count": 2
-          },
-          {
-            "name": "книга",
             "count": 8
           },
           {
+            "name": "ноутбук",
+            "count": 4
+          },
+          {
             "name": "шкаф",
-            "count": 3
-          },
-          {
-            "name": "стул",
-            "count": 1
-          },
-          {
-            "name": "ноутбук",
-            "count": 3
-          },
-          {
-            "name": "ноутбук",
-            "count": 1
-          },
-          {
-            "name": "стул",
             "count": 4
           },
           {
             "name": "стол",
-            "count": 1
-          },
-          {
-            "name": "книга",
-            "count": 10
-          },
-          {
-            "name": "шкаф",
-            "count": 6
+            "count": 14
           },
           {
             "name": "ручка",
-            "count": 7
+            "count": 8
+          }
+        ]
+      },
+      {
+        "name": "Сочи",
+        "orders": [
+          {
+            "name": "ручка",
+            "count": 28
           },
           {
-            "name": "книга",
-            "count": 6
-          },
-          {
-            "name": "книга",
-            "count": 9
+            "name": "ноутбук",
+            "count": 27
           },
           {
             "name": "стол",
@@ -4353,47 +1946,10 @@
           },
           {
             "name": "шкаф",
-            "count": 3
-          }
-        ]
-      },
-      {
-        "name": "Самара",
-        "orders": [
-          {
-            "name": "ноутбук",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
-            "count": 10
-          },
-          {
-            "name": "стул",
-            "count": 1
-          },
-          {
-            "name": "стул",
-            "count": 6
-          },
-          {
-            "name": "ручка",
-            "count": 2
+            "count": 30
           },
           {
             "name": "книга",
-            "count": 10
-          },
-          {
-            "name": "ручка",
-            "count": 2
-          },
-          {
-            "name": "ноутбук",
             "count": 4
           }
         ]
