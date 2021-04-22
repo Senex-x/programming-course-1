@@ -200,11 +200,6 @@ class Test {
             }
 
             void updateId(int id) {
-                try (BufferedWriter writer = new BufferedWriter(new FileWriter(PATH_ID))) {
-                    writer.write(Integer.toString(id));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
 
             private static final int ID_LENGTH = 3;

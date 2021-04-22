@@ -1,4 +1,4 @@
-package OtherWorks.Projects.MarkovChain;
+/*package OtherWorks.Projects.MarkovChain;
 
 import java.io.*;
 import java.util.*;
@@ -225,3 +225,4 @@ public class MarkovChain {
         }
     }
 }
+*/
