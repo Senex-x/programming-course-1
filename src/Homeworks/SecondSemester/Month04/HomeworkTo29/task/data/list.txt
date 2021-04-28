@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Bread",
+    "count": 1,
+    "items": [
+      {
+        "id": 1,
+        "name": "Bread"
+      }
+    ]
+  },
+  {
+    "name": "Milk",
+    "count": 1,
+    "items": [
+      {
+        "id": 2,
+        "name": "Milk"
+      }
+    ]
+  },
+  {
+    "name": "Grape",
+    "count": 1,
+    "items": [
+      {
+        "id": 3,
+        "name": "Grape"
+      }
+    ]
+  }
+]
