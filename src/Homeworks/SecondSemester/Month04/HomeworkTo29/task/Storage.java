@@ -1,13 +1,15 @@
 package Homeworks.SecondSemester.Month04.HomeworkTo29.task;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import Methods.Methods;
 
-class Test {
+import java.util.ArrayList;
+
+class Test implements Listener {
+    private static final Storage storage = new Storage();
+
     public static void main(String[] args) {
         String[] names = {"Bread", "Cookie", "Butter"};
-        Storage storage = new Storage();
+        storage.addListener(new Test());
         storage.createType("Milk");
         storage.addItem("Milk");
         storage.deleteItem(storage.getItem("milk"));
@@ -18,10 +20,40 @@ class Test {
             }
         storage.display();
     }
+
+    @Override
+    public void onUpdate() {
+        storage.display();
+        Methods.line("-");
+        System.out.println("Amount: " + storage.getAmount() +
+                "\nType name with biggest amount of items: " +
+                storage.getTypeWithBiggestAmountOfItems().getName());
+
+    }
 }
 
 public class Storage {
+    private final ArrayList<Listener> listeners = new ArrayList<>();
     private final ArrayList<Type> types = new ArrayList<>();
+
+    public int getAmount() {
+        int amount = 0;
+        for(Type t : types) {
+            amount += t.getCount();
+        }
+        return amount;
+    }
+
+    public Type getTypeWithBiggestAmountOfItems() {
+        int maxAmount = -1;
+        Type type = null;
+        for(Type t : types) {
+            if (maxAmount < t.getCount()) {
+                type = t;
+            }
+        }
+        return type;
+    }
 
     public Storage() {
         Type.resetId();
@@ -33,12 +65,24 @@ public class Storage {
             if (t.getName().equalsIgnoreCase(name)) {
                 t.addItem();
                 Data.update(types);
+
+                notifyAllListeners();
                 return;
             }
         }
 
         createType(name);
         addItem(name);
+    }
+
+    public void addListener(Listener listener) {
+        listeners.add(listener);
+    }
+
+    private void notifyAllListeners() {
+        for (Listener l : listeners) {
+            l.onUpdate();
+        }
     }
 
     public Item getItem(String name) {
@@ -68,6 +112,8 @@ public class Storage {
             }
         }
         Data.update(types);
+
+        notifyAllListeners();
     }
 
     void createType(String name) {

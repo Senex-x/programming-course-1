@@ -5,17 +5,14 @@ import java.util.LinkedList;
 
 public class Type {
     private final String name;
-    private int count;
     LinkedList<Item> items = new LinkedList<>();
 
     public Type(String name) {
         this.name = name;
-        count = 0;
     }
 
     public void addItem() {
         items.add(new Item(IdHandler.getId(), name));
-        count++;
     }
 
     public Item getItem() throws IllegalStateException {
@@ -41,7 +38,6 @@ public class Type {
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i).getId() == id) {
                 items.remove(i);
-                count--;
                 return;
             }
         }
@@ -60,13 +56,13 @@ public class Type {
     }
 
     public int getCount() {
-        return count;
+        return items.size();
     }
 
     @Override
     public String toString() {
         return "Type {'" + name + '\'' +
-                ", items counter: " + count +
+                ", items counter: " + items.size() +
                 ", items: " + items + "}";
     }
 
