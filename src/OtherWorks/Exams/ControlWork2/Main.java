@@ -24,10 +24,13 @@ public class Main {
                     System.exit(0);
                 case 1:
                     new Thread(Main::executeTask1).start();
+                    break;
                 case 2:
                     new Thread(Main::executeTask2).start();
+                    break;
                 case 3:
                    new Thread(Main::executeTask3).start();
+                    break;
             }
         }
     }
