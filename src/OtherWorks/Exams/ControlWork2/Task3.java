@@ -8,14 +8,14 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Task3 {
-    private static final ArrayList<Task3.Line> lines = new ArrayList<>();
+    private static final ArrayList<Line> lines = new ArrayList<>();
 
     public static void main(String[] args) {
         try {
             Scanner sc = new Scanner(new FileReader("src/OtherWorks/Exams/ControlWork2/data/task1.txt"));
             while (sc.hasNext()) {
                 String[] line = sc.nextLine().split("\\|");
-                lines.add(new Task3.Line(
+                lines.add(new Line(
                         line[0],
                         line[1],
                         Integer.parseInt(line[2])
@@ -26,43 +26,24 @@ public class Task3 {
             e.printStackTrace();
         }
 
-        lines.stream().collect(Collectors.toMap(line -> {
-            HashMap<String, String> map = new HashMap<>();
-            map.put(line.getName(), line.getProduct());
-            return map;
-        }, line -> line.count, (integer, integer2) -> integer += integer2)).entrySet().forEach(System.out::println);
+        executeTask3(lines);
     }
 
-    private static class Line {
-        private final String name;
-        private final String product;
-        private final int count;
+    static void executeTask3(ArrayList<Line> lines) {
+        lines.stream().collect(Collectors.groupingBy(Line::getName)).forEach((key, value) -> {
+            value.stream()
+                    .collect(Collectors.toMap(l -> {
+                        HashMap<String, String> m = new HashMap<>();
+                        m.put(l.getName(), l.getProduct());
+                        return m;
+                    }, Line::getCount, (i1, i2) -> i1 < i2 ? i1 : i2)).entrySet().forEach(System.out::println);
 
-        public Line(String name, String product, int count) {
-            this.name = name;
-            this.product = product;
-            this.count = count;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getProduct() {
-            return product;
-        }
-
-        public int getCount() {
-            return count;
-        }
-
-        @Override
-        public String toString() {
-            return "Line{" +
-                    "name='" + name + '\'' +
-                    ", product='" + product + '\'' +
-                    ", count=" + count +
-                    '}';
-        }
+            value.stream()
+                    .collect(Collectors.toMap(l -> {
+                        HashMap<String, String> m = new HashMap<>();
+                        m.put(l.getName(), l.getProduct());
+                        return m;
+                    }, Line::getCount, (i1, i2) -> i1 < i2 ? i2 : i1)).entrySet().forEach(System.out::println);
+        });
     }
 }

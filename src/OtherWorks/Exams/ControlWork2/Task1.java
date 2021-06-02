@@ -13,12 +13,6 @@ public class Task1 {
     private static final ArrayList<Line> lines = new ArrayList<>();
 
     private static void printMostBoughtProductsForEachCustomer() {
-        lines.stream().collect(Collectors.toMap(line -> {
-            HashMap<String, String> map = new HashMap<>();
-            map.put(line.getName(), line.getProduct());
-            return map;
-        }, line -> line.count, (integer, integer2) -> integer += integer2)).entrySet();
-
         lines.stream().collect(Collectors.groupingBy((Function<Line, Object>) Line::getName))
                 .forEach((key, value) -> System.out.println(
                         value.stream().collect(
@@ -48,38 +42,5 @@ public class Task1 {
         }
 
         printMostBoughtProductsForEachCustomer();
-    }
-
-    private static class Line {
-        private final String name;
-        private final String product;
-        private final int count;
-
-        public Line(String name, String product, int count) {
-            this.name = name;
-            this.product = product;
-            this.count = count;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getProduct() {
-            return product;
-        }
-
-        public int getCount() {
-            return count;
-        }
-
-        @Override
-        public String toString() {
-            return "Line{" +
-                    "name='" + name + '\'' +
-                    ", product='" + product + '\'' +
-                    ", count=" + count +
-                    '}';
-        }
     }
 }
