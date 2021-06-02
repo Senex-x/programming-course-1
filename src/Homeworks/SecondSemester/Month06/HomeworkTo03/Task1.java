@@ -4,43 +4,98 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Random;
-import java.util.concurrent.Semaphore;
 
 public class Task1 {
+    private static final String OUTPUT_PATH = "src/Homeworks/SecondSemester/Month06/HomeworkTo03/data/output.txt";
     static volatile Boolean isReadingAvailable = false;
 
     public static void main(String[] args) {
-        new WriterThread(10).start();
+        Thread readerThread = new Thread(new ReaderRunnable(10));
+        readerThread.setName("Reader");
+        readerThread.start();
+        try {
+            Thread.sleep(20);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Thread writerThread = new Thread(new WriterRunnable(10));
+        writerThread.setName("Writer");
+        writerThread.start();
+
+        try {
+            readerThread.join();
+            writerThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    private static class WriterThread extends Thread {
-        private static final String OUTPUT_PATH = "src/Homeworks/SecondSemester/Month06/HomeworkTo03/data/output.txt";
+    private static class WriterRunnable implements Runnable {
         int count;
 
-        private WriterThread(int count) {
+        private WriterRunnable(int count) {
             this.count = count;
         }
 
         @Override
-        public void run() {
-            if (count-- != 0) {
-                if (isReadingAvailable) {
+        public synchronized void run() {
+            while (count-- != 0) {
+                while (isReadingAvailable) {
+                    printMessage("waits");
                     try {
                         wait();
                     } catch (InterruptedException e) {
+                        printMessage("interrupted");
                         e.printStackTrace();
                     }
-                } else {
-                    isReadingAvailable = true;
-                    write();
-                    notify();
                 }
+
+                printMessage("writes");
+                write();
+                isReadingAvailable = true;
+                notify();
             }
         }
 
         private void write() {
             try {
                 Files.write(Paths.get(OUTPUT_PATH), Person.getRandomPerson().toString().getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static final class ReaderRunnable implements Runnable {
+        int count;
+
+        public ReaderRunnable(int count) {
+            this.count = count;
+        }
+
+        @Override
+        public synchronized void run() {
+            while (count-- != 0) {
+                while (!isReadingAvailable) {
+                    try {
+                        printMessage("waits");
+                        wait();
+                    } catch (InterruptedException e) {
+                        printMessage("interrupted");
+                        e.printStackTrace();
+                    }
+                }
+
+                printMessage("reads");
+                read();
+                isReadingAvailable = false;
+                notify();
+            }
+        }
+
+        private void read() {
+            try {
+                Files.readAllLines(Paths.get(OUTPUT_PATH)).forEach(System.out::println);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -100,6 +155,10 @@ public class Task1 {
                     ", country=" + country +
                     '}';
         }
+    }
+
+    private static void printMessage(String message) {
+        System.out.println(Thread.currentThread().getName() + " " + message);
     }
 
     private enum Countries {
