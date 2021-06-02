@@ -1,11 +1,11 @@
 package OtherWorks.Exams.ControlWork2;
 
-class Line {
+class LineTriple {
     private final String name;
     private final String product;
     private final int count;
 
-    public Line(String name, String product, int count) {
+    public LineTriple(String name, String product, int count) {
         this.name = name;
         this.product = product;
         this.count = count;
