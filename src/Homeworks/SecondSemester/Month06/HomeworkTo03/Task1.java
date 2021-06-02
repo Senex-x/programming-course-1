@@ -7,17 +7,14 @@ import java.util.Random;
 
 public class Task1 {
     private static final String OUTPUT_PATH = "src/Homeworks/SecondSemester/Month06/HomeworkTo03/data/output.txt";
-    static volatile Boolean isReadingAvailable = false;
+    private static final Object lock = new Object();
+    private static volatile Boolean isReadingAvailable = false;
 
     public static void main(String[] args) {
         Thread readerThread = new Thread(new ReaderRunnable(10));
         readerThread.setName("Reader");
         readerThread.start();
-        try {
-            Thread.sleep(20);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
         Thread writerThread = new Thread(new WriterRunnable(10));
         writerThread.setName("Writer");
         writerThread.start();
@@ -38,22 +35,23 @@ public class Task1 {
         }
 
         @Override
-        public synchronized void run() {
-            while (count-- != 0) {
-                while (isReadingAvailable) {
-                    printMessage("waits");
-                    try {
-                        wait();
-                    } catch (InterruptedException e) {
-                        printMessage("interrupted");
-                        e.printStackTrace();
+        public void run() {
+            synchronized (lock) {
+                while (count-- != 0) {
+                    while (isReadingAvailable) {
+                        printMessage("waits");
+                        try {
+                            lock.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
-                }
 
-                printMessage("writes");
-                write();
-                isReadingAvailable = true;
-                notify();
+                    printMessage("writes, " + (count + 1) + " times left");
+                    write();
+                    isReadingAvailable = true;
+                    lock.notify();
+                }
             }
         }
 
@@ -75,21 +73,22 @@ public class Task1 {
 
         @Override
         public synchronized void run() {
-            while (count-- != 0) {
-                while (!isReadingAvailable) {
-                    try {
-                        printMessage("waits");
-                        wait();
-                    } catch (InterruptedException e) {
-                        printMessage("interrupted");
-                        e.printStackTrace();
+            synchronized (lock) {
+                while (count-- != 0) {
+                    while (!isReadingAvailable) {
+                        try {
+                            printMessage("waits");
+                            lock.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
-                }
 
-                printMessage("reads");
-                read();
-                isReadingAvailable = false;
-                notify();
+                    printMessage("reads, " + (count + 1) + " times left");
+                    read();
+                    isReadingAvailable = false;
+                    lock.notify();
+                }
             }
         }
 
