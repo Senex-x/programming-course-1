@@ -1,10 +1,14 @@
 package OtherWorks.Exams.ControlWork2;
 
+import Methods.Methods;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.nio.file.Files;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     private static final ArrayList<LineTriple> lineTriples = new ArrayList<>();
@@ -14,9 +18,18 @@ public class Main {
         parseTextTriple();
         parseTextDouble();
 
-        executeTask1();
-        executeTask2();
-        executeTask3();
+        while (true) {
+            switch (Methods.getInt()) {
+                case 0:
+                    System.exit(0);
+                case 1:
+                    new Thread(Main::executeTask1).start();
+                case 2:
+                    new Thread(Main::executeTask2).start();
+                case 3:
+                   new Thread(Main::executeTask3).start();
+            }
+        }
     }
 
     private static void executeTask1() {
@@ -82,7 +95,7 @@ public class Main {
         }
     }
 
-    private static void  parseTextDouble() {
+    private static void parseTextDouble() {
         try {
             Scanner sc = new Scanner(new FileReader("src/OtherWorks/Exams/ControlWork2/data/task1.txt"));
             while (sc.hasNext()) {
