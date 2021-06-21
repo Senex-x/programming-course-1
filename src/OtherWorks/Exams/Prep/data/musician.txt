@@ -1,0 +1,4 @@
+0\tHank\t1928\tUSA\tUSA
+1\tMatt\t1945\tCanada\tUSA
+2\tDan\t1976\tAustralia\tPoland
+3\tPitt\t1998\tBrazil\tBrazil

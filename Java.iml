@@ -14,5 +14,6 @@
     <orderEntry type="library" name="commons-math3-3.6.1" level="project" />
     <orderEntry type="library" name="junit-4.13.21" level="project" />
     <orderEntry type="library" name="hamcrest-all-1.31" level="project" />
+    <orderEntry type="library" name="hamcrest-all-1.32" level="project" />
   </component>
 </module>

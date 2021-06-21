@@ -1,20 +1,18 @@
 package OtherWorks.Samples;
 
-public class Lambdas {
+public class Lambdas1 {
     static class Test {
         public static void main(String[] args) {
-            Lambdas test = new Lambdas();
-
-            Lambdas.OneMethod one = new Lambdas.OneMethod() {
+            Lambdas1.OneMethod one = new Lambdas1.OneMethod() {
                 @Override
                 public void display(String string) {
                     System.out.println(string);
                 }
             };
 
-            Lambdas.OneMethod oneLambda = string -> System.out.println(string);
+            Lambdas1.OneMethod oneLambda = string -> System.out.println(string);
 
-            Lambdas.TwoMethods two = new Lambdas.TwoMethods() {
+            Lambdas1.TwoMethods two = new Lambdas1.TwoMethods() {
                 @Override
                 public void display(String string, int a) {
                     System.out.println(string);
@@ -28,9 +26,12 @@ public class Lambdas {
 
             // Multiple methods are not allowed
             // Lambdas.TwoMethods twoLambda = (String string, int a) -> System.out.println(string);
+
+            Lambdas1.SampleFunctionalInterface inter = n -> n + 10;
         }
     }
 
+    @FunctionalInterface
     private interface OneMethod {
         void display(String string);
     }
@@ -39,6 +40,11 @@ public class Lambdas {
         void display(String string, int a);
 
         void doubleDisplay(String string);
+    }
+
+    @FunctionalInterface
+    private interface SampleFunctionalInterface {
+        int function(int n);
     }
 }
 
